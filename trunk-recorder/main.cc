@@ -343,6 +343,7 @@ void start_recorder(Call *call, TrunkMessage message) {
   Recorder *recorder;
   Recorder *debug_recorder;
   bool isanalog = false; //Treehouseman Tracking call types
+  //tout.NewLog("Start Recorder!");
 
   // BOOST_LOG_TRIVIAL(info) << "\tCall created for: " << call->get_talkgroup()
   // << "\tTDMA: " << call->get_tdma() <<  "\tEncrypted: " <<
@@ -384,18 +385,33 @@ void start_recorder(Call *call, TrunkMessage message) {
         int total_recorders = get_total_recorders();
 
         if (recorder) {
+			//tout.NewLog("Got Recorder!");
           if (message.meta.length()) {
             BOOST_LOG_TRIVIAL(info) << message.meta;
           }
-          BOOST_LOG_TRIVIAL(info) << "Activating rec on src: " << source->get_device() << " SysId: " << std::hex << std::uppercase << csys_id << std::dec << std::nouppercase << " TG: " << message.talkgroup;
-		  tout.StartCall(call->get_talkgroup(), call->get_freq(), source->get_device(), isanalog, csys_id); //Treehouseman Start Call Notification
+          
           recorder->start(call, total_recorders);
 		  call->set_nac(csys_id);
           call->set_recorder(recorder);
           call->set_state(recording);
-		  call->set_dev(source->get_device().substr(4));
+		  std::string recradio = source->get_device();
+		  int radioend =0;
+		  radioend = recradio.find(',');
+		  std::string recradio2;
+		  if(radioend!=std::string::npos){
+			  call->set_dev(recradio.substr(4,radioend-4));
+			  recradio2=recradio.substr(4,radioend-4);
+			  //tout.NewLog("End short");
+		  }
+		  else{ 
+			  call->set_dev(recradio.substr(4));
+			  recradio2=recradio.substr(4);
+		  }
+		  BOOST_LOG_TRIVIAL(info) << "Activating rec on src: " << recradio2 << " SysId: " << std::hex << std::uppercase << csys_id << std::dec << std::nouppercase << " TG: " << message.talkgroup;
+		  tout.StartCall(call->get_talkgroup(), call->get_freq(), recradio2, isanalog, csys_id); //Treehouseman Start Call Notification
           recorder_found = true;
         } else {
+			//tout.NewLog("else");
 			tout.NoRecorder(call->get_freq(), call->get_talkgroup(), csys_id, source->get_device());//Treehouseman Tracking needed recorders
 			std::string radbuff = source->get_device();
 			BOOST_LOG_TRIVIAL(info) << "No Recorder on Radio: " << radbuff.substr(4) << " Freq: " << call->get_freq() << " TG: " << call->get_talkgroup() << " Sys: " << std::hex << std::uppercase << csys_id << std::dec << std::nouppercase;
@@ -418,6 +434,7 @@ void start_recorder(Call *call, TrunkMessage message) {
         }
 
         if (recorder_found) {
+			//tout.NewLog("Recorder FOund!");
           // recording successfully started.
           return;
         }
@@ -521,8 +538,9 @@ bool retune_recorder(TrunkMessage message, Call *call) {
 void assign_recorder(TrunkMessage message, System *sys) {
   bool call_found = false;
   char shell_command[200];
-
+ // tout.NewLog("Assigned Recorder!");
   // go through all the talkgroups
+  
   for (vector<Call *>::iterator it = calls.begin(); it != calls.end();) {
     Call *call = *it;
 

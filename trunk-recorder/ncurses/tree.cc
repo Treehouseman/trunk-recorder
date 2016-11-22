@@ -303,7 +303,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 	}
 	if(isanalog){
 		for(int i = 0; i < TGblocks; i++){
-			if(dev.substr(4) == Radios[i]){
+			if(dev == Radios[i]){
 				for(int x = 0; x < anarec[i]; x++){
 					if(analoggroups[i][x][0]==0){
 						analoggroups[i][x][0]=tg;
@@ -320,7 +320,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 	}
 	else{
 		for(int i = 0; i < TGblocks; i++){
-			if(dev.substr(4) == Radios[i]){
+			if(dev == Radios[i]){
 				for(int x = 0; x < digrec[i]; x++){
 					if(digitalgroups[i][x][0]==0){
 						digitalgroups[i][x][2]=syscolor;
