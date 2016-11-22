@@ -272,7 +272,12 @@ void Tree::Rate(int mps){
 	*/
 }
 void Tree::SourceDev(std::string dev, int dig, int ana){
-	Radios[TGblocks]=dev.substr(4);
+	int comma=0;
+	comma=dev.find(',');
+	if(comma!=std::string::npos)
+		Radios[TGblocks]=dev.substr(4,comma-4);
+	else
+		Radios[TGblocks]=dev.substr(4);
 	digrec[TGblocks]=dig;
 	anarec[TGblocks]=ana;
 	TGblocks++;

@@ -448,7 +448,7 @@ void stop_inactive_recorders() {
       ++it;
     } // if rx is active
   }   // foreach loggers
-  for (vector<Call *>::iterator it = calls.begin(); it != calls.end();) {
+  /*for (vector<Call *>::iterator it = calls.begin(); it != calls.end();) {
 	  Call *call = *it;
 	  if(call->elapsed()>600){
 		  tout.Long(call->get_talkgroup(), call->get_freq(), call->elapsed(), call->since_last_update(), call->get_nac());//Treehouseman Track Long Calls
@@ -457,7 +457,7 @@ void stop_inactive_recorders() {
 		  it = calls.erase(it);
 	  }
 	  ++it;
-  }
+  }*/
 
 
 /*     for (vector<Source *>::iterator it = sources.begin(); it != sources.end();
@@ -675,7 +675,6 @@ void update_recorder(TrunkMessage message, System *sys) {
       // the talkgroups don't match
     }
   } 
-  if (!call_found) {}
 
   if (!call_found) {
     BOOST_LOG_TRIVIAL(error) << "\t Call not found for Update Message, Starting one...  Talkgroup: " << message.talkgroup << "\tFreq: " << message.freq;
