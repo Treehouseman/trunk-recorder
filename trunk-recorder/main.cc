@@ -676,10 +676,10 @@ void update_recorder(TrunkMessage message, System *sys) {
     }
   } 
 
-  if (!call_found) {
+  if (!call_found&&message.freq!=0) {
     BOOST_LOG_TRIVIAL(error) << "\t Call not found for Update Message, Starting one...  Talkgroup: " << message.talkgroup << "\tFreq: " << message.freq;
 
-    
+    assign_recorder(message, sys);
   }
 }
 
