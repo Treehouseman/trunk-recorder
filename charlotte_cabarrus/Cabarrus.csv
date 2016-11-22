@@ -1,0 +1,423 @@
+0,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+41,29,D,EVT1 EOC,Mecklenburg Event 1 - EOC,Emergency Ops,Mecklenburg Common/Mutual Aid,2
+43,02b,D,EVT2 FIRE,Mecklenburg Event 2 - Fire,Fire-Talk,Mecklenburg Common/Mutual Aid,2
+45,02d,D,EVT3 EMS,Mecklenburg Event 3 - EMS,EMS-Talk,Mecklenburg Common/Mutual Aid,2
+47,02f,D,EVT4 POL,Mecklenburg Event 4 - Police,Law Talk,Mecklenburg Common/Mutual Aid,2
+49,31,D,EVT5 PW1,Mecklenburg Event 5 - Public Works 1,Public Works,Mecklenburg Common/Mutual Aid,2
+51,33,D,EVT6 PW2,Mecklenburg Event 6 - Public Works 2,Public Works,Mecklenburg Common/Mutual Aid,2
+53,35,D,EVT7 CFD,Mecklenburg Event 7 - Charlotte Fire,Fire-Talk,Mecklenburg Common/Mutual Aid,2
+55,37,D,EVT8 VFD,Mecklenburg Event 8 - Volunteer Fire,Fire-Talk,Mecklenburg Common/Mutual Aid,2
+57,39,D,EVT9 NM,Mecklenburg Event 9 - North Mecklenburg 1,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+59,03b,D,EVT10 NM,Mecklenburg Event 10 - North Mecklenburg 2,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+61,03d,D,EVT11 STW,Mecklenburg Event 11 - South Towns 1,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+63,03f,D,MPD-DISP,Matthews PD Dispatch,Law Dispatch,Matthews Police,2
+65,41,D,MPD-PAT1,Matthews PD Patrol 1,Law Talk,Matthews Police,2
+67,43,D,MPD-PAT2,Matthews PD Patrol 2,Law Talk,Matthews Police,2
+73,49,D,MPD-TAC1,Matthews PD Tactical 1,Law Tac,Matthews Police,2
+75,04b,D,MPD-TAC2,Matthews PD Tactical 2,Law Tac,Matthews Police,2
+123,07b,D,NCSHP-2,NCSHP,Law Dispatch,State Highway Patrol,2
+129,81,D,POL MA,Mecklenburg Police Mutual Aid,Law Talk,Mecklenburg Common/Mutual Aid,2
+131,83,D,FIRE MA,Mecklenburg Fire Mutual Aid,Fire-Talk,Mecklenburg Common/Mutual Aid,2
+133,85,D,EMS MA,Mecklenburg EMS Mutual Aid,EMS-Talk,Mecklenburg Common/Mutual Aid,2
+147,93,D,NCSHP-1,NCSHP H5,Law Dispatch,State Highway Patrol,2
+153,99,D,EVT12 STW,Mecklenburg Event 12 - South Towns 2,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+155,09b,D,EVT13 MSO,Mecklenburg Event 13 - Mecklenburg Sheriff 1,Law Talk,Mecklenburg Common/Mutual Aid,2
+157,09d,D,EVT14 MSO,Mecklenburg Event 14 - Mecklenburg Sheriff 2,Law Talk,Mecklenburg Common/Mutual Aid,2
+159,09f,D,EVT15 CFD,Mecklenburg Event 15 - Charlotte Fire,Fire-Talk,Mecklenburg Common/Mutual Aid,2
+161,0a1,D,EVT16 CFD,Mecklenburg Event 16 - Charlotte Fire,Fire-Talk,Mecklenburg Common/Mutual Aid,2
+185,0b9,D,MEC EMG 3,Mecklenburg Emergency 3,Emergency Ops,Mecklenburg EMS/Fire,2
+187,0bb,D,BRIDGE 4,Bridge 4 (Inter-Dispatch Systemwide),Multi-Tac,Systemwide,2
+189,0bd,D,MCJC-MC,Mecklenburg Sheriff Jail Central Main Channel,Corrections,Mecklenburg Sheriff Corrections,2
+207,0cf,D,BUS-OPS-1,Bus Ops 1,Transportation,Charlotte Area Transit System (CATS),2
+209,0d1,D,BUS-OPS-2,Bus Ops 2,Transportation,Charlotte Area Transit System (CATS),2
+211,0d3,D,BUS-OPS-3,Bus Ops 3,Transportation,Charlotte Area Transit System (CATS),2
+287,11f,D,CMC LZ 1,CMC Landing Zone Coordination 1,Emergency Ops,Systemwide,2
+289,121,D,CMC LZ 2,CMC Landing Zone Coordination 2,Emergency Ops,Systemwide,2
+299,12b,D,UNC-EVNT-1,UNC Charlotte Event 1,Multi-Talk,UNC Charlotte,2
+301,12d,D,UNC-EVNT-2,UNC Charlotte Event 2,Multi-Talk,UNC Charlotte,2
+303,12f,D,UNC-EVNT-3,UNC Charlotte Event 3,Multi-Talk,UNC Charlotte,2
+305,131,D,UNCPD-COMMON,UNC Charlotte Police Common,Law Talk,UNC Charlotte,2
+307,133,D,UNCPD-PTRL-1,UNC Charlotte Police Patrol 1,Law Dispatch,UNC Charlotte,2
+309,135,D,UNCPD-PTRL-2,UNC Charlotte Police Patrol 2,Law Talk,UNC Charlotte,2
+311,137,D,UNCPD-CONFR,UNC Charlotte Police Conference,Law Talk,UNC Charlotte,2
+313,139,D,UNCPD-SERVC,UNC Charlotte Police Service,Law Talk,UNC Charlotte,2
+315,13b,D,UNCPD-TRNING,UNC Charlotte Police Training,Law Talk,UNC Charlotte,2
+317,13d,D,UNC-LIBRARY,UNC Charlotte Library,Security,UNC Charlotte,2
+319,13f,D,UNC-LBRY-ADM,UNC Charlotte Library Administration,Security,UNC Charlotte,2
+321,141,D,UNC-LBRY-SEC,UNC Charlotte Library Security,Security,UNC Charlotte,2
+323,143,D,UNC-LBRY-CNF,UNC Charlotte Library Conference,Security,UNC Charlotte,2
+337,151,D,CMGC-SEC,Charlotte-Mecklenburg Government Center Security,Security,Charlotte-Mecklenburg Services,2
+357,165,D,CMS-LAW-3,CMS Police 3,Law Dispatch,Charlotte-Mecklenburg Schools,2
+403,193,D,EMS-DISP,Mecklenburg EMS Dispatch,EMS Dispatch,Mecklenburg EMS/Fire,2
+405,195,D,MEC OPS 14,Mecklenburg Operations 14,Multi-Tac,Mecklenburg EMS/Fire,2
+407,197,D,MEC OPS 15,Mecklenburg Operations 15,Multi-Tac,Mecklenburg EMS/Fire,2
+409,199,D,MEC OPS 16,Mecklenburg Operations 16,Multi-Tac,Mecklenburg EMS/Fire,2
+411,19b,D,MEC OPS 17,Mecklenburg Operations 17,Multi-Tac,Mecklenburg EMS/Fire,2
+413,19d,D,MEC OPS 6,Mecklenburg Operations 6,Multi-Tac,Mecklenburg EMS/Fire,2
+415,19f,E,EMS ADMIN,Mecklenburg EMS Administration,EMS-Talk,Mecklenburg EMS/Fire,2
+417,1a1,D,MEC OPS 18,Mecklenburg Operations 18,Multi-Tac,Mecklenburg EMS/Fire,2
+421,1a5,D,PRESB PEDI,EMS to Presbyterian Pediatric,Hospital,Regional EMS to Hospital,2
+423,1a7,D,MEC OPS 19,Mecklenburg Operations 19,Multi-Tac,Mecklenburg EMS/Fire,2
+425,1a9,D,MEC OPS 20,Mecklenburg Operations 20,Multi-Tac,Mecklenburg EMS/Fire,2
+427,1ab,D,MEC OPS 21,Mecklenburg Operations 21,Multi-Tac,Mecklenburg EMS/Fire,2
+429,1ad,D,MEC OPS 22,Mecklenburg Operations 22,Multi-Tac,Mecklenburg EMS/Fire,2
+453,1c5,D,MEC DISP,Mecklenburg Fire Dispatch,Multi-Dispatch,Mecklenburg EMS/Fire,2
+455,1c7,D,MEC OPS 12,Mecklenburg Operations 12,Multi-Tac,Mecklenburg EMS/Fire,2
+457,1c9,D,MEC OPS 3,Mecklenburg Operations 3,Multi-Tac,Mecklenburg EMS/Fire,2
+459,1cb,D,MEC OPS 4,Mecklenburg Operations 4,Multi-Tac,Mecklenburg EMS/Fire,2
+461,1cd,D,MEC OPS 5,Mecklenburg Operations 5,Multi-Tac,Mecklenburg EMS/Fire,2
+463,1cf,D,MEC OPS 13,Mecklenburg Operations 13,Multi-Tac,Mecklenburg EMS/Fire,2
+467,1d3,D,MEC CONF,Mecklenburg Conference,Fire-Talk,Mecklenburg EMS/Fire,2
+489,1000000000,D,MECK-TRASH,Trash/Recycling Collection,Utilities,Charlotte-Mecklenburg Services,2
+527,20f,D,STLE-CONF,CMPD Steele Creek Conference,Law Talk,Charlotte-Mecklenburg Police Steele Creek Division,2
+529,211,D,STEELE-CK,CMPD Steele Creek Dispatch,Law Dispatch,Charlotte-Mecklenburg Police Steele Creek Division,2
+531,213,D,WESTOVER,CMPD Westover Dispatch,Law Dispatch,Charlotte-Mecklenburg Police Westover Division,2
+533,215,D,FREEDOM,CMPD Freedom Dispatch,Law Dispatch,Charlotte-Mecklenburg Police Freedom Division,2
+535,217,D,WOVR-CONF,CMPD Westover Conference,Law Talk,Charlotte-Mecklenburg Police Westover Division,2
+537,219,D,AIR ASO,Air ASO - Helicopter Calling,Multi-Tac,Systemwide,2
+539,21b,D,FRDM-CONF,CMPD Freedom Conference,Law Talk,Charlotte-Mecklenburg Police Freedom Division,2
+541,21d,D,PROV-CONF,CMPD Providence Conference,Law Talk,Charlotte-Mecklenburg Police Providence Division,2
+543,21f,D,PROV,CMPD Providence Dispatch,Law Dispatch,Charlotte-Mecklenburg Police Providence Division,2
+545,221,D,SOUTH,CMPD South Dispatch,Law Dispatch,Charlotte-Mecklenburg Police South Division,2
+547,223,D,INDEP,CMPD Independence Dispatch,Law Dispatch,Charlotte-Mecklenburg Police Independence Division,2
+549,225,D,STH-CONF,CMPD South Conference,Law Talk,Charlotte-Mecklenburg Police South Division,2
+551,227,D,INDP-CONF,CMPD Independence Conference,Law Talk,Charlotte-Mecklenburg Police Independence Division,2
+553,229,E,PROV-TACT,CMPD Providence Tactical,Law Tac,Charlotte-Mecklenburg Police Providence Division,2
+555,22b,D,NTH-CONF,CMPD North Conference,Law Talk,Charlotte-Mecklenburg Police North Division,2
+557,22d,D,NORTH,CMPD North Dispatch,Law Dispatch,Charlotte-Mecklenburg Police North Division,2
+559,22f,D,EASTWAY,CMPD Eastway Dispatch,Law Dispatch,Charlotte-Mecklenburg Police Eastway Division,2
+561,231,D,HK-GROVE,CMPD Hickory Grove Dispatch,Law Dispatch,Charlotte-Mecklenburg Police Hickory Grove Division,2
+563,233,D,EWAY-CONF,CMPD Eastway Conference,Law Talk,Charlotte-Mecklenburg Police Eastway Division,2
+565,235,D,HKGR-CONF,CMPD Hickory Grove Conference,Law Talk,Charlotte-Mecklenburg Police Hickory Grove Division,2
+567,237,E,NTH-TACT,CMPD North Tactical,Law Tac,Charlotte-Mecklenburg Police North Division,2
+583,247,E,SWAT-1,CMPD SWAT 1,Law Tac,Charlotte-Mecklenburg Police Special Operations,2
+585,249,E,SWAT-2,CMPD SWAT 2,Law Tac,Charlotte-Mecklenburg Police Special Operations,2
+587,24b,E,SWAT-3,CMPD SWAT 3,Law Tac,Charlotte-Mecklenburg Police Special Operations,2
+657,291,D,CENT-CONF,CMPD Central Conference,Law Talk,Charlotte-Mecklenburg Police Central Division,2
+659,293,D,CENTRAL,CMPD Central Dispatch,Law Dispatch,Charlotte-Mecklenburg Police Central Division,2
+661,295,D,METRO,CMPD Metro Dispatch,Law Dispatch,Charlotte-Mecklenburg Police Metro Division,2
+663,297,D,N-TRYON,CMPD North Tryon Dispatch,Law Dispatch,Charlotte-Mecklenburg Police North Tryon Division,2
+665,299,D,MET-CONF,CMPD Metro Conference,Law Talk,Charlotte-Mecklenburg Police Metro Division,2
+667,29b,D,NTRY-CONF,CMPD North Tryon Conference,Law Talk,Charlotte-Mecklenburg Police North Tryon Division,2
+669,29d,D,CENT-SCU,CMPD Central Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police Central Division,2
+675,2a3,E,VCAT-1,CMPD VCAT 1,Law Tac,Charlotte-Mecklenburg Police Special Operations,2
+677,2a5,E,VCAT-2,CMPD VCAT 2,Law Tac,Charlotte-Mecklenburg Police Special Operations,2
+681,2a9,E,VCAT-3,CMPD VCAT 3,Law Tac,Charlotte-Mecklenburg Police Special Operations,2
+685,2ad,D,UNIV-CONF,CMPD University Conference,Law Talk,Charlotte-Mecklenburg Police University Division,2
+687,2af,D,UNIV,CMPD University City Dispatch,Law Dispatch,Charlotte-Mecklenburg Police University Division,2
+693,2b5,E,UNIV-TACT,CMPD University Tactical,Law Tac,Charlotte-Mecklenburg Police University Division,2
+697,2b9,D,UNIV-SCU,CMPD University SCU,Law Tac,Charlotte-Mecklenburg Police University Division,2
+731,2db,D,CATS-MAIN,CATS Transportation,Transportation,Charlotte Area Transit System (CATS),2
+735,2df,D,RAIL-OPS-1,Rail Ops 1,Railroad,Charlotte Area Transit System (CATS),2
+737,20,D,RAIL-OPS-2,Rail Ops 2,Railroad,Charlotte Area Transit System (CATS),2
+739,2000,D,RAIL-OPS-3,Rail Ops 3,Railroad,Charlotte Area Transit System (CATS),2
+741,200000,D,RAIL-OPS-4,Rail Ops 4,Railroad,Charlotte Area Transit System (CATS),2
+759,2f7,D,MEC OPS 7,Mecklenburg Operations 7 ,Multi-Tac,Mecklenburg EMS/Fire,2
+761,2f9,D,MEC OPS 8,Mecklenburg Operations 8,Multi-Tac,Mecklenburg EMS/Fire,2
+763,2fb,D,MEC OPS 9,Mecklenburg Operations 9,Multi-Tac,Mecklenburg EMS/Fire,2
+765,2fd,D,MEC OPS 10,Mecklenburg Operations 10,Multi-Tac,Mecklenburg EMS/Fire,2
+767,2ff,D,MEC OPS 11,Mecklenburg Operations 11,Multi-Tac,Mecklenburg EMS/Fire,2
+769,301,E,EMS-NET1,Mecklenburg EMS Non-Emergency Transport,EMS Dispatch,Mecklenburg EMS/Fire,2
+771,303,E,EMS-CONF,Mecklenburg EMS Conference,EMS-Talk,Mecklenburg EMS/Fire,2
+773,305,D,EMS-LOGIS,Mecklenburg EMS Logistics,EMS-Talk,Mecklenburg EMS/Fire,2
+787,313,D,CMC STLCK,EMS to CMC Steele Creek,Hospital,Regional EMS to Hospital,2
+789,315,D,CMC HUNT,EMS to CMC Huntersville,Hospital,Regional EMS to Hospital,2
+791,317,D,CMC MAIN,EMS to CMC Main,Hospital,Regional EMS to Hospital,2
+793,319,D,PRES MAIN,EMS to Presbyterian Main,Hospital,Regional EMS to Hospital,2
+795,31b,D,CMC UNIV,EMS to CMC University,Hospital,Regional EMS to Hospital,2
+797,31d,D,CMC PINE,EMS to CMC Pineville,Hospital,Regional EMS to Hospital,2
+799,31f,D,CMC MERCY,EMS to CMC Mercy,Hospital,Regional EMS to Hospital,2
+801,321,D,PRESB MATT,EMS to Presbyterian Matthews,Hospital,Regional EMS to Hospital,2
+803,323,D,PRESB HUNT,EMS to Presbyterian Huntersville,Hospital,Regional EMS to Hospital,2
+805,325,D,LNRMC,EMS to Lake Norman Regional Medical Center,Hospital,Regional EMS to Hospital,2
+811,32b,D,UNION MEM,EMS to Union Memorial,Hospital,Regional EMS to Hospital,2
+815,32f,E,CENT-TACT,CMPD Central Tactical,Law Tac,Charlotte-Mecklenburg Police Central Division,2
+817,331,E,NTRY-TACT,CMPD North Tryon Tactical,Law Tac,Charlotte-Mecklenburg Police North Tryon Division,2
+819,333,E,MET-TACT,CMPD Metro Tactical,Law Tac,Charlotte-Mecklenburg Police Metro Division,2
+821,335,D,MET-SCU,CMPD Metro Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police Metro Division,2
+823,337,E,EWAY-TACT,CMPD Eastway Tactical,Law Tac,Charlotte-Mecklenburg Police Eastway Division,2
+825,339,D,EWAY-SCU,CMPD Eastway Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police Eastway Division,2
+827,33b,D,NTRY-SCU,CMPD North Tryon Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police North Tryon Division,2
+829,33d,D,NTH-SCU,CMPD North Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police North Division,2
+831,33f,E,HKGR-TACT,CMPD Hickory Grove Tactical,Law Tac,Charlotte-Mecklenburg Police Hickory Grove Division,2
+833,341,D,HKGR-SCU,CMPD Hickory Grove Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police Hickory Grove Division,2
+835,343,D,PROV-SCU,CMPD Providence Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police Providence Division,2
+837,345,E,INDP-TACT,CMPD Independence Tactical,Law Tac,Charlotte-Mecklenburg Police Independence Division,2
+839,347,D,INDP-SCU,CMPD Independence Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police Independence Division,2
+841,349,E,STLE-TACT,CMPD Steele Creek Tactical,Law Tac,Charlotte-Mecklenburg Police Steele Creek Division,2
+843,34b,D,STLE-SCU,CMPD Steele Creek Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police Steele Creek Division,2
+845,34d,E,STH-TACT,CMPD South Tactical,Law Tac,Charlotte-Mecklenburg Police South Division,2
+847,34f,D,STH-SCU,CMPD South Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police South Division,2
+849,351,E,WOVR-TACT,CMPD Westover Tactical,Law Tac,Charlotte-Mecklenburg Police Westover Division,2
+851,353,D,WOVR-SCU,CMPD Westover Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police Westover Division,2
+853,355,E,FRDM-TACT,CMPD Freedom Tactical,Law Tac,Charlotte-Mecklenburg Police Freedom Division,2
+855,357,D,FRDM-SCU,CMPD Freedom Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police Freedom Division,2
+983,3d7,D,CFD 1I,Charlotte Fire Ops 1I,Fire-Tac,Charlotte Fire,2
+985,3d9,D,CFD 1J,Charlotte Fire Ops 1J,Fire-Tac,Charlotte Fire,2
+987,3db,E,CFD 1K,Charlotte Fire Ops 1K,Fire-Tac,Charlotte Fire,2
+991,3df,E,CFD 1CONF,Charlotte Fire Conference 1,Fire-Talk,Charlotte Fire,2
+999,30000000,D,COURTS,Mecklenburg Sheriff Courts 1,Law Tac,Mecklenburg Sheriff Courts,2
+1001,3000000000,D,COURTS-2,Mecklenburg Sheriff Courts 2,Law Tac,Mecklenburg Sheriff Courts,2
+1027,403,D,CFD ALARM,Charlotte Fire Alarm,Fire Dispatch,Charlotte Fire,2
+1029,405,D,CFD 1B,Charlotte Fire Ops 1B,Fire-Tac,Charlotte Fire,2
+1031,407,D,CFD 1C,Charlotte Fire Ops 1C,Fire-Tac,Charlotte Fire,2
+1033,409,D,CFD 1D,Charlotte Fire Ops 1D,Fire-Tac,Charlotte Fire,2
+1035,40b,D,CFD 1E,Charlotte Fire Ops 1E,Fire-Tac,Charlotte Fire,2
+1037,40d,D,CFD 1F,Charlotte Fire Ops 1F,Fire-Tac,Charlotte Fire,2
+1039,40f,D,CFD 1G,Charlotte Fire Ops 1G,Fire-Tac,Charlotte Fire,2
+1041,411,D,CFD 1H,Charlotte Fire Ops 1H,Fire-Tac,Charlotte Fire,2
+1057,421,D,CFD 2B,Charlotte Fire Ops 2B,Fire-Tac,Charlotte Fire,2
+1059,423,D,CFD 2C,Charlotte Fire Ops 2C,Fire-Tac,Charlotte Fire,2
+1061,425,D,CFD 2D,Charlotte Fire Ops 2D,Fire-Tac,Charlotte Fire,2
+1063,427,D,CFD 2E,Charlotte Fire Ops 2E,Fire-Tac,Charlotte Fire,2
+1065,429,D,CFD 2F,Charlotte Fire Ops 2F,Fire-Tac,Charlotte Fire,2
+1067,42b,D,CFD 2G,Charlotte Fire Ops 2G,Fire-Tac,Charlotte Fire,2
+1069,42d,D,CFD 2H,Charlotte Fire Ops 2H,Fire-Tac,Charlotte Fire,2
+1071,42f,D,CFD 2I,Charlotte Fire Ops 2I,Fire-Tac,Charlotte Fire,2
+1073,431,D,CFD 2J,Charlotte Fire Ops 2J,Fire-Tac,Charlotte Fire,2
+1075,433,D,CFD 2K,Charlotte Fire Ops 2K,Fire-Tac,Charlotte Fire,2
+1077,435,E,CFD 2CONF,Charlotte Fire Conference 2,Fire-Talk,Charlotte Fire,2
+1085,43d,D,CFD 5B,Charlotte Fire Training 5B,Fire-Tac,Charlotte Fire,2
+1087,43f,D,CFD 5C,Charlotte Fire Training 5C,Fire-Tac,Charlotte Fire,2
+1089,441,D,CFD 5D,Charlotte Fire Training 5D,Fire-Tac,Charlotte Fire,2
+1091,443,D,CFD 5E,Charlotte Fire Training 5E,Fire-Tac,Charlotte Fire,2
+1093,445,D,CFD-5F,Charlotte Fire Training 5F,Fire-Tac,Charlotte Fire,2
+1095,447,D,CFD 5G,Charlotte Fire Training 5G,Fire-Tac,Charlotte Fire,2
+1097,449,D,CFD 5H,Charlotte Fire Training 5H,Fire-Tac,Charlotte Fire,2
+1099,44b,D,CFD EMG-1,Charlotte Fire Emergency Zone 1,Fire-Tac,Charlotte Fire,2
+1101,44d,D,CFD EMG-2,Charlotte Fire Emergency Zone 2,Fire-Tac,Charlotte Fire,2
+1103,44f,D,CFD EMG-5,Charlotte Fire Emergency Zone 5,Fire-Tac,Charlotte Fire,2
+1105,451,D,CFD EMG-6,Charlotte Fire Emergency Zone 6,Fire-Tac,Charlotte Fire,2
+1107,453,D,CFD EMG-7,Charlotte Fire Emergency Zone 7,Fire-Tac,Charlotte Fire,2
+1109,455,D,CFD 10LOGIS,Charlotte Fire Logistics 10,Fire-Talk,Charlotte Fire,2
+1111,457,D,CFD 10ARSON,Charlotte Fire Arson 10,Fire-Talk,Charlotte Fire,2
+1113,459,E,CFD 10CHIEF,Charlotte Fire Chiefs 10,Fire-Talk,Charlotte Fire,2
+1115,45b,D,CFD 10PREVNT,Charlotte Fire Prevention 10,Fire-Talk,Charlotte Fire,2
+1117,45d,D,CFD 10COMCTR,Charlotte Fire Communications 10,Fire-Talk,Charlotte Fire,2
+1119,45f,D,CFD 10CONF,Charlotte Fire Conference 10,Fire-Talk,Charlotte Fire,2
+1149,47d,D,REG EMS,Regional EMS,EMS-Tac,Systemwide,2
+1151,47f,D,REG OPS 4,Regional Operations 4,Multi-Tac,Systemwide,2
+1153,481,D,REG FIRE 1,Regional Fire 1,Fire-Tac,Systemwide,2
+1155,483,D,REG FIRE 2,Regional Fire 2,Fire-Tac,Systemwide,2
+1157,485,D,REG FIRE 3,Regional Fire 3,Fire-Tac,Systemwide,2
+1159,487,D,REG LAW 1,Regional Law 1,Law Tac,Systemwide,2
+1161,489,D,REG LAW 2,Regional Law 2,Law Tac,Systemwide,2
+1225,4c9,D,REG CALL,Regional Calling,Multi-Tac,Systemwide,2
+1227,4cb,D,REG PURS,Regional Pursuit,Law Tac,Systemwide,2
+1229,4cd,D,REG OPS 1,Regional Operations 1,Multi-Tac,Systemwide,2
+1231,4cf,D,REG OPS 2,Regional Operations 2,Multi-Tac,Systemwide,2
+1233,4d1,D,REG OPS 3,Regional Operations 3,Multi-Tac,Systemwide,2
+1235,4d3,D,EVENTS-17,Mecklenburg Event 17,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1237,4d5,D,EVENTS-18,Mecklenburg Event 18,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1239,4d7,D,EVENTS-19,Mecklenburg Event 19,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1241,4d9,D,EVENTS-20,Mecklenburg Event 20,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1243,4db,D,EVENTS-21,Mecklenburg Event 21,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1245,4dd,D,EVENTS-22,Mecklenburg Event 22,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1247,4df,D,EVENTS-23,Mecklenburg Event 23,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1249,40,D,EVENTS-24,Mecklenburg Event 24,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1251,4000,D,EVENTS-25,Mecklenburg Event 25,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1253,400000,D,EVENTS-26,Mecklenburg Event 26,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1255,40000000,D,EVENTS-27,Mecklenburg Event 27,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1257,4000000000,D,EVENTS-28,Mecklenburg Event 28,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1259,4eb,D,EVENTS-29,Mecklenburg Event 29,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1261,4ed,D,EVENTS-30,Mecklenburg Event 30,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1263,4ef,D,EVENTS-31,Mecklenburg Event 31,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1265,4f1,D,EVENTS-32,Mecklenburg Event 32,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1267,4f3,D,NTH-LAKES,North Lakes,Multi-Tac,Mecklenburg Common/Mutual Aid,2
+1269,4f5,D,STH-LAKES,South Lakes,Multi-Tac,Mecklenburg Common/Mutual Aid,2
+1273,4f9,E,BOMB-1,CMPD Bomb Squad 1,Law Tac,Charlotte-Mecklenburg Police Special Operations,2
+1301,515,D,CFD 5I,Charlotte Fire Training 5I,Fire-Tac,Charlotte Fire,2
+1303,517,D,CFD 5J,Charlotte Fire Training 5J,Fire-Tac,Charlotte Fire,2
+1305,519,D,CFD 5K,Charlotte Fire Training 5K,Fire-Tac,Charlotte Fire,2
+1307,51b,D,CFD 5CONF,Charlotte Fire Conference 5,Fire-Talk,Charlotte Fire,2
+1309,51d,D,CFD EMG-9,Charlotte Fire Emergency Zone 9,Fire-Tac,Charlotte Fire,2
+1329,531,D,CFD 10ADMIN,Charlotte Fire Administration 10,Fire-Talk,Charlotte Fire,2
+1557,615,D,MCSO-DISP,Mecklenburg Sheriff Dispatch,Law Dispatch,Mecklenburg Sheriff Patrol,2
+1559,617,D,MCSO-2,Mecklenburg Sheriff 2,Law Tac,Mecklenburg Sheriff Patrol,2
+1627,65b,D,DVDPD-1,Davidson Police Dispatch 1,Law Dispatch,Charlotte-Mecklenburg Police North Division,2
+1629,65d,D,DVDPD-2,Davidson Police Dispatch 2,Law Dispatch,Charlotte-Mecklenburg Police North Division,2
+1635,663,D,NM LAW 1,North Meck Law Dispatch 1,Law Dispatch,North Mecklenburg Law,2
+1675,68b,D,CMS-LAW-1,CMS Police 1,Law Dispatch,Charlotte-Mecklenburg Schools,2
+1677,68d,D,CMS-LAW-2,CMS Police 2,Law Dispatch,Charlotte-Mecklenburg Schools,2
+1679,68f,D,RADIO A,Radio Service A,Business,Radio Service,2
+1681,691,D,RADIO B,Radio Service B,Business,Radio Service,2
+1779,6f3,D,AC-DISP,CMPD Animal Control Dispatch,Law Dispatch,Charlotte-Mecklenburg Police Animal Control,2
+1871,74f,D,AC-CONF,CMPD Animal Control Conference,Law Talk,Charlotte-Mecklenburg Police Animal Control,2
+2001,7d1,D,MECK-ABC-1,Mecklenburg ABC 1,Law Talk,Mecklenburg Alcoholic Beverage Control,2
+2003,7d3,D,MECK-ABC-2,Mecklenburg ABC 2,Law Talk,Mecklenburg Alcoholic Beverage Control,2
+2085,825,D,MATTFD-OPS1,Matthews Fire Operations 1,Fire-Tac,Matthews Fire,2
+2101,835,D,MHPD DISP,Mint Hill Police Dispatch,Law Dispatch,Mint Hill Police,2
+2149,865,D,CATS-SEC,CATS Security,Transportation,Charlotte Area Transit System (CATS),2
+4063,fdf,D,RADIO D,Radio Service D,Business,Radio Service,2
+7000,1b58,D,CCSO-DISP,Cabarrus Sheriff Dispatch ,Law Dispatch,Cabarrus Sheriff,2
+7001,1b59,D,CCSO-ANLCTL,Cabarrus Sheriff Animal Control,Law Dispatch,Cabarrus Sheriff,2
+7002,1b5a,D,CCSO-TAC3,Cabarrus Sheriff Tactical 3,Law Tac,Cabarrus Sheriff,2
+7003,1b5b,D,CCSO-TAC4,Cabarrus Sheriff Tactical 4,Law Tac,Cabarrus Sheriff,2
+7004,1b5c,D,CCSO-TAC5,Cabarrus Sheriff Tactical 5,Law Tac,Cabarrus Sheriff,2
+7005,1b5d,D,CCSO-TAC6,Cabarrus Sheriff Tactical 6,Law Tac,Cabarrus Sheriff,2
+7006,1b5e,D,CCSO-INV1,Cabarrus Sheriff Investigations 1,Law Tac,Cabarrus Sheriff,2
+7007,1b5f,D,CCSO-JAIL1,Cabarrus Sheriff Jail 1,Corrections,Cabarrus Sheriff,2
+7008,1b60,D,CCSO-JAIL2,Cabarrus Sheriff Jail 2,Corrections,Cabarrus Sheriff,2
+7009,1b61,D,CCSO-CIVIL,Cabarrus Sheriff Civil,Law Tac,Cabarrus Sheriff,2
+7010,1b62,D,CCSO-COURT,Cabarrus Sheriff Court Security,Law Tac,Cabarrus Sheriff,2
+7013,1b65,D,CCSO-ATG,Cabarrus Sheriff All-Talkgroup,Law Dispatch,Cabarrus Sheriff,2
+7014,1b66,D,CPD-DISP1,Concord Police Dispatch 1,Law Dispatch,Concord Police,2
+7015,1b67,D,CPD-DISP2,Concord Police Dispatch 2,Law Dispatch,Concord Police,2
+7016,1b68,D,CPD-TAC3,Concord Police Tactical 3,Law Tac,Concord Police,2
+7017,1b69,D,CPD-TAC4,Concord Police Tactical 4,Law Tac,Concord Police,2
+7018,1b6a,D,CPD-TAC5,Concord Police Tactical 5,Law Tac,Concord Police,2
+7019,1b6b,D,CPD-TAC6,Concord Police Tactical 6,Law Tac,Concord Police,2
+7020,1b6c,D,CPD-TAC7,Concord Police Tactical 7,Law Tac,Concord Police,2
+7021,1b6d,D,CPD-TAC8,Concord Police Tactical 8,Law Tac,Concord Police,2
+7025,1b71,D,CPD-INV4,Concord Police Investigations 4,Law Tac,Concord Police,2
+7028,1b74,D,KPD-DISP1,Kannapolis Police Dispatch 1,Law Dispatch,Kannapolis Police,2
+7029,1b75,D,KPD-DISP2,Kannapolis Police Dispatch 2,Law Dispatch,Kannapolis Police,2
+7030,1b76,D,KPD-TAC1,Kannapolis Police Tactical 1,Law Tac,Kannapolis Police,2
+7031,1b77,D,KPD-TAC2,Kannapolis Police Tactical 2,Law Tac,Kannapolis Police,2
+7033,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7034,1b7a,D,CCVFD-DISP,Cabarrus Fire Dispatch,Fire Dispatch,Cabarrus EMS/Fire,2
+7035,1b7b,D,CCEMS-DISP,Cabarrus EMS/Rescue Dispatch,EMS Dispatch,Cabarrus EMS/Fire,2
+7036,1b7c,D,CAB-OPS-3,Cabarrus Operations 3,Fire-Tac,Cabarrus EMS/Fire,2
+7037,1b7d,D,CAB-OPS-4,Cabarrus Operations 4,Fire-Tac,Cabarrus EMS/Fire,2
+7038,1b7e,D,CAB-OPS-5,Cabarrus Operations 5,Fire-Tac,Cabarrus EMS/Fire,2
+7039,1b7f,D,CAB-OPS-6,Cabarrus Operations 6,Fire-Tac,Cabarrus EMS/Fire,2
+7040,1b80,D,CAB-OPS-7,Cabarrus Operations 7,Fire-Tac,Cabarrus EMS/Fire,2
+7041,1b81,D,CAB-OPS-8,Cabarrus Operations 8,Fire-Tac,Cabarrus EMS/Fire,2
+7042,1b82,D,CAB-OPS-9,Cabarrus Operations 9,Fire-Tac,Cabarrus EMS/Fire,2
+7043,1b83,D,CAB-CONF,Cabarrus Conference,Multi-Talk,Cabarrus EMS/Fire,2
+7044,1b84,D,CAB-TRN1,Cabarrus Training 1,Fire-Tac,Cabarrus EMS/Fire,2
+7045,1b85,D,CAB-TRN2,Cabarrus Training 2,Fire-Tac,Cabarrus EMS/Fire,2
+7047,1b87,D,CFD-DISP,Concord Fire Dispatch,Fire Dispatch,Concord Fire,2
+7048,1b88,D,CFD-OPS2,Concord Fire Operations 2,Fire-Tac,Concord Fire,2
+7049,1b89,D,CFD-OPS3,Concord Fire Operations 3,Fire-Tac,Concord Fire,2
+7050,1b8a,D,CFD-OPS4,Concord Fire Operations 4,Fire-Tac,Concord Fire,2
+7051,1b8b,D,CFD-OPS5,Concord Fire Operations 5,Fire-Tac,Concord Fire,2
+7052,1b8c,D,CFD-OPS6,Concord Fire Operations 6,Fire-Tac,Concord Fire,2
+7056,1b90,D,CFD-CONF,Concord Fire Conference,Fire-Talk,Concord Fire,2
+7057,1b91,D,CFD-TRN1,Concord Fire Training 1,Fire-Tac,Concord Fire,2
+7058,1b92,D,CFD-TRN2,Concord Fire Training 2,Fire-Tac,Concord Fire,2
+7060,1b94,D,CFD-EMER,Concord Fire Emergency,Fire-Tac,Concord Fire,2
+7061,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7064,1b98,D,KFD-DISP,Kannapolis Fire Dispatch,Fire Dispatch,Kannapolis Fire,2
+7065,1b99,D,KFD-OPS1,Kannapolis Fire Operations 1,Fire-Tac,Kannapolis Fire,2
+7066,1b9a,D,KFD-OPS2,Kannapolis Fire Operations 2,Fire-Tac,Kannapolis Fire,2
+7067,1b9b,D,KFD-OPS3,Kannapolis Fire Operations 3,Fire-Tac,Kannapolis Fire,2
+7068,1b9c,D,KFD-OPS4,Kannapolis Fire Operations 4,Fire-Tac,Kannapolis Fire,2
+7069,1b9d,D,KFD-OPS5,Kannapolis Fire Operations 5,Fire-Tac,Kannapolis Fire,2
+7070,1b9e,D,KFD-OPS6,Kannapolis Fire Operations 6,Fire-Tac,Kannapolis Fire,2
+7071,1b9f,D,KFD-TRNG,Kannapolis Fire Training,Fire-Tac,Kannapolis Fire,2
+7072,1ba0,D,KFD-CONF,Kannapolis Fire Conference,Fire-Talk,Kannapolis Fire,2
+7074,1ba2,D,CMC NE,EMS to CMC NorthEast,Hospital,Regional EMS to Hospital,2
+7075,1ba3,D,CMC KANN,EMS to CMC Kannapolis,Hospital,Regional EMS to Hospital,2
+7076,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7100,1bbc,D,CAB-EVT-1,Cabarrus Event 1,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7101,1bbd,D,CAB-EVT-2,Cabarrus Event 2,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7102,1bbe,D,CAB-EVT-3,Cabarrus Event 3,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7103,1bbf,D,CAB-EVT-4,Cabarrus Event 4,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7104,1bc0,D,CAB-EVT-5,Cabarrus Event 5,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7105,1bc1,D,CAB-EVT-6,Cabarrus Event 6,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7106,1bc2,D,CAB-EVT-7,Cabarrus Event 7,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7107,1bc3,D,CAB-EVT-8,Cabarrus Event 8,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7108,1bc4,D,CAB-EVT-9,Cabarrus Event 9,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7109,1bc5,D,CAB-EVT-10,Cabarrus Event 10,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7110,1bc6,D,CAB-EVT-11,Cabarrus Event 11,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7111,1bc7,D,CAB-EVT-12,Cabarrus Event 12,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7112,1bc8,D,CAB-EVT-13,Cabarrus Event 13,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7113,1bc9,D,CAB-EVT-14,Cabarrus Event 14,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7114,1bca,D,CAB-EVT-15,Cabarrus Event 15,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7115,1bcb,D,CAB-EVT-16,Cabarrus Event 16,Multi-Talk,Cabarrus Common/Mutual Aid,2
+7116,1bcc,D,CCMA-POL,Cabarrus Police Mutual Aid,Interop,Cabarrus Common/Mutual Aid,2
+7117,1bcd,D,CCMA-FIR,Cabarrus Fire Mutual Aid,Interop,Cabarrus Common/Mutual Aid,2
+7118,1bce,D,CCMA-UTL,Cabarrus Utility Mutual Aid,Interop,Cabarrus Common/Mutual Aid,2
+7119,1bcf,D,CCMA-PWK,Cabarrus Public Works Mutual Aid,Interop,Cabarrus Common/Mutual Aid,2
+7120,1bd0,D,CCMA-EM,Cabarrus Emergency Management Mutual Aid,Interop,Cabarrus Common/Mutual Aid,2
+7121,1bd1,D,CCMA-EMS,Cabarrus EMS Mutual Aid,Interop,Cabarrus Common/Mutual Aid,2
+7134,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7135,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7136,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7137,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7138,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7140,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7141,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7142,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7145,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7147,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7152,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7155,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7156,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+7165,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+18500,4844,D,BELM-PD-DISP,Belmont Police Dispatch,Law Dispatch,Belmont Police,2
+18504,4848,D,MTHPD-1,Mount Holly Police 1,Law Dispatch,Mount Holly Police,2
+18514,4852,D,GPD-1,Gastonia Police 1,Law Dispatch,Gastonia Police,2
+18515,4853,D,GPD-2,Gastonia Police 2,Law Tac,Gastonia Police,2
+18516,4854,D,GPD-3,Gastonia Police 3,Law Tac,Gastonia Police,2
+18517,4855,D,GPD-4,Gastonia Police 4,Law Tac,Gastonia Police,2
+18533,4865,D,GFD 2,Fire 2,Fire-Tac,Gastonia Fire,2
+18534,4866,D,GFD 3,Fire 3,Fire-Tac,Gastonia Fire,2
+18535,4867,D,GFD 4,Fire 4,Fire-Tac,Gastonia Fire,2
+18536,4868,D,GFD 5,Fire 5,Fire-Tac,Gastonia Fire,2
+18537,4869,D,GFD 6,Fire 6,Fire-Tac,Gastonia Fire,2
+18538,486a,D,GFD 7,Fire 7,Fire-Tac,Gastonia Fire,2
+18539,486b,D,GFD 8,Fire 8,Fire-Tac,Gastonia Fire,2
+18540,486c,D,GFD 9,Fire 9,Fire-Tac,Gastonia Fire,2
+18541,486d,D,GFD 10,Fire 10,Fire-Tac,Gastonia Fire,2
+18542,486e,D,GFD 11,Fire 11,Fire-Tac,Gastonia Fire,2
+18554,487a,D,GFD DISP,Fire Dispatch,Fire Dispatch,Gastonia Fire,2
+18556,487c,D,GFD TRNG,Fire Training ,Fire-Tac,Gastonia Fire,2
+30541,774d,E,BOMB-2,CMPD Bomb Squad 2,Law Tac,Charlotte-Mecklenburg Police Special Operations,2
+42500,a604,D,STANLY SO,Stanly Sheriff Dispatch,Law Dispatch,Stanly County Law,2
+42510,a60e,D,STANLY JAIL,Stanly Jail,Corrections,Stanly County Law,2
+42511,a60f,D,STANLY COURT,Stanly Court/Baliffs,Law Talk,Stanly County Law,2
+42512,a610,D,ALBEMARLE PD,Albemarle Police Dispatch,Law Dispatch,Stanly County Law,2
+42529,a621,D,STANLY FD,Stanly Fire Dispatch,Fire Dispatch,Stanly County EMS/Fire,2
+42530,a622,D,STANLY EMS,Stanly EMS Dispatch,EMS Dispatch,Stanly County EMS/Fire,2
+42531,a623,D,STANLY RGNL,EMS to Stanly Regional Medical Ctr,Hospital,Stanly County EMS/Fire,2
+45500,b1bc,D,UCSO C/W 2,Union Sheriff County Wide Ops 2,Law Tac,Union Sheriff,2
+45537,b1e1,D,UC EVENT 1,Union County Event 1,Multi-Talk,Union Common/Mutual Aid,2
+45538,b1e2,D,UC EVENT 10,Union County Event 10,Multi-Talk,Union Common/Mutual Aid,2
+45539,b1e3,D,UC EVENT 11,Union County Event 11,Multi-Talk,Union Common/Mutual Aid,2
+45540,b1e4,D,UC EVENT 12,Union County Event 12,Multi-Talk,Union Common/Mutual Aid,2
+45541,b1e5,D,UC EVENT 13,Union County Event 13,Multi-Talk,Union Common/Mutual Aid,2
+45542,b1e6,D,UC EVENT 2,Union County Event 2,Multi-Talk,Union Common/Mutual Aid,2
+45543,b1e7,D,UC EVENT 3,Union County Event 3,Multi-Talk,Union Common/Mutual Aid,2
+45544,b1e8,D,UC EVENT 4,Union County Event 4,Multi-Talk,Union Common/Mutual Aid,2
+45545,b1e9,D,UC EVENT 5,Union County Event 5,Multi-Talk,Union Common/Mutual Aid,2
+45546,b1ea,D,UC EVENT 6,Union County Event 6,Multi-Talk,Union Common/Mutual Aid,2
+45547,b1eb,D,UC EVENT 7,Union County Event 7,Multi-Talk,Union Common/Mutual Aid,2
+45548,b1ec,D,UC EVENT 8,Union County Event 8,Multi-Talk,Union Common/Mutual Aid,2
+45549,b1ed,D,UC EVENT 9,Union County Event 9,Multi-Talk,Union Common/Mutual Aid,2
+45551,b1ef,D,UCO BRAVO,Union County Bravo,Multi-Talk,Union EMS/Fire,2
+45574,b206,D,MONROE PD 2,Monore Police Tac 2,Law Tac,Monroe Police,2
+45582,b20e,D,COM EOC 1,Common Emergency Operations Center 1,Multi-Tac,Systemwide,2
+45583,b20f,D,COM EOC 2,Common Emergency Operations Center 2,Multi-Tac,Systemwide,2
+45584,b210,D,COM EOC 3,Common Emergency Operations Center 3,Multi-Tac,Systemwide,2
+45585,b211,D,COM EOC 4,Common Emergency Operations Center 4,Multi-Tac,Systemwide,2
+45586,b212,D,UCO CHARLIE,Union County Charlie,Multi-Talk,Union EMS/Fire,2
+45587,b213,D,UCO DELTA,Union County Delta,Multi-Talk,Union EMS/Fire,2
+45588,b214,D,UCO ECHO,Union County Echo,Multi-Talk,Union EMS/Fire,2
+45589,b215,D,UCO FOXTROT,Union County Foxtrot,Multi-Talk,Union EMS/Fire,2
+45590,b216,D,UCO GOLF,Union County Golf,Multi-Talk,Union EMS/Fire,2
+45591,b217,D,UCO HOTEL,Union County Hotel,Multi-Talk,Union EMS/Fire,2
+45592,b218,D,UCO INDIA,Union County India,Multi-Talk,Union EMS/Fire,2
+45593,b219,D,UCO JULIET,Union County Juliet,Multi-Talk,Union EMS/Fire,2
+45594,b21a,D,UCO KILO,Union County Kilo,Multi-Talk,Union EMS/Fire,2
+45595,b21b,D,UCO LIMA,Union County Lima,Multi-Talk,Union EMS/Fire,2
+45596,b21c,D,UCSO DSP 1,Union Sheriff Dispatch 1,Law Dispatch,Union Sheriff,2
+45597,b21d,D,MONROE PD,Monroe Police Dispatch,Law Dispatch,Monroe Police,2
+45599,b21f,D,UCFD EMG,Union County Fire Emergency,Fire-Tac,Union EMS/Fire,2
+45602,b222,D,MFD EMG,Monroe Fire Emergency,Fire-Tac,Monroe Fire,2
+45604,b224,D,UCO EMS DSP,Union County EMS Dispatch,EMS Dispatch,Union EMS/Fire,2
+45640,b248,D,UCSO JAIL 2,Union Sheriff Detention Center Secondary,Law Talk,Union Sheriff,2
+45641,b249,D,UCSO JAIL 1,Union Sheriff Detention Center Primary,Law Tac,Union Sheriff,2
+45648,b250,D,UNION EOC 1,Union Emergency Operations Center 1,Emergency Ops,Union Common/Mutual Aid,2
+45649,b251,D,UNION EOC 2,Union Emergency Operations Center 2,Emergency Ops,Union Common/Mutual Aid,2
+45650,b252,D,UNION EOC 3,Union Emergency Operations Center 3,Emergency Ops,Union Common/Mutual Aid,2
+45651,b253,D,UNION EOC 4,Union Emergency Operations Center 4,Emergency Ops,Union Common/Mutual Aid,2
+45657,b259,D,MONROE FIRE,Monroe Fire Dispatch ,Fire Dispatch,Monroe Fire,2
+45668,b264,D,UC POL MA,Union County Police Mutual Aid,Law Tac,Union Common/Mutual Aid,2
+45670,b266,D,UCO FIR DSP,Union County Fire Dispatch,Fire Dispatch,Union EMS/Fire,2
+45675,b26b,D,UC EVENT 14,Union County Event 14,Multi-Talk,Union Common/Mutual Aid,2
+45676,b26c,D,UC EVENT 15,Union County Event 15,Multi-Talk,Union Common/Mutual Aid,2
+45677,b26d,D,UC EVENT 16,Union County Event 16,Multi-Talk,Union Common/Mutual Aid,2
+45729,b2a1,D,UC TRANS 1,Union County Transportaion Operations 1,Transportation,Union Services,2
+45730,b2a2,D,UC TRANS 2,Union County Transportation Operations 2,Transportation,Union Services,2

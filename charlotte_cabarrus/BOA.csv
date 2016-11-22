@@ -1,0 +1,24 @@
+16,1,A,STAD SECURIT,Ch. A-2 Stadium Security,Security,Public Safety,2
+48,3,A,CLT/OBS,Ch. B-14 Parking?,Business,General,2
+80,5,A,COMMUNICATIO,Ch. A-5 Communications,Business,General,2
+112,7,A,TICKETS,Ch. A-6 Ticketing,Business,Admin,2
+144,9,A,0/1 SHOW PRO,Ch. A-7 Show Pros,Business,Show Pros,2
+176,00b,A,STAD OPERATI,Ch. A-1 Stadium Operations,Business,Admin,2
+208,00d,A,3/4 SHOW PRO,Ch. A-8 Show Pros,Business,Show Pros,2
+240,00f,A,500 SHOW PRO,Ch. A-9 Show Pros,Business,Show Pros,2
+272,11,A,MAINTENANCE,Ch. A-10 Maintenance,Business,General,2
+304,13,A,STDM DISPATC,Ch. C-1 through 16 Stadium Dispatch,Business,General,2
+336,15,A,STDM FOOD-BE,Ch. A-11 Concessions,Business,General,2
+368,17,A,EVENTS 6,Ch. B-6 Events 6 (Audio/Video Services),Business,Events,2
+432,01b,A,PANTHER MANA,Ch. B-7 Panther Management,Business,Admin,2
+464,01d,A,SHOW PROS MG,Ch. A-15 Show Pros Management,Business,Show Pros,2
+496,01f,A,STDM CLEAN S,Ch. A-16 Housekeeping,Business,General,2
+528,21,A,CONCESSIONS,Ch. A-12 Concessions,Business,General,2
+560,23,A,CATERING,Ch. A-13 Catering,Business,General,2
+592,25,A,CLT/MECK POL,Ch. B-8 Charlotte-Mecklenburg Police,Law Dispatch,Public Safety,2
+624,27,A,CLT/MECK FIR,Ch. B-9 Charlotte-Mecklenburg Fire,Fire Dispatch,Public Safety,2
+656,29,A,EVENTS 7,Ch. B-10 Events 7,Business,Events,2
+688,02b,A,EVENTS 8,Ch. B-11 Events 8,Business,Events,2
+720,02d,A,CAR MED CTR,Ch. B-12 Carolinas Medical Center,Hospital,Public Safety,2
+752,02f,A,GROUNDS,Ch. A-3 Grounds,Business,General,2
+768,30,A,CUSTOMER SVC,Ch. A-4 Customer Service,Business,Admin,2

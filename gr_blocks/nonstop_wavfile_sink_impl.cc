@@ -108,13 +108,14 @@ nonstop_wavfile_sink_impl::open(const char *filename)
                    O_RDWR | O_CREAT | OUR_O_LARGEFILE | OUR_O_BINARY,
                    0664)) < 0) {
     perror(filename);
-    std::cout << "wav error opening: " << filename << std::endl;
+    //BOOST_LOG_TRIVIAL(info) << "wav error opening: " << filename << std::endl;
+	tout.Wav(0);
     return false;
   }
 
   if (d_fp) { // if we've already got a new one open, close it
-    std::cout << "d_fp alread open, closing " << d_fp << " more" << current_filename << " for " << filename << std::endl;
-
+    //std::cout << "d_fp alread open, closing " << d_fp << " more" << current_filename << " for " << filename << std::endl;
+	//Treehouseman Cant have std::cout
     // fclose(d_fp);
     // d_fp = NULL;
   }
@@ -123,7 +124,8 @@ nonstop_wavfile_sink_impl::open(const char *filename)
   if ((d_fp = fdopen(fd, "rb+")) == NULL) {
     perror(filename);
     ::close(fd); // don't leak file descriptor if fdopen fails.
-    std::cout << "wav open failed" << std::endl;
+    //BOOST_LOG_TRIVIAL(info) << "wav open failed" << std::endl;
+	//tout.Wav(1);
     return false;
   }
 
@@ -149,7 +151,8 @@ nonstop_wavfile_sink_impl::open(const char *filename)
 
     // you have to rewind the d_new_fp because the read failed.
     if (fseek(d_fp, 0, SEEK_SET) != 0) {
-      std::cout << "Error rewinding " << std::endl;
+      //BOOST_LOG_TRIVIAL(info) << "Error rewinding " << std::endl;
+	  //tout.Wav(2);
       return false;
     }
 
@@ -159,7 +162,9 @@ nonstop_wavfile_sink_impl::open(const char *filename)
                          d_sample_rate,
                          d_nchans,
                          d_bytes_per_sample)) {
-      fprintf(stderr, "[%s] could not write to WAV file\n", __FILE__);
+      //fprintf(stderr, "[%s] could not write to WAV file\n", __FILE__);
+	  //BOOST_LOG_TRIVIAL(info) << "Could not write to WAV file";
+	  //tout.Wav(3);
       exit(-1);
     }
   }
@@ -186,7 +191,8 @@ nonstop_wavfile_sink_impl::close()
   gr::thread::scoped_lock guard(d_mutex);
 
   if (!d_fp) {
-    std::cout << "wav error closing file" << std::endl;
+    //BOOST_LOG_TRIVIAL(info) << "wav error closing file" << std::endl;
+	//tout.Wav(4);
     return;
   }
 
@@ -234,7 +240,8 @@ nonstop_wavfile_sink_impl::work(int                        noutput_items,
 
   if (!d_fp)                              // drop output on the floor
   {
-    std::cout << "Wav - Dropping items, no fp: " << noutput_items << std::endl;
+    //BOOST_LOG_TRIVIAL(info) << "Wav - Dropping items, no fp: " << noutput_items; //Treehouseman Pesky cout!
+	//tout.Wav(5);
     return noutput_items;
   }
   std::vector<gr::tag_t> tags;
@@ -248,7 +255,8 @@ nonstop_wavfile_sink_impl::work(int                        noutput_items,
       double   sec = (double)pos  / (double)d_sample_rate;
       if (curr_src_id != src_id) {
         add_source(src_id, sec);
-        std::cout << " [" << i << "]-[ " << src_id << " : Pos - "<< pos<< " offset: " << tags[i].offset - nitems_read(0) << " : " << sec << " ] " << std::endl;
+        //std::cout << " [" << i << "]-[ " << src_id << " : Pos - "<< pos<< " offset: " << tags[i].offset - nitems_read(0) << " : " << sec << " ] " << std::endl;
+		//Treehouseman Can't have cout
         curr_src_id = src_id;
       }
     }

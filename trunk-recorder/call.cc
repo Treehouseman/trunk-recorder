@@ -20,7 +20,7 @@ void Call::create_filename() {
   // path_stream.str().c_str(),talkgroup,start_time);
 }
 
-Call::Call(long t, double f, System *s, Config c) {
+Call::Call(long t, double f, System *s, Config c, int csys_id) {
   config          = c;
     freq_count = 0;
     curr_freq = 0;
@@ -36,11 +36,12 @@ Call::Call(long t, double f, System *s, Config c) {
   tdma            = false;
   encrypted       = false;
   emergency       = false;
-
+  nac             = csys_id;
+  dev             = "";
   this->create_filename();
 }
 
-Call::Call(TrunkMessage message, System *s, Config c) {
+Call::Call(TrunkMessage message, System *s, Config c, int csys_id) {
   config          = c;
     freq_count = 0;
     curr_freq = 0;
@@ -58,7 +59,8 @@ Call::Call(TrunkMessage message, System *s, Config c) {
   tdma            = message.tdma;
   encrypted       = message.encrypted;
   emergency       = message.emergency;
-
+  nac             = csys_id;
+  dev             = "";
   this->create_filename();
 }
 
@@ -71,7 +73,8 @@ void Call::end_call() {
 
     stop_time      = time(NULL);
   if (state == recording) {
-    BOOST_LOG_TRIVIAL(info) << "Ending Recorded Call \tTG: " <<   this->get_talkgroup() << "\tLast Update: " << this->since_last_update() << " Call Elapsed: " << this->elapsed();
+	  tout.EndCall(this->get_talkgroup(), this->elapsed(), dev);
+    BOOST_LOG_TRIVIAL(info) << "Removing Recorded Call \tTG: " <<   this->get_talkgroup() << "\tLast Update: " << this->since_last_update() << " Call Elapsed: " << this->elapsed() << " NAC: " << std::hex << std::uppercase << nac << std::dec << std::nouppercase;
     std::ofstream myfile(status_filename);
     std::stringstream shell_command;
     Call_Source *wav_src_list = get_recorder()->get_source_list();
@@ -108,9 +111,10 @@ void Call::end_call() {
       myfile.close();
     }
     if (sys->get_upload_script().length() != 0) {
-      shell_command << "./"<< sys->get_upload_script() << " " << this->get_filename() << " &";
+      //shell_command << "./"<< sys->get_upload_script() << " " << this->get_filename() << " &";
     }
     this->get_recorder()->stop();
+	/*
     if (this->config.upload_server != "") {
       send_call(this, sys, config);
     } else {
@@ -120,6 +124,7 @@ void Call::end_call() {
       BOOST_LOG_TRIVIAL(info) << "Running upload script: " << shell_command.str();
       int rc = system(shell_command.str().c_str());
     }
+	*/
   }
 
   if (this->get_debug_recording() == true) {
@@ -242,5 +247,20 @@ long Call::get_start_time() {
 }
 
 char * Call::get_filename() {
+  create_filename();
   return filename;
+}
+
+void Call::set_nac(int n){
+	nac = n;
+}
+
+int Call::get_nac(){
+	return nac;
+}
+void Call::set_dev(std::string radio){
+	dev = radio;
+}
+std::string Call::get_dev(){
+	return dev;
 }

@@ -251,9 +251,12 @@ p25p1_fdma::process_duid(uint32_t const duid, uint32_t const nac, uint8_t const 
 
   // wbuf[p++] = (char) (d_sys_id+'0'); // clever way to convert int to char
   // wbuf[p++] = ',';
-  wbuf[p++] = (nac >> 8) & 0xff;
-  wbuf[p++] = nac & 0xff;
-
+  wbuf[p++] = nac/10/10;
+  wbuf[p++] = nac/10%10;
+  wbuf[p++] = nac%10;
+  //wbuf[p++] = (nac >> 8) & 0xff;
+  //wbuf[p++] = nac & 0xff;
+  //std::cout << wbuf[0] << wbuf[1] << wbuf[2] << std::endl;
   if (buf) {
     memcpy(&wbuf[p], buf, len); // copy data
     p += len;

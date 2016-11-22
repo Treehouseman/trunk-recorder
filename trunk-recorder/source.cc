@@ -182,6 +182,7 @@ void Source::create_analog_recorders(gr::top_block_sptr tb, int r) {
 
   for (int i = 0; i < max_analog_recorders; i++) {
     analog_recorder_sptr log = make_analog_recorder(this);
+	log->num = rec_num++;
     analog_recorders.push_back(log);
     tb->connect(source_block, 0, log, 0);
   }
@@ -189,7 +190,7 @@ void Source::create_analog_recorders(gr::top_block_sptr tb, int r) {
 
 Recorder * Source::get_analog_recorder(int priority)
 {
-  if (priority > 99) {
+  /*if (priority > 99) {
     BOOST_LOG_TRIVIAL(info) << "\t\tNot recording because of priority";
     return NULL;
   }
@@ -206,6 +207,40 @@ Recorder * Source::get_analog_recorder(int priority)
     }
   }
   BOOST_LOG_TRIVIAL(info) << "[ " << driver << " ] No Analog Recorders Available";
+  return NULL;*/
+   if (priority > 99) {
+    BOOST_LOG_TRIVIAL(info) << "Not recording because of priority";
+    return NULL;
+  }
+
+
+  for (std::vector<analog_recorder_sptr>::iterator it = analog_recorders.begin();
+       it != analog_recorders.end(); it++) {
+    analog_recorder_sptr rx = *it;
+
+    if (rx->get_state() == inactive)
+    {
+      return (Recorder *)rx.get();
+
+      break;
+    }
+  }
+  BOOST_LOG_TRIVIAL(info) << "[ " << device <<
+    " ] No Analog Recorders Available";
+
+  for (std::vector<analog_recorder_sptr>::iterator it = analog_recorders.begin();
+       it != analog_recorders.end(); it++) {
+    analog_recorder_sptr rx = *it;
+    BOOST_LOG_TRIVIAL(info) << "[ " << rx->get_num() << " ] P25    State: " << rx->get_state();
+  }
+  for (std::vector<analog_recorder_sptr>::iterator it = analog_recorders.begin();
+       it != analog_recorders.end(); it++) {
+    analog_recorder_sptr rx = *it;
+
+
+
+      BOOST_LOG_TRIVIAL(info) << "[ " << rx->get_num() << " ] Analog State: " << rx->get_state();
+  }
   return NULL;
 }
 

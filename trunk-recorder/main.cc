@@ -11,7 +11,12 @@
 #include <boost/tokenizer.hpp>
 #include <boost/intrusive_ptr.hpp>
 #include <boost/foreach.hpp>
-
+//Treehouseman_begin
+#include <boost/log/utility/setup/file.hpp>
+#include "ncurses/tree.h"
+#include <ncurses.h>
+#include <curses.h>
+//Treehouseman_end
 
 #include <iostream>
 #include <cassert>
@@ -57,6 +62,8 @@
 
 using namespace std;
 namespace logging = boost::log;
+namespace keywords = boost::log::keywords;
+namespace sinks = boost::log::sinks;
 
 std::vector<Source *> sources;
 std::vector<System *> systems;
@@ -73,13 +80,19 @@ SmartnetParser *smartnet_parser;
 P25Parser *p25_parser;
 
 Config config;
-
+//Treehouseman_begin
+int cursesen = 0;
+int currid;
+int csys_id=0;
+Tree tout;
+//Treehouseman_end
 
 string default_mode;
 
 
 void exit_interupt(int sig) { // can be called asynchronously
   exit_flag = 1;              // set flag
+  endwin(); //Treehouseman Stop ncurses
 }
 
 unsigned GCD(unsigned u, unsigned v) {
@@ -149,14 +162,31 @@ void load_config()
       BOOST_LOG_TRIVIAL(info) << "Upload Script: " << config.upload_script;
       system->set_system_type(node.second.get<std::string>("type"));
       BOOST_LOG_TRIVIAL(info) << "System Type: " << system->get_system_type();
-
+	  BOOST_LOG_TRIVIAL(info) << "Upload Server: " << config.upload_server;
+      default_mode = pt.get<std::string>("defaultMode", "digital");
+	  system->set_default_mode(default_mode);
+      BOOST_LOG_TRIVIAL(info) << "Default Mode: " << system->get_default_mode();
       system->set_talkgroups_file(node.second.get<std::string>("talkgroupsFile", ""));
       BOOST_LOG_TRIVIAL(info) << "Talkgroups File: " << system->get_talkgroups_file();
       systems.push_back(system);
+	  //Treehouseman_begin Maybe it's better to just specify system ID's in the config
+	  std::stringstream ss;
+	  std::string newidstr = node.second.get<std::string>("sysId", "");
+	  unsigned int newid;
+	  ss << std::hex << newidstr;
+	  ss >> newid;
+	  tout.SysId(newid);
+	  system->set_tsys_id(newid);
+	  BOOST_LOG_TRIVIAL(info) << "System ID: " << std::hex << std::uppercase << system->get_tsys_id() << std::dec << std::nouppercase;
+	  //Treehouseman_end
     }
     config.capture_dir = pt.get<std::string>("captureDir", boost::filesystem::current_path().string());
     size_t pos = config.capture_dir.find_last_of("/");
-
+	//Treehouseman_begin
+	  cursesen = pt.get<int>("ncurses", 0);
+	  tout.SetCurses(cursesen);
+	  BOOST_LOG_TRIVIAL(info) << "Ncurses mode = " << cursesen;
+	  //Treehouseman_end
     if (pos == config.capture_dir.length() - 1)
     {
       config.capture_dir.erase(config.capture_dir.length() - 1);
@@ -194,6 +224,7 @@ void load_config()
       int digital_recorders = node.second.get<int>("digitalRecorders", 0);
       int debug_recorders   = node.second.get<int>("debugRecorders", 0);
       int analog_recorders  = node.second.get<int>("analogRecorders", 0);
+	  
 
       std::string driver = node.second.get<std::string>("driver", "");
       std::string device = node.second.get<std::string>("device", "");
@@ -213,6 +244,8 @@ void load_config()
       BOOST_LOG_TRIVIAL(info) << "Debug Recorders: " << node.second.get<int>("debugRecorders",  0);
       BOOST_LOG_TRIVIAL(info) << "Analog Recorders: " << node.second.get<int>("analogRecorders",  0);
       BOOST_LOG_TRIVIAL(info) << "Driver: " << node.second.get<std::string>("driver",  "");
+	  tout.SourceDev(device, digital_recorders, analog_recorders); //Treehouseman Tracking Radios
+	  BOOST_LOG_TRIVIAL(info) << "device: " << device;
 
       boost::optional<std::string> mod_exists = node.second.get_optional<std::string>("modulation");
 
@@ -304,17 +337,17 @@ bool replace(std::string& str, const std::string& from, const std::string& to) {
 }
 
 void start_recorder(Call *call, TrunkMessage message) {
-  Talkgroup *talkgroup = talkgroups->find_talkgroup(call->get_talkgroup());
+  Talkgroup *talkgroup = talkgroups->find_talkgroup(call->get_talkgroup(), csys_id);
   bool source_found    = false;
   bool recorder_found  = false;
   Recorder *recorder;
   Recorder *debug_recorder;
+  bool isanalog = false; //Treehouseman Tracking call types
 
   // BOOST_LOG_TRIVIAL(info) << "\tCall created for: " << call->get_talkgroup()
   // << "\tTDMA: " << call->get_tdma() <<  "\tEncrypted: " <<
   // call->get_encrypted() << "\tFreq: " << call->get_freq();
-
-  if (call->get_encrypted() == false) {
+  //if (call->get_encrypted() == false) { //Treehouseman Encrypted call lives matter too!
     for (vector<Source *>::iterator it = sources.begin(); it != sources.end(); it++) {
       Source *source = *it;
 
@@ -331,15 +364,18 @@ void start_recorder(Call *call, TrunkMessage message) {
         {
           if (talkgroup->mode == 'A') {
             recorder = source->get_analog_recorder(talkgroup->get_priority());
+			isanalog=true; //Treehouseman mark true;
           } else {
             recorder = source->get_digital_recorder(talkgroup->get_priority());
           }
         } else {
           BOOST_LOG_TRIVIAL(error) << "\tTalkgroup not found: " << call->get_freq() << " For TG: " << call->get_talkgroup();
+		  tout.MissingTG(call->get_talkgroup(), csys_id);//Treehouseman Missing TG Notification
 
           // A talkgroup was not found from the talkgroup file.
           if (default_mode == "analog") {
             recorder = source->get_analog_recorder(2);
+			isanalog=true;//Treehouseman makr true;
           } else {
             recorder = source->get_digital_recorder(2);
           }
@@ -351,13 +387,20 @@ void start_recorder(Call *call, TrunkMessage message) {
           if (message.meta.length()) {
             BOOST_LOG_TRIVIAL(info) << message.meta;
           }
-          BOOST_LOG_TRIVIAL(info) << "Starting Recorder on Src: " << source->get_device();
-
+          BOOST_LOG_TRIVIAL(info) << "Activating rec on src: " << source->get_device() << " SysId: " << std::hex << std::uppercase << csys_id << std::dec << std::nouppercase << " TG: " << message.talkgroup;
+		  tout.StartCall(call->get_talkgroup(), call->get_freq(), source->get_device(), isanalog, csys_id); //Treehouseman Start Call Notification
           recorder->start(call, total_recorders);
+		  call->set_nac(csys_id);
           call->set_recorder(recorder);
           call->set_state(recording);
+		  call->set_dev(source->get_device().substr(4));
           recorder_found = true;
         } else {
+			tout.NoRecorder(call->get_freq(), call->get_talkgroup(), csys_id, source->get_device());//Treehouseman Tracking needed recorders
+			std::string radbuff = source->get_device();
+			BOOST_LOG_TRIVIAL(info) << "No Recorder on Radio: " << radbuff.substr(4) << " Freq: " << call->get_freq() << " TG: " << call->get_talkgroup() << " Sys: " << std::hex << std::uppercase << csys_id << std::dec << std::nouppercase;
+			//std::cout << "No Recorder on Radio: ";
+			//std::cout << radbuff.substr(4) << " Freq: " << call->get_freq() << " TG: " << call->get_talkgroup() << " Sys: " << std::hex << std::uppercase << csys_id << std::dec << std::nouppercase << "\n";
           // not recording call either because the priority was too low or no
           // recorders were available
           return;
@@ -382,12 +425,15 @@ void start_recorder(Call *call, TrunkMessage message) {
     }
 
     if (!source_found) {
-      BOOST_LOG_TRIVIAL(info) <<  "\tRecording not started because there was no source covering: " <<  call->get_freq() << " For TG: " << call->get_talkgroup();
+      BOOST_LOG_TRIVIAL(info) <<  "\tRecording not started because there was no source covering: " <<  call->get_freq() << " For TG: " << call->get_talkgroup() << " Sys: " << std::hex << std::uppercase << call->get_nac() << std::nouppercase << std::dec;
+	  if(call->get_freq()!=0)
+	  tout.NoSource(call->get_freq(), call->get_talkgroup(), csys_id);//Treehouseman Log no source
       return;
     }
+	/* Treehouseman Cleaning up encrypted if statement
   } else {
     // anything for encrypted calls could go here...
-  }
+  }*/
 }
 
 void stop_inactive_recorders() {
@@ -402,6 +448,16 @@ void stop_inactive_recorders() {
       ++it;
     } // if rx is active
   }   // foreach loggers
+  for (vector<Call *>::iterator it = calls.begin(); it != calls.end();) {
+	  Call *call = *it;
+	  if(call->elapsed()>600){
+		  tout.Long(call->get_talkgroup(), call->get_freq(), call->elapsed(), call->since_last_update(), call->get_nac());//Treehouseman Track Long Calls
+		  call->end_call();
+		  delete call;
+		  it = calls.erase(it);
+	  }
+	  ++it;
+  }
 
 
 /*     for (vector<Source *>::iterator it = sources.begin(); it != sources.end();
@@ -417,7 +473,7 @@ void print_status() {
   for (vector<Call *>::iterator it = calls.begin(); it != calls.end(); it++) {
     Call *call         = *it;
     Recorder *recorder = call->get_recorder();
-    BOOST_LOG_TRIVIAL(info) << "TG: " << call->get_talkgroup() << " Freq: " << call->get_freq() << " elapsed: " << call->elapsed() << " State: " << call->get_state();
+	BOOST_LOG_TRIVIAL(info) << "TG: " << call->get_talkgroup() << " Freq: " << call->get_freq() << " elapsed: " << call->elapsed() << " State: " << call->get_state() << " Sys: " << std::hex << std::uppercase << call->get_nac() << std::dec << std::nouppercase;
 
     if (recorder) {
       BOOST_LOG_TRIVIAL(info) << "\t[ " << recorder->get_num() << " ] State: " << recorder->get_state();
@@ -436,8 +492,12 @@ bool retune_recorder(TrunkMessage message, Call *call) {
   Recorder *recorder = call->get_recorder();
   Source   *source   = recorder->get_source();
 
-  BOOST_LOG_TRIVIAL(info) << "\tRetune - Elapsed: " << call->elapsed() << "s \tSince update: " << call->since_last_update() << "s \tTalkgroup: " <<  message.talkgroup << "\tOld Freq: " << call->get_freq() << "\tNew Freq: " << message.freq;
-
+ //Treehouseman_begin
+	long old_freq = call->get_freq();
+	int since = call->since_last_update();
+	//Treehouseman_end
+  BOOST_LOG_TRIVIAL(info) << "\tRetune - Elapsed: " << call->elapsed() << "s \tSince update: " << call->since_last_update() << "s \tTalkgroup: " <<  message.talkgroup << "\tOld Freq: " << call->get_freq() << "\tNew Freq: " << message.freq << " Sys: " << std::hex << std::uppercase << call->get_nac() << std::nouppercase << std::dec;
+	
   // set the call to the new Freq / TDMA slot
   call->set_freq(message.freq);
   call->set_tdma(message.tdma);
@@ -445,12 +505,15 @@ bool retune_recorder(TrunkMessage message, Call *call) {
 
   if ((source->get_min_hz() <= message.freq) && (source->get_max_hz() >= message.freq)) {
     recorder->tune_offset(message.freq);
-
+	tout.Retune(call->elapsed(), since, message.talkgroup, old_freq, message.freq, true);//Treehouseman Track Retune
     if (call->get_debug_recording() == true) {
       call->get_debug_recorder()->tune_offset(message.freq);
     }
     return true;
   } else {
+	  BOOST_LOG_TRIVIAL(info) <<  "\t\tStopping call, starting new call on new source" << " Sys: " << std::hex << std::uppercase << call->get_nac() << std::nouppercase << std::dec;
+	  call->end_call();
+	  tout.Retune(call->elapsed(), since, message.talkgroup, old_freq, message.freq, false);//Treehouseman Track Retune
     return false;
   }
 }
@@ -465,16 +528,16 @@ void assign_recorder(TrunkMessage message, System *sys) {
 
 
     if (call_found && (call->get_talkgroup() == message.talkgroup)) {
-      BOOST_LOG_TRIVIAL(info) << "\tALERT! Assign - Total calls: " <<  calls.size() << "\tTalkgroup: " << message.talkgroup << "\tOld Freq: " << call->get_freq() << "\tNew Freq: " << message.freq;
+      BOOST_LOG_TRIVIAL(info) << "\tALERT! Assign - Total calls: " <<  calls.size() << "\tTalkgroup: " << message.talkgroup << "\tOld Freq: " << call->get_freq() << "\tNew Freq: " << message.freq << " Sys: " << std::hex << std::uppercase << call->get_nac() << std::nouppercase << std::dec;
     }
 
     // Does the call have the same talkgroup
-    if (call->get_talkgroup() == message.talkgroup) {
+    if ((call->get_talkgroup() == message.talkgroup) && csys_id == call->get_nac()) {
       call_found = true;
 
       // Is the freq the same?
       if (call->get_freq() != message.freq) {
-        BOOST_LOG_TRIVIAL(trace) << "\tAssign Retune - Total calls: " <<  calls.size() << "\tRecorders: " << get_total_recorders() << "\tTalkgroup: " << message.talkgroup << "\tOld Freq: " << call->get_freq() << "\tNew Freq: " << message.freq;
+        BOOST_LOG_TRIVIAL(trace) << "\tAssign Retune - Total calls: " <<  calls.size() << "\tRecorders: " << get_total_recorders() << "\tTalkgroup: " << message.talkgroup << "\tOld Freq: " << call->get_freq() << "\tNew Freq: " << message.freq << " Sys: " << std::hex << std::uppercase << call->get_nac() << std::nouppercase << std::dec;
 
         // are we currently recording the call?
         if (call->get_state() == recording) {
@@ -530,7 +593,7 @@ void assign_recorder(TrunkMessage message, System *sys) {
 
 
   if (!call_found) {
-    Call *call = new Call(message, sys, config);
+    Call *call = new Call(message, sys, config, csys_id);
     start_recorder(call, message);
     calls.push_back(call);
   }
@@ -538,9 +601,10 @@ void assign_recorder(TrunkMessage message, System *sys) {
 
 void current_system_id(int sysid) {
   static int active_sysid = 0;
-
   if (active_sysid != sysid) {
-    BOOST_LOG_TRIVIAL(info) << "Decoding System ID " << std::hex << std::uppercase << sysid << std::nouppercase << std::dec;
+	  currid = sysid;
+    //BOOST_LOG_TRIVIAL(info) << "Decoding System ID " << std::hex << std::uppercase << sysid << std::nouppercase << std::dec;
+	//Treehouseman This made a lot of messages with multiple systems
     active_sysid = sysid;
   }
 }
@@ -569,16 +633,16 @@ void update_recorder(TrunkMessage message, System *sys) {
 
     // This should help detect 2 calls being listed for the same tg
     if (call_found && (call->get_talkgroup() == message.talkgroup)) {
-      BOOST_LOG_TRIVIAL(info) << "\tALERT! Update - Total calls: " <<  calls.size() << "\tTalkgroup: " << message.talkgroup << "\tOld Freq: " <<  call->get_freq() << "\tNew Freq: " << message.freq;
+      BOOST_LOG_TRIVIAL(info) << "\tALERT! Update - Total calls: " <<  calls.size() << "\tTalkgroup: " << message.talkgroup << "\tOld Freq: " <<  call->get_freq() << "\tNew Freq: " << message.freq << " Sys: " << std::hex << std::uppercase << call->get_nac() << std::nouppercase << std::dec;
     }
 
-    if (call->get_talkgroup() == message.talkgroup) {
+    if (call->get_talkgroup() == message.talkgroup && csys_id == call->get_nac()) {
       call_found = true;
       call->update(message);
 
       if (call->get_freq() != message.freq) {
         if (call->get_state() == recording) {
-          BOOST_LOG_TRIVIAL(info) << "\t Update Retune - Total calls: " <<  calls.size() << "\tTalkgroup: " << message.talkgroup << "\tOld Freq: " << call->get_freq() << "\tNew Freq: " << message.freq;
+          BOOST_LOG_TRIVIAL(info) << "\t Update Retune - Total calls: " <<  calls.size() << "\tTalkgroup: " << message.talkgroup << "\tOld Freq: " << call->get_freq() << "\tNew Freq: " << message.freq << " Sys: " << std::hex << std::uppercase << call->get_nac() << std::nouppercase << std::dec;
 
           // see if we can retune the recorder, sometimes you can't if there are
           // more than one
@@ -590,9 +654,14 @@ void update_recorder(TrunkMessage message, System *sys) {
             it = calls.erase(it);
             delete call;
             call_found = false;
+            BOOST_LOG_TRIVIAL(info) << "\tUpdate needed a new source, but I didn 't care" << " Sys: " << std::hex << std::uppercase << call->get_nac() << std::nouppercase << std::dec;
           }
         } else {
           // the Call is not recording, update and continue
+		  std::stringstream ts;
+			ts << "Not Recording a call, Old Freq: " << call->get_freq() << " New Freq: " << message.freq << " TG: " << call->get_talkgroup() << " Sys: " << std::hex << std::uppercase << call->get_nac() << std::nouppercase << std::dec;
+			if(call->get_freq() != 0)
+			tout.NewLog(ts.str());
           call->set_freq(message.freq);
           call->set_tdma(message.tdma);
         }
@@ -605,13 +674,13 @@ void update_recorder(TrunkMessage message, System *sys) {
 
       // the talkgroups don't match
     }
-  }
+  } 
+  if (!call_found) {}
 
   if (!call_found) {
     BOOST_LOG_TRIVIAL(error) << "\t Call not found for Update Message, Starting one...  Talkgroup: " << message.talkgroup << "\tFreq: " << message.freq;
 
-    assign_recorder(message, sys); // Treehouseman, Lets start the call if we
-                                   // missed the GRANT message!
+    
   }
 }
 
@@ -761,6 +830,7 @@ void check_message_count(float timeDiff) {
 
     if (msgs_decoded_per_second < 10) {
       BOOST_LOG_TRIVIAL(error) << "\tControl Channel Message Decode Rate: " <<  msgs_decoded_per_second << "/sec, count:  " << sys->message_count;
+	  tout.Rate(msgs_decoded_per_second);//Treehouseman Slow Rate Alert
     }
     sys->message_count = 0;
   }
@@ -777,11 +847,28 @@ void monitor_messages() {
   time_t lastTalkgroupPurge = time(NULL);
   time_t currentTime        = time(NULL);
   std::vector<TrunkMessage> trunk_messages;
-
+//Treehouseman_start
+int syshistory[10][60];
+int historyloc = 0;
+long sysids[10];
+long sysmps[10];
+bool looped = false;
+for(int i = 0; i < 10; i++){
+		sysids[i]=0;
+		sysmps[i]=0;
+		for(int x = 0; x < 60; x++){
+			syshistory[i][x] = 0;
+		}
+	}
+	if(cursesen)
+	tout.StartCurses();
+//Treehouseman_end
   while (1) {
+	  int sysloc = -1; //Treehouseman Tracking systems
     currentTime = time(NULL);
 
     if (exit_flag) { // my action when signal set it 1
+	  tout.EndWin();//Treehouseman make sure windows are stopped
       printf("\n Signal caught!\n");
       return;
     }
@@ -792,21 +879,36 @@ void monitor_messages() {
     if (msg != 0) {
       sys_id = msg->arg1();
       sys    = find_system(sys_id);
+	  std::string msgstr = msg->to_string();
+	long nac = msgstr[0]*100+msgstr[1]*10+msgstr[2];
+	//std::cout << std::hex << std::uppercase << nac << std::dec << std::nouppercase << std::endl;
+	//std::cout << msg->arg1() << std::endl;
       sys->message_count++;
 
       if ((currentTime - lastTalkgroupPurge) >= 1.0)
       {
         stop_inactive_recorders();
         lastTalkgroupPurge = currentTime;
+		if(cursesen){
+		tout.ScrRef();
+		tout.TimeUp();}
       }
 
       if (sys) {
         if (sys->get_system_type() == "smartnet") {
+			default_mode="analog";
+			csys_id = 0xf18;
+			tout.ccId(0xf18);
           trunk_messages = smartnet_parser->parse_message(msg->to_string());
           handle_message(trunk_messages, sys);
         }
 
         if (sys->get_system_type() == "p25") {
+			default_mode = "digital";
+			if(nac==0x2d3)
+				nac = 0x2d0;
+			csys_id = nac;
+			tout.ccId(nac);
           trunk_messages = p25_parser->parse_message(msg);
           handle_message(trunk_messages, sys);
         }
@@ -893,13 +995,15 @@ bool monitor_system() {
 
 int main(void)
 {
+//tout.PurgeArrays();//Treehouseman Prep Arrays
   BOOST_STATIC_ASSERT(true) __attribute__((unused));
   signal(SIGINT, exit_interupt);
+  
   logging::core::get()->set_filter
   (
     logging::trivial::severity >= logging::trivial::info
   );
-
+  std::cout << "About to start!\n";
   /*
      logging::add_console_log(
        cout,
@@ -912,7 +1016,16 @@ int main(void)
   p25_parser      = new P25Parser();
 
   load_config();
-
+  //Treehouseman_begin
+  if(cursesen){
+  logging::add_file_log(
+  keywords::file_name = "Log%N.txt",
+  keywords::rotation_size = 10*1024*1024,
+  keywords::time_based_rotation = sinks::file::rotation_at_time_point(0, 0, 0),
+  keywords::auto_flush = true);
+}
+  //Treehouseman_end
+  std::cout << "Loaded Config!\n";
   // Setup the talkgroups from the CSV file
   talkgroups = new Talkgroups();
 
@@ -921,7 +1034,7 @@ int main(void)
 
   for (vector<System *>::iterator it = systems.begin(); it != systems.end(); it++) {
     System *system = *it;
-    talkgroups->load_talkgroups(system->get_talkgroups_file());
+    talkgroups->load_talkgroups(system->get_talkgroups_file(), system->get_tsys_id());
   }
 
   // }
@@ -943,3 +1056,4 @@ int main(void)
 
   return 0;
 }
+

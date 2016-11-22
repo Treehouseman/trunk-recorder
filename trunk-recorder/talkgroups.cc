@@ -43,7 +43,7 @@ std::istream& safeGetline(std::istream& is, std::string& t)
 
 Talkgroups::Talkgroups() {}
 
-void Talkgroups::load_talkgroups(std::string filename) {
+void Talkgroups::load_talkgroups(std::string filename, int s) {
   std::ifstream in(filename.c_str());
 
   if (!in.is_open()) {
@@ -81,7 +81,7 @@ void Talkgroups::load_talkgroups(std::string filename) {
     Talkgroup *tg = new Talkgroup(atoi(vec[0].c_str()), vec[2].at(
                                     0), vec[3].c_str(),
                                   vec[4].c_str(), vec[5].c_str(), vec[6].c_str(),
-                                  atoi(vec[7].c_str()));
+                                  atoi(vec[7].c_str()), s);
 
     talkgroups.push_back(tg);
     lines_pushed++;
@@ -101,14 +101,14 @@ void Talkgroups::load_talkgroups(std::string filename) {
   }
 }
 
-Talkgroup * Talkgroups::find_talkgroup(long tg_number) {
+Talkgroup * Talkgroups::find_talkgroup(long tg_number, int tgs) {
   Talkgroup *tg_match = NULL;
 
   for (std::vector<Talkgroup *>::iterator it = talkgroups.begin();
        it != talkgroups.end(); ++it) {
     Talkgroup *tg = (Talkgroup *)*it;
 
-    if (tg->number == tg_number) {
+    if (tg->number == tg_number && tg->nac == tgs) {
       tg_match = tg;
       break;
     }

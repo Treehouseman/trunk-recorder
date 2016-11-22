@@ -26,6 +26,7 @@
 #include "nonstop_wavfile_sink.h"
 //#include "wavfile.h"
 #include <gnuradio/blocks/wavfile.h>
+#include <boost/log/trivial.hpp>
 
 namespace gr {
 namespace blocks {
@@ -33,6 +34,8 @@ namespace blocks {
 class nonstop_wavfile_sink_impl : public nonstop_wavfile_sink
 {
 private:
+#include "../trunk-recorder/ncurses/tree.h"
+Tree tout;
 	unsigned d_sample_rate;
 	int d_nchans;
 	unsigned d_sample_count;

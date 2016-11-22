@@ -7,7 +7,8 @@ Talkgroup::Talkgroup(long        num,
                      std::string d,
                      std::string t,
                      std::string g,
-                     int         p) {
+                     int         p,
+					 int         s) {
   number      = num;
   mode        = m;
   alpha_tag   = a;
@@ -15,6 +16,7 @@ Talkgroup::Talkgroup(long        num,
   tag         = t;
   group       = g;
   priority    = p;
+  nac         = s;
   active      = false;
 }
 

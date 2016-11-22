@@ -2,6 +2,7 @@
 #define CALL_H
 #include <sys/time.h>
 #include <boost/log/trivial.hpp>
+#include "ncurses/tree.h"
 
 struct Call_Source {
 								long source;
@@ -30,8 +31,8 @@ class Recorder;
 class Call {
 public:
 
-								Call( long t, double f, System *s, Config c);
-								Call( TrunkMessage message, System *s, Config c);
+								Call( long t, double f, System *s, Config c, int csys_id);
+								Call( TrunkMessage message, System *s, Config c, int csys_id);
 								~Call();
 								void end_call();
 								void set_debug_recorder(Recorder *r);
@@ -59,12 +60,18 @@ public:
 								void set_state(State s);
 								State get_state();
 								void set_tdma(int m);
+								void set_nac(int n);
+								int get_nac();
+								std::string dev;
+								void set_dev(std::string radio);
+								std::string get_dev();
 								int get_tdma();
 								void set_encrypted(bool m);
 								bool get_encrypted();
 								void set_emergency(bool m);
 								bool get_emergency();
 private:
+Tree tout;
 								State state;
 								long talkgroup;
 								double curr_freq;
@@ -78,6 +85,7 @@ private:
 								bool debug_recording;
 								bool encrypted;
 								bool emergency;
+								int nac;
 								char filename[160];
 								char status_filename[160];
 								int tdma;

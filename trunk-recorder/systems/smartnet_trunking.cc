@@ -34,7 +34,7 @@ smartnet_trunking::smartnet_trunking(float               f,
                                                         // for 3.7 because it
                                                         // swapped in the
                                                         // switch.
-  float clockrec_oversample  = 3;
+  float clockrec_oversample  = 7;//Treehouseman Fixed! 3 is apparently too low, moar numbers moar better!
   int   decim                =
     int(samples_per_second / (syms_per_sec * clockrec_oversample));
   float sps       = samples_per_second / decim / syms_per_sec;
@@ -44,6 +44,8 @@ smartnet_trunking::smartnet_trunking(float               f,
   cout << "Control channel: " << chan_freq << endl;
   cout << "Decim: " << decim << endl;
   cout << "Samples per symbol: " << sps << endl;
+  cout << "Sample Rate: " << samp_rate << endl;
+  cout << "Center Frequency: " << center_freq << endl;
 
   std::vector<float> lpf_taps;
 

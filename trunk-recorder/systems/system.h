@@ -7,6 +7,7 @@
 class System
 {
         int sys_id;
+		int tsys_id;
 public:
         std::string talkgroups_file;
         std::string short_name;
@@ -35,6 +36,8 @@ public:
         void set_qpsk_mod(bool);
         std::string get_system_type();
         int get_sys_id();
+		int get_tsys_id();
+		void set_tsys_id(int nac);
         void set_system_type(std::string);
         std::string get_talkgroups_file();
         void set_talkgroups_file(std::string);

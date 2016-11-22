@@ -541,20 +541,19 @@ std::vector<TrunkMessage>P25Parser::parse_message(gr::message::sptr msg) {
     return messages;
   }
   std::string s = msg->to_string();
-
   // # nac is always 1st two bytes
-  long nac = ((int)s[0] << 8) + (int)s[1];
-
+  //long nac = ((int)s[0] << 16) + ((int)s[1] << 8) + (int)s[2];
+  long nac = s[0]*100+s[1]*10+s[2];
   if (nac == 0xffff) {
     // # TDMA
     // self.update_state('tdma_duid%d' % type, curr_time)
     messages.push_back(message);
     return messages;
   }
-  s = s.substr(2);
+  s = s.substr(3);
 
-  // std::cout << std::dec << "nac " << nac << " type " << type <<  " size " <<
-  // msg->to_string().length() << " mesg len: " << msg->length() << std::endl;
+   //std::cout << std::dec << "nac " << std::hex << nac << std::dec << " type " << type <<  " size " <<
+   //msg->to_string().length() << " mesg len: " << msg->length() << std::endl;
   // //" at %f state %d len %d" %(nac, type, time.time(), self.state, len(s))
   if ((type == 7) || (type == 12)) // and nac not in self.trunked_systems:
   {

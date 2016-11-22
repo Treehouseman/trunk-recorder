@@ -64,7 +64,7 @@ bool p25p2_framer::rx_sym(uint8_t dibit) {
 	else if(check_frame_sync((nid_accum & P25P2_FRAME_SYNC_MASK) ^ P25P2_FRAME_SYNC_REV_P, 0)) {
 		found = 1;
 		d_reverse_p ^= 0x02;   // auto flip polarity reversal
-		fprintf(stderr, "TDMA: Reversed FS polarity detected - autocorrecting\n");
+		//fprintf(stderr, "TDMA: Reversed FS polarity detected - autocorrecting\n");
 	}
 	if (found) {
 		uint64_t accum = P25P2_FRAME_SYNC_MAGIC;

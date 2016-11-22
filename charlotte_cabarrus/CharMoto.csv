@@ -1,0 +1,303 @@
+464,01d,A,APC-WAR1,Mecklenburg Sheriff Arrest Processing Center Warrant 1,Corrections,Mecklenburg Sheriff,2
+496,01f,A,ARREST,Mecklenburg Sheriff Jail Calling,Corrections,Mecklenburg Sheriff,2
+528,21,A,MCJA-3,Mecklenburg Sheriff Jail Annex 3,Corrections,Mecklenburg Sheriff,2
+560,23,A,APC-WAR2,Mecklenburg Sheriff Arrest Processing Center Warrant 2,Corrections,Mecklenburg Sheriff,2
+592,25,A,MCJHR-2,Mecklenburg Sheriff Jail HR 2,Corrections,Mecklenburg Sheriff,2
+624,27,A,MCJHR-3,Mecklenburg Sheriff Jail HR 3,Corrections,Mecklenburg Sheriff,2
+656,29,A,MEC EVT1 EOC,Mecklenburg Event 1 - EOC,Interop,Mecklenburg Common/Mutual Aid,2
+688,02b,A,MEC EVT2 FIR,Mecklenburg Event 2 - Fire,Interop,Mecklenburg Common/Mutual Aid,2
+720,02d,A,MEC EVT3 EMS,Mecklenburg Event 3 - EMS,Interop,Mecklenburg Common/Mutual Aid,2
+752,02f,A,MEC EVT4 POL,Mecklenburg Event 4 - Police,Interop,Mecklenburg Common/Mutual Aid,2
+784,31,A,MEC EVT5 PW1,Mecklenburg Event 5 - Public Works 1,Interop,Mecklenburg Common/Mutual Aid,2
+816,33,A,MEC EVT6 PW2,Mecklenburg Event 6 - Public Works 2,Interop,Mecklenburg Common/Mutual Aid,2
+848,35,A,MEC EVT7 CFD,Mecklenburg Event 7 - Charlotte Fire,Interop,Mecklenburg Common/Mutual Aid,2
+880,37,A,MEC EVT8 VFD,Mecklenburg Event 8 - Volunteer Fire,Interop,Mecklenburg Common/Mutual Aid,2
+912,39,A,MEC EVT9 NM,Mecklenburg Event 9 - North Mecklenburg 1,Interop,Mecklenburg Common/Mutual Aid,2
+944,03b,A,MEC EVT10 NM,Mecklenburg Event 10 - North Mecklenburg 2,Interop,Mecklenburg Common/Mutual Aid,2
+976,03d,A,MEC EVT11 ST,Mecklenburg Event 11 - South Towns 1,Interop,Mecklenburg Common/Mutual Aid,2
+1008,03f,A,MATTHWPD,Dispatch (includes Mint Hill),Law Dispatch,Matthews ,2
+1040,41,A,PATROL 1,Patrol 1,Law Tac,Matthews ,2
+1072,43,A,PATROL 2,Patrol 2,Law Tac,Matthews ,2
+1104,45,A,MPD-INV-1,Investigations 1,Law Tac,Matthews ,2
+1168,49,A,MPD-TAC-1,Tactical 1,Law Tac,Matthews ,2
+1200,04b,A,MPD-TAC-2,Tactical 2,Law Tac,Matthews ,2
+1232,04d,A,MATTPDSUP1,Supervisor 1,Law Talk,Matthews ,2
+1936,79,A,CATSTECH,CATS Technology,Transportation,Charlotte Area Transit System (CATS),2
+2064,81,A,MEC POL MA,Mecklenburg Police Mutual Aid,Interop,Mecklenburg Common/Mutual Aid,2
+2096,83,A,MEC FIR MA,Mecklenburg Fire Mutual Aid,Interop,Mecklenburg Common/Mutual Aid,2
+2128,85,A,MEC EMS MA,Mecklenburg EMS Mutual Aid,Interop,Mecklenburg Common/Mutual Aid,2
+2160,87,A,PW M/AID,Public Works Mutual Aid,Public Works,Charlotte-Mecklenburg Services,2
+2192,89,A,MA-SEC,Security Net,Interop,Mecklenburg Common/Mutual Aid,2
+2224,08b,A,MA-GOV,"Local Government Mutual Aid (All Agencies, not used)",Interop,Mecklenburg Common/Mutual Aid,2
+2352,93,A,NCHWYPAT-1,Highway Patrol (42.38/42.58 simulcast) Mecklenburg County Troop H5,Law Dispatch,North Carolina State Police,2
+2384,95,A,NCHWYPAT-2,"Highway Patrol (42.xx/42.xx simulcast) Gaston County Troop H1,H4",Law Dispatch,North Carolina State Police,2
+2416,97,A,STORM-2,Storm 2,Interop,Mecklenburg Common/Mutual Aid,2
+2448,99,A,MEC EVT12 ST,Mecklenburg Event 12 - South Towns 2,Interop,Mecklenburg Common/Mutual Aid,2
+2480,09b,A,MEC EVT13 SO,Mecklenburg Event 13 - Mecklenburg Sheriff 1,Interop,Mecklenburg Common/Mutual Aid,2
+2512,09d,A,MEC EVT14 SO,Mecklenburg Event 14 - Mecklenburg Sheriff 2,Interop,Mecklenburg Common/Mutual Aid,2
+2544,09f,A,MEC EVT15 CF,Mecklenburg Event 15 - Charlotte Fire,Interop,Mecklenburg Common/Mutual Aid,2
+2576,0a1,A,MEC EVT16 CF,Mecklenburg Event 16 - Charlotte Fire,Interop,Mecklenburg Common/Mutual Aid,2
+2800,0af,A,RADIOROAM,Radio Service - Roam Dispatch,Other,Mecklenburg Common/Mutual Aid,2
+2832,0b1,A,RADIOROAM1,Radio Service - Roam 1,Other,Mecklenburg Common/Mutual Aid,2
+2864,0b3,A,RADIOROAM2,Radio Service - Roam 2,Other,Mecklenburg Common/Mutual Aid,2
+2896,0b5,A,RADIOROAM3,Radio Service - Roam 3,Other,Mecklenburg Common/Mutual Aid,2
+2960,0b9,A,MEC EMG 3,Mecklenburg Emergency 3,Multi-Tac,Mecklenburg EMS/Fire,2
+2992,0bb,A,BRIDGE-4,Emergency Bridge,Interop,Mecklenburg Common/Mutual Aid,2
+3024,0bd,A,MCJC-MC,Mecklenburg Sheriff Jail Central Main Channel,Corrections,Mecklenburg Sheriff,2
+3216,0c9,A,WRRC-MC,Mecklenburg Sheriff Work Restitution & Rehabilitation Center Main Channel,Corrections,Mecklenburg Sheriff,2
+3248,0cb,A,MCSO-SERT,Mecklenburg Sheriff Swift Emergency Response Team,Law Tac,Mecklenburg Sheriff,2
+3280,0cd,A,MCSO-BR-EMG,Mecklenburg Sheriff BR Emergency,Law Tac,Mecklenburg Sheriff,2
+3312,0cf,A,BUSES1,Buses 1,Transportation,Charlotte Area Transit System (CATS),2
+3344,0d1,A,BUSES,Buses,Transportation,Charlotte Area Transit System (CATS),2
+3376,0d3,A,BUSES,Buses,Transportation,Charlotte Area Transit System (CATS),2
+3440,0d7,A,MCSO-CONF,Mecklenburg Sheriff Conference,Law Talk,Mecklenburg Sheriff,2
+3472,0d9,A,MCSO-ADMN,Mecklenburg Sheriff Administration,Law Talk,Mecklenburg Sheriff,2
+3504,0db,A,MCJHR,Mecklenburg Sheriff Jail HR Main Channel,Corrections,Mecklenburg Sheriff,2
+3536,0dd,A,NCDOT-1,Incident Management Assistance Patrol,Other,Charlotte-Mecklenburg Services,2
+3568,0df,A,TMC-1,Traffic Management,Other,Charlotte-Mecklenburg Services,2
+3600,0.00E+00,A,TRAFFICSIG,Traffic Signals,Other,Charlotte-Mecklenburg Services,2
+3632,0.00E+00,A,MCJC-2,Mecklenburg Sheriff Jail Central 2,Corrections,Mecklenburg Sheriff,2
+3664,0.00E+00,A,MCJC-3,Mecklenburg Sheriff Jail Central 3,Corrections,Mecklenburg Sheriff,2
+3696,0.00E+00,A,MCJC-4,Mecklenburg Sheriff Jail Central 4,Corrections,Mecklenburg Sheriff,2
+3728,0.00E+00,A,MCJC-5,Mecklenburg Sheriff Jail Central 5,Corrections,Mecklenburg Sheriff,2
+3792,0ed,A,WRRC-2,Mecklenburg Sheriff Work Restitution & Rehabilitation Center 2,Corrections,Mecklenburg Sheriff,2
+3824,0ef,A,WRRC-3,Mecklenburg Sheriff Work Restitution & Rehabilitation Center 3,Corrections,Mecklenburg Sheriff,2
+3856,0f1,A,WRRC-4,Mecklenburg Sheriff Work Restitution & Rehabilitation Center 4,Corrections,Mecklenburg Sheriff,2
+3888,0f3,A,WRRC-5,Mecklenburg Sheriff Work Restitution & Rehabilitation Center 5,Corrections,Mecklenburg Sheriff,2
+4080,0ff,A,ROADSIGNS,Public Works-Road Signs,Other,Charlotte-Mecklenburg Services,2
+4144,103,A,ROADWORK,Road Work Crew,Other,Charlotte-Mecklenburg Services,2
+4176,105,A,ROADWORK,Road work crew,Other,Charlotte-Mecklenburg Services,2
+4208,107,A,TRAFFICCTRL,Traffic Control Center - Computerized lights and signs,Other,Charlotte-Mecklenburg Services,2
+4336,10f,A,CMCAIRCRE,CMC AirCare Flight Watch Helicopters - Ground Dispatch,EMS Dispatch,Carolina's Medical Center,2
+4368,111,A,CMCDISP2,CMC Helicopter Dispatch 2,EMS Dispatch,Carolina's Medical Center,2
+4400,113,A,CMC MED 1,Operations,Hospital,Carolina's Medical Center,2
+4432,115,A,CMC MED 2,Operations,Hospital,Carolina's Medical Center,2
+4464,117,A,CMC OPS 1,CMC Tactical Operations - Panthers (Bank of America) Stadium,Hospital,Carolina's Medical Center,2
+4496,119,A,CMC OPS 2,Operations,Hospital,Carolina's Medical Center,2
+4528,11b,A,CMC OPS 3,Operations,Hospital,Carolina's Medical Center,2
+4560,11d,A,CMC OPS 4,Operations,Hospital,Carolina's Medical Center,2
+4592,11f,A,CMC-LZ-1,Landing Zone Coordination,Hospital,Carolina's Medical Center,2
+4624,121,A,CMC-LZ-2,Landing Zone Coordination,Hospital,Carolina's Medical Center,2
+4720,127,A,Roads Maint,Road Work Crews,Public Works,Charlotte-Mecklenburg Services,2
+4784,12b,A,UNC-EVNT-1,Event 1,Schools,University of North Carolina - Charlotte,2
+4816,12d,A,UNC-EVNT-2,Event 2,Schools,University of North Carolina - Charlotte,2
+4848,12f,A,UNC-EVNT-3,Event 3,Schools,University of North Carolina - Charlotte,2
+4880,131,A,UNCPD-COMMON,Police Common,Law Tac,University of North Carolina - Charlotte,2
+4912,133,A,UNCPD-PTRL-1,Police Patrol 1,Law Dispatch,University of North Carolina - Charlotte,2
+4944,135,A,UNCPD-PTRL-2,Police Patrol 2,Law Tac,University of North Carolina - Charlotte,2
+4976,137,A,UNCPD-CONFR,Police Conference,Law Tac,University of North Carolina - Charlotte,2
+5008,139,A,UNCPD-SERVC,Police Service,Law Tac,University of North Carolina - Charlotte,2
+5040,13b,A,UNCPD-TRNING,Police Training,Law Tac,University of North Carolina - Charlotte,2
+5072,13d,A,UNC-LIBRARY,Library,Schools,University of North Carolina - Charlotte,2
+5104,13f,A,UNC-LBRY-ADM,Library Administration,Schools,University of North Carolina - Charlotte,2
+5136,141,A,UNC-LBRY-SEC,Library Security,Security,University of North Carolina - Charlotte,2
+5168,143,A,UNC-LBRY-CNF,Library Conference,Schools,University of North Carolina - Charlotte,2
+5392,151,A,GOVSECURTY,Charlotte Mecklenburg Government Center security,Security,Miscellaneous,2
+5712,165,A,CMS-LAW-3,CMS Police 3,Law Dispatch,Charlotte-Mecklenburg Schools,2
+5808,16b,A,SCHOOLMAIN,School Maintenance,Schools,Charlotte-Mecklenburg Schools,2
+6192,183,A,BUSES,Buses,Transportation,Charlotte Area Transit System (CATS),2
+6448,193,A,MEC EMS DSP,Mecklenburg EMS Dispatch,EMS Dispatch,Mecklenburg EMS/Fire,2
+6480,195,A,MEC OPS 14,Mecklenburg Operations 14,Multi-Tac,Mecklenburg EMS/Fire,2
+6512,197,A,MEC OPS 15,Mecklenburg Operations 15,Multi-Tac,Mecklenburg EMS/Fire,2
+6544,199,A,MEC OPS 16,Mecklenburg Operations 16,Multi-Tac,Mecklenburg EMS/Fire,2
+6576,19b,A,MEC OPS 17,Mecklenburg Operations 17,Multi-Tac,Mecklenburg EMS/Fire,2
+6608,19d,A,MEC OPS 6,Mecklenburg Operations 6,Multi-Tac,Mecklenburg EMS/Fire,2
+6672,1a1,A,MEC OPS 18,Mecklenburg Operations 18,Multi-Tac,Mecklenburg EMS/Fire,2
+6768,1a7,A,MEC OPS 19,Mecklenburg Operations 19,Multi-Tac,Mecklenburg EMS/Fire,2
+6800,1a9,A,MEC OPS 20,Mecklenburg Operations 20,Multi-Tac,Mecklenburg EMS/Fire,2
+6832,1ab,A,MEC OPS 21,Mecklenburg Operations 21,Multi-Tac,Mecklenburg EMS/Fire,2
+7120,1bd,A,JONSMITHPD1,Jonson C. Smith University Police Ch. 1 Main,Security,Miscellaneous,2
+7152,1bf,A,JONSMITHPD2,Jonson C. Smith University Police Ch. 2,Security,Miscellaneous,2
+7184,1c1,A,JONSMITHPD3,Jonson C. Smith University Police Ch. 3,Security,Miscellaneous,2
+7248,1c5,A,MEC FIR DSP,Mecklenburg Fire Dispatch,Multi-Dispatch,Mecklenburg EMS/Fire,2
+7280,1c7,A,MEC OPS 12,Mecklenburg Operations 12,Multi-Tac,Mecklenburg EMS/Fire,2
+7312,1c9,A,MEC OPS 3,Mecklenburg Operations 3,Multi-Tac,Mecklenburg EMS/Fire,2
+7344,1cb,A,MEC OPS 4,Mecklenburg Operations 4,Multi-Tac,Mecklenburg EMS/Fire,2
+7376,1cd,A,MEC OPS 5,Mecklenburg Operations 5,Multi-Tac,Mecklenburg EMS/Fire,2
+7408,1cf,A,MEC OPS 13,Mecklenburg Operations 13,Multi-Tac,Mecklenburg EMS/Fire,2
+7440,1d1,A,MCFD-FMO,Fire Marshal,Fire-Tac,Mecklenburg EMS/Fire,2
+7472,1d3,A,MEC CONF,Mecklenburg Conference,Fire-Tac,Mecklenburg EMS/Fire,2
+7600,1db,A,MECKTRASH,Public Works - Sanitation,Other,Charlotte-Mecklenburg Services,2
+7664,1df,A,MECKTRASH,Refuse Collection,Other,Charlotte-Mecklenburg Services,2
+7728,1.00E+03,A,MECKTRASH,Refuse Collection,Other,Charlotte-Mecklenburg Services,2
+7792,1.00E+07,A,REFUSE,Refuse Collection,Other,Charlotte-Mecklenburg Services,2
+7824,1.00E+09,A,MECKTRASH,Refuse / Recycle Vehicles,Other,Charlotte-Mecklenburg Services,2
+7856,1eb,A,MECKTRASH,Public Works - Sanitation,Other,Charlotte-Mecklenburg Services,2
+7888,1ed,A,MECKTRASH,Public Works - Sanitation,Other,Charlotte-Mecklenburg Services,2
+8912,22d,A,NORTH,North Divison Dispatch,Law Dispatch,Charlotte-Mecklenburg Police North Division,2
+10384,289,A,CITYMANAGE,Charlotte City Management,Other,Charlotte-Mecklenburg Services,2
+10544,293,A,CENTRAL,Central Divison,Law Tac,Charlotte-Mecklenburg Police Central Division,2
+11280,2c1,A,RAIL-PLATFRM,Light Rail Platforms,Railroad,Charlotte Area Transit System (CATS),2
+11696,2db,A,CATS,CATS,Transportation,Charlotte Area Transit System (CATS),2
+11760,2df,A,LT-RAIL-OP1,Light Rail Ch. 1,Railroad,Charlotte Area Transit System (CATS),2
+11792,2.00E+01,A,LT-RAIL-OP2,Light Rail Ch. 2,Railroad,Charlotte Area Transit System (CATS),2
+11824,2.00E+03,A,LT-RAIL-OP3,Light Rail Ch. 3,Railroad,Charlotte Area Transit System (CATS),2
+11856,2.00E+05,A,LT-RAIL-OP4,Light Rail Ch. 4,Railroad,Charlotte Area Transit System (CATS),2
+11984,2ed,A,CMS-EVAC-1,School Evacuations 1,Other,Charlotte-Mecklenburg Schools,2
+12016,2ef,A,CMS-EVAC-2,School Evacuations 2,Security,Charlotte-Mecklenburg Schools,2
+12144,2f7,A,MEC OPS 7,Mecklenburg Operations 7,Multi-Tac,Mecklenburg EMS/Fire,2
+12176,2f9,A,MEC OPS 8,Mecklenburg Operations 8,Multi-Tac,Mecklenburg EMS/Fire,2
+12208,2fb,A,MEC OPS 9,Mecklenburg Operations 9,Multi-Tac,Mecklenburg EMS/Fire,2
+12240,2fd,A,MEC OPS 10,Mecklenburg Operations 10,Multi-Tac,Mecklenburg EMS/Fire,2
+12272,2ff,A,MEC OPS 11,Mecklenburg Operations 11,Multi-Tac,Mecklenburg EMS/Fire,2
+12304,301,A,MEDIC-NET 1,Mecklenburg EMS Non-Emergency Transport,Multi-Tac,Mecklenburg EMS/Fire,2
+12336,303,A,MEDIC-CONF,Mecklenburg EMS Conference,EMS-Tac,Mecklenburg EMS/Fire,2
+14832,39f,A,CMS-SRO-1,School Resource Officers,Security,Charlotte-Mecklenburg Schools,2
+14864,3a1,A,CMS-SRO-2,School Resource Officers,Security,Charlotte-Mecklenburg Schools,2
+15024,3ab,A,CNF 2,Police Conference 2,Law Tac,Cornelius,2
+15056,3ad,A,INV,Police Investigations,Law Tac,Cornelius,2
+15088,3af,A,TAC 2,Police Tactical 2,Law Tac,Cornelius,2
+15152,3b3,A,CNF 1,Huntersville Conference 1 (aka CH 3),Law Tac,Huntersville,2
+15184,3b5,A,CNF 2,Huntersville Conference 2,Law Tac,Huntersville,2
+15216,3b7,A,INV,Police Investigations,Law Tac,Huntersville,2
+15248,3b9,A,TAC 1,Police Tactical 1,Law Tac,Huntersville,2
+15280,3bb,A,TAC 2,Police Tactical 2,Law Tac,Huntersville,2
+15376,3c1,A,Davidson 1,Davidson College Tac 1,Law Tac,North Mecklenburg,2
+15728,3d7,A,CFD-1-I,Operations 1-I,Fire-Tac,Charlotte Fire,2
+15760,3d9,A,CFD-1-J,Operations 1-J,Fire-Tac,Charlotte Fire,2
+15792,3db,A,CFD-1-K,Operations 1-K,Fire-Tac,Charlotte Fire,2
+15856,3df,A,CFD-1-CONF,Conference 1,Fire-Tac,Charlotte Fire,2
+15888,3.00E+01,A,APC-MC,Mecklenburg Sheriff Arrest Processing Center Main Channel,Corrections,Mecklenburg Sheriff,2
+15920,3.00E+03,A,APC-2,Mecklenburg Sheriff Arrest Processing Center 2,Corrections,Mecklenburg Sheriff,2
+15952,3.00E+05,A,APC-3,Mecklenburg Sheriff Arrest Processing Center 3,Corrections,Mecklenburg Sheriff,2
+15984,3.00E+07,A,COURTS,Mecklenburg Sheriff Court 1,Law Tac,Mecklenburg Sheriff,2
+16016,3.00E+09,A,COURTS2,Mecklenburg Sheriff Court 2,Law Tac,Mecklenburg Sheriff,2
+16048,3eb,A,COURTS3,Mecklenburg Sheriff Court 3,Law Tac,Mecklenburg Sheriff,2
+16080,3ed,A,COURTS4,Mecklenburg Sheriff Court 4,Law Tac,Mecklenburg Sheriff,2
+16112,3ef,A,COURTS5,Mecklenburg Sheriff Court 5,Law Tac,Mecklenburg Sheriff,2
+16144,3f1,A,K-9-1,Mecklenburg Sheriff K9 1,Law Tac,Mecklenburg Sheriff,2
+16176,3f3,A,K-9-2,Mecklenburg Sheriff K9 2,Law Tac,Mecklenburg Sheriff,2
+16208,3f5,A,K-9-TRNG,Mecklenburg Sheriff K9 Training,Law Tac,Mecklenburg Sheriff,2
+16240,3f7,A,CNU-1,Mecklenburg Sheriff CNU 1,Law Tac,Mecklenburg Sheriff,2
+16272,3f9,A,CNU-2,Mecklenburg Sheriff CNU 2,Law Tac,Mecklenburg Sheriff,2
+16304,3fb,A,CNU-TRNG,Mecklenburg Sheriff CNU Training,Law Tac,Mecklenburg Sheriff,2
+16336,3fd,A,MOTOR-1,Mecklenburg Sheriff Motorcycle 1,Law Tac,Mecklenburg Sheriff,2
+16368,3ff,A,MOTOR-2,Mecklenburg Sheriff Motorcycle 2,Law Tac,Mecklenburg Sheriff,2
+16432,403,A,CFD ALARM,Alarm (Dispatch),Fire Dispatch,Charlotte Fire,2
+16464,405,A,CFD 1B,Operations 1-B,Fire-Tac,Charlotte Fire,2
+16496,407,A,CFD 1C,Operations 1-C,Fire-Tac,Charlotte Fire,2
+16528,409,A,CFD 1D,Operations 1-D,Fire-Tac,Charlotte Fire,2
+16560,40b,A,CFD 1E,Operations 1-E,Fire-Tac,Charlotte Fire,2
+16592,40d,A,CFD 1F,Operations 1-F,Fire-Tac,Charlotte Fire,2
+16624,40f,A,CFD 1G,Operations 1-G,Fire-Tac,Charlotte Fire,2
+16656,411,A,CFD 1H,Operations 1-H,Fire-Tac,Charlotte Fire,2
+18384,47d,A,REG EMS,Regional EMS,EMS-Tac,Systemwide,2
+18416,47f,A,REG OPS 4,Regional Operations 4,Multi-Tac,Systemwide,2
+18448,481,A,REG FIRE 1,Regional Fire 1,Fire-Tac,Systemwide,2
+18480,483,A,REG FIRE 2,Regional Fire 2,Fire-Tac,Systemwide,2
+18512,485,A,REG FIRE 3,Regional Fire 3,Fire-Tac,Systemwide,2
+18544,487,A,REG LAW 1,Regional Law 1,Law Tac,Systemwide,2
+18576,489,A,REG LAW 2,Regional Law 2,Law Tac,Systemwide,2
+18608,48b,A,MOTOR-TRG,Mecklenburg Sheriff Motorcycle Training,Law Tac,Mecklenburg Sheriff,2
+18640,48d,A,ESCORT-1,Mecklenburg Sheriff Escort 1,Law Tac,Mecklenburg Sheriff,2
+18672,48f,A,ESCORT-2,Mecklenburg Sheriff Escort 2,Law Tac,Mecklenburg Sheriff,2
+18704,491,A,ESCORT-3,Mecklenburg Sheriff Escort 3,Law Tac,Mecklenburg Sheriff,2
+18736,493,A,ESCORT-4,Mecklenburg Sheriff Escort 4,Law Tac,Mecklenburg Sheriff,2
+18768,495,A,ESCORT-5,Mecklenburg Sheriff Escort 5,Law Tac,Mecklenburg Sheriff,2
+18800,497,A,ESCORT-6,Mecklenburg Sheriff Escort 6,Law Tac,Mecklenburg Sheriff,2
+18832,499,A,ESCORT-7,Mecklenburg Sheriff Escort 7,Law Tac,Mecklenburg Sheriff,2
+18864,49b,A,ESCORT-8,Mecklenburg Sheriff Escort 8,Law Tac,Mecklenburg Sheriff,2
+18896,49d,A,ESCORT-9,Mecklenburg Sheriff Escort 9,Law Tac,Mecklenburg Sheriff,2
+18928,49f,A,ESCORT-10,Mecklenburg Sheriff Escort 10,Law Tac,Mecklenburg Sheriff,2
+19024,4a5,A,MCSO-OPC,Mecklenburg Sheriff OPC,Law Tac,Mecklenburg Sheriff,2
+19056,4a7,A,MCSO-TACT,Mecklenburg Sheriff Tactical,Law Tac,Mecklenburg Sheriff,2
+19088,4a9,A,TRNG-1,Mecklenburg Sheriff Training 1,Law Tac,Mecklenburg Sheriff,2
+19120,4ab,A,TRNG-2,Mecklenburg Sheriff Training 2,Law Tac,Mecklenburg Sheriff,2
+19152,4ad,A,TRNG-3,Mecklenburg Sheriff Training 3,Law Tac,Mecklenburg Sheriff,2
+19184,4af,A,TRNG-4,Mecklenburg Sheriff Training 4,Law Tac,Mecklenburg Sheriff,2
+19216,4b1,A,MCJN-MC,Mecklenburg Sheriff Jail North Main Channel,Corrections,Mecklenburg Sheriff,2
+19248,4b3,A,MCJN-2,Mecklenburg Sheriff Jail North 2,Corrections,Mecklenburg Sheriff,2
+19280,4b5,A,MCJN-3,Mecklenburg Sheriff Jail North 3,Corrections,Mecklenburg Sheriff,2
+19312,4b7,A,MCJA-MC,Mecklenburg Sheriff Jail Annex Main Channel,Corrections,Mecklenburg Sheriff,2
+19344,4b9,A,MCJA-2,Mecklenburg Sheriff Jail Annex 2,Corrections,Mecklenburg Sheriff,2
+19376,4bb,A,UNION-BRIDGE,Mutual Aid with Union Co.,Interop,Mecklenburg Common/Mutual Aid,2
+19600,4c9,A,REG CALL,Regional Calling,Multi-Tac,Systemwide,2
+19632,4cb,A,REG PURS,Regional Pursuit,Fire-Tac,Systemwide,2
+19664,4cd,A,REG OPS 1,Regional Operations 1,Multi-Tac,Systemwide,2
+19696,4cf,A,REG OPS 2,Regional Operations 2,Multi-Tac,Systemwide,2
+19728,4d1,A,REG OPS 3,Regional Operations 3,Multi-Tac,Systemwide,2
+19760,4d3,A,MEC EVT17 PD,Mecklenburg Event 17 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+19792,4d5,A,MEC EVT18 PD,Mecklenburg Event 18 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+19824,4d7,A,MEC EVT19 PD,Mecklenburg Event 19 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+19856,4d9,A,MEC EVT20 PD,Mecklenburg Event 20 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+19888,4db,A,MEC EVT21 PD,Mecklenburg Event 21 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+19920,4dd,A,MEC EVT22 PD,Mecklenburg Event 22 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+19952,4df,A,MEC EVT23 PD,Mecklenburg Event 23 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+19984,4.00E+01,A,MEC EVT24 PD,Mecklenburg Event 24 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+20016,4.00E+03,A,MEC EVT25 PD,Mecklenburg Event 25 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+20048,4.00E+05,A,MEC EVT26 PD,Mecklenburg Event 26 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+20080,4.00E+07,A,MEC EVT27 PD,Mecklenburg Event 27 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+20112,4.00E+09,A,MEC EVT28 PD,Mecklenburg Event 28 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+20144,4eb,A,MEC EVT29 PD,Mecklenburg Event 29 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+20176,4ed,A,MEC EVT30 PD,Mecklenburg Event 30 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+20208,4ef,A,MEC EVT31 PD,Mecklenburg Event 31 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+20240,4f1,A,MEC EVT32 PD,Mecklenburg Event 32 - CMPD,Interop,Mecklenburg Common/Mutual Aid,2
+20272,4f3,A,NTH LAKES,North Lakes,Interop,Mecklenburg Common/Mutual Aid,2
+20304,4f5,A,STH LAKES,South Lakes,Interop,Mecklenburg Common/Mutual Aid,2
+20336,4f7,A,Security Net,Security Net,Interop,Mecklenburg Common/Mutual Aid,2
+20432,4fd,A,USMS-OPS-2,US Marshal Service Ops,Federal,Miscellaneous,2
+20592,507,A,USMS-TAC-1,US Marshal Service TAC 1,Federal,Miscellaneous,2
+20624,509,A,USMS-TAC-2,US Marshal Service TAC 2,Federal,Miscellaneous,2
+20656,50b,A,USMS-HNTF-1,US Marshal Service,Federal,Miscellaneous,2
+20688,50d,A,USMS-HNTF-2,US Marshal Service,Federal,Miscellaneous,2
+20720,50f,A,USMS-CONF-1,US Marshal Service,Federal,Miscellaneous,2
+20752,511,A,USMS-CONF-2,US Marshal Service,Federal,Miscellaneous,2
+20784,513,A,USMS-CONF-3,US Marshal Service,Federal,Miscellaneous,2
+24912,615,A,MCSO-DISP,Mecklenburg Sheriff Dispatch,Law Dispatch,Mecklenburg Sheriff,2
+24944,617,A,MCSO-2,Mecklenburg Sheriff 2,Law Tac,Mecklenburg Sheriff,2
+24976,619,A,MCSO-3,Mecklenburg Sheriff 3,Law Tac,Mecklenburg Sheriff,2
+25008,61b,A,MCSO-4,Mecklenburg Sheriff 4,Law Tac,Mecklenburg Sheriff,2
+25040,61d,A,MCSO-5,Mecklenburg Sheriff 5,Law Tac,Mecklenburg Sheriff,2
+25072,61f,A,MCSO-6,Mecklenburg Sheriff 6,Law Tac,Mecklenburg Sheriff,2
+25104,621,A,MCSO-7,Mecklenburg Sheriff 7,Law Tac,Mecklenburg Sheriff,2
+25264,62b,A,BLDGINSPEC,City/County Building Inspectors,Other,Charlotte-Mecklenburg Services,2
+26032,65b,A,DVIDSNPD1,Davidson Police 1,Law Tac,North Mecklenburg,2
+26064,65d,A,DVIDSNPD2,Davidson Police 2,Law Tac,North Mecklenburg,2
+26096,65f,A,DVIDCOLLGE,"Huntersville, Cornelius, Davidson College Dispatch 2",Law Dispatch,North Mecklenburg,2
+26128,661,A,TAC 1,Police Tactical 1,Law Tac,Cornelius,2
+26160,663,A,HUNTCRNDISP,"Huntersville, Cornelius, Davidson College Dispatch 1",Law Dispatch,North Mecklenburg,2
+26192,665,A,CNF 1,Police Conference 1,Law Tac,Cornelius,2
+26224,667,A,CORNPUBWRK,Public Works Department,Public Works,Cornelius,2
+26352,66f,A,DVDSNCOL1,Davidson College Police 1,Law Tac,North Mecklenburg,2
+26384,671,A,DVDSNCOL2,Davidson College Police 2,Law Tac,North Mecklenburg,2
+26480,677,A,STOWNS,Mutual Aid - South Towns (Town Ch. 17),Interop,Mecklenburg Common/Mutual Aid,2
+26576,67d,A,HUNTRUTIL,Utilities Department,Utilities,Huntersville,2
+26608,67f,A,HUNTRPOWR,Electric Department,Utilities,Huntersville,2
+26640,681,A,MEDEXAMIN,Medical Examiner,Other,Charlotte-Mecklenburg Services,2
+26672,683,A,MUTAIDNRTH,Town Mutual Aid Channel North,Interop,Mecklenburg Common/Mutual Aid,2
+26704,685,A,N-TOWNS,Mutual Aid - North Towns,Interop,Mecklenburg Common/Mutual Aid,2
+26800,68b,A,CMS-LAW-1,CMS Police 1,Security,Charlotte-Mecklenburg Schools,2
+26832,68d,A,CMS-LAW-2,CMS Police 2,Security,Charlotte-Mecklenburg Schools,2
+26864,68f,A,RAD SVC A,Radio Service A,Other,Radio Shop,2
+26896,691,A,RAD SVC B,Radio Service B,Other,Radio Shop,2
+27024,699,A,CATS1,CATS Ch. 1 (base to mobile),Transportation,Charlotte Area Transit System (CATS),2
+27056,69b,A,CATS2,CATS Ch. 2 (base to mobile),Transportation,Charlotte Area Transit System (CATS),2
+27920,6d1,A,WATERMETR,Water Meter Readings,Other,Charlotte-Mecklenburg Services,2
+27984,6d5,A,WATER,Water/Sewer,Other,Charlotte-Mecklenburg Services,2
+28016,6d7,A,WATER,Water - Sanitation,Other,Charlotte-Mecklenburg Services,2
+28048,6d9,A,WATER,Water/Sewer,Other,Charlotte-Mecklenburg Services,2
+28080,6db,A,WATER,Water/Sewer,Other,Charlotte-Mecklenburg Services,2
+28112,6dd,A,WATERREST,Water Restrictions Violations,Other,Charlotte-Mecklenburg Services,2
+28144,6df,A,WATER,Water,Other,Charlotte-Mecklenburg Services,2
+28176,6.00E+01,A,WATER,Water/Sewer,Other,Charlotte-Mecklenburg Services,2
+28208,6.00E+03,A,WATER,Water/Sewer,Other,Charlotte-Mecklenburg Services,2
+28240,6.00E+05,A,WATER2,Water Ch. 2,Other,Charlotte-Mecklenburg Services,2
+28304,6.00E+09,A,INVESACC,Unidentified PD - Investigators Accident,Law Tac,Unidentified/Depreciated,2
+32016,7d1,A,MC ABC1,ABC Channel 1,Law Tac,Miscellaneous,2
+32048,7d3,A,MC ABC2,ABC Channel 2,Law Tac,Miscellaneous,2
+32080,7d5,A,MC ABC3,ABC Channel 3,Law Tac,Miscellaneous,2
+33104,815,A,STREETS,Public Works - Streets,Other,Charlotte-Mecklenburg Services,2
+33136,817,A,BOA SECUR,Bank of America Building Security,Security,Miscellaneous,2
+33328,823,A,MATTFD OPS1,Mathews Fire Department Ops-1,Fire-Tac,Matthews ,2
+33552,831,A,MHILL PD 1,Mint Hill PD-1,Law Tac,Mint Hill,2
+33584,833,A,MHILL PD 2,Mint Hill PD-2,Law Tac,Mint Hill,2
+33616,835,A,MHILL PDDISP,Mint Hill PD Dispatch,Law Dispatch,Mint Hill,2
+33648,837,A,MHILL CONF,Mint Hill PD Conference,Law Talk,Mint Hill,2
+33680,839,A,MHILL TAC,Mint Hill PD TAC,Law Tac,Mint Hill,2
+34000,84d,A,YORK COUNTY,York County Bridge,Interop,Mecklenburg Common/Mutual Aid,2
+34032,84f,A,ALERT FIRE,ALERT Team - Fire,Interop,Mecklenburg Common/Mutual Aid,2
+34064,851,A,ALERT POL,ALERT Team - Police,Interop,Mecklenburg Common/Mutual Aid,2
+34096,853,A,ALERT EMS,ALERT Team - EMS,Interop,Mecklenburg Common/Mutual Aid,2
+34128,855,A,ALERT CONF,ALERT Team - Conference,Interop,Mecklenburg Common/Mutual Aid,2
+34160,857,A,ALERTCOOR,ALERT Team - Coordination,Interop,Mecklenburg Common/Mutual Aid,2
+34384,865,A,CATS,CATS Security,Security,Charlotte Area Transit System (CATS),2

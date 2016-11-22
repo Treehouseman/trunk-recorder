@@ -155,7 +155,9 @@ void analog_recorder::stop() {
 		wav_sink->close();
 	} else {
 		BOOST_LOG_TRIVIAL(error) << "p25_recorder.cc: Stopping an inactive Logger \t[ " << num << " ] - freq[ " << freq << "] \t talkgroup[ " << talkgroup << " ]";
-
+		state = inactive;
+		valve->set_enabled(false);
+		wav_sink->close();//Treehouseman: Why is this different than p25?
 	}
 }
 
@@ -203,12 +205,15 @@ void analog_recorder::start(Call *call, int n) {
 
 	talkgroup = call->get_talkgroup();
 	freq = call->get_freq();
-    num = n;
-
+    //num = n;
+	BOOST_LOG_TRIVIAL(info) << "analog_recorder..: Starting Call : " << talkgroup << "\tFreq: " << freq;
 	prefilter->set_center_freq( freq - center); // have to flip for 3.7
 
 	wav_sink->open(call->get_filename());
 
-	state = active;
+	state = recording;
 	valve->set_enabled(true);
+}
+int analog_recorder::get_num() {
+  return num;
 }

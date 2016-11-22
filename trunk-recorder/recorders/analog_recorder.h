@@ -66,6 +66,7 @@ public:
 								void tune_offset(double f);
 								void start(Call *call, int n);
 								void stop();
+								int get_num();
 								double get_freq();
 								double get_squelch_in();
 								Source *get_source();

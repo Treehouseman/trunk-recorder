@@ -91,3 +91,10 @@ double System::get_next_control_channel() {
   }
   return this->control_channels[current_control_channel];
 }
+
+void System::set_tsys_id(int nac){
+	tsys_id=nac;
+}
+int System::get_tsys_id(){
+	return tsys_id;
+}

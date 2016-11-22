@@ -387,7 +387,6 @@ void p25_recorder::start(Call *call, int n) {
   if (state == inactive) {
     timestamp = time(NULL);
     starttime = time(NULL);
-
     talkgroup = call->get_talkgroup();
     freq      = call->get_freq();
 
