@@ -6,7 +6,7 @@ void Call::create_filename() {
 
   std::stringstream path_stream;
 
-  path_stream << this->config.capture_dir << "/" << sys->get_short_name() << "/" << 1900 + ltm->tm_year << "/" <<  1 + ltm->tm_mon << "/" << ltm->tm_mday;
+  path_stream << this->config.capture_dir << "/" << "/" << 1900 + ltm->tm_year << "/" <<  1 + ltm->tm_mon << "/" << ltm->tm_mday << "/" << std::hex << std::uppercase << nac << std::nouppercase << std::dec;
 
   boost::filesystem::create_directories(path_stream.str());
   sprintf(filename,        "%s/%ld-%ld_%g.wav",
