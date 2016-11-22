@@ -54,7 +54,7 @@ else if ((cmd >= 0x17c) && (cmd < 0x2b0)) {
 else {
     freq = 0;
   }
-  freq = float((cmd) * 0.025 + 851.0125);
+  freq = float((cmd) * 0.025 + 851012500);
 /*
   if ((cmd >= 0x17c) && (cmd < 0x2b0)) {
     freq = (double(cmd) - 380) * 0.025 + 489.0875;
@@ -234,7 +234,7 @@ std::vector<TrunkMessage>SmartnetParser::parse_message(std::string s) {
 	// BOOST_LOG_TRIVIAL(info) << "MSG [ TG: " << dec << stack[0].full_address << "] \t CMD: ( " << hex << stack[0].cmd << " - \t" << hex << stack[1].cmd << " - \t " << hex << stack[2].cmd   << " ] " << " Grp: [ " << stack[0].grp << " - \t " << stack[1].grp << " - \t " << stack[2].grp << " ]";
 
   if (((command >= 0x340) && (command <= 0x34E)) || (command == 0x350)) {
-    cout << "Patching Command: " << hex << command << " Freq: " << message.freq << " Talkgroup: " << dec << address  << endl;
+    //cout << "Patching Command: " << hex << command << " Freq: " << message.freq << " Talkgroup: " << dec << address  << endl;
   }
 
   if ((address & 0xfc00) == 0x2800) {
