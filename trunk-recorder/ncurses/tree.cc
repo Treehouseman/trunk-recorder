@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <fstream>
 #include <ctime>
+#include <signal.h>
 
 #define MAX_CPU 128
 bool verbose = false;
@@ -22,14 +23,14 @@ long csysid[10];
 int sys_id = 0;
 double load[3];
 WINDOW *create_newwin(int height, int width, int starty, int startx);
-WINDOW *TGwin;
+WINDOW *RECwin;
 WINDOW *SYSwin;
 WINDOW *OLDwin;
 WINDOW *CPUwin;
 WINDOW *DATwin;
 WINDOW *LOGwinb;
 WINDOW *LOGwin;
-WINDOW *MTGwin;
+WINDOW *MRECwin;
 WINDOW *ERRwin;
 void destroy_win(WINDOW *local_win);
 int systemnumber = 0;
@@ -59,6 +60,9 @@ int cpus = 0;
 int cpuw = defw;
 std::ifstream file;
 int curseenable = 0;
+int ncurses_cpu = 0;
+int ncurses_big = 0;
+int ncurses_dbg = 0;
 std::string Radios[10];
 std::string LogMsgs[20];
 int digrec[10];
@@ -151,7 +155,7 @@ int CPUdefx = 6;
 int CPUblockx = 1;
 int CPUendx;
 int DATstartx;
-int DATdefx = 20;
+int DATdefx = 23;
 int DATblockx = 0;
 int DATendx = 0;
 int LOGstartx = 1;
@@ -174,6 +178,8 @@ int ERRdefx = 17;
 int ERRendx;
 int ERRblockx = 0;
 int ERRblocks = 0;
+int scrW = 0;
+int scrH = 0;
 long long int CPUusage[100][10];
 long long int oldCPUusage[100][10];
 double cpuavg[100];
@@ -182,6 +188,10 @@ bool CPUsetup=false;
 
 bool clearall=true;
 
+
+void Tree::do_resize(int null){
+	
+}
 void Tree::PurgeArrays(){
 	for(int i = 0; i < 10; i ++){
 		Radios[i]="";
@@ -214,11 +224,11 @@ void Tree::Past(int tg, int elapsed, int color){
 		history[pastpos][0]=tg;
 		history[pastpos][1]=elapsed;
 		history[pastpos][2]=color;
-		ScrRef();
+		OldRef();
 		AudioBuff = AudioBuff+elapsed;
 		CallBuff++;
 		pastpos++;
-		ScrRef();
+		DatRef();
 	}
 	else{
 		for(int i = 0; i < 27; i++){
@@ -231,7 +241,8 @@ void Tree::Past(int tg, int elapsed, int color){
 		history[27][2]=color;
 		CallBuff++;
 		AudioBuff =AudioBuff+elapsed;
-		ScrRef();
+		OldRef();
+		DatRef();
 	}
 }
 void Tree::EndCall(long tg, int elapsed, std::string dev){
@@ -246,7 +257,7 @@ void Tree::EndCall(long tg, int elapsed, std::string dev){
 				analoggroups[i][x][0]=0;
 				analoggroups[i][x][1]=0;
 				actcall--;
-				ScrRef();
+				RecRef();
 				return;
 			}
 			if(digitalgroups[i][x][0]==tg){
@@ -262,8 +273,22 @@ void Tree::EndCall(long tg, int elapsed, std::string dev){
 	}
 	}
 }
-void Tree::SetCurses(int enable){
-	curseenable = enable;
+void Tree::SetCurses(int option, int enable){
+	switch(option){
+		case 0:
+			curseenable=enable;
+		break;
+		case 1:
+			ncurses_big = enable;
+		break;
+		case 2:
+			ncurses_cpu = enable;
+		break;
+		case 3:
+			ncurses_dbg = enable;
+		break;
+	}
+	//curseenable = enable;
 }
 
 void Tree::Rate(int mps){
@@ -311,7 +336,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 						actcall++;
 						if(actcall > callmax)
 							callmax=actcall;
-						ScrRef();
+						RecRef();
 						return;
 					}
 				}
@@ -328,7 +353,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 						actcall++;
 						if(actcall>callmax)
 							callmax=actcall;
-						ScrRef();
+						RecRef();
 						return;
 					}
 				}
@@ -358,7 +383,7 @@ void Tree::MissingTG(long tg, int nac){
 	if(mtgcount < 28){
 		MTGs[mtgcount][0]=tg;
 		MTGs[mtgcount][1]=syscolor;
-		ScrRef();
+		MtgRef();
 		mtgcount++;
 	}
 	else{
@@ -368,8 +393,9 @@ void Tree::MissingTG(long tg, int nac){
 		}
 		MTGs[27][0]=tg;
 		MTGs[27][1]=syscolor;
-		ScrRef();
+		MtgRef();
 	}
+	ErrRef();
 }
 void Tree::Retune(int elasped, int since, long tg, long old_freq, long new_freq, bool isgood){
 	/*
@@ -462,17 +488,18 @@ bool Tree::StartCurses(){
 	TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
 	SYSstartx = TGendx+1;
 	SYSendx = SYSstartx+SYSdefx+(SYSblockx*SYSblocks);
-	OLDstartx = SYSendx+1;
+	DATstartx = SYSendx + 1;
+	DATendx = DATstartx+DATdefx+(DATblockx*DATblocks);
+	OLDstartx = DATendx+1;
 	OLDendx = OLDstartx+OLDdefx+(OLDblockx*OLDblocks);
 	CPUstartx = OLDendx + 1;
 	CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks);
-	DATstartx = CPUendx + 1;
-	DATendx = DATstartx+DATdefx+(DATblockx*DATblocks);
-	LOGendx = LOGstartx+LOGdefx+(LOGblockx*LOGblocks);
-	MTGstartx = DATendx+1;
+	MTGstartx = CPUendx+1;
 	MTGendx = MTGstartx+MTGdefx+(MTGblockx*MTGblocks);
 	ERRstartx = MTGendx+1;
 	ERRendx = ERRstartx+ERRdefx+(ERRblockx*ERRblocks);
+	LOGendx = LOGstartx+LOGdefx+(LOGblockx*LOGblocks);
+	
 	for(int i = 0; i < 10; i++){
 		csysid[i] = 0;
 		maxmsg[i] = 0;
@@ -481,6 +508,8 @@ bool Tree::StartCurses(){
 	}
 //newterm(NULL, stdout, stdin);
 	initscr();			/* Start curses mode 		*/
+	clear();
+	//resizeterm(60,130);
 	curs_set(0);
 	//if (has_colors){
 		coloren = true;
@@ -496,37 +525,38 @@ bool Tree::StartCurses(){
 	//cbreak();			/* Line buffering disabled, Pass on
 					// * everty thing to me 		*/
 	keypad(stdscr, TRUE);		/* I need that nifty F1 	*/
-
-	TGwin = create_newwin(R1h, TGendx-TGstartx, R1y, TGstartx);
+	refresh();//This before resize makes sure there's no lingering text, might be a screen issue rather than terminal, given how screen acts with ncurses
+	resizeterm(60,130);
+	RECwin = create_newwin(R1h, TGendx-TGstartx, R1y, TGstartx);
 	SYSwin = create_newwin(R1h, SYSendx-SYSstartx, R1y, SYSstartx);
 	OLDwin = create_newwin(R1h, OLDendx-OLDstartx, R1y, OLDstartx);
 	CPUwin = create_newwin(R1h, CPUendx-CPUstartx, R1y, CPUstartx);
 	DATwin = create_newwin(R1h, DATendx-DATstartx, R1y, DATstartx);
-	MTGwin = create_newwin(R1h, MTGendx-MTGstartx, R1y, MTGstartx);
+	MRECwin = create_newwin(R1h, MTGendx-MTGstartx, R1y, MTGstartx);
 	ERRwin = create_newwin(R1h, ERRendx-ERRstartx, R1y, ERRstartx);
 	LOGwinb = create_newwin(R2h, LOGendx-LOGstartx, R2y, LOGstartx);//This is the border for the log window
 	LOGwin = create_newwin(R2h-2, LOGendx-LOGstartx-2, R2y+1, LOGstartx+1); //This is the actual logging window
-	wbkgd(TGwin, COLOR_PAIR(6));
+	wbkgd(RECwin, COLOR_PAIR(6));
 	wbkgd(SYSwin, COLOR_PAIR(6));
 	wbkgd(OLDwin, COLOR_PAIR(6));
 	wbkgd(CPUwin, COLOR_PAIR(6));
 	wbkgd(DATwin, COLOR_PAIR(6));
 	wbkgd(LOGwinb, COLOR_PAIR(6));
-	wbkgd(MTGwin, COLOR_PAIR(6));
+	wbkgd(MRECwin, COLOR_PAIR(6));
 	wbkgd(ERRwin, COLOR_PAIR(6));
-	wborder(TGwin, 0,0,0,0,0,0,0,0);
+	wborder(RECwin, 0,0,0,0,0,0,0,0);
 	wborder(SYSwin, 0,0,0,0,0,0,0,0);
 	wborder(OLDwin, 0,0,0,0,0,0,0,0);
 	wborder(CPUwin, 0,0,0,0,0,0,0,0);
 	wborder(DATwin, 0,0,0,0,0,0,0,0);
 	wborder(LOGwinb, 0,0,0,0,0,0,0,0);
-	wborder(MTGwin, 0,0,0,0,0,0,0,0);
+	wborder(MRECwin, 0,0,0,0,0,0,0,0);
 	wborder(ERRwin, 0,0,0,0,0,0,0,0);
 	wborder(LOGwin, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
-	wattron(TGwin, COLOR_PAIR(4));
-	wmove(TGwin, R1h-1, 1);
-	wprintw(TGwin, "Recorders");
-	wattroff(TGwin, COLOR_PAIR(4));
+	wattron(RECwin, COLOR_PAIR(4));
+	wmove(RECwin, R1h-1, 1);
+	wprintw(RECwin, "Recorders");
+	wattroff(RECwin, COLOR_PAIR(4));
 	wattron(SYSwin, COLOR_PAIR(4));
 	wmove(SYSwin, R1h-1, 1);
 	wprintw(SYSwin, "Systems");
@@ -543,10 +573,10 @@ bool Tree::StartCurses(){
 	wmove(DATwin, R1h-1, 1);
 	wprintw(DATwin, "Call Data");
 	wattroff(DATwin, COLOR_PAIR(4));
-	wattron(MTGwin, COLOR_PAIR(4));
-	wmove(MTGwin, R1h-1, 1);
-	wprintw(MTGwin, "Missing");
-	wattroff(MTGwin, COLOR_PAIR(4));
+	wattron(MRECwin, COLOR_PAIR(4));
+	wmove(MRECwin, R1h-1, 1);
+	wprintw(MRECwin, "Missing");
+	wattroff(MRECwin, COLOR_PAIR(4));
 	wattron(ERRwin, COLOR_PAIR(4));
 	wmove(ERRwin, R1h-1, 1);
 	wprintw(ERRwin, "Errors");
@@ -556,15 +586,16 @@ bool Tree::StartCurses(){
 	wprintw(LOGwinb, "Logging");
 	wattroff(LOGwinb, COLOR_PAIR(4));
 	scrollok(LOGwin, true);
-	wrefresh(TGwin);
+	wrefresh(RECwin);
 	wrefresh(SYSwin);
 	wrefresh(OLDwin);
 	wrefresh(CPUwin);
 	wrefresh(DATwin);
 	wrefresh(LOGwin);
 	wrefresh(LOGwinb);
-	wrefresh(MTGwin);
+	wrefresh(MRECwin);
 	wrefresh(ERRwin);
+	signal(SIGWINCH, do_resize);
 	return 1;
 }
 void destroy_win(WINDOW *local_win)
@@ -647,541 +678,20 @@ void Tree::TimeUp(){
 void Tree::ScrRef(){
 	if(!curseenable)
 		return;
-	//CPU();
-	TTime();
 	if(clearall){
-	//clear();
-	werase(TGwin);
-	werase(SYSwin);
-	werase(OLDwin);
-	werase(CPUwin);
-	werase(DATwin);
-	werase(MTGwin);
-	werase(ERRwin);
-	//wclear(TGwin);
-	//wclear(SYSwin);
-	//wclear(OLDwin);
-	//wclear(CPUwin);
-	//wclear(DATwin);
-	//wclear(LOGwinb);
-	//wclear(LOGwin);
-	//wclear(MTGwin);
-	clearall=false;
-	LogRef();
-	//wrefresh(DATwin);
+		//clear();
+		LogRef();
+		clearall=false;
 	}
-	else{
-	werase(ERRwin);
-	werase(TGwin);
-	werase(SYSwin);
-	werase(OLDwin);
-	werase(CPUwin);
-	werase(DATwin);
-	werase(MTGwin);
-	}
-	wborder(TGwin, 0,0,0,0,0,0,0,0);
-	wborder(SYSwin, 0,0,0,0,0,0,0,0);
-	wborder(OLDwin, 0,0,0,0,0,0,0,0);
-	wborder(CPUwin, 0,0,0,0,0,0,0,0);
-	wborder(DATwin, 0,0,0,0,0,0,0,0);
-	wborder(MTGwin, 0,0,0,0,0,0,0,0);
-	wborder(ERRwin, 0,0,0,0,0,0,0,0);
-	wattron(TGwin, COLOR_PAIR(4));
-	wmove(TGwin, R1h-1, 1);
-	wprintw(TGwin, "Recorders");
-	wattroff(TGwin, COLOR_PAIR(4));
-	wattron(SYSwin, COLOR_PAIR(4));
-	wmove(SYSwin, R1h-1, 1);
-	wprintw(SYSwin, "Systems");
-	wattroff(SYSwin, COLOR_PAIR(4));
-	wattron(OLDwin, COLOR_PAIR(4));
-	wmove(OLDwin, R1h-1, 1);
-	wprintw(OLDwin, "Past Calls");
-	wattroff(OLDwin, COLOR_PAIR(4));
-	wattron(CPUwin, COLOR_PAIR(4));
-	wmove(CPUwin, R1h-1, 1);
-	wprintw(CPUwin, "CPU");
-	wattroff(CPUwin, COLOR_PAIR(4));
-	wattron(DATwin, COLOR_PAIR(4));
-	wmove(DATwin, R1h-1, 1);
-	wprintw(DATwin, "Call Data");
-	wattroff(DATwin, COLOR_PAIR(4));
-	wattron(MTGwin, COLOR_PAIR(4));
-	wmove(MTGwin, R1h-1, 1);
-	wprintw(MTGwin, "Missing");
-	wattroff(MTGwin, COLOR_PAIR(4));
-	wattron(ERRwin, COLOR_PAIR(4));
-	wmove(ERRwin, R1h-1, 1);
-	wprintw(ERRwin, "Errors");
-	wattroff(ERRwin, COLOR_PAIR(4));
-	
-	//TGwin
-	for(int x = 0; x < TGblocks; x++){
-	for (int i = 0; i < digrec[x]; i++){
-	std::stringstream ss;
-	std::stringstream ss2;
-	std::string s2;
-	std::string s;
-	if(i < 9){
-	wmove(TGwin, 1+i,2+(TGblockx*x));
-	}
-	else{
-	wmove(TGwin, 1+i,1+(TGblockx*x));
-	}
-	ss2 << i+1;
-	ss2 >> s2;
-	const char * d = s2.c_str();
-	wattron(TGwin, COLOR_PAIR(3));
-	wprintw(TGwin, d);
-	wattroff(TGwin, COLOR_PAIR(3));
-	wmove(TGwin, 1+i,4+(TGblockx*x));
-	if(getcol(digitalgroups[x][i][2])){
-		wattron(TGwin, COLOR_PAIR(currcol));
-		if(digitalgroups[x][i][0]!=0){
-			ss << digitalgroups[x][i][0] << " " << digitalgroups[x][i][1] << "s";
-			s = ss.str();
-			const char * c = s.c_str();
-			wprintw(TGwin, c);
-			wattroff(TGwin, COLOR_PAIR(currcol));
-		}
-	//		ss.str("");
-		//	s = "";
-		}
-	}
-	for (int i = 0; i < anarec[x]; i++){
-	std::stringstream ss;
-	std::stringstream ss2;
-	std::string s2;
-	std::string s;
-	if(i < 9){
-	wmove(TGwin, 1+i+digrec[x],2+(TGblockx*x));
-	}
-	else{
-	wmove(TGwin, 1+i+digrec[x],1+(TGblockx*x));
-	}
-	ss2 << i+1;
-	ss2 >> s2;
-	const char * d = s2.c_str();
-	wattron(TGwin, COLOR_PAIR(2));
-	wprintw(TGwin, d);
-	wattroff(TGwin, COLOR_PAIR(2));
-	wmove(TGwin, 1+i+digrec[x],4+(TGblockx*x));
-	if(getcol(analoggroups[x][i][2])){
-		wattron(TGwin, COLOR_PAIR(currcol));
-		if(analoggroups[x][i][0]!=0){
-			ss << analoggroups[x][i][0] << " " << analoggroups[x][i][1] << "s";
-			s = ss.str();
-			const char * c = s.c_str();
-			wprintw(TGwin, c);
-			wattroff(TGwin, COLOR_PAIR(currcol));
-		}
-	//		ss.str("");
-		//	s = "";
-		}
-	}
-	wmove(TGwin, digrec[x]+anarec[x]+2, 2+(x*TGblockx));
-	wattron(TGwin, COLOR_PAIR(4));
-	const char * r = Radios[x].c_str();
-	wprintw(TGwin, r);
-	wattroff(TGwin, COLOR_PAIR(4));
-	}
-	
-	//System and CPU windows
-	int datapos = 6;
-	wattron(SYSwin, COLOR_PAIR(4));
-	wattron(CPUwin, COLOR_PAIR(4));
-	wmove(SYSwin, 1, 1);
-	wmove(CPUwin, 1, 1);
-	wprintw(SYSwin, "100");
-	wprintw(CPUwin, "100");
-	for(int i = 1; i < 19; i++){
-		std::stringstream ss;
-		std::string s;
-		wmove(SYSwin, i+1, 2);
-		wmove(CPUwin, i+1, 2);
-		ss << 100-i*5;
-		ss >> s;
-		const char * c = s.c_str();
-		wprintw(SYSwin, c);
-		wprintw(CPUwin, c);
-	}
-	wmove(CPUwin, 20, 3);
-	wmove(SYSwin, 20, 3);
-	wprintw(SYSwin, "5");
-	wprintw(CPUwin, "5");
-	wmove(SYSwin, 21, 3);
-	wmove(CPUwin, 21, 3);
-	wprintw(CPUwin, "0");
-	wprintw(SYSwin, "0");
-	wmove(SYSwin, 22, 1);
-	wmove(CPUwin, 22, 1);
-	wprintw(CPUwin, "CPU");
-	wprintw(SYSwin, "MPS");
-	wmove(CPUwin, 29, 1);
-	wprintw(CPUwin, "CPU");
-	for(int i = 0; i < CPUblocks; i++){
-		std::stringstream ss;
-		std::string s;
-		wmove(CPUwin, 22, 5+i);
-		ss << i;
-		ss >> s;
-		const char * c = s.c_str();
-		wprintw(CPUwin, c);
-	}
-	/*
-	wmove(CPUwin, 22, 6+CPUblocks);
-	wprintw(CPUwin, "151");
-	wmove(CPUwin, 23, 6+CPUblocks);
-	wprintw(CPUwin, "  5");
-	wmove(CPUwin, 24, 6+CPUblocks);
-	wprintw(CPUwin, "AVG");
-	wattroff(CPUwin, COLOR_PAIR(4));
-	*/
-	wmove(SYSwin, 29, 1);
-	wprintw(SYSwin, "Message Rate");
-	wattroff(SYSwin, COLOR_PAIR(4));
-	wattron(SYSwin, COLOR_PAIR(2));
-	wmove(SYSwin, 24, 1);
-	wprintw(SYSwin, "Maximum");
-	wattroff(SYSwin, COLOR_PAIR(2));
-	wattron(SYSwin, COLOR_PAIR(1));
-	wmove(SYSwin, 25, 1);
-	wprintw(SYSwin, "Average");
-	wattroff(SYSwin, COLOR_PAIR(1));
-	wattron(SYSwin, COLOR_PAIR(3));
-	wmove(SYSwin, 26, 1);
-	wprintw(SYSwin, "Minimum");
-	wattroff(SYSwin, COLOR_PAIR(3));
-	for(int i = 0; i < SYSblocks; i++){
-		
-		std::stringstream ss;
-		std::string s;
-		getcol(i);
-		wattron(SYSwin, COLOR_PAIR(currcol));
-		wmove(SYSwin, 22, datapos-1);
-		ss << std::hex << std::uppercase << sysccc[0][i] << std::dec << std::nouppercase;
-		ss >> s;
-		const char * c = s.c_str();
-		wprintw(SYSwin, c);
-		wattroff(SYSwin, COLOR_PAIR(currcol));
-		wattron(SYSwin, COLOR_PAIR(4));
-		wmove(SYSwin, 23, datapos-1);
-		std::stringstream ss2;
-		ss2 << sysmpsbuff[i];
-		//ss2 << "ABC";
-		std::string s2 = ss2.str();
-		const char * c2 = s2.c_str();
-		wprintw(SYSwin, c2);
-		wattroff(SYSwin, COLOR_PAIR(4));
-			for(int x = 0; x < 21; x++){
-				wmove(SYSwin, 21-x, datapos);
-				if(maxmsg[i] >= (5*x)){
-					wattron(SYSwin, COLOR_PAIR(2));
-					//wprintw(SYSwin, "X");
-					waddch(SYSwin, ACS_CKBOARD);
-					wattroff(SYSwin, COLOR_PAIR(2));
-				}
-			}
-			for(int x = 0; x < 21; x++){
-				wmove(SYSwin, 21-x, datapos);
-				if(avgmsg[i] >= (5*x)){
-					wattron(SYSwin, COLOR_PAIR(1));
-					//wprintw(SYSwin, "X");
-					waddch(SYSwin, ACS_CKBOARD);
-					wattroff(SYSwin, COLOR_PAIR(1));
-				}
-			}
-			for(int x = 0; x < 21; x++){
-				wmove(SYSwin, 21-x, datapos);
-				if(minmsg[i] >= (5*x)){
-					wattron(SYSwin, COLOR_PAIR(3));
-					//wprintw(SYSwin, "X");
-					waddch(SYSwin, ACS_CKBOARD);
-					wattroff(SYSwin, COLOR_PAIR(3));
-				}
-			}
-		datapos = datapos+4;
-	}
-	wattron(CPUwin, COLOR_PAIR(3));
-	for(int i = 0; i < CPUblocks; i++){
-		int cpupos = 5;
-		if(cpuavg[i] != 0){
-			for(int x = 0; x < 21; x++){
-				wmove(CPUwin, 21-x, cpupos+i);
-				if(cpuavg[i] >= (5*x)){
-					if((5*x)>=50 && (5*x)<75){
-						wattroff(CPUwin, COLOR_PAIR(3));
-						wattron(CPUwin, COLOR_PAIR(7));
-					}
-					else if((5*x)>=75){
-						wattroff(CPUwin, COLOR_PAIR(3));
-						wattron(CPUwin, COLOR_PAIR(2));
-					}
-					if(i%2==0)
-						waddch(CPUwin, ACS_CKBOARD);
-					else
-						waddch(CPUwin, ' '|A_REVERSE);
-					if((5*x)>=50 && (5*x)<75){
-						wattroff(CPUwin, COLOR_PAIR(7));
-						wattron(CPUwin, COLOR_PAIR(3));
-					}
-					else if((5*x)>=75){
-						wattroff(CPUwin, COLOR_PAIR(2));
-						wattron(CPUwin, COLOR_PAIR(3));
-					}
-				}
-			}
-		}
-	}
-	/*
-	for(int i = 0; i < 3; i++){
-		getloadavg(load, 3);
-		for(int x = 0; x < 21; x++){
-			wmove(CPUwin, 21-x, 6+CPUblocks+i);
-			if(((load[i]/8)*100) >= (5*x)){
-				if(i%2!=0)
-					waddch(CPUwin, ACS_CKBOARD);
-				else
-					waddch(CPUwin, ' '|A_REVERSE);
-			}
-		}
-	}*/
-	wattroff(CPUwin, COLOR_PAIR(3));
-	
-	//History window
-	wattron(OLDwin, COLOR_PAIR(4));
-	if(pastpos<28)
-	for(int i = 0; i < pastpos; i ++){
-		getcol(history[i][2]);
-		std::stringstream hh;
-		std::string hstr;
-		std::stringstream h2;
-		std::string hstr2;
-		hh << history[i][0];
-		hh >> hstr;
-		const char * hchar = hstr.c_str();
-		wmove(OLDwin, 1+i, 1);
-		wattron(OLDwin, COLOR_PAIR(currcol));
-		wprintw(OLDwin, hchar);
-		wprintw(OLDwin, " ");
-		h2 << history[i][1];
-		h2 >> hstr2;
-		const char * hchar2 = hstr2.c_str();
-		wprintw(OLDwin, hchar2);
-		wprintw(OLDwin, "s");
-		wattroff(OLDwin, COLOR_PAIR(currcol));
-	}
-	else{
-		for(int i = 0; i < 28; i ++){
-		getcol(history[i][2]);
-		std::stringstream hh;
-		std::stringstream h2;
-		std::string hstr;
-		std::string hstr2;
-		hh << history[i][0];
-		hh >> hstr;
-		const char * hchar = hstr.c_str();
-		wmove(OLDwin, 1+i, 1);
-		wattron(OLDwin, COLOR_PAIR(currcol));
-		wprintw(OLDwin, hchar);
-		wprintw(OLDwin, " ");
-		h2 << history[i][1];
-		h2 >> hstr2;
-		const char * hchar2 = hstr2.c_str();
-		wprintw(OLDwin, hchar2);
-		wprintw(OLDwin, "s");
-		wattroff(OLDwin, COLOR_PAIR(currcol));
-	}
-	}
-	wattroff(OLDwin, COLOR_PAIR(4));
-	
-	//Data Window
-	wattron(DATwin, COLOR_PAIR(4));
-	wmove(DATwin, 1,3);
-	wprintw(DATwin, "Call Data");
-	for(int i = 0; i < 10; i++){
-		std::stringstream dat;
-		std::string datstr;
-		wmove(DATwin, 2+i, 1);
-		switch(i){
-			case 0:
-			dat << "1m:    " << cparse(Call1m, 10);
-			break;
-			case 1:
-			dat << "5m:    " << cparse(Call5m, 10);
-			break;
-			case 2:
-			dat << "15m:   " << cparse(Call15m, 10);
-			break;
-			case 3:
-			dat << "30m:   " << cparse(Call30m, 10);
-			break;
-			case 4:
-			dat << "1h:    " << cparse(Call1h, 10);
-			break;
-			case 5:
-			dat << "Tday:  " << cparse(CallTDay+CallBuff, 10);
-			break;
-			case 6:
-			dat << "Yday:  " << cparse(CallYDay, 10);
-			break;
-			case 7:
-			dat << "Max:   " << cparse(callmax, 10);
-			break;
-			case 8:
-			dat << "Act:   " << cparse(actcall, 10);
-			break;
-			case 9:
-			dat << "Total: " << cparse(CallTot+CallBuff, 10);
-			break;
-		}
-		datstr=dat.str();
-		const char * datchar = datstr.c_str();
-		wprintw(DATwin, datchar);
-	}
-	wmove(DATwin, 13, 3);
-	wprintw(DATwin, "Audio Data");
-	for(int i = 0; i < 9; i++){
-		int holdbuff[60];
-		holdbuff[TreeTime[1]] = AudioBuff;
-		std::stringstream dat;
-		std::string datstr;
-		wmove(DATwin, 14+i, 1);
-		switch(i){
-			case 0:
-			dat << "1m:    " << TTimeParse(Audio1m);
-			break;
-			case 1:
-			dat << "5m:    " << TTimeParse(Audio5m);
-			break;
-			case 2:
-			dat << "15m:   " << TTimeParse(Audio15m);
-			break;
-			case 3:
-			dat << "30m:   " << TTimeParse(Audio30m);
-			break;
-			case 4:
-			dat << "1h:    " << TTimeParse(Audio1h);
-			break;
-			case 5:
-			dat << "Tday:  " << TTimeParse(AudioTDay+AudioBuff);
-			break;
-			case 6:
-			dat << "Yday:  " << TTimeParse(AudioYDay);
-			break;
-			case 7:
-			dat << "Max:   " << TTimeParse(audiomax);
-			break;
-			case 8:
-			dat << "Total: " << TTimeParse(AudioTot+AudioBuff);
-			break;
-		}
-		datstr=dat.str();
-		const char * datchar = datstr.c_str();
-		wprintw(DATwin, datchar);
-	}
-	wmove(DATwin, R1h-3, 1);
-	std::stringstream dat2;
-	dat2 << "Time:  " << TTimeParse(TTraw);
-	std::string datstr2 = dat2.str();
-	const char * datchar2=datstr2.c_str();
-	wprintw(DATwin, datchar2);
-	wmove(DATwin, R1h-5, 1);
-	dat2.str("");
-	dat2 << "Up:    " << TTimeParse(runtime);
-	datstr2 = dat2.str();
-	const char * datchar3 = datstr2.c_str();
-	wprintw(DATwin, datchar3);
-	wattroff(DATwin, COLOR_PAIR(4));
-	
-	//MTGwin
-	if(mtgcount<28)
-	for(int i = 0; i < mtgcount; i ++){
-		std::stringstream hh;
-		std::string hstr;
-		hh << MTGs[i][0];
-		hh >> hstr;
-		const char * hchar = hstr.c_str();
-		getcol(MTGs[i][1]);
-		wattron(MTGwin, COLOR_PAIR(currcol));
-		wmove(MTGwin, 1+i, 1);
-		wprintw(MTGwin, hchar);
-		wattroff(MTGwin, COLOR_PAIR(currcol));
-	}
-	else{
-		for(int i = 0; i < 28; i ++){
-		std::stringstream hh;
-		std::stringstream h2;
-		std::string hstr;
-		std::string hstr2;
-		hh << MTGs[i][0];
-		hh >> hstr;
-		const char * hchar = hstr.c_str();
-		getcol(MTGs[i][1]);
-		wattron(MTGwin, COLOR_PAIR(currcol));
-		wmove(MTGwin, 1+i, 1);
-		wprintw(MTGwin, hchar);
-		wattroff(MTGwin, COLOR_PAIR(currcol));
-	}
-	}
-	
-	//Error Window
-	wattron(ERRwin, COLOR_PAIR(4));
-	for(int i = 0; i < 12; i++){
-		std::stringstream dat;
-		std::string datstr;
-		wmove(ERRwin, 1+i, 1);
-		switch(i){
-			case 0:
-			dat << "Killed:   " << cparse(KillErr, 4);
-			break;
-			case 1:
-			dat << "Double:   " << cparse(DoubleErr, 4);
-			break;
-			case 2:
-			dat << "Recorder: " << cparse(RecErr, 4);
-			break;
-			case 3:
-			dat << "Source:   " << cparse(SrcErr, 4);
-			break;
-			case 4:
-			dat << "TG:       " << cparse(TGErr, 4);
-			break;
-			case 5:
-			dat << "Long:     " << cparse(LgErr, 4);
-			break;
-			case 6:
-			dat << "CPU60:    " << cparse(CPU60, 4);
-			break;
-			case 7:
-			dat << "CPU75:    " << cparse(CPU75, 4);
-			break;
-			case 8:
-			dat << "CPU90:    " << cparse(CPU90, 4);
-			break;
-			case 9:
-			dat << "CPU100:   " << cparse(CPU100, 4);
-			break;
-			case 10:
-			dat << "Wclose:   " << cparse(Wclose, 4);
-			break;
-			case 11:
-			dat << "Wdrop:    " << cparse(Wdrop, 4);
-			break;
-		}
-		datstr=dat.str();
-		const char * datchar = datstr.c_str();
-		wprintw(ERRwin, datchar);
-	}
-	wattroff(ERRwin, COLOR_PAIR(4));
-	
-	wrefresh(TGwin);
-	wrefresh(SYSwin);
-	wrefresh(OLDwin);
-	wrefresh(CPUwin);
-	wrefresh(DATwin);
-	wrefresh(MTGwin);
-	wrefresh(ERRwin);
+	TTime();
+	RecRef();
+	MsgRef();
+	DatRef();
+	OldRef();
+	CpuRef();
+	MtgRef();
+	ErrRef();
+	wmove(LOGwin, 0, 0);
 }
 void Tree::EndWin(){
 	endwin();
@@ -1470,7 +980,40 @@ std::string Tree::TTimeParse(int stime){
 		return "";
 	}
 	std::stringstream ttp;
+	if(stime >= 604800){
+		if(stime/60/60/24/7<10){
+			ttp << " " << stime/60/60/24/7 << ":";
+		}
+		else{
+			ttp << stime/60/60/24/7 << ":";
+		}
+		if(stime/60/60/24<10){
+			ttp << "0" << stime/60/60/24 << ":";
+		}
+		else{
+			ttp << stime/60/60/24 << ":";
+		}
+		if(stime/60/60%24<10){
+			ttp << "0" << stime/60/60%24 << ":";
+		}
+		else{
+			ttp << stime/60/60%24 << ":";
+		}
+		if(stime/60%60<10){
+			ttp << "0" << stime/60%60 << ":";
+		}
+		else{
+			ttp << stime/60%60 << ":";
+		}
+		if(stime%60<10){
+			ttp << "0" << stime%60;
+		}
+		else{
+			ttp << stime%60;
+		}
+	}
 	if(stime >= 86400){
+		ttp << "   ";
 		if(stime/60/60/24<10){
 			ttp << " " << stime/60/60/24 << ":";
 		}
@@ -1497,7 +1040,7 @@ std::string Tree::TTimeParse(int stime){
 		}
 	}
 	else if(stime >= 3600){
-		ttp << "   ";
+		ttp << "      ";
 		if(stime/60/60<10){
 			ttp << " " << stime/60/60 << ":";
 		}
@@ -1518,7 +1061,7 @@ std::string Tree::TTimeParse(int stime){
 		}
 	}
 	else if(stime >=60){
-		ttp << "      ";
+		ttp << "         ";
 		if(stime/60<10){
 			ttp << " " << stime/60 << ":";
 		}
@@ -1534,10 +1077,10 @@ std::string Tree::TTimeParse(int stime){
 	}
 	else if(stime < 60){
 		if(stime < 10){
-			ttp << "          " << stime;
+			ttp << "             " << stime;
 		}
 		else{
-			ttp << "         " << stime;
+			ttp << "            " << stime;
 		}
 	}
 	std::string ttpstr = ttp.str();
@@ -1750,4 +1293,626 @@ void Tree::Wav(int msg){
 		Wdrop++;
 		break;
 	}
+}
+void Tree::RecRef(){
+	werase(RECwin);
+	wborder(RECwin, 0,0,0,0,0,0,0,0);
+	wattron(RECwin, COLOR_PAIR(4));
+	wmove(RECwin, R1h-1, 1);
+	wprintw(RECwin, "Recorders");
+	wattroff(RECwin, COLOR_PAIR(4));
+	//RECwin
+	for(int x = 0; x < TGblocks; x++){
+	for (int i = 0; i < digrec[x]; i++){
+	std::stringstream ss;
+	std::stringstream ss2;
+	std::string s2;
+	std::string s;
+	if(i < 9){
+	wmove(RECwin, 1+i,2+(TGblockx*x));
+	}
+	else{
+	wmove(RECwin, 1+i,1+(TGblockx*x));
+	}
+	ss2 << i+1;
+	ss2 >> s2;
+	const char * d = s2.c_str();
+	wattron(RECwin, COLOR_PAIR(3));
+	wprintw(RECwin, d);
+	wattroff(RECwin, COLOR_PAIR(3));
+	wmove(RECwin, 1+i,4+(TGblockx*x));
+	if(getcol(digitalgroups[x][i][2])){
+		wattron(RECwin, COLOR_PAIR(currcol));
+		if(digitalgroups[x][i][0]!=0){
+			ss << digitalgroups[x][i][0] << " " << digitalgroups[x][i][1] << "s";
+			s = ss.str();
+			const char * c = s.c_str();
+			wprintw(RECwin, c);
+			wattroff(RECwin, COLOR_PAIR(currcol));
+		}
+	//		ss.str("");
+		//	s = "";
+		}
+	}
+	for (int i = 0; i < anarec[x]; i++){
+	std::stringstream ss;
+	std::stringstream ss2;
+	std::string s2;
+	std::string s;
+	if(i < 9){
+	wmove(RECwin, 1+i+digrec[x],2+(TGblockx*x));
+	}
+	else{
+	wmove(RECwin, 1+i+digrec[x],1+(TGblockx*x));
+	}
+	ss2 << i+1;
+	ss2 >> s2;
+	const char * d = s2.c_str();
+	wattron(RECwin, COLOR_PAIR(2));
+	wprintw(RECwin, d);
+	wattroff(RECwin, COLOR_PAIR(2));
+	wmove(RECwin, 1+i+digrec[x],4+(TGblockx*x));
+	if(getcol(analoggroups[x][i][2])){
+		wattron(RECwin, COLOR_PAIR(currcol));
+		if(analoggroups[x][i][0]!=0){
+			ss << analoggroups[x][i][0] << " " << analoggroups[x][i][1] << "s";
+			s = ss.str();
+			const char * c = s.c_str();
+			wprintw(RECwin, c);
+			wattroff(RECwin, COLOR_PAIR(currcol));
+		}
+	//		ss.str("");
+		//	s = "";
+		}
+	}
+	wmove(RECwin, digrec[x]+anarec[x]+2, 2+(x*TGblockx));
+	wattron(RECwin, COLOR_PAIR(4));
+	const char * r = Radios[x].c_str();
+	wprintw(RECwin, r);
+	wattroff(RECwin, COLOR_PAIR(4));
+	}
+	wrefresh(RECwin);
+}
+void Tree::MsgRef(){
+	werase(SYSwin);
+	wborder(SYSwin, 0,0,0,0,0,0,0,0);
+	wattron(SYSwin, COLOR_PAIR(4));
+	wmove(SYSwin, R1h-1, 1);
+	wprintw(SYSwin, "Systems");
+	wattroff(SYSwin, COLOR_PAIR(4));
+	int datapos = 6;
+	wattron(SYSwin, COLOR_PAIR(4));
+	wmove(SYSwin, 1, 1);
+	wprintw(SYSwin, "100");
+	for(int i = 1; i < 19; i++){
+		std::stringstream ss;
+		std::string s;
+		wmove(SYSwin, i+1, 2);
+		ss << 100-i*5;
+		ss >> s;
+		const char * c = s.c_str();
+		wprintw(SYSwin, c);
+	}
+	wmove(SYSwin, 20, 3);
+	wprintw(SYSwin, "5");
+	wmove(SYSwin, 21, 3);
+	wprintw(SYSwin, "0");
+	wmove(SYSwin, 22, 1);
+	wprintw(SYSwin, "MPS");
+	
+	wmove(SYSwin, 29, 1);
+	if(SYSblocks < 3){
+		wprintw(SYSwin, "Msg Rate");
+	}
+	else{
+		wprintw(SYSwin, "Message Rate");
+	}
+	wattroff(SYSwin, COLOR_PAIR(4));
+	wattron(SYSwin, COLOR_PAIR(2));
+	wmove(SYSwin, 24, 1);
+	if(SYSblocks<2)
+		wprintw(SYSwin, "Max");
+	else
+		wprintw(SYSwin, "Maximum");
+	wattroff(SYSwin, COLOR_PAIR(2));
+	wattron(SYSwin, COLOR_PAIR(1));
+	wmove(SYSwin, 25, 1);
+	if(SYSblocks<2)
+		wprintw(SYSwin, "Avg");
+	else
+		wprintw(SYSwin, "Average");
+	wattroff(SYSwin, COLOR_PAIR(1));
+	wattron(SYSwin, COLOR_PAIR(3));
+	wmove(SYSwin, 26, 1);
+	if(SYSblocks<2)
+		wprintw(SYSwin, "Min");
+	else
+		wprintw(SYSwin, "Minimum");
+	wattroff(SYSwin, COLOR_PAIR(3));
+	for(int i = 0; i < SYSblocks; i++){
+		
+		std::stringstream ss;
+		std::string s;
+		getcol(i);
+		wattron(SYSwin, COLOR_PAIR(currcol));
+		wmove(SYSwin, 22, datapos-1);
+		ss << std::hex << std::uppercase << sysccc[0][i] << std::dec << std::nouppercase;
+		ss >> s;
+		const char * c = s.c_str();
+		wprintw(SYSwin, c);
+		wattroff(SYSwin, COLOR_PAIR(currcol));
+		wattron(SYSwin, COLOR_PAIR(4));
+		wmove(SYSwin, 23, datapos-1);
+		std::stringstream ss2;
+		ss2 << sysmpsbuff[i];
+		//ss2 << "ABC";
+		std::string s2 = ss2.str();
+		const char * c2 = s2.c_str();
+		wprintw(SYSwin, c2);
+		wattroff(SYSwin, COLOR_PAIR(4));
+			for(int x = 0; x < 21; x++){
+				wmove(SYSwin, 21-x, datapos);
+				if(maxmsg[i] >= (5*x)){
+					wattron(SYSwin, COLOR_PAIR(2));
+					//wprintw(SYSwin, "X");
+					waddch(SYSwin, ACS_CKBOARD);
+					wattroff(SYSwin, COLOR_PAIR(2));
+				}
+			}
+			for(int x = 0; x < 21; x++){
+				wmove(SYSwin, 21-x, datapos);
+				if(avgmsg[i] >= (5*x)){
+					wattron(SYSwin, COLOR_PAIR(1));
+					//wprintw(SYSwin, "X");
+					waddch(SYSwin, ACS_CKBOARD);
+					wattroff(SYSwin, COLOR_PAIR(1));
+				}
+			}
+			for(int x = 0; x < 21; x++){
+				wmove(SYSwin, 21-x, datapos);
+				if(minmsg[i] >= (5*x)){
+					wattron(SYSwin, COLOR_PAIR(3));
+					//wprintw(SYSwin, "X");
+					waddch(SYSwin, ACS_CKBOARD);
+					wattroff(SYSwin, COLOR_PAIR(3));
+				}
+			}
+		datapos = datapos+4;
+	}
+	wrefresh(SYSwin);
+}
+void Tree::DatRef(){
+	werase(DATwin);
+	wborder(DATwin, 0,0,0,0,0,0,0,0);
+	wattron(DATwin, COLOR_PAIR(4));
+	wmove(DATwin, R1h-1, 1);
+	wprintw(DATwin, "Call Data");
+	wattroff(DATwin, COLOR_PAIR(4));
+	wattron(DATwin, COLOR_PAIR(4));
+	wmove(DATwin, 1,3);
+	wprintw(DATwin, "Call Data");
+	for(int i = 0; i < 10; i++){
+		std::stringstream dat;
+		std::string datstr;
+		wmove(DATwin, 2+i, 1);
+		switch(i){
+			case 0:
+			dat << "1m:    " << cparse(Call1m, 13);
+			break;
+			case 1:
+			dat << "5m:    " << cparse(Call5m, 13);
+			break;
+			case 2:
+			dat << "15m:   " << cparse(Call15m, 13);
+			break;
+			case 3:
+			dat << "30m:   " << cparse(Call30m, 13);
+			break;
+			case 4:
+			dat << "1h:    " << cparse(Call1h, 13);
+			break;
+			case 5:
+			dat << "Tday:  " << cparse(CallTDay+CallBuff, 13);
+			break;
+			case 6:
+			dat << "Yday:  " << cparse(CallYDay, 13);
+			break;
+			case 7:
+			dat << "Max:   " << cparse(callmax, 13);
+			break;
+			case 8:
+			dat << "Act:   " << cparse(actcall, 13);
+			break;
+			case 9:
+			dat << "Total: " << cparse(CallTot+CallBuff, 13);
+			break;
+		}
+		datstr=dat.str();
+		const char * datchar = datstr.c_str();
+		wprintw(DATwin, datchar);
+	}
+	wmove(DATwin, 13, 3);
+	wprintw(DATwin, "Audio Data");
+	for(int i = 0; i < 9; i++){
+		int holdbuff[60];
+		holdbuff[TreeTime[1]] = AudioBuff;
+		std::stringstream dat;
+		std::string datstr;
+		wmove(DATwin, 14+i, 1);
+		switch(i){
+			case 0:
+			dat << "1m:    " << TTimeParse(Audio1m);
+			break;
+			case 1:
+			dat << "5m:    " << TTimeParse(Audio5m);
+			break;
+			case 2:
+			dat << "15m:   " << TTimeParse(Audio15m);
+			break;
+			case 3:
+			dat << "30m:   " << TTimeParse(Audio30m);
+			break;
+			case 4:
+			dat << "1h:    " << TTimeParse(Audio1h);
+			break;
+			case 5:
+			dat << "Tday:  " << TTimeParse(AudioTDay+AudioBuff);
+			break;
+			case 6:
+			dat << "Yday:  " << TTimeParse(AudioYDay);
+			break;
+			case 7:
+			dat << "Max:   " << TTimeParse(audiomax);
+			break;
+			case 8:
+			dat << "Total: " << TTimeParse(AudioTot+AudioBuff);
+			break;
+		}
+		datstr=dat.str();
+		const char * datchar = datstr.c_str();
+		wprintw(DATwin, datchar);
+	}
+	wmove(DATwin, R1h-3, 1);
+	std::stringstream dat2;
+	dat2 << "Time:  " << TTimeParse(TTraw);
+	std::string datstr2 = dat2.str();
+	const char * datchar2=datstr2.c_str();
+	wprintw(DATwin, datchar2);
+	wmove(DATwin, R1h-5, 1);
+	dat2.str("");
+	dat2 << "Up:    " << TTimeParse(runtime);
+	datstr2 = dat2.str();
+	const char * datchar3 = datstr2.c_str();
+	wprintw(DATwin, datchar3);
+	wattroff(DATwin, COLOR_PAIR(4));
+	wrefresh(DATwin);
+}
+void Tree::OldRef(){
+	werase(OLDwin);
+	wborder(OLDwin, 0,0,0,0,0,0,0,0);
+	wattron(OLDwin, COLOR_PAIR(4));
+	wmove(OLDwin, R1h-1, 1);
+	wprintw(OLDwin, "Past Calls");
+	wattroff(OLDwin, COLOR_PAIR(4));
+	wattron(OLDwin, COLOR_PAIR(4));
+	if(pastpos<28)
+	for(int i = 0; i < pastpos; i ++){
+		getcol(history[i][2]);
+		std::stringstream hh;
+		std::string hstr;
+		std::stringstream h2;
+		std::string hstr2;
+		hh << history[i][0];
+		hh >> hstr;
+		const char * hchar = hstr.c_str();
+		wmove(OLDwin, 1+i, 1);
+		wattron(OLDwin, COLOR_PAIR(currcol));
+		wprintw(OLDwin, hchar);
+		wprintw(OLDwin, " ");
+		h2 << history[i][1];
+		h2 >> hstr2;
+		const char * hchar2 = hstr2.c_str();
+		wprintw(OLDwin, hchar2);
+		wprintw(OLDwin, "s");
+		wattroff(OLDwin, COLOR_PAIR(currcol));
+	}
+	else{
+		for(int i = 0; i < 28; i ++){
+		getcol(history[i][2]);
+		std::stringstream hh;
+		std::stringstream h2;
+		std::string hstr;
+		std::string hstr2;
+		hh << history[i][0];
+		hh >> hstr;
+		const char * hchar = hstr.c_str();
+		wmove(OLDwin, 1+i, 1);
+		wattron(OLDwin, COLOR_PAIR(currcol));
+		wprintw(OLDwin, hchar);
+		wprintw(OLDwin, " ");
+		h2 << history[i][1];
+		h2 >> hstr2;
+		const char * hchar2 = hstr2.c_str();
+		wprintw(OLDwin, hchar2);
+		wprintw(OLDwin, "s");
+		wattroff(OLDwin, COLOR_PAIR(currcol));
+	}
+	}
+	wattroff(OLDwin, COLOR_PAIR(4));
+	wrefresh(OLDwin);
+}
+void Tree::CpuRef(){
+	werase(CPUwin);
+	wborder(CPUwin, 0,0,0,0,0,0,0,0);
+	wattron(CPUwin, COLOR_PAIR(4));
+	wmove(CPUwin, R1h-1, 1);
+	wprintw(CPUwin, "CPU");
+	wattroff(CPUwin, COLOR_PAIR(4));
+		int datapos = 6;
+	wattron(CPUwin, COLOR_PAIR(4));
+	wmove(CPUwin, 1, 1);
+	wprintw(CPUwin, "100");
+	for(int i = 1; i < 19; i++){
+		std::stringstream ss;
+		std::string s;
+		wmove(CPUwin, i+1, 2);
+		ss << 100-i*5;
+		ss >> s;
+		const char * c = s.c_str();
+		wprintw(CPUwin, c);
+	}
+	wmove(CPUwin, 20, 3);
+	wprintw(CPUwin, "5");
+	wmove(CPUwin, 21, 3);
+	wprintw(CPUwin, "0");
+	wmove(CPUwin, 22, 1);
+	wprintw(CPUwin, "CPU");
+	wmove(CPUwin, 29, 1);
+	wprintw(CPUwin, "CPU");
+	for(int i = 0; i < CPUblocks; i++){
+		if(CPUblocks > 99){
+			if(i < 10){
+				wmove(CPUwin, 22, 5+i);
+				wprintw(CPUwin, "0");
+				wmove(CPUwin, 23, 5+i);
+				wprintw(CPUwin, "0");
+				std::stringstream ss;
+				std::string s;
+				wmove(CPUwin, 24, 5+i);
+				ss << i;
+				ss >> s;
+				const char * c = s.c_str();
+				wprintw(CPUwin, c);
+			}
+			else if(i < 100){
+				wmove(CPUwin, 22, 5+i);
+				wprintw(CPUwin, "0");
+				wmove(CPUwin, 23, 5+i);
+				std::stringstream ss2;
+				std::string s2;
+				ss2 << i/10%10;
+				ss2 >> s2;
+				const char * c2 = s2.c_str();
+				wprintw(CPUwin, c2);
+				std::stringstream ss;
+				std::string s;
+				wmove(CPUwin, 24, 5+i);
+				ss << i%10;
+				ss >> s;
+				const char * c = s.c_str();
+				wprintw(CPUwin, c);
+			}
+			else{
+				wmove(CPUwin, 22, 5+i);
+				std::stringstream ss3;
+				std::string s3;
+				ss3 << i/10/10%10;
+				ss3 >> s3;
+				const char * c3 = s3.c_str();
+				wprintw(CPUwin, c3);
+				wmove(CPUwin, 23, 5+i);
+				std::stringstream ss2;
+				std::string s2;
+				ss2 << i/10%10;
+				ss2 >> s2;
+				const char * c2 = s2.c_str();
+				wprintw(CPUwin, c2);
+				std::stringstream ss;
+				std::string s;
+				wmove(CPUwin, 24, 5+i);
+				ss << i%10;
+				ss >> s;
+				const char * c = s.c_str();
+				wprintw(CPUwin, c);
+			}
+		}
+		else if(CPUblocks > 9){
+			if(i < 10){
+				wmove(CPUwin, 22, 5+i);
+				wprintw(CPUwin, "0");
+				std::stringstream ss;
+				std::string s;
+				wmove(CPUwin, 23, 5+i);
+				ss << i;
+				ss >> s;
+				const char * c = s.c_str();
+				wprintw(CPUwin, c);
+			}
+			else if(i < 100){
+				wmove(CPUwin, 22, 5+i);
+				std::stringstream ss2;
+				std::string s2;
+				ss2 << i/10%10;
+				ss2 >> s2;
+				const char * c2 = s2.c_str();
+				wprintw(CPUwin, c2);
+				std::stringstream ss;
+				std::string s;
+				wmove(CPUwin, 23, 5+i);
+				ss << i%10;
+				ss >> s;
+				const char * c = s.c_str();
+				wprintw(CPUwin, c);
+			}
+		}
+		else{
+			std::stringstream ss;
+			std::string s;
+			wmove(CPUwin, 22, 5+i);
+			ss << i;
+			ss >> s;
+			const char * c = s.c_str();
+			wprintw(CPUwin, c);
+		}
+	}
+	/*
+	wmove(CPUwin, 22, 6+CPUblocks);
+	wprintw(CPUwin, "151");
+	wmove(CPUwin, 23, 6+CPUblocks);
+	wprintw(CPUwin, "  5");
+	wmove(CPUwin, 24, 6+CPUblocks);
+	wprintw(CPUwin, "AVG");
+	wattroff(CPUwin, COLOR_PAIR(4));
+	*/
+	wattron(CPUwin, COLOR_PAIR(3));
+	for(int i = 0; i < CPUblocks; i++){
+		int cpupos = 5;
+		if(cpuavg[i] != 0){
+			for(int x = 0; x < 21; x++){
+				wmove(CPUwin, 21-x, cpupos+i);
+				if(cpuavg[i] >= (5*x)){
+					if((5*x)>=50 && (5*x)<75){
+						wattroff(CPUwin, COLOR_PAIR(3));
+						wattron(CPUwin, COLOR_PAIR(7));
+					}
+					else if((5*x)>=75){
+						wattroff(CPUwin, COLOR_PAIR(3));
+						wattron(CPUwin, COLOR_PAIR(2));
+					}
+					if(i%2==0)
+						waddch(CPUwin, ACS_CKBOARD);
+					else
+						waddch(CPUwin, ' '|A_REVERSE);
+					if((5*x)>=50 && (5*x)<75){
+						wattroff(CPUwin, COLOR_PAIR(7));
+						wattron(CPUwin, COLOR_PAIR(3));
+					}
+					else if((5*x)>=75){
+						wattroff(CPUwin, COLOR_PAIR(2));
+						wattron(CPUwin, COLOR_PAIR(3));
+					}
+				}
+			}
+		}
+	}
+	/*
+	for(int i = 0; i < 3; i++){
+		getloadavg(load, 3);
+		for(int x = 0; x < 21; x++){
+			wmove(CPUwin, 21-x, 6+CPUblocks+i);
+			if(((load[i]/8)*100) >= (5*x)){
+				if(i%2!=0)
+					waddch(CPUwin, ACS_CKBOARD);
+				else
+					waddch(CPUwin, ' '|A_REVERSE);
+			}
+		}
+	}*/
+	wattroff(CPUwin, COLOR_PAIR(3));
+	wrefresh(CPUwin);
+}
+void Tree::MtgRef(){
+	werase(MRECwin);
+	wborder(MRECwin, 0,0,0,0,0,0,0,0);
+	wattron(MRECwin, COLOR_PAIR(4));
+	wmove(MRECwin, R1h-1, 1);
+	wprintw(MRECwin, "Missing");
+	wattroff(MRECwin, COLOR_PAIR(4));
+	if(mtgcount<28)
+	for(int i = 0; i < mtgcount; i ++){
+		std::stringstream hh;
+		std::string hstr;
+		hh << MTGs[i][0];
+		hh >> hstr;
+		const char * hchar = hstr.c_str();
+		getcol(MTGs[i][1]);
+		wattron(MRECwin, COLOR_PAIR(currcol));
+		wmove(MRECwin, 1+i, 1);
+		wprintw(MRECwin, hchar);
+		wattroff(MRECwin, COLOR_PAIR(currcol));
+	}
+	else{
+		for(int i = 0; i < 28; i ++){
+		std::stringstream hh;
+		std::stringstream h2;
+		std::string hstr;
+		std::string hstr2;
+		hh << MTGs[i][0];
+		hh >> hstr;
+		const char * hchar = hstr.c_str();
+		getcol(MTGs[i][1]);
+		wattron(MRECwin, COLOR_PAIR(currcol));
+		wmove(MRECwin, 1+i, 1);
+		wprintw(MRECwin, hchar);
+		wattroff(MRECwin, COLOR_PAIR(currcol));
+	}
+	}
+	wrefresh(MRECwin);
+}
+void Tree::ErrRef(){
+	werase(ERRwin);
+	wborder(ERRwin, 0,0,0,0,0,0,0,0);
+	wattron(ERRwin, COLOR_PAIR(4));
+	wmove(ERRwin, R1h-1, 1);
+	wprintw(ERRwin, "Errors");
+	wattroff(ERRwin, COLOR_PAIR(4));
+	wattron(ERRwin, COLOR_PAIR(4));
+	for(int i = 0; i < 12; i++){
+		std::stringstream dat;
+		std::string datstr;
+		wmove(ERRwin, 1+i, 1);
+		switch(i){
+			case 0:
+			dat << "Killed:   " << cparse(KillErr, 4);
+			break;
+			case 1:
+			dat << "Double:   " << cparse(DoubleErr, 4);
+			break;
+			case 2:
+			dat << "Recorder: " << cparse(RecErr, 4);
+			break;
+			case 3:
+			dat << "Source:   " << cparse(SrcErr, 4);
+			break;
+			case 4:
+			dat << "TG:       " << cparse(TGErr, 4);
+			break;
+			case 5:
+			dat << "Long:     " << cparse(LgErr, 4);
+			break;
+			case 6:
+			dat << "CPU60:    " << cparse(CPU60, 4);
+			break;
+			case 7:
+			dat << "CPU75:    " << cparse(CPU75, 4);
+			break;
+			case 8:
+			dat << "CPU90:    " << cparse(CPU90, 4);
+			break;
+			case 9:
+			dat << "CPU100:   " << cparse(CPU100, 4);
+			break;
+			case 10:
+			dat << "Wclose:   " << cparse(Wclose, 4);
+			break;
+			case 11:
+			dat << "Wdrop:    " << cparse(Wdrop, 4);
+			break;
+		}
+		datstr=dat.str();
+		const char * datchar = datstr.c_str();
+		wprintw(ERRwin, datchar);
+	}
+	wattroff(ERRwin, COLOR_PAIR(4));
+	wrefresh(ERRwin);
 }

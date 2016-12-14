@@ -25,7 +25,7 @@
 class Tree {
 	#include<ncurses.h>
 public:
-void SetCurses(int enable);
+void SetCurses(int option, int enable);
 void SourceDev(std::string dev, int dig, int ana);
 void PurgeArrays();
 void StartCall(long tg, long freq, std::string dev, bool isanalog, int nac);
@@ -52,6 +52,13 @@ void Past(int tg, int elapsed, int color);
 void CPU();
 void TTime();
 void CPUper();
+void RecRef();
+void MsgRef();
+void DatRef();
+void OldRef();
+void CpuRef();
+void MtgRef();
+void ErrRef();
 int read_fields (FILE *cfp, unsigned long long int *fields);
 std::string TTimeParse(int stime);
 void NewLog(std::string input);
@@ -61,6 +68,6 @@ void LogRef();
 std::string cparse(long input, int space);
 void Wav(int msg);
 private:
-
+static void do_resize(int null);
 };
 #endif

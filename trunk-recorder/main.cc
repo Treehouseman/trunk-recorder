@@ -184,7 +184,10 @@ void load_config()
     size_t pos = config.capture_dir.find_last_of("/");
 	//Treehouseman_begin
 	  cursesen = pt.get<int>("ncurses", 0);
-	  tout.SetCurses(cursesen);
+	  tout.SetCurses(0, cursesen);
+	  tout.SetCurses(1, pt.get<int>("ncurses_big", 0));
+	  tout.SetCurses(2, pt.get<int>("ncurses_cpu", 0));
+	  tout.SetCurses(3, pt.get<int>("ncurses_dbg", 0));
 	  BOOST_LOG_TRIVIAL(info) << "Ncurses mode = " << cursesen;
 	  //Treehouseman_end
     if (pos == config.capture_dir.length() - 1)

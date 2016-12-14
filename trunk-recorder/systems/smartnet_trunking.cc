@@ -105,5 +105,5 @@ void smartnet_trunking::tune_offset(double f) {
   chan_freq = f;
   int offset_amount = (f - center_freq);
   prefilter->set_center_freq(offset_amount); // have to flip this for 3.7
-  cout << "Offset set to: " << offset_amount << " Freq: " << chan_freq << endl;
+  //cout << "Offset set to: " << offset_amount << " Freq: " << chan_freq << endl;
 }
