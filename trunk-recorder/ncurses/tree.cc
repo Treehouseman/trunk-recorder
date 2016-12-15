@@ -32,6 +32,7 @@ WINDOW *LOGwinb;
 WINDOW *LOGwin;
 WINDOW *MRECwin;
 WINDOW *ERRwin;
+WINDOW *CLRwin;
 void destroy_win(WINDOW *local_win);
 int systemnumber = 0;
 int currsys;
@@ -184,13 +185,14 @@ long long int CPUusage[100][10];
 long long int oldCPUusage[100][10];
 double cpuavg[100];
 bool CPUsetup=false;
+bool resized = false;
 	FILE *cfp;
 
 bool clearall=true;
 
 
 void Tree::do_resize(int null){
-	
+	resized = true;
 }
 void Tree::PurgeArrays(){
 	for(int i = 0; i < 10; i ++){
@@ -460,6 +462,37 @@ void Tree::ccId(int sys){
 	}
 
 }
+void Tree::recreate(){
+	destroy_win(RECwin);
+	destroy_win(CPUwin);
+	destroy_win(MRECwin);
+	destroy_win(LOGwin);
+	destroy_win(DATwin);
+	destroy_win(OLDwin);
+	destroy_win(ERRwin);
+	destroy_win(SYSwin);
+	destroy_win(LOGwinb);
+	RECwin = create_newwin(R1h, TGendx-TGstartx, R1y, TGstartx);
+	SYSwin = create_newwin(R1h, SYSendx-SYSstartx, R1y, SYSstartx);
+	OLDwin = create_newwin(R1h, OLDendx-OLDstartx, R1y, OLDstartx);
+	CPUwin = create_newwin(R1h, CPUendx-CPUstartx, R1y, CPUstartx);
+	DATwin = create_newwin(R1h, DATendx-DATstartx, R1y, DATstartx);
+	MRECwin = create_newwin(R1h, MTGendx-MTGstartx, R1y, MTGstartx);
+	ERRwin = create_newwin(R1h, ERRendx-ERRstartx, R1y, ERRstartx);
+	LOGwinb = create_newwin(R2h, LOGendx-LOGstartx, R2y, LOGstartx);//This is the border for the log window
+	LOGwin = create_newwin(R2h-2, LOGendx-LOGstartx-2, R2y+1, LOGstartx+1); //This is the actual logging window
+	
+	wbkgd(RECwin, COLOR_PAIR(6));
+	wbkgd(SYSwin, COLOR_PAIR(6));
+	wbkgd(OLDwin, COLOR_PAIR(6));
+	wbkgd(CPUwin, COLOR_PAIR(6));
+	wbkgd(DATwin, COLOR_PAIR(6));
+	wbkgd(LOGwinb, COLOR_PAIR(6));
+	wbkgd(MRECwin, COLOR_PAIR(6));
+	wbkgd(ERRwin, COLOR_PAIR(6));
+	scrollok(LOGwin, true);
+	LogRef();
+}
 bool Tree::StartCurses(){
 	if(!curseenable)
 		return false;
@@ -499,7 +532,11 @@ bool Tree::StartCurses(){
 	ERRstartx = MTGendx+1;
 	ERRendx = ERRstartx+ERRdefx+(ERRblockx*ERRblocks);
 	LOGendx = LOGstartx+LOGdefx+(LOGblockx*LOGblocks);
-	
+	scrH = R2y + R2h + 1;
+	if((ERRendx+1) > (LOGendx+1))
+		scrW = ERRendx + 1;
+	else
+		scrW = LOGendx + 2;
 	for(int i = 0; i < 10; i++){
 		csysid[i] = 0;
 		maxmsg[i] = 0;
@@ -507,6 +544,8 @@ bool Tree::StartCurses(){
 		avgmsg[i] = 0;
 	}
 //newterm(NULL, stdout, stdin);
+//}
+//void Tree::StartWindows(){
 	initscr();			/* Start curses mode 		*/
 	clear();
 	//resizeterm(60,130);
@@ -526,7 +565,7 @@ bool Tree::StartCurses(){
 					// * everty thing to me 		*/
 	keypad(stdscr, TRUE);		/* I need that nifty F1 	*/
 	refresh();//This before resize makes sure there's no lingering text, might be a screen issue rather than terminal, given how screen acts with ncurses
-	resizeterm(60,130);
+	//resizeterm(60,130);
 	RECwin = create_newwin(R1h, TGendx-TGstartx, R1y, TGstartx);
 	SYSwin = create_newwin(R1h, SYSendx-SYSstartx, R1y, SYSstartx);
 	OLDwin = create_newwin(R1h, OLDendx-OLDstartx, R1y, OLDstartx);
@@ -536,6 +575,7 @@ bool Tree::StartCurses(){
 	ERRwin = create_newwin(R1h, ERRendx-ERRstartx, R1y, ERRstartx);
 	LOGwinb = create_newwin(R2h, LOGendx-LOGstartx, R2y, LOGstartx);//This is the border for the log window
 	LOGwin = create_newwin(R2h-2, LOGendx-LOGstartx-2, R2y+1, LOGstartx+1); //This is the actual logging window
+	
 	wbkgd(RECwin, COLOR_PAIR(6));
 	wbkgd(SYSwin, COLOR_PAIR(6));
 	wbkgd(OLDwin, COLOR_PAIR(6));
@@ -544,57 +584,8 @@ bool Tree::StartCurses(){
 	wbkgd(LOGwinb, COLOR_PAIR(6));
 	wbkgd(MRECwin, COLOR_PAIR(6));
 	wbkgd(ERRwin, COLOR_PAIR(6));
-	wborder(RECwin, 0,0,0,0,0,0,0,0);
-	wborder(SYSwin, 0,0,0,0,0,0,0,0);
-	wborder(OLDwin, 0,0,0,0,0,0,0,0);
-	wborder(CPUwin, 0,0,0,0,0,0,0,0);
-	wborder(DATwin, 0,0,0,0,0,0,0,0);
-	wborder(LOGwinb, 0,0,0,0,0,0,0,0);
-	wborder(MRECwin, 0,0,0,0,0,0,0,0);
-	wborder(ERRwin, 0,0,0,0,0,0,0,0);
-	wborder(LOGwin, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
-	wattron(RECwin, COLOR_PAIR(4));
-	wmove(RECwin, R1h-1, 1);
-	wprintw(RECwin, "Recorders");
-	wattroff(RECwin, COLOR_PAIR(4));
-	wattron(SYSwin, COLOR_PAIR(4));
-	wmove(SYSwin, R1h-1, 1);
-	wprintw(SYSwin, "Systems");
-	wattroff(SYSwin, COLOR_PAIR(4));
-	wattron(OLDwin, COLOR_PAIR(4));
-	wmove(OLDwin, R1h-1, 1);
-	wprintw(OLDwin, "Past Calls");
-	wattroff(OLDwin, COLOR_PAIR(4));
-	wattron(CPUwin, COLOR_PAIR(4));
-	wmove(CPUwin, R1h-1, 1);
-	wprintw(CPUwin, "CPU");
-	wattroff(CPUwin, COLOR_PAIR(4));
-	wattron(DATwin, COLOR_PAIR(4));
-	wmove(DATwin, R1h-1, 1);
-	wprintw(DATwin, "Call Data");
-	wattroff(DATwin, COLOR_PAIR(4));
-	wattron(MRECwin, COLOR_PAIR(4));
-	wmove(MRECwin, R1h-1, 1);
-	wprintw(MRECwin, "Missing");
-	wattroff(MRECwin, COLOR_PAIR(4));
-	wattron(ERRwin, COLOR_PAIR(4));
-	wmove(ERRwin, R1h-1, 1);
-	wprintw(ERRwin, "Errors");
-	wattroff(ERRwin, COLOR_PAIR(4));
-	wattron(LOGwinb, COLOR_PAIR(4));
-	wmove(LOGwinb, 0, 1);
-	wprintw(LOGwinb, "Logging");
-	wattroff(LOGwinb, COLOR_PAIR(4));
 	scrollok(LOGwin, true);
-	wrefresh(RECwin);
-	wrefresh(SYSwin);
-	wrefresh(OLDwin);
-	wrefresh(CPUwin);
-	wrefresh(DATwin);
-	wrefresh(LOGwin);
-	wrefresh(LOGwinb);
-	wrefresh(MRECwin);
-	wrefresh(ERRwin);
+	ScrRef();
 	signal(SIGWINCH, do_resize);
 	return 1;
 }
@@ -676,13 +667,44 @@ void Tree::TimeUp(){
 
 }
 void Tree::ScrRef(){
+	//NewLog("This is a really really really really long message to test if the scrolling still works and if the stupid border appears! and that wasn't long enough");
+		//signal(SIGWINCH, do_resize);
 	if(!curseenable)
 		return;
+	if(resized){
+		//scrollok(LOGwin, false);
+		resized = false;
+		//recreate();
+		clear();
+		endwin();
+		//initscr();
+		//resizeterm(scrW, scrH);
+		recreate();
+		//clear();
+		//CLRwin = create_newwin(256, 256, 0, 0);
+		//wborder(CLRwin, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+		//wrefresh(CLRwin);
+		//destroy_win(CLRwin);
+		//erase();
+		//refresh();
+		//clearall=true;
+		//scrollok(LOGwin, true);
+		//ScrRef();
+		//wresize(LOGwinb, R2h, 127);
+		//wresize(LOGwin, R2h-2, 125);
+		//LogRef();
+		//clear();
+		//erase();
+		//flash();
+	}
 	if(clearall){
 		//clear();
 		LogRef();
 		clearall=false;
 	}
+	//endwin();
+	//clear();
+	//refresh();
 	TTime();
 	RecRef();
 	MsgRef();
@@ -691,6 +713,7 @@ void Tree::ScrRef(){
 	CpuRef();
 	MtgRef();
 	ErrRef();
+	//LogRef();
 	wmove(LOGwin, 0, 0);
 }
 void Tree::EndWin(){

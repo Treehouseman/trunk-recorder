@@ -59,6 +59,8 @@ void OldRef();
 void CpuRef();
 void MtgRef();
 void ErrRef();
+void recreate();
+//void StartWindows();
 int read_fields (FILE *cfp, unsigned long long int *fields);
 std::string TTimeParse(int stime);
 void NewLog(std::string input);
