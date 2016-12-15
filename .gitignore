@@ -14,3 +14,6 @@ ChanList.csv
 *.py
 *.a
 *.dylib
+file.patch
+trunk-recorder/ncurses/refresh.cc
+

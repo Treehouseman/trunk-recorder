@@ -185,9 +185,10 @@ void load_config()
 	//Treehouseman_begin
 	  cursesen = pt.get<int>("ncurses", 0);
 	  tout.SetCurses(0, cursesen);
-	  tout.SetCurses(1, pt.get<int>("ncurses_big", 0));
+	  tout.SetCurses(1, pt.get<int>("ncurses_group", 0));
 	  tout.SetCurses(2, pt.get<int>("ncurses_cpu", 0));
 	  tout.SetCurses(3, pt.get<int>("ncurses_dbg", 0));
+	  tout.SetCurses(4, pt.get<int>("ncurses_lavg", 0));
 	  BOOST_LOG_TRIVIAL(info) << "Ncurses mode = " << cursesen;
 	  //Treehouseman_end
     if (pos == config.capture_dir.length() - 1)
@@ -884,6 +885,7 @@ for(int i = 0; i < 10; i++){
 	tout.StartCurses();
 //Treehouseman_end
   while (1) {
+	  tout.Get_Key();
 	  int sysloc = -1; //Treehouseman Tracking systems
     currentTime = time(NULL);
 

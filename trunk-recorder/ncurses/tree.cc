@@ -62,8 +62,9 @@ int cpuw = defw;
 std::ifstream file;
 int curseenable = 0;
 int ncurses_cpu = 0;
-int ncurses_big = 0;
 int ncurses_dbg = 0;
+int ncurses_group = 0;
+int ncurses_lavg = 0;
 std::string Radios[10];
 std::string LogMsgs[20];
 int digrec[10];
@@ -131,6 +132,7 @@ int CPU75 = 0;
 int CPU90 = 0;
 int CPU100 = 0;
 int CPU60 = 0;
+long unsigned int delayedref = 0;
 
 
 
@@ -179,6 +181,14 @@ int ERRdefx = 17;
 int ERRendx;
 int ERRblockx = 0;
 int ERRblocks = 0;
+volatile bool RecWinEn = false;
+volatile bool DatWinEn = false;
+volatile bool OldWinEn = false;
+volatile bool MrecWinEn = false;
+volatile bool LogWinEn = false;
+volatile bool CpuWinEn = false;
+volatile bool SysWinEn = false;
+volatile bool ErrWinEn = false;
 int scrW = 0;
 int scrH = 0;
 long long int CPUusage[100][10];
@@ -281,13 +291,16 @@ void Tree::SetCurses(int option, int enable){
 			curseenable=enable;
 		break;
 		case 1:
-			ncurses_big = enable;
+			ncurses_group = enable;
 		break;
 		case 2:
 			ncurses_cpu = enable;
 		break;
 		case 3:
 			ncurses_dbg = enable;
+		break;
+		case 4:
+			ncurses_lavg = enable;
 		break;
 	}
 	//curseenable = enable;
@@ -462,36 +475,136 @@ void Tree::ccId(int sys){
 	}
 
 }
-void Tree::recreate(){
-	destroy_win(RECwin);
-	destroy_win(CPUwin);
-	destroy_win(MRECwin);
-	destroy_win(LOGwin);
-	destroy_win(DATwin);
-	destroy_win(OLDwin);
-	destroy_win(ERRwin);
-	destroy_win(SYSwin);
-	destroy_win(LOGwinb);
-	RECwin = create_newwin(R1h, TGendx-TGstartx, R1y, TGstartx);
-	SYSwin = create_newwin(R1h, SYSendx-SYSstartx, R1y, SYSstartx);
-	OLDwin = create_newwin(R1h, OLDendx-OLDstartx, R1y, OLDstartx);
-	CPUwin = create_newwin(R1h, CPUendx-CPUstartx, R1y, CPUstartx);
-	DATwin = create_newwin(R1h, DATendx-DATstartx, R1y, DATstartx);
-	MRECwin = create_newwin(R1h, MTGendx-MTGstartx, R1y, MTGstartx);
-	ERRwin = create_newwin(R1h, ERRendx-ERRstartx, R1y, ERRstartx);
-	LOGwinb = create_newwin(R2h, LOGendx-LOGstartx, R2y, LOGstartx);//This is the border for the log window
-	LOGwin = create_newwin(R2h-2, LOGendx-LOGstartx-2, R2y+1, LOGstartx+1); //This is the actual logging window
+void Tree::Coordinates(){
+	int ypos = 0;
+	int xpos = 0;
+	switch(ncurses_group){
+		case 0:
+			RecWinEn=true;
+			DatWinEn=true;
+			CpuWinEn=true;
+			LogWinEn=true;
+			OldWinEn=true;
+			MrecWinEn=true;
+			SysWinEn=true;
+			ErrWinEn=true;
+			R2y=32;
+			R2h=20;
+			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
+			SYSstartx = TGendx+1;
+			SYSendx = SYSstartx+SYSdefx+(SYSblockx*SYSblocks);
+			DATstartx = SYSendx + 1;
+			DATendx = DATstartx+DATdefx+(DATblockx*DATblocks);
+			OLDstartx = DATendx+1;
+			OLDendx = OLDstartx+OLDdefx+(OLDblockx*OLDblocks);
+			CPUstartx = OLDendx + 1;
+			if(ncurses_cpu){
+				if(ncurses_lavg)
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks)+3;
+				else
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks);
+			}
+			else{
+				if(ncurses_lavg)
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*1)+3;
+				else
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*1);
+			}
+			MTGstartx = CPUendx+1;
+			MTGendx = MTGstartx+MTGdefx+(MTGblockx*MTGblocks);
+			ERRstartx = MTGendx+1;
+			ERRendx = ERRstartx+ERRdefx+(ERRblockx*ERRblocks);
+			LOGstartx=1;
+			LOGendx = LOGstartx+LOGdefx+(LOGblockx*LOGblocks);
+			clearall=true;
+		break;
+		case 1:
+			RecWinEn=true;
+			DatWinEn=true;
+			SysWinEn=true;
+			TGstartx=xpos+1;
+			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks);
+			xpos = TGendx;
+			SYSstartx=xpos+1;
+			SYSendx=SYSstartx+SYSdefx+(SYSblockx*SYSblocks);
+			xpos = SYSendx;
+			DATstartx=xpos+1;
+			DATendx=DATstartx+DATdefx+(DATblockx*DATblocks);
+			clearall=true;
+		break;
+		case 2:
+			OldWinEn=true;
+			CpuWinEn=true;
+			MrecWinEn=true;
+			OLDstartx=xpos+1;
+			OLDendx=OLDstartx+OLDdefx+(OLDblockx*OLDblocks);
+			xpos=OLDendx;
+			CPUstartx=xpos+1;
+			if(ncurses_cpu){
+				if(ncurses_lavg)
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks)+3;
+				else
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks);
+			}
+			else{
+				if(ncurses_lavg)
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*1)+3;
+				else
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*1);
+			}
+			xpos=CPUendx;
+			MTGstartx=xpos+1;
+			MTGendx=MTGstartx+MTGdefx+(MTGblockx*MTGblocks);
+			xpos=MTGendx;
+		break;
+		case 3:
+			ErrWinEn=true;
+			ERRstartx=xpos+1;
+			ERRendx=ERRstartx+ERRdefx+(ERRblockx*ERRblocks);
+			xpos=ERRendx;
+			LogWinEn=true;
+			R2y=1;
+			R2h=R1h;
+			LOGstartx=xpos+1;
+			LOGendx=LOGstartx+50+(LOGblockx*LOGblocks);
+			xpos=LOGendx;
+		break;
+		case 4:
+			
+		break;
+	}
 	
-	wbkgd(RECwin, COLOR_PAIR(6));
-	wbkgd(SYSwin, COLOR_PAIR(6));
-	wbkgd(OLDwin, COLOR_PAIR(6));
-	wbkgd(CPUwin, COLOR_PAIR(6));
-	wbkgd(DATwin, COLOR_PAIR(6));
-	wbkgd(LOGwinb, COLOR_PAIR(6));
-	wbkgd(MRECwin, COLOR_PAIR(6));
-	wbkgd(ERRwin, COLOR_PAIR(6));
-	scrollok(LOGwin, true);
-	LogRef();
+}
+void Tree::recreate(){
+	if(RecWinEn)
+		destroy_win(RECwin);
+	if(CpuWinEn)
+		destroy_win(CPUwin);
+	if(MrecWinEn)
+		destroy_win(MRECwin);
+	if(LogWinEn){
+		destroy_win(LOGwin);
+		destroy_win(LOGwinb);
+	}
+	if(DatWinEn)
+		destroy_win(DATwin);
+	if(OldWinEn)
+		destroy_win(OLDwin);
+	if(ErrWinEn)
+		destroy_win(ERRwin);
+	if(SysWinEn)
+		destroy_win(SYSwin);
+	
+	RecWinEn=false;
+	CpuWinEn=false;
+	MrecWinEn=false;
+	LogWinEn=false;
+	DatWinEn=false;
+	OldWinEn=false;
+	ErrWinEn=false;
+	SysWinEn=false;
+	Coordinates();
+	MakeWindows();
 }
 bool Tree::StartCurses(){
 	if(!curseenable)
@@ -518,36 +631,23 @@ bool Tree::StartCurses(){
 	//We need to prep our window sizes HERE
 	//WINstartx = pWINendx+1
 	//WINendx = WINstartx+WINdefx+(WINblockx*blocks)
-	TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
-	SYSstartx = TGendx+1;
-	SYSendx = SYSstartx+SYSdefx+(SYSblockx*SYSblocks);
-	DATstartx = SYSendx + 1;
-	DATendx = DATstartx+DATdefx+(DATblockx*DATblocks);
-	OLDstartx = DATendx+1;
-	OLDendx = OLDstartx+OLDdefx+(OLDblockx*OLDblocks);
-	CPUstartx = OLDendx + 1;
-	CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks);
-	MTGstartx = CPUendx+1;
-	MTGendx = MTGstartx+MTGdefx+(MTGblockx*MTGblocks);
-	ERRstartx = MTGendx+1;
-	ERRendx = ERRstartx+ERRdefx+(ERRblockx*ERRblocks);
-	LOGendx = LOGstartx+LOGdefx+(LOGblockx*LOGblocks);
-	scrH = R2y + R2h + 1;
-	if((ERRendx+1) > (LOGendx+1))
-		scrW = ERRendx + 1;
-	else
-		scrW = LOGendx + 2;
+	
 	for(int i = 0; i < 10; i++){
 		csysid[i] = 0;
 		maxmsg[i] = 0;
 		minmsg[i] = 0;
 		avgmsg[i] = 0;
 	}
+	Coordinates();
 //newterm(NULL, stdout, stdin);
 //}
 //void Tree::StartWindows(){
 	initscr();			/* Start curses mode 		*/
 	clear();
+	nodelay(stdscr, TRUE);
+	noecho();
+	//timeout(1);
+	cbreak();
 	//resizeterm(60,130);
 	curs_set(0);
 	//if (has_colors){
@@ -566,28 +666,51 @@ bool Tree::StartCurses(){
 	keypad(stdscr, TRUE);		/* I need that nifty F1 	*/
 	refresh();//This before resize makes sure there's no lingering text, might be a screen issue rather than terminal, given how screen acts with ncurses
 	//resizeterm(60,130);
-	RECwin = create_newwin(R1h, TGendx-TGstartx, R1y, TGstartx);
-	SYSwin = create_newwin(R1h, SYSendx-SYSstartx, R1y, SYSstartx);
-	OLDwin = create_newwin(R1h, OLDendx-OLDstartx, R1y, OLDstartx);
-	CPUwin = create_newwin(R1h, CPUendx-CPUstartx, R1y, CPUstartx);
-	DATwin = create_newwin(R1h, DATendx-DATstartx, R1y, DATstartx);
-	MRECwin = create_newwin(R1h, MTGendx-MTGstartx, R1y, MTGstartx);
-	ERRwin = create_newwin(R1h, ERRendx-ERRstartx, R1y, ERRstartx);
-	LOGwinb = create_newwin(R2h, LOGendx-LOGstartx, R2y, LOGstartx);//This is the border for the log window
-	LOGwin = create_newwin(R2h-2, LOGendx-LOGstartx-2, R2y+1, LOGstartx+1); //This is the actual logging window
-	
-	wbkgd(RECwin, COLOR_PAIR(6));
-	wbkgd(SYSwin, COLOR_PAIR(6));
-	wbkgd(OLDwin, COLOR_PAIR(6));
-	wbkgd(CPUwin, COLOR_PAIR(6));
-	wbkgd(DATwin, COLOR_PAIR(6));
-	wbkgd(LOGwinb, COLOR_PAIR(6));
-	wbkgd(MRECwin, COLOR_PAIR(6));
-	wbkgd(ERRwin, COLOR_PAIR(6));
-	scrollok(LOGwin, true);
+		MakeWindows();
 	ScrRef();
 	signal(SIGWINCH, do_resize);
 	return 1;
+}
+void Tree::MakeWindows(){
+	if(RecWinEn){
+		RECwin = create_newwin(R1h, TGendx-TGstartx, R1y, TGstartx);
+		wbkgd(RECwin, COLOR_PAIR(6));
+	}
+	if(SysWinEn){
+		SYSwin = create_newwin(R1h, SYSendx-SYSstartx, R1y, SYSstartx);
+		wbkgd(SYSwin, COLOR_PAIR(6));
+	}
+	if(OldWinEn){
+		OLDwin = create_newwin(R1h, OLDendx-OLDstartx, R1y, OLDstartx);
+		wbkgd(OLDwin, COLOR_PAIR(6));
+	}
+	if(CpuWinEn){
+		CPUwin = create_newwin(R1h, CPUendx-CPUstartx, R1y, CPUstartx);
+		wbkgd(CPUwin, COLOR_PAIR(6));
+	}
+	if(DatWinEn){
+		DATwin = create_newwin(R1h, DATendx-DATstartx, R1y, DATstartx);
+		wbkgd(DATwin, COLOR_PAIR(6));
+	}
+	if(MrecWinEn){
+		MRECwin = create_newwin(R1h, MTGendx-MTGstartx, R1y, MTGstartx);
+		wbkgd(MRECwin, COLOR_PAIR(6));
+	}
+	if(ErrWinEn){
+		ERRwin = create_newwin(R1h, ERRendx-ERRstartx, R1y, ERRstartx);
+		wbkgd(ERRwin, COLOR_PAIR(6));
+	}
+	if(LogWinEn){
+		LOGwinb = create_newwin(R2h, LOGendx-LOGstartx, R2y, LOGstartx);//This is the border for the log window
+		LOGwin = create_newwin(R2h-2, LOGendx-LOGstartx-2, R2y+1, LOGstartx+1); //This is the actual logging window
+		wbkgd(LOGwin, COLOR_PAIR(6));
+		wbkgd(LOGwinb, COLOR_PAIR(6));
+		scrollok(LOGwin, true);
+		LogRef();
+	}
+	clearall=true;
+	ScrRef();
+	delayedref=runtime+2;
 }
 void destroy_win(WINDOW *local_win)
 {	
@@ -666,7 +789,96 @@ void Tree::TimeUp(){
 		CPUper();
 
 }
+void Tree::Get_Key(){
+	char c = getch();
+	if (c==ERR)
+		return;
+	/*if('0' <= c <= '9'){
+		int group = c-'0';
+		ncurses_group=group;
+		resized=true;
+	}*/
+	switch(c){
+		case '0':
+			if(ncurses_group==0)
+				break;
+			ncurses_group=0;
+			resized=true;
+			NewLog("Group 0");
+		break;
+		case '1':
+			if(ncurses_group==1)
+				break;
+			ncurses_group=1;
+			resized=true;
+			NewLog("Group 1");
+		break;
+		case '2':
+			if(ncurses_group==2)
+				break;
+			ncurses_group=2;
+			resized=true;
+			NewLog("Group 2");
+		break;
+		case '3':
+			if(ncurses_group==3)
+				break;
+			ncurses_group=3;
+			resized=true;
+			NewLog("Group 3");
+		break;
+		case '4':
+			if(ncurses_group==4)
+				break;
+			ncurses_group=4;
+			resized=true;
+			NewLog("Group 4");
+		break;
+		case 'r':
+			clearall=true;
+			NewLog("Cleared Screen");
+		break;
+		case 'R':
+			resized=true;
+			NewLog("Resized Screen");
+		break;
+		case 'c':
+			if(CpuWinEn&&ncurses_cpu==1)
+				resized=true;
+			ncurses_cpu=0;
+			NewLog("CPU Average");
+		break;
+		case 'C':
+			if(CpuWinEn&&ncurses_cpu==0)
+				resized=true;
+			ncurses_cpu=1;
+			NewLog("Full CPU");
+		break;
+		case 'v':
+			if(CpuWinEn&&ncurses_lavg==1)
+				resized=true;
+			ncurses_lavg=0;
+			NewLog("Load Average Off");
+		break;
+		case 'V':
+			if(CpuWinEn&&ncurses_lavg==0)
+				resized=true;
+			ncurses_lavg=1;
+			NewLog("Load Average On");
+		break;
+		default:
+			std::stringstream keyboardin;
+			//std::string keyboardinstr
+			keyboardin << c ;
+			NewLog(keyboardin.str());
+		break;
+	}
+}
 void Tree::ScrRef(){
+	if(runtime==delayedref){
+		clearall=true;
+		delayedref=0;
+	}
 	//NewLog("This is a really really really really long message to test if the scrolling still works and if the stupid border appears! and that wasn't long enough");
 		//signal(SIGWINCH, do_resize);
 	if(!curseenable)
@@ -715,6 +927,10 @@ void Tree::ScrRef(){
 	ErrRef();
 	//LogRef();
 	wmove(LOGwin, 0, 0);
+	refresh();
+	//if(delayedref>0)
+	//	delayedref=0;
+//		ScrRef();
 }
 void Tree::EndWin(){
 	endwin();
@@ -1248,6 +1464,8 @@ void Tree::NoRecorder(long freq, long tg, int sys, std::string rad){
 void Tree::LogRef(){
 	if(!curseenable)
 		return;
+	if(!LogWinEn)
+		return;
 	//LOGwin
 	werase(LOGwin);
 	werase(LOGwinb);
@@ -1318,6 +1536,11 @@ void Tree::Wav(int msg){
 	}
 }
 void Tree::RecRef(){
+	if(delayedref!=0){
+		LogRef();
+	}
+	if(!RecWinEn)
+		return;
 	werase(RECwin);
 	wborder(RECwin, 0,0,0,0,0,0,0,0);
 	wattron(RECwin, COLOR_PAIR(4));
@@ -1397,6 +1620,11 @@ void Tree::RecRef(){
 	wrefresh(RECwin);
 }
 void Tree::MsgRef(){
+	if(delayedref!=0){
+		LogRef();
+	}
+	if(!SysWinEn)
+		return;
 	werase(SYSwin);
 	wborder(SYSwin, 0,0,0,0,0,0,0,0);
 	wattron(SYSwin, COLOR_PAIR(4));
@@ -1505,6 +1733,11 @@ void Tree::MsgRef(){
 	wrefresh(SYSwin);
 }
 void Tree::DatRef(){
+	if(delayedref!=0){
+		LogRef();
+	}
+	if(!DatWinEn)
+		return;
 	werase(DATwin);
 	wborder(DATwin, 0,0,0,0,0,0,0,0);
 	wattron(DATwin, COLOR_PAIR(4));
@@ -1611,6 +1844,11 @@ void Tree::DatRef(){
 	wrefresh(DATwin);
 }
 void Tree::OldRef(){
+	if(delayedref!=0){
+		LogRef();
+	}
+	if(!OldWinEn)
+		return;
 	werase(OLDwin);
 	wborder(OLDwin, 0,0,0,0,0,0,0,0);
 	wattron(OLDwin, COLOR_PAIR(4));
@@ -1665,6 +1903,12 @@ void Tree::OldRef(){
 	wrefresh(OLDwin);
 }
 void Tree::CpuRef(){
+	int cpupos=5;
+	if(delayedref!=0){
+		LogRef();
+	}
+	if(!CpuWinEn)
+		return;
 	werase(CPUwin);
 	wborder(CPUwin, 0,0,0,0,0,0,0,0);
 	wattron(CPUwin, COLOR_PAIR(4));
@@ -1692,6 +1936,7 @@ void Tree::CpuRef(){
 	wprintw(CPUwin, "CPU");
 	wmove(CPUwin, 29, 1);
 	wprintw(CPUwin, "CPU");
+	if(ncurses_cpu){
 	for(int i = 0; i < CPUblocks; i++){
 		if(CPUblocks > 99){
 			if(i < 10){
@@ -1788,21 +2033,11 @@ void Tree::CpuRef(){
 			wprintw(CPUwin, c);
 		}
 	}
-	/*
-	wmove(CPUwin, 22, 6+CPUblocks);
-	wprintw(CPUwin, "151");
-	wmove(CPUwin, 23, 6+CPUblocks);
-	wprintw(CPUwin, "  5");
-	wmove(CPUwin, 24, 6+CPUblocks);
-	wprintw(CPUwin, "AVG");
-	wattroff(CPUwin, COLOR_PAIR(4));
-	*/
 	wattron(CPUwin, COLOR_PAIR(3));
 	for(int i = 0; i < CPUblocks; i++){
-		int cpupos = 5;
 		if(cpuavg[i] != 0){
 			for(int x = 0; x < 21; x++){
-				wmove(CPUwin, 21-x, cpupos+i);
+				wmove(CPUwin, 21-x, cpupos);
 				if(cpuavg[i] >= (5*x)){
 					if((5*x)>=50 && (5*x)<75){
 						wattroff(CPUwin, COLOR_PAIR(3));
@@ -1812,7 +2047,7 @@ void Tree::CpuRef(){
 						wattroff(CPUwin, COLOR_PAIR(3));
 						wattron(CPUwin, COLOR_PAIR(2));
 					}
-					if(i%2==0)
+					if(cpupos%2==0)
 						waddch(CPUwin, ACS_CKBOARD);
 					else
 						waddch(CPUwin, ' '|A_REVERSE);
@@ -1827,24 +2062,103 @@ void Tree::CpuRef(){
 				}
 			}
 		}
+		cpupos++;
 	}
-	/*
-	for(int i = 0; i < 3; i++){
-		getloadavg(load, 3);
-		for(int x = 0; x < 21; x++){
-			wmove(CPUwin, 21-x, 6+CPUblocks+i);
-			if(((load[i]/8)*100) >= (5*x)){
-				if(i%2!=0)
-					waddch(CPUwin, ACS_CKBOARD);
-				else
-					waddch(CPUwin, ' '|A_REVERSE);
+	}
+	else{
+		wmove(CPUwin, 22, cpupos);
+		wprintw(CPUwin, "A");
+		wmove(CPUwin, 23, cpupos);
+		wprintw(CPUwin, "V");
+		wmove(CPUwin, 24, cpupos);
+		wprintw(CPUwin, "G");
+		wattron(CPUwin, COLOR_PAIR(3));
+		int realavg = 0;
+		for(int i = 0; i < CPUblocks; i++){
+			realavg+=cpuavg[i];
+		}
+		realavg = realavg/CPUblocks;
+		if(realavg != 0){
+			for(int x = 0; x < 21; x++){
+				wmove(CPUwin, 21-x, cpupos);
+				if(realavg >= (5*x)){
+					if((5*x)>=50 && (5*x)<75){
+						wattroff(CPUwin, COLOR_PAIR(3));
+						wattron(CPUwin, COLOR_PAIR(7));
+					}
+					else if((5*x)>=75){
+						wattroff(CPUwin, COLOR_PAIR(3));
+						wattron(CPUwin, COLOR_PAIR(2));
+					}
+					if(cpupos%2!=0)
+						waddch(CPUwin, ACS_CKBOARD);
+					else
+						waddch(CPUwin, ' '|A_REVERSE);
+					if((5*x)>=50 && (5*x)<75){
+						wattroff(CPUwin, COLOR_PAIR(7));
+						wattron(CPUwin, COLOR_PAIR(3));
+					}
+					else if((5*x)>=75){
+						wattroff(CPUwin, COLOR_PAIR(2));
+						wattron(CPUwin, COLOR_PAIR(3));
+					}
+				}
 			}
 		}
-	}*/
+		cpupos++;
+	}
+	if(ncurses_lavg){
+		wattroff(CPUwin, COLOR_PAIR(3));
+		wattron(CPUwin, COLOR_PAIR(7));
+		wmove(CPUwin, 23, cpupos);
+		wprintw(CPUwin, "151");
+		wmove(CPUwin, 24, cpupos+2);
+		wprintw(CPUwin, "5");
+		wmove(CPUwin, 22, cpupos);
+		wprintw(CPUwin, "AVG");
+		wattroff(CPUwin, COLOR_PAIR(7));
+		wattron(CPUwin, COLOR_PAIR(3));
+		getloadavg(load, 3);
+	for(int i = 0; i < 3; i++){
+		if(load[i] != 0){
+			for(int x = 0; x < 21; x++){
+				wmove(CPUwin, 21-x, cpupos);
+				if((load[i]/CPUblocks)*100 >= (5*x)){
+					if((5*x)>=50 && (5*x)<75){
+						wattroff(CPUwin, COLOR_PAIR(3));
+						wattron(CPUwin, COLOR_PAIR(7));
+					}
+					else if((5*x)>=75){
+						wattroff(CPUwin, COLOR_PAIR(3));
+						wattron(CPUwin, COLOR_PAIR(2));
+					}
+					if(cpupos%2!=0)
+						waddch(CPUwin, ACS_CKBOARD);
+					else
+						waddch(CPUwin, ' '|A_REVERSE);
+					if((5*x)>=50 && (5*x)<75){
+						wattroff(CPUwin, COLOR_PAIR(7));
+						wattron(CPUwin, COLOR_PAIR(3));
+					}
+					else if((5*x)>=75){
+						wattroff(CPUwin, COLOR_PAIR(2));
+						wattron(CPUwin, COLOR_PAIR(3));
+					}
+				}
+			}
+		}
+		cpupos++;
+	}
+	}
 	wattroff(CPUwin, COLOR_PAIR(3));
 	wrefresh(CPUwin);
 }
 void Tree::MtgRef(){
+	if(delayedref!=0){
+		LogRef();
+	}
+	if(!MrecWinEn)
+		return;
 	werase(MRECwin);
 	wborder(MRECwin, 0,0,0,0,0,0,0,0);
 	wattron(MRECwin, COLOR_PAIR(4));
@@ -1883,6 +2197,11 @@ void Tree::MtgRef(){
 	wrefresh(MRECwin);
 }
 void Tree::ErrRef(){
+	if(delayedref!=0){
+		LogRef();
+	}
+	if(!ErrWinEn)
+		return;
 	werase(ERRwin);
 	wborder(ERRwin, 0,0,0,0,0,0,0,0);
 	wattron(ERRwin, COLOR_PAIR(4));
