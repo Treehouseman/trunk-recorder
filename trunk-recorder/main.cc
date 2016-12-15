@@ -805,7 +805,9 @@ void retune_system(System *system) {
   double  control_channel_freq = system->get_next_control_channel();
 
   BOOST_LOG_TRIVIAL(info) << "Retuning to Control Channel: " << control_channel_freq;
-
+std::stringstream rt;
+		rt << "Retuning system: " << std::hex << std::uppercase << csys_id << std::nouppercase << std::dec << " Frequency: " << control_channel_freq;
+		tout.NewLog(rt.str());
   for (vector<Source *>::iterator it = sources.begin(); it != sources.end(); it++) {
     source = *it;
     BOOST_LOG_TRIVIAL(info) << "Min: " << source->get_min_hz() << " Max: " << source->get_max_hz();
@@ -844,6 +846,7 @@ void check_message_count(float timeDiff) {
     if (msgs_decoded_per_second < 1) {
       if (sys->control_channel_count() > 1) {
         retune_system(sys);
+		
       } else {
         BOOST_LOG_TRIVIAL(error) << "There is only one control channel defined";
       }
