@@ -1,5 +1,71 @@
-Trunk Recorder
+Trunk Recorder with Ncurses
 =================
+I'm going to leave the original instructions unchanged at the bottom of my additions.
+
+![Interface](images/9-6.PNG?raw=true )
+
+### Config.json Changes
+I've added some flags to the config file in order to control the default actions of ncurses.
+with addition of the changes, the file should look like this at the end.
+```
+"captureDir": "$Capture_Directory",
+"ncurses": 1,
+"ncurses_group": 0,
+"ncurses_cpu": 1,
+"ncurses_dbg": 1,
+"ncurses_lavg": 0
+]
+```
+
+The options they control are as follows:
+"ncurses": is the ncurses interface itself, 1 for enabled, 0 for disabled
+"ncurses_group": is the default window assortment, 0 is all in the large format shown above (though rearranged as shown in pictures below), 1 is Recorders, Call Data, and Message Rate, 2 is Past Calls, CPU, and Missing (Missing talkgroups from the CSV files), and 3 is Errors and Logging in a smaller format. Pictures of all these are below.
+"ncurses_cpu": This controls the default setting for having either individual CPU bars, or one average
+"ncurses_dbg": This is not currently used but will eventually control debug/verbose logging on screen
+"ncurses_lavg": This controls the default for having the system load average values (1, 5, 15 minute) along with the CPU window
+
+I've also added different system tracking so I can keep things separate on the interface, so you have to add the hex system ID between the type and talkgroup file.
+```
+"type": "p25",
+"sysId": "1f0",
+"talkgroupsFile": "$TG.csv",
+```
+or
+```
+"type": "smartnet",
+"sysId": "f18",
+"talkgroupsFile": "$TG.csv",
+```
+One thing to note is that due to the way I've seen smartnet function and the networks around me work, I've fixed smartnet to always have a sysid of F18, I do not know what happens with a different network or multiple due to this, and I have remapped a 2D3 P25 system to read as 2D0 to match another repeater on that system. Both changes can be tweaked fairly easily if you look for where those strings exist in main.cc.
+
+### Keyboard Controls
+'0': Sets Window Group 0
+'1': Sets Window Group 1
+'2': Sets Window Group 2
+'3': Sets Window Group 3
+'4': Sets Window Group 4 (currently blank)
+'C'/'c': Changes the ncurses_cpu value
+'V'/'v': Changes the ncurses_lavg value
+'R': Sends a resized window trigger redrawing all the windows
+'r': Does a "clear()" at the next refresh, should clear out any std::cout messages stuck on the screen
+
+### Group 0
+![Group 0](images/ncurses_big2.PNG)
+
+### Group 1
+![Group 1](images/ncurses_group1.PNG)
+
+### Group 2
+![Group 2](images/ncurses_group2.png)
+
+### Group 3
+![Group 3](images/ncurses_group3.PNG)
+
+### CPU Options
+![CPU Options](images/cpu_options.png)
+
+
+
 ### Note: The format for the Config.json file has changed.
 Trunk Recorder is able to record the calls on a trunked radio system. It uses 1 or more Software Defined Radios (SDRs) to do. The SDRs capture large swatches of RF and then use software to process what was received. GNURadio is used to do this processing and provides lots of convenient RF blocks that can be pieced together to do complex RF processing. Right now it can only record one Trunked System at a time.
 
