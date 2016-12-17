@@ -1246,7 +1246,7 @@ std::string Tree::TTimeParse(int stime){
 			ttp << stime%60;
 		}
 	}
-	if(stime >= 86400){
+	else if(stime >= 86400){
 		ttp << "   ";
 		if(stime/60/60/24<10){
 			ttp << " " << stime/60/60/24 << ":";
