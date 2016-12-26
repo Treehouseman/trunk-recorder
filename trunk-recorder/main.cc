@@ -532,9 +532,9 @@ bool retune_recorder(TrunkMessage message, Call *call) {
     }
     return true;
   } else {
-	  BOOST_LOG_TRIVIAL(info) <<  "\t\tStopping call, starting new call on new source" << " Sys: " << std::hex << std::uppercase << call->get_nac() << std::nouppercase << std::dec;
-	  call->end_call();
-	  tout.Retune(call->elapsed(), since, message.talkgroup, old_freq, message.freq, false);//Treehouseman Track Retune
+	  //BOOST_LOG_TRIVIAL(info) <<  "\t\tStopping call, starting new call on new source" << " Sys: " << std::hex << std::uppercase << call->get_nac() << std::nouppercase << std::dec;
+	  //call->end_call();
+	  //tout.Retune(call->elapsed(), since, message.talkgroup, old_freq, message.freq, false);//Treehouseman Track Retune
     return false;
   }
 }

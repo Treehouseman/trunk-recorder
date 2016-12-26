@@ -70,6 +70,8 @@ public:
 								bool get_encrypted();
 								void set_emergency(bool m);
 								bool get_emergency();
+								char *get_orig_filename();
+								void set_orig_filename();
 private:
 Tree tout;
 								State state;
@@ -88,6 +90,8 @@ Tree tout;
 								int nac;
 								char filename[160];
 								char status_filename[160];
+								char converted_filename[150];
+								char orig_filename[160];
 								int tdma;
 
 								Config config;

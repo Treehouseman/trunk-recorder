@@ -6,14 +6,18 @@ void Call::create_filename() {
 
   std::stringstream path_stream;
 
-  path_stream << this->config.capture_dir << "/" << "/" << 1900 + ltm->tm_year << "/" <<  1 + ltm->tm_mon << "/" << ltm->tm_mday << "/" << std::hex << std::uppercase << nac << std::nouppercase << std::dec;
+  path_stream << this->config.capture_dir << "/" << 1900 + ltm->tm_year << "/" <<  1 + ltm->tm_mon << "/" << ltm->tm_mday << "/" << std::hex << std::uppercase << nac << std::nouppercase << std::dec;
 
   boost::filesystem::create_directories(path_stream.str());
+  sprintf(filename,        "%s/%d%ld-%ld_%g.wav",  path_stream.str().c_str(), nac, talkgroup, start_time, curr_freq);
+  sprintf(status_filename, "%s/%d%ld-%ld_%g.json",  path_stream.str().c_str(), nac, talkgroup, start_time, curr_freq);
+  sprintf(converted_filename, "%s/%d%ld-%ld.m4a",  path_stream.str().c_str(), nac, talkgroup, start_time);
+/*  boost::filesystem::create_directories(path_stream.str());
   sprintf(filename,        "%s/%ld-%ld_%g.wav",
           path_stream.str().c_str(), talkgroup, start_time, curr_freq);
   sprintf(status_filename, "%s/%ld-%ld_%g.json",
           path_stream.str().c_str(), talkgroup, start_time, curr_freq);
-
+*/
   // sprintf(filename, "%s/%ld-%ld.wav",
   // path_stream.str().c_str(),talkgroup,start_time);
   // sprintf(status_filename, "%s/%ld-%ld.json",
@@ -39,6 +43,7 @@ Call::Call(long t, double f, System *s, Config c, int csys_id) {
   nac             = csys_id;
   dev             = "";
   this->create_filename();
+  this->set_orig_filename();
 }
 
 Call::Call(TrunkMessage message, System *s, Config c, int csys_id) {
@@ -62,6 +67,7 @@ Call::Call(TrunkMessage message, System *s, Config c, int csys_id) {
   nac             = csys_id;
   dev             = "";
   this->create_filename();
+  this->set_orig_filename();
 }
 
 Call::~Call() {
@@ -88,6 +94,7 @@ void Call::end_call() {
       myfile << "\"stop_time\": " << this->stop_time << ",\n";
       myfile << "\"emergency\": " << this->emergency << ",\n";
       myfile << "\"talkgroup\": " << this->talkgroup << ",\n";
+	  myfile << "\"nac\": " << std::hex << std::uppercase << this->nac << std::dec << std::nouppercase << ",\n";
       myfile << "\"srcList\": [ ";
 
       for (int i = 0; i < wav_src_count; i++) {
@@ -97,34 +104,35 @@ void Call::end_call() {
           myfile << wav_src_list[i].source;
         }
       }
-      myfile << " ]\n";
+      myfile << " ],\n";
       myfile << "\"freqList\": [ ";
 
       for (int i = 0; i < freq_count; i++) {
           if (i != 0) {
           myfile << ", ";
         }
-          myfile << "{ \"freq:\" " <<  freq_list[i].freq <<", \"time:\" " << freq_list[i].time << ", \"pos:\" " << freq_list[i].position << "}";
+          myfile << "{ \"freq\": " <<  freq_list[i].freq <<", \"time\": " << freq_list[i].time << ", \"pos\": " << freq_list[i].position << "}";
       }
       myfile << " ]\n";
       myfile << "}\n";
       myfile.close();
     }
     if (sys->get_upload_script().length() != 0) {
-      //shell_command << "./"<< sys->get_upload_script() << " " << this->get_filename() << " &";
+      shell_command << "./"<< sys->get_upload_script() << " " << this->get_orig_filename() << " &";
     }
+	this->set_orig_filename();
     this->get_recorder()->stop();
-	/*
+	
     if (this->config.upload_server != "") {
-      send_call(this, sys, config);
+      //send_call(this, sys, config);
     } else {
 
     }
-    if (sys->get_upload_script().length() != 0) {
+    if (sys->get_upload_script().length() != 0 && !this->encrypted) {
       BOOST_LOG_TRIVIAL(info) << "Running upload script: " << shell_command.str();
       int rc = system(shell_command.str().c_str());
     }
-	*/
+	
   }
 
   if (this->get_debug_recording() == true) {
@@ -135,7 +143,12 @@ void Call::end_call() {
 void Call::set_debug_recorder(Recorder *r) {
   debug_recorder = r;
 }
-
+void Call::set_orig_filename() {
+	sprintf(orig_filename, "%s", filename);
+}
+char * Call::get_orig_filename() {
+	return orig_filename;
+}
 Recorder * Call::get_debug_recorder() {
   return debug_recorder;
 }
