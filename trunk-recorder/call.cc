@@ -94,7 +94,8 @@ void Call::end_call() {
       myfile << "\"stop_time\": " << this->stop_time << ",\n";
       myfile << "\"emergency\": " << this->emergency << ",\n";
       myfile << "\"talkgroup\": " << this->talkgroup << ",\n";
-	  myfile << "\"nac\": " << std::hex << std::uppercase << this->nac << std::dec << std::nouppercase << ",\n";
+	  //myfile << "\"nac\": " << std::hex << std::uppercase << this->nac << std::dec << std::nouppercase << ",\n";
+	  myfile << "\"nac\": " << this->nac << ",\n";
       myfile << "\"srcList\": [ ";
 
       for (int i = 0; i < wav_src_count; i++) {
