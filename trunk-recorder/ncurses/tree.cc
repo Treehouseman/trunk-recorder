@@ -1685,6 +1685,9 @@ void Tree::MsgRef(){
 		wmove(SYSwin, 22, datapos-1);
 		ss << std::hex << std::uppercase << sysccc[0][i] << std::dec << std::nouppercase;
 		ss >> s;
+		if(strlen(s.c_str()) > 3){
+			s = s.substr(0,3);
+		}
 		const char * c = s.c_str();
 		wprintw(SYSwin, c);
 		wattroff(SYSwin, COLOR_PAIR(currcol));
