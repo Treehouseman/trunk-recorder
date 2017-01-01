@@ -11,7 +11,10 @@ typedef boost::shared_ptr<analog_recorder> analog_recorder_sptr;
 class System
 {
         int sys_id;
+		int sys_nac;
 public:
+		void set_sys_nac(int nac);
+		int get_sys_nac();
         std::string talkgroups_file;
         std::string short_name;
         std::string api_key;

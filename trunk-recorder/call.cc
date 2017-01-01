@@ -6,12 +6,12 @@ void Call::create_filename() {
 
   std::stringstream path_stream;
 
-  path_stream << this->config.capture_dir << "/" << sys->get_short_name() << "/" << 1900 + ltm->tm_year << "/" <<  1 + ltm->tm_mon << "/" << ltm->tm_mday;
+  path_stream << this->config.capture_dir << "/" << 1900 + ltm->tm_year << "/" <<  1 + ltm->tm_mon << "/" << ltm->tm_mday << "/" << std::hex << std::uppercase << nac << std::nouppercase << std::dec;
 
   boost::filesystem::create_directories(path_stream.str());
-  sprintf(filename,           "%s/%ld-%ld_%g.wav",  path_stream.str().c_str(), talkgroup, start_time, curr_freq);
-  sprintf(status_filename,    "%s/%ld-%ld_%g.json", path_stream.str().c_str(), talkgroup, start_time, curr_freq);
-  sprintf(converted_filename, "%s/%ld-%ld.m4a",     path_stream.str().c_str(), talkgroup, start_time);
+  sprintf(filename,           "%s/%d%ld-%ld_%g.wav",   path_stream.str().c_str(), nac, talkgroup, start_time, curr_freq);
+  sprintf(status_filename,    "%s/%d%ld-%ld_%g.json",  path_stream.str().c_str(), nac, talkgroup, start_time, curr_freq);
+  sprintf(converted_filename, "%s/%d%ld-%ld.m4a",      path_stream.str().c_str(), nac, talkgroup, start_time);
 
   // sprintf(filename, "%s/%ld-%ld.wav",
   // path_stream.str().c_str(),talkgroup,start_time);
@@ -19,7 +19,7 @@ void Call::create_filename() {
   // path_stream.str().c_str(),talkgroup,start_time);
 }
 
-Call::Call(long t, double f, System *s, Config c) {
+Call::Call(long t, double f, System *s, Config c, int csys_id) {
   config     = c;
   idle_count = 0;
   freq_count = 0;
@@ -36,11 +36,12 @@ Call::Call(long t, double f, System *s, Config c) {
   tdma            = false;
   encrypted       = false;
   emergency       = false;
-
+  nac             = csys_id;
+  dev             = "";
   this->create_filename();
 }
 
-Call::Call(TrunkMessage message, System *s, Config c) {
+Call::Call(TrunkMessage message, System *s, Config c, int csys_id) {
   config     = c;
   idle_count = 0;
   freq_count = 0;
@@ -59,6 +60,8 @@ Call::Call(TrunkMessage message, System *s, Config c) {
   tdma            = message.tdma;
   encrypted       = message.encrypted;
   emergency       = message.emergency;
+  nac             = csys_id;
+  dev             = "";
 
   this->create_filename();
 }
@@ -89,6 +92,7 @@ void Call::end_call() {
   stop_time = time(NULL);
 
   if (state == recording) {
+	  tout.EndCall(this->get_talkgroup(), this->elapsed(), dev);//Treehouseman ending call
     BOOST_LOG_TRIVIAL(info) << "Ending Recorded Call \tTG: " <<   this->get_talkgroup() << "\tLast Update: " << this->since_last_update() << " Call Elapsed: " << this->elapsed();
     std::ofstream myfile(status_filename);
     std::stringstream shell_command;
@@ -103,6 +107,8 @@ void Call::end_call() {
       myfile << "\"stop_time\": " << this->stop_time << ",\n";
       myfile << "\"emergency\": " << this->emergency << ",\n";
       myfile << "\"talkgroup\": " << this->talkgroup << ",\n";
+	  myfile << "\"encrypted\": " << this->encrypted << ",\n";//Treehouseman tracking encrypted
+	  myfile << "\"nac\": " << this->nac << ",\n";//Treehouseman tracking NAC
       myfile << "\"srcList\": [ ";
 
       for (int i = 0; i < wav_src_count; i++) {
@@ -297,4 +303,16 @@ char * Call::get_converted_filename() {
 
 char * Call::get_filename() {
   return filename;
+}
+void Call::set_dev(std::string radio){
+	dev = radio;
+}
+std::string Call::get_dev(){
+	return dev;
+}
+void Call::set_nac(int n){
+	nac = n;
+}
+int Call::get_nac(){
+	return nac;
 }

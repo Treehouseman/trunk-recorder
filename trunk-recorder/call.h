@@ -2,6 +2,7 @@
 #define CALL_H
 #include <sys/time.h>
 #include <boost/log/trivial.hpp>
+#include "ncurses/tree.h"
 
 struct Call_Source {
 								long source;
@@ -29,9 +30,14 @@ class Recorder;
 
 class Call {
 public:
+std::string dev;
+void set_dev(std::string radio);
+std::string get_dev();
+void set_nac(int n);
+int get_nac();
 
-								Call( long t, double f, System *s, Config c);
-								Call( TrunkMessage message, System *s, Config c);
+								Call( long t, double f, System *s, Config c, int csys_id);
+								Call( TrunkMessage message, System *s, Config c, int csys_id);
 								~Call();
 								void restart_call();
 								void end_call();
@@ -73,6 +79,8 @@ public:
 								void set_emergency(bool m);
 								bool get_emergency();
 private:
+Tree tout;
+int nac;
 								State state;
 								long talkgroup;
 								double curr_freq;

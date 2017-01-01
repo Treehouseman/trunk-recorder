@@ -118,3 +118,9 @@ double System::get_next_control_channel() {
   }
   return this->control_channels[current_control_channel];
 }
+void System::set_sys_nac(int nac){
+	sys_nac = nac;
+}
+int System::get_sys_nac(){
+	return sys_nac;
+}

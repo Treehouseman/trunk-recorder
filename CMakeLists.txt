@@ -107,6 +107,8 @@ find_package(GnuradioUHD)
 find_package(GrOsmoSDR)
 find_package(LibHackRF)
 find_package(UHD)
+#Treehouseman adding Curses
+find_package(Curses)
 
 if(NOT GNURADIO_RUNTIME_FOUND)
     message(FATAL_ERROR "GnuRadio Runtime required to build " ${CMAKE_PROJECT_NAME})
@@ -153,6 +155,7 @@ ADD_DEFINITIONS(-DBOOST_ALL_DYN_LINK)
 ########################################################################
 # Setup the include and linker paths
 ########################################################################
+#Treehouseman added curses
 include_directories(
     ${Boost_INCLUDE_DIRS}
     ${GNURADIO_RUNTIME_INCLUDE_DIRS}
@@ -161,6 +164,7 @@ include_directories(
     ${CMAKE_BINARY_DIR}/include
     ${CMAKE_SOURCE_DIR}/op25_repeater/lib
     ${CMAKE_SOURCE_DIR}/op25_repeater/include
+	${CURSES_INCLUDE_DIR}
 )
 
 link_directories(
@@ -189,7 +193,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "-pthread -Wall")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-narrowing -g")
 
-
+#Treehouseman add tree.cc
 add_subdirectory(op25_repeater)
 list(APPEND trunk_recorder_sources
   trunk-recorder/main.cc
@@ -210,6 +214,7 @@ list(APPEND trunk_recorder_sources
   trunk-recorder/recorders/p25_recorder.cc
   trunk-recorder/talkgroup.cc
   trunk-recorder/talkgroups.cc
+  trunk-recorder/ncurses/tree.cc
   gr_blocks/nonstop_wavfile_sink_impl.cc
   gr_blocks/freq_xlating_fft_filter.cc
   gr_blocks/agc_impl.cpp
@@ -222,5 +227,5 @@ list(APPEND trunk_recorder_sources
 
 
 add_executable(recorder ${trunk_recorder_sources})
-
-target_link_libraries(recorder ssl crypto ${GNURADIO_PMT_LIBRARIES} ${GNURADIO_RUNTIME_LIBRARIES} ${GNURADIO_FILTER_LIBRARIES} ${GNURADIO_DIGITAL_LIBRARIES} ${GNURADIO_ANALOG_LIBRARIES} ${GNURADIO_AUDIO_LIBRARIES} ${GNURADIO_UHD_LIBRARIES} ${UHD_LIBRARIES} ${GNURADIO_BLOCKS_LIBRARIES} ${GROSMOSDR_LIBRARIES} ${Boost_LIBRARIES} ${LIBOP25_REPEATER_LIBRARIES} gnuradio-op25_repeater imbe_vocoder)
+#Treehouseman added ${CURSES_LIBRARY} to end of link
+target_link_libraries(recorder ssl crypto ${GNURADIO_PMT_LIBRARIES} ${GNURADIO_RUNTIME_LIBRARIES} ${GNURADIO_FILTER_LIBRARIES} ${GNURADIO_DIGITAL_LIBRARIES} ${GNURADIO_ANALOG_LIBRARIES} ${GNURADIO_AUDIO_LIBRARIES} ${GNURADIO_UHD_LIBRARIES} ${UHD_LIBRARIES} ${GNURADIO_BLOCKS_LIBRARIES} ${GROSMOSDR_LIBRARIES} ${Boost_LIBRARIES} ${LIBOP25_REPEATER_LIBRARIES} gnuradio-op25_repeater imbe_vocoder ${CURSES_LIBRARY})
