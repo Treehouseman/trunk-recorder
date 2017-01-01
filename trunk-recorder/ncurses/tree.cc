@@ -460,10 +460,6 @@ void Tree::SysId(int sysid){
 }
 void Tree::ccId(int sys){
 	sys_id = sys;
-	if (sys_id==0)
-		sys_id=0xf18;
-	if (sys_id==0x2d3)
-		sys_id=0x2d0;
 	if(!curseenable)
 		return;
 	//Got ID in message
@@ -962,6 +958,7 @@ bool Tree::getcol(int loc){
 		currcol=5;
 		break;
 		case 3:
+		currcol=6;
 		break;
 		case 4:
 		break;

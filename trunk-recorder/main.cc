@@ -959,11 +959,13 @@ for(int i = 0; i < 10; i++){
       if (sys) {
 		  tout.ccId(csys_id);//Treehouseman set current system
         if (sys->get_system_type() == "smartnet") {
+			default_mode="analog";//Treehouseman different defaults
           trunk_messages = smartnet_parser->parse_message(msg->to_string());
           handle_message(trunk_messages, sys);
         }
 
         if (sys->get_system_type() == "p25") {
+			default_mode="digital";//Treehouseman different defaults
           trunk_messages = p25_parser->parse_message(msg);
           handle_message(trunk_messages, sys);
         }
