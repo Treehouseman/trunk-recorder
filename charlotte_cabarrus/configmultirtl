@@ -1,0 +1,28 @@
+{ "sources": [
+{"center": 852000000.0,
+"rate": 2400000.0,
+"error": 0,
+"ppm": 0,
+"gain": 42,
+"digitalRecorders": 10,
+"driver": "osmosdr",
+"device": "rtl=BBL1"},
+{"center": 854000000.0,
+"rate": 2400000.0,
+"error": 0,
+"ppm": 0,
+"gain": 42,
+"digitalRecorders": 10,
+"driver": "osmosdr",
+"device": "rtl=BBL2"}
+],
+"systems": [
+{"control_channels": [853787500],
+"type": "p25",
+"talkgroupsFile": "Cabarrus.csv"},
+{
+"control_channels": [852287500],
+"type": "p25",
+"talkgroupsFile": "Viper.csv"}],
+"captureDir": "/home/tripp/share/dualrecord/"
+}

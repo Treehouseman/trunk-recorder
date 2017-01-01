@@ -1,0 +1,2398 @@
+4150,1036,D,ALAMANCE HLP,Help,Emergency Ops,Alamance County,2
+4151,1037,D,ALAMANCE COM,Common,Interop,Alamance County,2
+4152,1038,D,ACOEMSADMIN,EMS Administration,EMS-Talk,Alamance County,2
+4153,1039,D,ALAMANCE EVT,Events,Multi-Tac,Alamance County,2
+4154,103a,D,ELN/GIBPDADM,Elon/Gibsonville Police Administration,Law Talk,Alamance County,2
+4155,103b,D,ALA RSQ DISP,Alamance County Rescue,EMS Dispatch,Alamance County,2
+4156,103c,D,ACOFIRETAC10,Fire - TAC 10,Fire-Tac,Alamance County,2
+4157,103d,D,ACOFIRETAC2,Fire - TAC 2,Fire-Tac,Alamance County,2
+4158,103e,D,ACOSOAC3,Sheriff TAC 3,Law Tac,Alamance County,2
+4159,103f,D,ACOFIRETAC4,Fire - TAC 4,Fire-Tac,Alamance County,2
+4160,1040,D,ACOFIRETAC5,Fire - TAC 5,Fire-Tac,Alamance County,2
+4161,1041,D,ACOFIRETAC6,Fire - TAC 6,Fire-Tac,Alamance County,2
+4162,1042,D,GrahamPD Tac,Graham Police Tactical,Fire-Tac,Alamance County,2
+4163,1043,D,ACOFIRETAC8,Fire - TAC 8,Fire-Tac,Alamance County,2
+4164,1044,D,ACOFIRETAC9,Fire - TAC 9,Fire-Tac,Alamance County,2
+4165,1045,D,ALAMANCE EM,Emergency Management,Emergency Ops,Alamance County,2
+4166,1046,D,ALAMANCEEMS,EMS - Dispatch,EMS Dispatch,Alamance County,2
+4167,1047,D,ALAMANCEFD,Fire - Dispatch,Fire Dispatch,Alamance County,2
+4168,1048,D,ALAMANCE MA,Mutual Aid,Interop,Alamance County,2
+4169,1049,D,ALAMANCESO,Sheriff's Office - Dispatch,Law Dispatch,Alamance County,2
+4170,104a,D,GRAHAM FD T1,Graham Fire - Tac 1,Fire-Tac,Alamance County,2
+4172,104c,D,ACOSOCID,Sheriffs Office Investigations,Law Tac,Alamance County,2
+4173,104d,D,ALAMANCESO2,Sheriff's Office - Dispatch 2,Law Dispatch,Alamance County,2
+4174,104e,D,ACSO NARC,Sheriffs Office Narcotics,Law Tac,Alamance County,2
+4187,105b,D,ELON PD,Elon/Gibsonville Police Department - Dispatch,Law Dispatch,Alamance County,2
+4197,1065,D,ELONSECURITY,Elon University Security Dispatch,Security,Alamance County,2
+4198,1066,D,AlaCoSO Gang,Sheriffs Office Gang Task Force,Law Dispatch,Alamance County,2
+4208,1070,D,ACOFIRETAC3,Fire Tac 3,Fire-Tac,Alamance County,2
+4218,107a,D,GRAHAM FD,Graham Fire Department - Dispatch,Fire Dispatch,Alamance County,2
+4221,107d,D,GRAHAM PD,Graham Police - Dispatch,Law Dispatch,Alamance County,2
+4231,1087,D,HAW RIVER PD,Haw River Police,Law Dispatch,Alamance County,2
+4244,1094,D,MEBANEPD2,Mebane PD Channel 2 Admin,Law Tac,Alamance County,2
+4245,1095,D,MEBANE PD,Mebane Police,Law Dispatch,Alamance County,2
+4246,1096,D,MEBANE FD,Mebane Fire Department Dispatch,Fire Dispatch,Alamance County,2
+4300,10cc,D,ALEX SO,Alexander SO,Law Dispatch,Alexander County,2
+4301,10cd,D,ALEX SO OPS1,Alexander SO OPS 1,Law Tac,Alexander County,2
+4302,10ce,D,ALEX CID1,Alexander CID 1,Law Tac,Alexander County,2
+4303,10cf,D,ALEX MAID,Alexander M AID,Interop,Alexander County,2
+4304,10d0,D,ALEX FD,Alexander Fire,Fire Dispatch,Alexander County,2
+4305,10d1,D,ALEX EMS,Alexander EMS,EMS Dispatch,Alexander County,2
+4306,10d2,D,ALEX EM,Alexander EM,Multi-Tac,Alexander County,2
+4307,10d3,D,ALEX EM OPS1,Alexander EM OPS1,Multi-Tac,Alexander County,2
+4308,10d4,D,ALEX OPS1,Alexander OPS 1,Multi-Tac,Alexander County,2
+4309,10d5,D,ALEX OPS2,Alexander OPS 2,Multi-Tac,Alexander County,2
+4310,10d6,D,ALEX OPS3,Alexander OPS 3,Multi-Tac,Alexander County,2
+4311,10d7,D,ALEX TAC,Alexander TAC,Multi-Tac,Alexander County,2
+4321,1.00E+02,D,TAYLRS PD T1,Taylorsville PD TAC 1,Law Tac,Alexander County,2
+4404,1134,D,ALLEGHANYFD,Fire Dispatch,Fire Dispatch,Alleghany County,2
+4503,1197,D,ANSONEMS,Anson County EMS,EMS Dispatch,Anson County,2
+4508,119c,D,ANSONFIRE,Anson County Fire,Fire Dispatch,Anson County,2
+4510,119e,D,ANSOSO,Anson County Sheriffs Office,Law Dispatch,Anson County,2
+4600,11f8,D,ASHECOMM,Ashe County Common,Multi-Talk,Ashe County,2
+4601,11f9,D,ASHEEM,Ashe County Emergency Managment,Multi-Talk,Ashe County,2
+4602,11fa,D,ASHEEMS,Ashe County EMS,EMS Dispatch,Ashe County,2
+4603,11fb,D,ASHEFIRE,Ashe County Fire,Fire Dispatch,Ashe County,2
+4604,11fc,D,ASHEMAIDD,Ashe County Mutual Aid,Interop,Ashe County,2
+4605,11fd,D,ASHERSQDISP,Ashe County Rescue Dispatch,EMS Dispatch,Ashe County,2
+4606,11fe,D,ASHESO,Ashe County Sheriff,Law Dispatch,Ashe County,2
+4607,11ff,D,ASHESOADMIN,Ashe County Sheriff Admin,Law Talk,Ashe County,2
+4608,1200,D,ASHESONARC,Ashe County Sheriff NARC,Law Tac,Ashe County,2
+4609,1201,D,ASHESOPTRL,Ashe County Sheriff Patrol,Law Tac,Ashe County,2
+4610,1202,D,ASHETAC1,Ashe County Tac 1,Multi-Tac,Ashe County,2
+4611,1203,D,ASHETAC2,Ashe County Tac 2,Multi-Tac,Ashe County,2
+4612,1204,D,ASHETAC3,Ashe County Tac 3,Multi-Tac,Ashe County,2
+4613,1205,D,ASHETAC4,Ashe County Tac 4,Multi-Tac,Ashe County,2
+4614,1206,D,ASHSOINV,Ashe County Sheriff INV,Law Talk,Ashe County,2
+4624,1210,D,JEFFPDDISP,Jefferson PD Dispatch,Law Dispatch,Ashe County,2
+4625,1211,D,JEFFPDTAC,Jefferson PD TAC,Law Tac,Ashe County,2
+4635,121b,D,WJEFPDDISP,West Jefferson PD Dispatch,Law Dispatch,Ashe County,2
+4645,1225,D,WJEFPDTAC,West Jefferson PD TAC,Law Tac,Ashe County,2
+4700,125c,D,AVERY EM,Emergency Management,Emergency Ops,Avery County,2
+4701,125d,D,AVERY EMS,EMS,EMS Dispatch,Avery County,2
+4702,125e,D,AVERY FIRE,Fire,Fire Dispatch,Avery County,2
+4703,125f,D,AVERY MA,Mutual Aid,Interop,Avery County,2
+4704,1260,D,AVERY SO,Sheriff's Office,Law Dispatch,Avery County,2
+4705,1261,D,AVERY TAC,Tactical,Multi-Tac,Avery County,2
+4802,12c2,D,BFORCOTEMS,EMS Dispatch,EMS Dispatch,Beaufort County,2
+4803,12c3,D,BFORTCOFD,Fire Dispatch,Fire Dispatch,Beaufort County,2
+4804,12c4,D,BFORTCOMAID,Mutual Aid,Interop,Beaufort County,2
+4805,12c5,D,BFORTCOSO,Sheriffs Office Dispatch,Law Dispatch,Beaufort County,2
+4823,12d7,D,WASHINGTONFD,Washinton Fire Dispatch,Fire Dispatch,Beaufort County,2
+4824,12d8,D,WASHINGTNPD1,Washington Police Dispatch 1,Law Dispatch,Beaufort County,2
+4825,12d9,D,WASHINGTNPD2,Washington Police 2,Law Tac,Beaufort County,2
+4900,1324,D,Bertie EM,Emergency Management,Emergency Ops,Bertie County,2
+4901,1325,D,Bertie EMS,EMS,EMS Dispatch,Bertie County,2
+4902,1326,D,Bertie Fire,Fire,Fire Dispatch,Bertie County,2
+4903,1327,D,Bertie MA,Mutual Aid,Interop,Bertie County,2
+4904,1328,D,Bertie Shrf,Sheriffs Office,Law Dispatch,Bertie County,2
+4907,132b,D,Bertie SRO,SRO,Multi-Tac,Bertie County,2
+4908,132c,D,Bertie Tac 1,Tactical 1,Multi-Tac,Bertie County,2
+4909,132d,D,Bertie Tac 2,Tactical 2,Multi-Tac,Bertie County,2
+4910,132e,D,Bertie Tac 3,Tactical 3,Multi-Tac,Bertie County,2
+4911,132f,D,Bertie Tac 4,Tactical 4,Multi-Tac,Bertie County,2
+5000,1388,D,BLADENBOROPD,Bladenboro PD,Law Dispatch,Bladen County,2
+5001,1389,D,BLADENEM,Bladen EM,Multi-Talk,Bladen County,2
+5002,138a,D,BLADENEMS,Bladen County EMS Dispatch,EMS Dispatch,Bladen County,2
+5003,138b,D,BLADENEMSADM,Bladen County EMS ADMIN,EMS-Tac,Bladen County,2
+5004,138c,D,BLADEMSTAC1,Bladen County EMS TAC 1,EMS-Tac,Bladen County,2
+5005,138d,D,BLADEMSTAC2,Bladen County EMS TAC 2,EMS-Tac,Bladen County,2
+5006,138e,D,BLADFDADMIN,Bladen County FD Admin,Fire-Talk,Bladen County,2
+5007,138f,D,BLADENFDTAC1,Bladen FD TAC 1,Multi-Tac,Bladen County,2
+5008,1390,D,BLADENFDTAC2,Bladen FD TAC 2,Multi-Tac,Bladen County,2
+5009,1391,D,BLADENFDTAC3,Bladen FD TAC 3,Multi-Tac,Bladen County,2
+5010,1392,D,BLADENCOFIRE,County Fire,Fire Dispatch,Bladen County,2
+5011,1393,D,BLADENLAWADM,Bladen Law Admin,Law Tac,Bladen County,2
+5012,1394,D,BLADLENARC1,Bladen LE NARC 1,Law Tac,Bladen County,2
+5013,1395,D,BLADENMAIDD,Bladen Mutual Aid,Interop,Bladen County,2
+5014,1396,D,BLADENNARC,Bladen NARC,Law Tac,Bladen County,2
+5015,1397,D,BLADENOPS1,Bladen OPS 1,Multi-Tac,Bladen County,2
+5016,1398,D,BLADENOPS2,Bladen OPS 2,Multi-Tac,Bladen County,2
+5017,1399,D,BLADENOPS3,Bladen OPS 3,Multi-Tac,Bladen County,2
+5018,139a,D,BLADENOPS4,Bladen OPS 4,Multi-Tac,Bladen County,2
+5019,139b,D,BLADENCOSO,Sheriffs Office,Law Dispatch,Bladen County,2
+5020,139c,D,BLADSPECOPS,Bladen Special OPS,Multi-Tac,Bladen County,2
+5021,139d,D,BLADENTAC,Bladen County TAC,Multi-Tac,Bladen County,2
+5022,139e,D,BLADENTAC2,Bladen County TAC 2,Multi-Tac,Bladen County,2
+5032,13a8,D,ETOWNPD,ETown PD,Law Dispatch,Bladen County,2
+5042,13b2,D,WHITELAKEPD,Whitelake PD,Law Dispatch,Bladen County,2
+5500,157c,D,BrunCo Emgcy,County Emergency,Emergency Ops,Brunswick County,2
+5501,157d,D,BrunCoCommon,County Common,Interop,Brunswick County,2
+5502,157e,E,BrunCo Tac 6,Tactical 6 Administration,Law Talk,Brunswick County,2
+5503,157f,D,BrunCo Tac 5,Tactical 5 Investigations,Law Tac,Brunswick County,2
+5504,1580,D,BrunCo Narc,Law Naroctics,Law Tac,Brunswick County,2
+5505,1581,D,BrunCo Law T,Law Sheriff Talk-Around,Law Talk,Brunswick County,2
+5506,1582,E,BrunCo Sp Op,Special Operations,Law Tac,Brunswick County,2
+5507,1583,D,BrunCo Tac 2,County Tactical 2,Multi-Tac,Brunswick County,2
+5508,1584,D,BrunCo Tac 3,County Tactical 3,Multi-Tac,Brunswick County,2
+5509,1585,D,BrunCo Tac 4,County Tactical 4,Multi-Tac,Brunswick County,2
+5510,1586,D,BrunCo Law 4,Law 4 Not Assigned (used for alt talk channel),Law Talk,Brunswick County,2
+5511,1587,D,BrunCo Law 2,Law 2 Municipal Law North,Law Dispatch,Brunswick County,2
+5512,1588,D,BrunCo Law 3,Law 3 Municipal Law South,Law Dispatch,Brunswick County,2
+5513,1589,D,BrunCo Em Mg,Emergency Management,Emergency Ops,Brunswick County,2
+5514,158a,D,BrunCo EMS,EMS Dispatch,EMS Dispatch,Brunswick County,2
+5515,158b,D,BrunCo FD,Fire Dispatch,Fire Dispatch,Brunswick County,2
+5516,158c,D,BrunCo MuAid,Mutual Aid,Interop,Brunswick County,2
+5517,158d,D,BrunCo Law 1,Law 1 Sheriff Dispatch,Law Dispatch,Brunswick County,2
+5518,158e,D,BrunCo Tac 1,County Tactical 1,Multi-Tac,Brunswick County,2
+5519,158f,D,BrunCo Pagin,County Paging (155.52 Patch),Fire Dispatch,Brunswick County,2
+6000,1770,D,BuncomCo EM,Emergency Management,Emergency Ops,Buncombe County,2
+6001,1771,D,BuncomCo EMS,EMS,EMS Dispatch,Buncombe County,2
+6002,1772,D,BuncomCoFire,Fire,Fire Dispatch,Buncombe County,2
+6003,1773,D,BuncomCo Law,Law,Law Dispatch,Buncombe County,2
+6004,1774,D,BuncombCo MA,Mutual Aid,Interop,Buncombe County,2
+6005,1775,D,BuncomCo Tac,Tactical,Interop,Buncombe County,2
+6015,177f,D,AshevilleFD1,Asheville FD 1,Fire Dispatch,Buncombe County,2
+6016,1780,D,AshevilleFD2,Asheville FD 2,Fire-Tac,Buncombe County,2
+6017,1781,D,AshevillePD1,Asheville PD 1,Law Dispatch,Buncombe County,2
+6018,1782,D,AshevillePD2,Asheville PD 2,Law Tac,Buncombe County,2
+6501,1965,D,BURKECO EM,Emergency Management Office,Emergency Ops,Burke County,2
+6503,1967,D,BurkeCo EMS,EMS,EMS Dispatch,Burke County,2
+6504,1968,D,BurkeCo Fire,Fire Dispatch,Fire Dispatch,Burke County,2
+6509,196d,D,BURKECO RESQ,Rescue,EMS Dispatch,Burke County,2
+6510,196e,D,BURKESOADM,Sheriff - Admin,Law Tac,Burke County,2
+6511,196f,D,BURKECO SO,Sheriff's Office - Dispatch,Law Dispatch,Burke County,2
+6514,1972,D,BURKECO TAC1,Tactical 1,Multi-Tac,Burke County,2
+6515,1973,D,BURKECO TAC2,Tactical 2,Multi-Tac,Burke County,2
+6516,1974,D,BURKECO TAC3,Tactical 3,Multi-Tac,Burke County,2
+6517,1975,D,BURKECO TAC4,Tactical 4,Multi-Tac,Burke County,2
+6518,1976,D,BURKECO TAC5,Tactical 5,Multi-Tac,Burke County,2
+6519,1977,D,BURKECO TAC6,Tactical 6,Multi-Tac,Burke County,2
+6520,1978,D,BURKECO TAC7,Tactical 7,Multi-Tac,Burke County,2
+6521,1979,D,BURKECO TAC8,Tactical 8,Multi-Tac,Burke County,2
+6532,1984,D,MRGNTN PD,Morganton Police Dispatch,Law Dispatch,Burke County,2
+6533,1985,D,MRGNTN FD,Morganton Fire Dispatch,Fire Dispatch,Burke County,2
+6534,1986,D,MRGANTNPS2,Morganton Public Safety 2,Multi-Tac,Burke County,2
+6535,1987,D,MRGANTNPS3,Morganton Public Safety 3,Multi-Tac,Burke County,2
+6545,1991,D,BURKE SOINFO,Sheriff - Info,Law Dispatch,Burke County,2
+6555,199b,D,BROUGHTONPD,Broughton Hospital Campus Police,Law Dispatch,Burke County,2
+7000,1b58,D,CABARRUSEM,Cabarrus County Emergency Management,Multi-Talk,Cabarrus County,2
+7001,1b59,D,CABARRUSEMS,Cabarrus County EMS,EMS Dispatch,Cabarrus County,2
+7002,1b5a,D,CABARRUSFD,Cabarrus County Fire ,Fire Dispatch,Cabarrus County,2
+7003,1b5b,D,CABARRUSMAID,Cabarrus County Mutual Aid,Interop,Cabarrus County,2
+7004,1b5c,D,CABARRUSSO,Cabarrus County Sheriff,Law Dispatch,Cabarrus County,2
+7005,1b5d,D,CABARRUSTAC,Cabarrus County TAC,Multi-Tac,Cabarrus County,2
+7015,1b67,D,CONCORDFD,Concord FD,Fire Dispatch,Cabarrus County,2
+7016,1b68,D,CONCORDGOV,Concord Gov,Multi-Tac,Cabarrus County,2
+7017,1b69,D,CONCORDPD,Concord PD,Law Dispatch,Cabarrus County,2
+7018,1b6a,D,CONCORDTAC,Concord TAC,Multi-Tac,Cabarrus County,2
+7500,1d4c,D,CALDWELL OPS,Caldwell OPS,Interop,Caldwell County,2
+7501,1d4d,D,CALDEM OPS,Caldwell EM OPS,Interop,Caldwell County,2
+7502,1d4e,D,CALDEMER,Caldwell Emergency ,Emergency Ops,Caldwell County,2
+7503,1d4f,D,CALDEMSOPS,Caldwell EMS OPS,EMS-Tac,Caldwell County,2
+7504,1d50,D,CALDEMSADM,Caldwell EMS Admin,EMS-Talk,Caldwell County,2
+7505,1d51,D,CaldwCo Fire,Caldwell County Fire,Fire Dispatch,Caldwell County,2
+7506,1d52,D,CALDFM OPS,Caldwell Fire Marshal OPS,Fire-Talk,Caldwell County,2
+7507,1d53,D,CALDMAID,Caldwell Mutual Aid,Interop,Caldwell County,2
+7508,1d54,D,CALDRSQ,Caldwell Rescue,EMS Dispatch,Caldwell County,2
+7509,1d55,D,CALDWELL SO2,Sheriff's Office - Secondary,Law Tac,Caldwell County,2
+7510,1d56,D,CALDLE DISP,Caldwell LE Dispatch,Law Dispatch,Caldwell County,2
+7511,1d57,D,CALDSONARC,Caldwell SO Narc,Law Tac,Caldwell County,2
+7512,1d58,D,CALDWELL SO1,Sheriff's Office - Primary,Law Dispatch,Caldwell County,2
+7513,1d59,D,CALDWELLT1,Caldwell Tac 1,Multi-Tac,Caldwell County,2
+7514,1d5a,D,CALDWELLT2,Caldwell Tac 2,Multi-Tac,Caldwell County,2
+7515,1d5b,D,CALDWELLT3,Caldwell Tac 3,Multi-Tac,Caldwell County,2
+7516,1d5c,D,CALDWELLT4,Caldwell Tac 4,Multi-Tac,Caldwell County,2
+7517,1d5d,D,CALDWELLT5,Caldwell Tac 5,Multi-Tac,Caldwell County,2
+7527,1d67,D,GRANITEPDAD,Granite PD Admin,Law Talk,Caldwell County,2
+7528,1d68,D,GRANITE PD,Granite Police,Law Dispatch,Caldwell County,2
+7538,1d72,D,HUDSONPDADM,Hudson Police Admin,Law Tac,Caldwell County,2
+7539,1d73,D,HUDSON PD,Hudson Police,Law Dispatch,Caldwell County,2
+7549,1d7d,D,LENOIRFDOPS,Lenoir FD OPS,Fire-Tac,Caldwell County,2
+7550,1d7e,D,LENOIRPDAD,Lenoir PD Admin,Law Talk,Caldwell County,2
+7551,1d7f,D,LENOIR PD,Lenoir Police,Law Tac,Caldwell County,2
+7552,1d80,D,LENOIRPDEMER,Lenoir PD Emergency ,Emergency Ops,Caldwell County,2
+7553,1d81,D,LENOIRPDNARC,Lenoir PD Narc,Law Tac,Caldwell County,2
+7554,1d82,D,LENOIRPDOPS,Lenoir PD OPS,Law Tac,Caldwell County,2
+8000,1f40,D,CAMDENMAID,Mutual Aid,Interop,Camden County,2
+8500,2134,D,CCOSO,Sheriffs Office,Law Dispatch,Carteret County,2
+8501,2135,D,CCOSO2,Sheriffs Office 2,Law Tac,Carteret County,2
+8502,2136,D,CCOSOADM,Sheriffs Office Administration,Law Tac,Carteret County,2
+8503,2137,D,CCOSOINVST,Sheriffs Office Investigations,Law Tac,Carteret County,2
+8505,2139,D,CCOSOSRT,Sheriffs Office Special Response Team,Law Tac,Carteret County,2
+8506,213a,D,CCOPS TAC1,County Ops Tac 1 ,Interop,Carteret County,2
+8507,213b,D,CCOPS TAC 2,County Ops Tac 2,Interop,Carteret County,2
+8508,213c,D,CCOPS TAC 3,County Ops Tac 3,Interop,Carteret County,2
+8509,213d,D,CCOPS TAC 4,County Ops tac 4,Interop,Carteret County,2
+8510,213e,D,CCOPS TAC 5,County Ops Tac 5,Interop,Carteret County,2
+8511,213f,D,CCOPS TAC 6,County Ops Tac 6,Interop,Carteret County,2
+8512,2140,D,CCOPS TAC 7,County Ops Tac 7,Interop,Carteret County,2
+8513,2141,D,CCOPS TAC 8,County Ops Tac 8,Interop,Carteret County,2
+8514,2142,D,CCOMUTUALAID,Mutual Aid,Interop,Carteret County,2
+8515,2143,D,CCO FIRE,Fire,Fire Dispatch,Carteret County,2
+8516,2144,D,CCO EMS,EMS,EMS Dispatch,Carteret County,2
+8517,2145,D,CCOEMSADMIN,EMS Administration,EMS-Tac,Carteret County,2
+8527,214f,D,MHEAD PD,MoreHead Police,Law Dispatch,Carteret County,2
+8528,2150,D,MHEAD FD,MoreHead Fire,Fire Dispatch,Carteret County,2
+8538,215a,D,ABEACH PD,Atlantic Beach Police Department (Patched to VHF LAW-2 ABPD) ,Law Dispatch,Carteret County,2
+8539,215b,D,ABEACHPDINVS,Atlantic Beach Police Investigations,Law Tac,Carteret County,2
+8540,215c,D,ABEACH FRE,Atlantic Beach Fire,Fire Dispatch,Carteret County,2
+8550,2166,D,EISLE PD,Emerald Isle Police,Law Dispatch,Carteret County,2
+8551,2167,D,EISLEPDINVES,Emerald Isle Police Investigations,Law Tac,Carteret County,2
+8552,2168,D,EISLEFD/EMS,Emerald Isle Fire and Ems,Fire Dispatch,Carteret County,2
+9000,2328,D,CASCOCOM,County Common,Multi-Tac,Caswell County,2
+9001,2329,D,CASCOSOCID,Sheriffs Office Investigations,Law Tac,Caswell County,2
+9002,232a,D,CASCOSONARC,Sheriffs Office Narcotics,Law Tac,Caswell County,2
+9003,232b,D,CASCOSOOPS,Sheriffs Office Operations,Law Tac,Caswell County,2
+9004,232c,D,CASCOTAC2,County Tac 2,Multi-Tac,Caswell County,2
+9005,232d,D,CASCOTAC3,County Tac 3,Multi-Tac,Caswell County,2
+9006,232e,D,CASWELLEM,Emergency Management,Emergency Ops,Caswell County,2
+9007,232f,D,CASWELLEMS,EMS,EMS Dispatch,Caswell County,2
+9008,2330,D,CASWELLFIRE,Fire,Fire Dispatch,Caswell County,2
+9009,2331,D,CASWELLMAID,Mutual AId,Interop,Caswell County,2
+9010,2332,D,CASWELLSO,Sheriffs Office,Law Dispatch,Caswell County,2
+9011,2333,D,CASWELLTAC,County Tac 1,Multi-Tac,Caswell County,2
+9500,251c,D,CATAWBA 911,911,Emergency Ops,Catawba County,2
+9501,251d,D,CATAWBAEMER,Emergency,Emergency Ops,Catawba County,2
+9502,251e,D,CATAWBA LAW5,Law 5,Law Talk,Catawba County,2
+9503,251f,D,CATAWBAMAIDD,Mutual Aid,Interop,Catawba County,2
+9504,2520,D,CATAWBACOM,Common,Emergency Ops,Catawba County,2
+9505,2521,D,CATEMSADMN,EMS Admin,EMS-Talk,Catawba County,2
+9506,2522,D,CATEMSCMED,EMS (CMED),EMS Dispatch,Catawba County,2
+9507,2523,D,CATEMSDISP2,EMS Dispatch 2,EMS Dispatch,Catawba County,2
+9508,2524,D,CATEMSOPS,EMS Operations,EMS-Tac,Catawba County,2
+9509,2525,D,EMERMGT,Emergency Management,Emergency Ops,Catawba County,2
+9510,2526,D,ANMAL CTRL,Animal Control,Public Works,Catawba County,2
+9511,2527,D,FIRE OPS,Fire Operations,Fire-Tac,Catawba County,2
+9512,2528,D,CATFDALERT,Fire Alert,Fire Dispatch,Catawba County,2
+9513,2529,D,CATFD,Fire,Fire Dispatch,Catawba County,2
+9514,252a,D,GENERAL GOVT,General Government,Public Works,Catawba County,2
+9515,252b,D,CAT LAW 1,Law 1,Law Talk,Catawba County,2
+9516,252c,D,CAT LAW 2,Law 2,Law Talk,Catawba County,2
+9517,252d,D,CATPDADMIN,Police Administration,Law Talk,Catawba County,2
+9518,252e,D,CATRESQDISP1,Rescue Dispatch 1,Fire Dispatch,Catawba County,2
+9519,252f,D,CATRESQOPS,Rescue Operations,Fire-Tac,Catawba County,2
+9520,2530,D,CAT CID,Police - CID,Law Talk,Catawba County,2
+9521,2531,D,CATSO,Sheriff's Office,Law Dispatch,Catawba County,2
+9522,2532,D,CATSO S/O,Sheriff's Office - Switchover,Law Dispatch,Catawba County,2
+9523,2533,D,CAT NARC,Police - Narcotics,Law Talk,Catawba County,2
+9524,2534,D,CAT ADMIN,Police - Admin,Law Talk,Catawba County,2
+9525,2535,D,CATSTAR,Police - Star Team 1,Law Talk,Catawba County,2
+9526,2536,D,CATTAC1,Tactical 1,Multi-Tac,Catawba County,2
+9527,2537,D,CATTAC2,Tactical 2,Multi-Tac,Catawba County,2
+9528,2538,D,CATTAC3,Tactical 3,Multi-Tac,Catawba County,2
+9529,2539,D,CATTAC4,Tactical 4,Multi-Tac,Catawba County,2
+9530,253a,D,CATTAC5,Tactical 5,Multi-Tac,Catawba County,2
+9531,253b,D,CATTAC6,Tactical 6,Multi-Tac,Catawba County,2
+9532,253c,D,CATTAC7,Tactical 7,Multi-Tac,Catawba County,2
+9533,253d,D,CATTAC8,Tactical 8,Multi-Tac,Catawba County,2
+9544,2548,D,CONOPDDISP,Conover Police - Dispatch,Law Dispatch,Catawba County,2
+9545,2549,D,CONOPDOPS1,Conover Police - Operations 1,Law Tac,Catawba County,2
+9555,2553,D,HICKORYFDOPS,Hickory Fire - Operations,Fire-Tac,Catawba County,2
+9556,2554,D,HICKORYFDDSP,Hickory Fire - Dispatch,Fire Dispatch,Catawba County,2
+9557,2555,D,HICKORYPDPTC,Hickory Police - Patch,Law Dispatch,Catawba County,2
+9577,2569,D,NEWTONPDDISP,Newton Police - Dispatch,Law Dispatch,Catawba County,2
+9578,256a,D,NEWTONPDINV,Newton Police - Investigative,Law Talk,Catawba County,2
+9579,256b,D,NEWTONPDNARC,Newton Police - NARC,Law Talk,Catawba County,2
+9580,256c,D,NEWTONPDOPS,Newton Police - Operations,Law Dispatch,Catawba County,2
+10000,2710,D,CHATHAMEM,Emergency Management,Emergency Ops,Chatham County,2
+10001,2711,D,CHATHAMEMS,EMS,EMS Dispatch,Chatham County,2
+10002,2712,D,CHATHAMFIRE,Fire Department,Fire Dispatch,Chatham County,2
+10003,2713,D,CHATHAMSO,Sheriffs Office,Law Dispatch,Chatham County,2
+10004,2714,D,CHATHAMTAC,Tactical,Law Tac,Chatham County,2
+10005,2715,D,CHATHAMMAID,Mutual AId,Interop,Chatham County,2
+10500,2904,D,CHEROKEEEM,Cherokee County Emergency Management,Multi-Talk,Cherokee County,2
+10501,2905,D,CHEREMS,Cherokee County EMS,EMS Dispatch,Cherokee County,2
+10502,2906,D,CHERFIRE,Cherokee County Fire,Fire Dispatch,Cherokee County,2
+10503,2907,D,CHERMAID,Cherokee County Mutual Aid,Interop,Cherokee County,2
+10504,2908,D,CHERSODISP,Cherokee County Sheriff Dispatch,Law Dispatch,Cherokee County,2
+10505,2909,D,CHERSOSECU,Cherokee County SECU,Law Tac,Cherokee County,2
+10506,290a,D,CHEROKEETAC,Cherokee County Tactical ,Multi-Tac,Cherokee County,2
+11000,2af8,D,CHOWANCOM,County Common,Multi-Tac,Chowan County,2
+11001,2af9,D,CHOWANEM,Emergency Management,Emergency Ops,Chowan County,2
+11002,2afa,D,CHWANEMADMN,Emergency Management Administration,Emergency Ops,Chowan County,2
+11003,2afb,D,CHOWANEMS,EMS,EMS Dispatch,Chowan County,2
+11004,2afc,D,CHOWANEMSADM,EMS Administration,EMS-Tac,Chowan County,2
+11005,2afd,D,CHOWANFDADMN,Fire Administration,Fire-Tac,Chowan County,2
+11005,2afd,D,CHOWANTAC4,County Tac 4,Multi-Tac,Chowan County,2
+11006,2afe,D,CHOWANFD,Fire,Fire Dispatch,Chowan County,2
+11007,2aff,D,CHOWANMAID,Mutual Aid,Interop,Chowan County,2
+11008,2b00,D,CHOWANSO,Sheriffs Office,Law Dispatch,Chowan County,2
+11009,2b01,D,CHOWNSOADMN,Sheriffs Office Administration,Law Tac,Chowan County,2
+11010,2b02,D,CHWANSOINVE,Sheriffs Office Investigations,Law Tac,Chowan County,2
+11011,2b03,D,CHOWANSONARC,Sheriffs Office Narcotics,Law Tac,Chowan County,2
+11012,2b04,D,CHOWANTAC1,County Tac 1,Multi-Tac,Chowan County,2
+11013,2b05,D,CHOWANTAC2,County Tac 2,Multi-Tac,Chowan County,2
+11014,2b06,D,CHOWANTAC3,County Tac 3,Multi-Tac,Chowan County,2
+11025,2b11,D,EDENTONPDADM,Edenton Police Administration,Law Tac,Chowan County,2
+11026,2b12,D,EDENTONPD,Edenton Police,Law Dispatch,Chowan County,2
+11027,2b13,D,EDENTONPDINV,Edenton Police INvestigations,Law Tac,Chowan County,2
+11500,2cec,D,CLAYEM,Clay County Emergency Management,Multi-Talk,Clay County,2
+11501,2ced,D,CLAYEMS,Clay County EMS,EMS Dispatch,Clay County,2
+11502,2cee,D,CLAYFIRE,Clay County FD,Fire Dispatch,Clay County,2
+11503,2cef,D,CLAYMAIDD,Clay County Mutual Aid,Interop,Clay County,2
+11504,2cf0,D,CLAYSO,Clay County Sheriff ,Law Dispatch,Clay County,2
+11505,2cf1,D,CLAYTAC,Clay County TAC,Multi-Tac,Clay County,2
+12000,2ee0,D,CLEVEEM,Cleveland County Emergency Management,Multi-Talk,Cleveland County,2
+12001,2ee1,D,CLEVEEMS,Cleveland County EMS,EMS Dispatch,Cleveland County,2
+12002,2ee2,D,CLEVEFIRE,Cleveland County Fire,Fire Dispatch,Cleveland County,2
+12003,2ee3,D,CLEVEMAID,Cleveland County Mutual Aid,Interop,Cleveland County,2
+12004,2ee4,D,CLEVESO,Cleveland County Sheriff,Law Dispatch,Cleveland County,2
+12005,2ee5,D,CLEVETAC,Cleveland County TAC,Multi-Tac,Cleveland County,2
+12500,30d4,D,COLUMBUSEM,Columbus County Emergency Management,Multi-Talk,Columbus County,2
+12501,30d5,D,COLUMBUSEMS,Columbus County EMS,EMS Dispatch,Columbus County,2
+12502,30d6,D,COLUMBUSFD,Columbus County Fire,Fire Dispatch,Columbus County,2
+12503,30d7,D,COLUMBUSMAID,Columbus County Mutual Aid,Interop,Columbus County,2
+12504,30d8,D,COLUMBUSSO,Columbus County Sheriff,Law Dispatch,Columbus County,2
+12505,30d9,D,COLUMBUSTAC,Columbus County TAC,Multi-Tac,Columbus County,2
+13004,32cc,D,CRAVENFD,Craven County Fire/Rescue,Fire Dispatch,Craven County,2
+13007,32cf,D,CRAVENSO,Craven County Sheriff - Dispatch,Law Dispatch,Craven County,2
+13500,34bc,D,CumbCoShReco,Sheriff Records Checks,Law Talk,Cumberland County,2
+13501,34bd,D,CCOSOCIVIL,Sheriffs Office Civil ,Law Tac,Cumberland County,2
+13502,34be,D,CCSOCOURT,Court House Security and ops,Law Tac,Cumberland County,2
+13503,34bf,D,CCSODETEN,Sheriff Detention,Corrections,Cumberland County,2
+13504,34c0,D,CCSODISP1A,CCSD Dispatch 1A,Law Dispatch,Cumberland County,2
+13506,34c2,D,CCSODISP2A,CCSD Dispatch 2A,Law Dispatch,Cumberland County,2
+13507,34c3,D,CCSOMOTOR,Sheriff - Motors,Law Tac,Cumberland County,2
+13508,34c4,D,CumbCoShTc08,Sheriff Tatcical,Law Tac,Cumberland County,2
+13509,34c5,D,CCSODISP1B,CCSD Dispatch 1B,Law Talk,Cumberland County,2
+13510,34c6,D,CumbCoShTc10,Sheriff Tactical,Law Tac,Cumberland County,2
+13511,34c7,D,CumbCoCommon,Common,Interop,Cumberland County,2
+13512,34c8,D,CCSO SRO,School Resource Enforcement,Law Talk,Cumberland County,2
+13514,34ca,D,Cumb Co Talk,Talk-Around (Crown Arena Events),Interop,Cumberland County,2
+13515,34cb,D,SPRINGLKEVNT,Spring Lake Event,Multi-Tac,Cumberland County,2
+13515,34cb,D,CUMB M/A,Cumberland Mutual Aid,Multi-Tac,Cumberland County,2
+13519,34cf,D,CUMCOACDISP,County Animal Control Dispatch,Public Works,Cumberland County,2
+13522,34d2,D,CUMCOFD 4A,Cumberland County Fire 4A,Fire-Tac,Cumberland County,2
+13523,34d3,D,CUMCOFD 5A,Cumberland County Fire 5A,Fire-Tac,Cumberland County,2
+13524,34d4,D,CUMCOFD 6A,Cumberland County Fire 6A,Fire-Tac,Cumberland County,2
+13525,34d5,D,CUMCOFD 7A,Cumberland County Fire 7A,Fire-Tac,Cumberland County,2
+13526,34d6,D,CUMCOFD 8A,Cumberland County Fire 8A,Fire-Tac,Cumberland County,2
+13527,34d7,D,CUMCOFD 9A,Cumberland County Fire 9A,Fire-Tac,Cumberland County,2
+13529,34d9,D,CUMCOFD 1A,Cumberland County Fire 1A,Fire-Tac,Cumberland County,2
+13530,34da,D,CUMCOFDDISP,County Fire Dispatch,Fire Dispatch,Cumberland County,2
+13531,34db,D,CUMCOFD 3A,Cumberland County Fire 3A,Fire-Tac,Cumberland County,2
+13542,3.40E+07,D,CUMCOEMS,Cumberland County EMS,EMS Dispatch,Cumberland County,2
+13543,3.40E+08,D,CFH GND 2,Cape Fear Hosp Ground 2,EMS-Tac,Cumberland County,2
+13544,3.40E+09,D,CAPEFRLIFLNK,Cape Fear Valley Life Link Dispatch,EMS-Tac,Cumberland County,2
+13555,34f3,D,FAYCITYFDADM,Fayetteville City Fire 2 Administration,Fire-Talk,Cumberland County,2
+13556,34f4,D,FAYCITYFDDIS,Fayetteville City Fire 1 Dispatch,Fire Dispatch,Cumberland County,2
+13557,34f5,D,FAYCITYPDADM,Fayetteville City PD Admin,Law Talk,Cumberland County,2
+13558,34f6,D,FAYCITYPDDIS,Fayetteville City PD Dispatch,Law Dispatch,Cumberland County,2
+13559,34f7,D,FAYPDTAC1,Fayetteville City PD TAC 1,Law Tac,Cumberland County,2
+13560,34f8,D,FAYPDTAC2,Fayetteville City PD TAC 2,Law Tac,Cumberland County,2
+13570,3502,D,HOPEMILLS PD,Hope Mills Police - Dispatch,Law Dispatch,Cumberland County,2
+13571,3503,D,HOPEMILLSPDT,Hope Mills Police - Tactical 1,Law Tac,Cumberland County,2
+13584,3510,D,SprgLake PD,Spring Lake PD 11B,Law Tac,Cumberland County,2
+13585,3511,D,SPRINGLAKEPD,Spring Lake - Police,Law Dispatch,Cumberland County,2
+14000,36b0,D,CURR EM,Emergency Managment,Multi-Talk,Currituck County,2
+14001,36b1,D,EMS DISP,EMS Dispatch,EMS Dispatch,Currituck County,2
+14002,36b2,D,FD DISP,Fire Dispatch,Fire Dispatch,Currituck County,2
+14003,36b3,D,CURR MAID,Mutual Aid,Interop,Currituck County,2
+14004,36b4,D,SO DISP,Sheriff Dispatch,Law Dispatch,Currituck County,2
+14005,36b5,D,CURR TAC 1,Tac 1,Multi-Tac,Currituck County,2
+14007,36b7,D,SO ADMIN,Sheriff Admin,Law Talk,Currituck County,2
+14008,36b8,D,SO INV,Sheriff Investigations,Law Talk,Currituck County,2
+14009,36b9,D,SO SOPS,Sheriff Special Ops,Law Tac,Currituck County,2
+14010,36ba,D,FD ADMIN,Fire Admin,Fire-Talk,Currituck County,2
+14011,36bb,D,EMS ADMIN,EMS Admin,EMS-Talk,Currituck County,2
+14012,36bc,D,RSQ DISP,Rescue Dispatch,EMS Dispatch,Currituck County,2
+14013,36bd,D,CURR COMM,Common,Multi-Talk,Currituck County,2
+14014,36be,D,CURR TAC 2,Tac 2,Multi-Tac,Currituck County,2
+14015,36bf,D,CURR TAC 3,Tac 3,Multi-Tac,Currituck County,2
+14016,36c0,D,CURR TAC 4,Tac 4,Multi-Tac,Currituck County,2
+14500,38a4,D,DARECOM,Dare County Common,Interop,Dare County,2
+14501,38a5,D,DAREEM,Dare County Emergency Management,Multi-Talk,Dare County,2
+14502,38a6,D,DAREEMS,Dare County EMS,EMS Dispatch,Dare County,2
+14503,38a7,D,DAREFIRE,Dare County Fire,Fire Dispatch,Dare County,2
+14504,38a8,D,DAREMAID,Dare County Mutual Aid,Interop,Dare County,2
+14505,38a9,D,DARESO,Dare County Sheriff,Law Dispatch,Dare County,2
+14506,38aa,D,DARETAC,Dare County TAC,Multi-Tac,Dare County,2
+14507,38ab,D,DARETAC2,Dare County TAC 2,Multi-Tac,Dare County,2
+14508,38ac,D,DARETAC3,Dare County TAC 3,Multi-Tac,Dare County,2
+14509,38ad,D,DARETAC4,Dare County TAC 4,Multi-Tac,Dare County,2
+14519,38b7,D,BEACHLAW1,Dare County Beach Law 1,Law Tac,Dare County,2
+14529,38c1,D,OCEANRESQDIS,Ocean Rescue Dispatch,EMS Dispatch,Dare County,2
+15000,3a98,D,DAVIDSONEM,Emergenct Management,Emergency Ops,Davidson County,2
+15001,3a99,D,DAVIDSONEMS,EMS,EMS Dispatch,Davidson County,2
+15002,3a9a,D,DAVIDSONFIRE,Fire,Fire Dispatch,Davidson County,2
+15003,3a9b,D,DAVIDSONMAID,Mutual Aid,Interop,Davidson County,2
+15004,3a9c,D,DAVIDSONSO,Sheriffs Office,Law Dispatch,Davidson County,2
+15005,3a9d,D,DAVIDSONTAC,Tactical,Law Tac,Davidson County,2
+15500,3c8c,D,DAVIECOMMON,Davie County Common,Multi-Talk,Davie County,2
+15501,3c8d,D,DAVIEEM,Davie County Emergency Management,Multi-Dispatch,Davie County,2
+15502,3c8e,D,DAVIEEMS,Davie County EMS,EMS Dispatch,Davie County,2
+15503,3c8f,D,DAVIEEMSADMN,Davie County EMS Admin,EMS-Talk,Davie County,2
+15504,3c90,D,DAVIEFIRE,Davie County Fire Dispatch,Fire Dispatch,Davie County,2
+15505,3c91,D,DAVIEMAIDD,Davie County Mutual Aid,Interop,Davie County,2
+15506,3c92,D,DAVIECOSO,Davie County Sheriff Dispatch,Law Dispatch,Davie County,2
+15507,3c93,D,DAVIESOADMIN,Davie County Sheriff Admin,Law Talk,Davie County,2
+15508,3c94,D,DAVIESOCIVIL,Davie County Sheriff Civil,Law Talk,Davie County,2
+15509,3c95,D,DAVIESOINVES,Davie County Sheriff Investigation,Law Talk,Davie County,2
+15510,3c96,D,DAVIENARC,Davie Co. Sheriff - Narcotics,Law Tac,Davie County,2
+15511,3c97,D,DAVIESOPTRL,Davie County Sheriff Patrol,Law Tac,Davie County,2
+15512,3c98,D,DAVIETAC1,Davie County TAC 1,Multi-Tac,Davie County,2
+15513,3c99,D,DAVIETAC2,Davie County TAC 2,Multi-Tac,Davie County,2
+15514,3c9a,D,DAVIETAC3,Davie County TAC 3,Multi-Tac,Davie County,2
+15515,3c9b,D,DAVIETAC4,Davie County TAC 4,Multi-Tac,Davie County,2
+15516,3c9c,D,DAVIETAC5,Davie County TAC 5,Multi-Tac,Davie County,2
+15517,3c9d,D,DAVIETAC6,Davie County TAC 6,Multi-Tac,Davie County,2
+15527,3ca7,D,COOLPDDISP,Cooleemee PD Dispatch,Law Dispatch,Davie County,2
+15537,3cb1,D,MOCKPDADMIN,Mocksville PD Admin,Law Talk,Davie County,2
+15538,3cb2,D,MOCKPDDISP,Mocksville PD Dispatch,Law Dispatch,Davie County,2
+15539,3cb3,D,MOCKPDINVEST,Mocksville PD Investigations,Law Tac,Davie County,2
+15540,3cb4,D,MOCKPDNARC,Mocksville PD Narcotics,Law Tac,Davie County,2
+15541,3cb5,D,MOCKPDPTRL,Mocksville PD Patrol,Law Tac,Davie County,2
+16000,3.00E+80,D,DUPCOM,Duplin County Common,Multi-Talk,Duplin County,2
+16001,3.00E+81,D,DUPLINEM,Duplin County Emergency Management,Emergency Ops,Duplin County,2
+16002,3.00E+82,D,DUPLINCO EMS,EMS - Dispatch,EMS Dispatch,Duplin County,2
+16003,3.00E+83,D,DUPLINEMSADM,Duplin County EMS Admin,EMS-Talk,Duplin County,2
+16004,3.00E+84,D,DUPLINFIRE,Duplin County Fire Dispatch,Fire Dispatch,Duplin County,2
+16005,3.00E+85,D,DUPLINFIREAD,Duplin County Fire Admin,Fire-Talk,Duplin County,2
+16006,3.00E+86,D,DUPLINCO SO,Sheriff's Office - Dispatch,Law Dispatch,Duplin County,2
+16007,3.00E+87,D,DUPLINMAID,Duplin County Mutual Aid,Interop,Duplin County,2
+16008,3.00E+88,D,DUPLINSOADMI,Duplin County Sheriff Admin,Law Talk,Duplin County,2
+16009,3.00E+89,D,DUPLINSODICE,Duplin County Sheriff ICE,Law Tac,Duplin County,2
+16010,3e8a,D,DUPLINSOINVE,Duplin County Sheriff Inv,Law Talk,Duplin County,2
+16011,3e8b,D,DUPLINSONARC,Duplin County Sheriff NARC,Law Tac,Duplin County,2
+16012,3e8c,D,DUPLINSOOPS,Duplin County Sheriff OPS,Law Tac,Duplin County,2
+16013,3e8d,D,DUPLINSOPTRL,Duplin County Sheriff Patrol,Law Tac,Duplin County,2
+16014,3e8e,D,DUPLINSOSRO,Duplin County Sheriff SRO,Law Tac,Duplin County,2
+16015,3e8f,D,DUPLINSOSRT,Duplin County Sheriff SRT,Law Tac,Duplin County,2
+16016,3.00E+90,D,DUPLINTAC,Duplin County TAC,Multi-Tac,Duplin County,2
+16017,3.00E+91,D,DUPLINTAC2,Duplin County Tac 2,Multi-Tac,Duplin County,2
+16018,3.00E+92,D,DUPLINTAC3,Duplin County Tac 3,Multi-Tac,Duplin County,2
+16019,3.00E+93,D,DUPLINTAC4,Duplin County Tac 4,Multi-Tac,Duplin County,2
+16020,3.00E+94,D,DUPLN FD OP1,Duplin County Fire Ops 1,Fire-Tac,Duplin County,2
+16029,3e9d,D,BEULAVILLEPD,Beulaville PD,Law Dispatch,Duplin County,2
+16039,3ea7,D,ROSEHILLPDAD,Rosehill PD Admin,Law Talk,Duplin County,2
+16500,4074,D,Duke PD1,Duke PD 1,Law Dispatch,Duke University,2
+16501,4075,D,Duke PD2,Duke PD 2,Law Tac,Duke University,2
+16502,4076,D,FD EMS 1,Fire EMS 1,Multi-Tac,Duke University,2
+16503,4077,D,FD EMS 2,Fire EMS 2,Multi-Tac,Duke University,2
+16504,4078,D,EVENT 1,Event 1,Multi-Talk,Duke University,2
+16505,4079,D,EVENT 2,Event 2,Multi-Talk,Duke University,2
+16506,407a,D,EVENT 3,Event 3,Multi-Talk,Duke University,2
+16507,407b,D,DUKEOPS1,Duke OPS 1,Multi-Tac,Duke University,2
+16508,407c,D,DUKEOPS2,Duke OPS 2,Multi-Tac,Duke University,2
+16509,407d,D,DUKEOPS3,Duke OPS 3,Multi-Tac,Duke University,2
+16510,407e,D,DUKEOPS4,Duke OPS 4,Multi-Tac,Duke University,2
+16511,407f,D,DUKEOPS5,Duke OPS 5,Multi-Tac,Duke University,2
+16512,4080,D,DUKEOPS6,Duke OPS 6,Multi-Tac,Duke University,2
+16513,4081,D,DUKE OESO,Duke Occupational & Environmental Safety Office,Fire-Tac,Duke University,2
+16514,4082,D,DKE LFEFLGHT,Duke Lifeflight,EMS Dispatch,Duke Life Flight (Durham County),2
+16515,4083,D,DUKE EMS,Duke EMS,EMS-Tac,Duke University,2
+16517,4085,D,DUKE SEC 1,Duke Contract Security 1,Security,Duke University,2
+16518,4086,D,DUKE SEC 2,Duke Contract Security 2,Security,Duke University,2
+16519,4087,D,DUKE EM1,Duke Emergency Management 1,Multi-Tac,Duke University,2
+16520,4088,D,DUKE EM2,Duke Emergency Management 2,Multi-Tac,Duke University,2
+16521,4089,D,LFLIGHT SS,Support Services,EMS Dispatch,Duke Life Flight (Durham County),2
+16522,408a,D,LF AIR OPS,Air Operations,EMS-Tac,Duke Life Flight (Durham County),2
+16523,408b,D,LF CAREOPS,Care Operations,EMS Dispatch,Duke Life Flight (Durham County),2
+16524,408c,D,LF DISP,Dispatch,EMS Dispatch,Duke Life Flight (Durham County),2
+16525,408d,D,LF ADMN,Administration,EMS Dispatch,Duke Life Flight (Durham County),2
+16526,408e,D,DUKE RAL,Duke Raleigh ,Hospital,Duke University,2
+16535,4097,D,DTCCPDDISP,Durham Tech Police Dispatch,Law Tac,Durham County,2
+16536,4098,D,DUR EM,Emergency Management,Multi-Tac,Durham County,2
+16537,4099,D,DUR EMS,EMS,EMS-Tac,Durham County,2
+16538,409a,D,DUR FD,Fire Depts,Fire-Tac,Durham County,2
+16539,409b,D,DUR LAW,Law,Law Tac,Durham County,2
+16540,409c,D,DUR TAC,Tactical,Multi-Tac,Durham County,2
+16541,409d,E,DUR GOV,Government,Multi-Tac,Durham County,2
+16542,409e,D,DUR MAID,Mutual Aid,Interop,Durham County,2
+17000,4268,D,EDGECOMBEEM,Emergency Management,Emergency Ops,Edgecombe County,2
+17001,4269,D,EDGECOMBEEMS,EMS,EMS Dispatch,Edgecombe County,2
+17002,426a,D,EDGECOMBEFIR,Fire,Fire Dispatch,Edgecombe County,2
+17003,426b,D,EDGECOMBEMAI,Mutual Aid,Interop,Edgecombe County,2
+17004,426c,D,EDGECOMBESO,Sheriffs Office,Law Dispatch,Edgecombe County,2
+17005,426d,D,EDGECOMBETAC,Tactical,Law Tac,Edgecombe County,2
+17006,426e,D,EDGECOMMON,Common,Multi-Tac,Edgecombe County,2
+17007,426f,D,EDGEESADMN,Emergency Services Administration,Emergency Ops,Edgecombe County,2
+17008,4270,D,EDGEGOVT1,Government 1,Other,Edgecombe County,2
+17009,4271,D,EDGEGOVT2,Government 2,Other,Edgecombe County,2
+17010,4272,D,EDGESOADMIN,Sheriff Administration,Law Tac,Edgecombe County,2
+17011,4273,D,EDGESOCID,Investigations,Law Tac,Edgecombe County,2
+17013,4275,D,EDGESOPTRL,Sheriffs Patrol,Law Tac,Edgecombe County,2
+17014,4276,D,EDGESOSPTAC,Special Tac,Law Tac,Edgecombe County,2
+17015,4277,D,EDGETAC2,Tac 2,Law Tac,Edgecombe County,2
+17016,4278,D,EDGETAC3,Tac 3,Law Tac,Edgecombe County,2
+17017,4279,D,EDGETAC4,Tac 4,Law Tac,Edgecombe County,2
+17027,4283,D,PINETOPSPDAD,Pinetops Police Department,Law Tac,Edgecombe County,2
+17037,428d,D,TARBOROCOM,Tarboro Common,Multi-Tac,Edgecombe County,2
+17038,428e,D,TARBOROFD,Tarboro Fire Department,Fire-Tac,Edgecombe County,2
+17039,428f,D,TARBOROPD,Tarboro Police Department,Law Tac,Edgecombe County,2
+18007,4657,D,FRANKLIN FD,Fire,Fire-Tac,Franklin County,2
+18009,4659,D,FranklinCoSh,Sheriff,Law Dispatch,Franklin County,2
+18500,4844,D,GASTONEM,Gaston County Emergency Management,Multi-Talk,Gaston County,2
+18501,4845,D,GASTONEMS,Gaston County EMS,EMS Dispatch,Gaston County,2
+18502,4846,D,GASTONFIRE,Gaston County Fire,Fire Dispatch,Gaston County,2
+18503,4847,D,GASTONMAID,Gaston County Mutual Aid,Interop,Gaston County,2
+18504,4848,D,GASTONSO,Gaston County Sheriff,Law Dispatch,Gaston County,2
+18505,4849,D,GASTONTAC,Gaston County TAC,Multi-Tac,Gaston County,2
+18506,484a,D,GASTONTAC2,Gaston County TAC 2,Multi-Tac,Gaston County,2
+18507,484b,D,GASTONTAC3,Gaston County TAC 3,Multi-Tac,Gaston County,2
+18517,4855,D,GASTONIAFD,Gastonia Fire ,Fire Dispatch,Gaston County,2
+18518,4856,D,GASTONIAPD,Gastonia Police,Law Dispatch,Gaston County,2
+19000,4a38,D,GASTESMAID,Mutual Aid,Interop,Gates County,2
+19001,4a39,D,GATESEM,Emergency Management,Emergency Ops,Gates County,2
+19002,4a3a,D,GATESEMS,EMS,EMS Dispatch,Gates County,2
+19003,4a3b,D,GATESFIRE,Fire,Fire Dispatch,Gates County,2
+19004,4a3c,D,GATESSO,Sheriffs Office,Law Dispatch,Gates County,2
+19005,4a3d,D,GATESSOADMIN,Sheriffs Office Administration,Law Tac,Gates County,2
+19006,4a3e,D,GATESSOINVES,Sheriffs Office Investigations,Law Tac,Gates County,2
+19007,4a3f,D,GATESSPECIAL,County Special,Law Tac,Gates County,2
+19008,4a40,D,GATESTAC,County Tac,Multi-Tac,Gates County,2
+19009,4a41,D,GATESTAC2,County Tac 2,Multi-Tac,Gates County,2
+19010,4a42,D,GATESTAC3,County Tac 3,Multi-Tac,Gates County,2
+19011,4a43,D,GATESTAC4,County Tac 4,Multi-Tac,Gates County,2
+19500,4c2c,D,GRAHAMEM,Graham County Emergency Management,Multi-Talk,Graham County,2
+19501,4c2d,D,GRAHAMEMS,Graham County EMS,EMS Dispatch,Graham County,2
+19502,4c2e,D,GRAHAMFIRE,Graham County Fire ,Fire Dispatch,Graham County,2
+19503,4c2f,D,GRAHAMMAID,Graham County Mutual Aid,Interop,Graham County,2
+19504,4c30,D,GRAHAMSO,Graham County Sheriff's Office,Law Dispatch,Graham County,2
+19505,4c31,D,GRAHAMTAC,Graham County Tactical,Multi-Tac,Graham County,2
+20000,4.00E+20,D,GCOSOADMIN,Granville Co SO Admin,Law Talk,Granville County,2
+20001,4.00E+21,D,GCOSOCIVIL,Granville Co SO Civil,Law Talk,Granville County,2
+20002,4.00E+22,D,GRNVILE LAW,Sheriff's Office Dispatch,Law Dispatch,Granville County,2
+20003,4.00E+23,D,GCOSOINVEST,Granville SO Investigations,Law Tac,Granville County,2
+20004,4.00E+24,D,GCOSONARC,Granville SO Narc,Law Tac,Granville County,2
+20005,4.00E+25,D,GCOSOPAT,Granville SO Patrol,Law Tac,Granville County,2
+20006,4.00E+26,D,GRANVILLEEMS,EMS Dispatch,EMS Dispatch,Granville County,2
+20007,4.00E+27,D,GRANVILLE FD,Fire Dispatch,Fire Dispatch,Granville County,2
+20008,4.00E+28,D,GCOPSADMIN,Granville Co Public Safety Admin,Multi-Talk,Granville County,2
+20009,4.00E+29,D,GCOEM,Granville Co Emergency Management,Multi-Talk,Granville County,2
+20010,4e2a,D,GCOMMN,Granville Co Common,Multi-Talk,Granville County,2
+20011,4e2b,D,GLEADM,Granville Co LE Admin,Law Talk,Granville County,2
+20012,4e2c,D,GLESOP,Granville Co LE OPS,Law Tac,Granville County,2
+20013,4e2d,D,GRAN MUTAID,Granville Co Mutual Aid,Interop,Granville County,2
+20014,4e2e,D,GMAIDD,Granville Co Putual Aid,Interop,Granville County,2
+20015,4e2f,D,GMEDCT,Granville Co Medic,EMS Dispatch,Granville County,2
+20016,4.00E+30,D,GRAN TAC 1,Granville Co TAC 1,Multi-Tac,Granville County,2
+20017,4.00E+31,D,GRAN TAC 10,Granville Tac 10,Multi-Tac,Granville County,2
+20018,4.00E+32,D,GRAN TAC 2,Granville Tac 2,Multi-Tac,Granville County,2
+20019,4.00E+33,D,GRAN TAC 3,Granville Tac 3,Multi-Tac,Granville County,2
+20020,4.00E+34,D,GRAN TAC 4,Granville Tac 4,Multi-Tac,Granville County,2
+20021,4.00E+35,D,GRAN TAC 5,Granville Tac 5,Multi-Tac,Granville County,2
+20022,4.00E+36,D,GRAN TAC 6,Granville Tac 6,Multi-Tac,Granville County,2
+20023,4.00E+37,D,GRAN TAC 7,Granville Tac 7,Multi-Tac,Granville County,2
+20024,4.00E+38,D,GRAN TAC 8,Granville Tac 8,Multi-Tac,Granville County,2
+20025,4.00E+39,D,GRAN TAC 9,Granville Tac 9,Multi-Tac,Granville County,2
+20026,4e3a,D,GTRAIN,Granville Co Training,Multi-Talk,Granville County,2
+20027,4e3b,D,GTRANS,Granville Co Transportation,Transportation,Granville County,2
+20028,4e3c,D,GTWNPD,Granville Co Small Towns PD,Law Dispatch,Granville County,2
+20038,4.00E+46,D,CRDMREPDINV,Creedmore PD Investigations,Law Talk,Granville County,2
+20039,4.00E+47,D,CREEDMORE PD,Creedmore Police,Law Dispatch,Granville County,2
+20049,4.00E+51,D,OXPDADMIN,Oxford Police Admin,Law Talk,Granville County,2
+20050,4.00E+52,D,OXFORD PD,Oxford Police Dispatch,Law Dispatch,Granville County,2
+20051,4.00E+53,D,OXPDINV,Oxford Police Investigations,Law Tac,Granville County,2
+20500,5014,D,GREENECOMM,County Common,Law Tac,Greene County,2
+20501,5015,D,GREENEEM,Emergency Management,Emergency Ops,Greene County,2
+20502,5016,D,GREENEEMS,EMS Dispatch,EMS Dispatch,Greene County,2
+20503,5017,D,GREENECOFD,Fire Dispatch,Fire Dispatch,Greene County,2
+20504,5018,D,GREENEMAID,Mutual Aid,Interop,Greene County,2
+20505,5019,D,GREENESO,Sheriffs Office Dispatch,Law Dispatch,Greene County,2
+20506,501a,D,GRNESOADMIN,Sheriffs Office Administration,Law Tac,Greene County,2
+20507,501b,D,GRNESOINVEST,Sheriffs Office Investigation,Law Tac,Greene County,2
+20508,501c,D,GREENESONARC,Sheriffs Office Narcotics,Law Tac,Greene County,2
+20509,501d,D,GREENESOSRO,SHeriffs Office School Resource Officer,Law Tac,Greene County,2
+20510,501e,D,GREENETAC,County Tac 1,Law Tac,Greene County,2
+20511,501f,D,GREENETAC2,County Tac 2,Law Tac,Greene County,2
+20512,5020,D,GREENETAC3,County Tac 3,Law Tac,Greene County,2
+20522,502a,D,SNOWHILLPD,Snow Hill Police Dispatch,Law Dispatch,Greene County,2
+21000,5208,D,GUILFORD EM,Guilford County Emergency Management,EMS Dispatch,Guilford County,2
+21001,5209,D,GUILFORD EMS,Guilford County EMS,EMS Dispatch,Guilford County,2
+21002,520a,D,GUILFORD FD,Guilford County FD,Fire Dispatch,Guilford County,2
+21003,520b,D,GUILFD MAID,Guilford County Mutual Aid,Multi-Tac,Guilford County,2
+21004,520c,D,GUILFORD SO,Guilford County Sheriff,Law Dispatch,Guilford County,2
+21005,520d,D,GUILFD TAC 1,Guilford County TAC 1,Multi-Tac,Guilford County,2
+21006,520e,D,GUILFD TAC 2,Guilford County TAC 2,Multi-Tac,Guilford County,2
+21007,520f,D,GUILFD TAC 3,Guilford County TAC 3,Multi-Tac,Guilford County,2
+21008,5210,D,GUILFD TAC 4,Guilford County TAC 4,Multi-Tac,Guilford County,2
+21009,5211,D,GUILFD TAC 5,Guilford County TAC 5,Multi-Tac,Guilford County,2
+21010,5212,D,GUILFD TAC 6,Guilford County TAC 6,Multi-Tac,Guilford County,2
+21011,5213,D,METRO FD OPS,Guilford County Metro FD OPS,Fire Dispatch,Guilford County,2
+21012,5214,D,PTIA OPS,Piedmont Triad International Airport OPS,Multi-Tac,Guilford County,2
+21013,5215,D,HPPD DISP,High Point PD Dispatch,Law Dispatch,Guilford County,2
+21014,5216,D,HPFD DISP,High Point FD Dispatch,Fire Dispatch,Guilford County,2
+21015,5217,D,GPD DISP,Greensboro PD Dispatch,Law Dispatch,Guilford County,2
+21016,5218,D,CAMPUS OPS,Campus OPS,Multi-Tac,Guilford County,2
+21500,53fc,D,HALIFAXEM,Halifax Emergency Management,Multi-Talk,Halifax County,2
+21501,53fd,D,HALIFAXEMS,Halifax EMS,EMS Dispatch,Halifax County,2
+21502,53fe,D,HALIFAXFIRE,Halifax Fire,Fire Dispatch,Halifax County,2
+21503,53ff,D,HALIFAXMAID,Halifax Mutual Aid,Interop,Halifax County,2
+21504,5400,D,HALIFAXSO,Halifax Sheriff,Law Dispatch,Halifax County,2
+21505,5401,D,HALIFAXTAC,Halifax TAC,Multi-Tac,Halifax County,2
+22000,55f0,D,HARESADMIN,Harnett County ES Admin,Multi-Talk,Harnett County,2
+22001,55f1,D,HARNETTEMS,Harnett County EMS,EMS Dispatch,Harnett County,2
+22002,55f2,D,HCOFIRERESPN,Harnett County Fire Response,Fire Dispatch,Harnett County,2
+22003,55f3,D,HARNETTMAID,Harnett County Mutual Aid,Interop,Harnett County,2
+22004,55f4,D,HAR SO DISP1,Harnett County Sheriff Dispatch 1,Law Dispatch,Harnett County,2
+22005,55f5,D,HAR SO DISP2,Harnett County Sheriff Dispatch 2,Law Tac,Harnett County,2
+22006,55f6,D,HARNETTSOINV,Harnett County Sheriff Investigations,Law Tac,Harnett County,2
+22007,55f7,D,HARNSONARC,Harnett County Sheriff NARC,Law Tac,Harnett County,2
+22008,55f8,D,HARNSOTACT,Harnett County Sheriff TACT,Law Tac,Harnett County,2
+22009,55f9,D,HCOFIRETAC1,Harnett County Fire TAC 1,Multi-Tac,Harnett County,2
+22010,55fa,D,HARNSOPAT1,Harnett County Sheriff Patrol 1,Law Talk,Harnett County,2
+22011,55fb,D,HARNSOPAT2,Harnett County Sheriff Patrol 2,Law Talk,Harnett County,2
+22012,55fc,D,HARNSOPAT3,Harnett County Sheriff Patrol 3,Law Talk,Harnett County,2
+22013,55fd,D,HARSOTRANS,Harnett County Sheriff's Office Transport,Law Tac,Harnett County,2
+22014,55fe,D,HCOCOURT,Harnett County Courthouse,Public Works,Harnett County,2
+22015,55ff,D,HARSOICE,Harnett Co Sheriffs Office ICE,Law Tac,Harnett County,2
+22017,5601,D,LILLINGTNPD,Lillington Police Dispatch,Law Dispatch,Harnett County,2
+22018,5602,D,DUNN ER PD,Dunn/Erwin PD Dispatch,Law Dispatch,Harnett County,2
+22019,5603,D,DUNN PD 1,Dunn PD 1,Law Tac,Harnett County,2
+22020,5604,D,DUNN PD 2,Dunn PD 2,Law Tac,Harnett County,2
+22021,5605,D,DUNN PD 3,Dunn PD 3,Law Tac,Harnett County,2
+22022,5606,D,HCOFIREALERT,Harnett County Fire Alert,Fire-Tac,Harnett County,2
+22023,5607,D,HCOEMSALERT,Harnett County EMS Alert,EMS-Tac,Harnett County,2
+22024,5608,D,HCOCOMMON 1,Harnett County Common 1,Interop,Harnett County,2
+22035,5613,D,HCOEMSTRANSP,Harnett EMS Medical Transport,EMS-Tac,Harnett County,2
+22036,5614,D,HCOPSEVENT 1,Harnett County Public Safety Event 1,Multi-Talk,Harnett County,2
+22037,5615,D,HCOPSEVENT 2,Harnett County Public Safety Event 2,Multi-Talk,Harnett County,2
+22038,5616,D,HCOFIRETAC 2,Harnett County Fire TAC 2,Fire-Tac,Harnett County,2
+22039,5617,D,HCOFIRETAC 3,Harnett County Fire TAC 3,Fire-Tac,Harnett County,2
+22040,5618,D,HCOFIRETAC 4,Harnett County Fire TAC 4,Fire-Tac,Harnett County,2
+22041,5619,D,HCOFIRETAC 5,Harnett County Fire TAC 5,Fire-Tac,Harnett County,2
+22042,561a,D,HCOFIRETAC 6,Harnett County Fire TAC 6,Fire-Tac,Harnett County,2
+22043,561b,D,HCOFIRETAC 7,Harnett County Fire TAC 7,Fire-Tac,Harnett County,2
+22044,561c,D,HCOFIRETAC 8,Harnett County Fire TAC 8,Fire-Tac,Harnett County,2
+22045,561d,D,HCOFIRETAC 9,Harnett County Fire TAC 9,Fire-Tac,Harnett County,2
+22046,561e,D,HCOFIRETAC10,Harnett County Fire TAC 10,Fire-Tac,Harnett County,2
+22047,561f,D,HCOFIRETAC11,Harnett County Fire TAC 11,Fire-Tac,Harnett County,2
+22048,5620,D,HCOFIRETAC12,Harnett County Fire TAC 12,Fire-Tac,Harnett County,2
+22049,5621,D,HCOFIRETAC13,Harnett County Fire TAC 13,Fire-Tac,Harnett County,2
+22050,5622,D,HCOFIRETAC14,Harnett County Fire TAC 14,Fire-Tac,Harnett County,2
+22051,5623,D,HCO OPS 15,Harnett County Operations 15,Interop,Harnett County,2
+22052,5624,D,HCO OPS 16,Harnett County Operations 16,Interop,Harnett County,2
+22053,5625,D,HCO OPS 17,Harnett County Operations 17,Interop,Harnett County,2
+22054,5626,D,HCO OPS 18,Harnett County Operations 18,Interop,Harnett County,2
+22055,5627,D,HCO OPS 19,Harnett County Operations 19,Interop,Harnett County,2
+22056,5628,D,HCO OPS 20,Harnett County Operations 20,Interop,Harnett County,2
+22057,5629,D,HCO OPS 21,Harnett County Operations 21,Interop,Harnett County,2
+22058,562a,D,HCO OPS 22,Harnett County Operations 22,Interop,Harnett County,2
+22059,562b,D,HCO OPS 23,Harnett County Operations 23,Interop,Harnett County,2
+22060,562c,D,HCO OPS 24,Harnett County Operations 24,Interop,Harnett County,2
+22061,562d,D,HCO OPS 25,Harnett County Operations 25,Interop,Harnett County,2
+22062,562e,D,HCO OPS 26,Harnett County Operations 26,Interop,Harnett County,2
+22063,562f,D,HCO OPS 27,Harnett County Operations 27,Interop,Harnett County,2
+22064,5630,D,HCO OPS 28,Harnett County Operations 28,Interop,Harnett County,2
+22065,5631,D,HC WATER,Harnett County Water,Public Works,Harnett County,2
+22066,5632,D,HAR TRANS,Harnett Co Transportation services,Transportation,Harnett County,2
+22500,5.70E+05,D,HAYWDEM,Haywood County Emergency Management,Emergency Ops,Haywood County,2
+22501,5.70E+06,D,HAYWDEMS,Haywood County EMS,EMS-Tac,Haywood County,2
+22502,5.70E+07,D,HAYWDFD,Haywood County FD,Fire-Tac,Haywood County,2
+22503,5.70E+08,D,HAYWDLAW,Haywood County Law,Law Tac,Haywood County,2
+22504,5.70E+09,D,HAYWDTAC,Haywood County TAC,Multi-Tac,Haywood County,2
+22505,5.70E+10,D,HAYWOOD MA,County Mutual Aid,Interop,Haywood County,2
+23023,59ef,D,HENDCO M/A,Mutual Aid,Interop,Henderson County,2
+23500,5bcc,D,HERTFORDEM,Hertford County Emergency Management,Multi-Talk,Hertford County,2
+23501,5bcd,D,HERTFORDEMS,Hertford County EMS,EMS Dispatch,Hertford County,2
+23502,5bce,D,HERTFORDFIRE,Hertford County Fire,Fire Dispatch,Hertford County,2
+23503,5bcf,D,HERTFORDMAID,Hertford County Mutual Aid,Interop,Hertford County,2
+23504,5bd0,D,HERTFORDSO,Hertford County Sheriff ,Law Dispatch,Hertford County,2
+23505,5bd1,D,HERTFORDTAC,Hertford County TAC,Multi-Tac,Hertford County,2
+24002,5dc2,D,HOKECOEMS,EMS Dispatch,EMS Dispatch,Hoke County,2
+24003,5dc3,D,HOKECOFD,Fire Dispatch,Fire Dispatch,Hoke County,2
+24004,5dc4,D,HOKE M/A,Hoke Mutual Aid,Multi-Tac,Hoke County,2
+24005,5dc5,D,HOKECOSO,Sheriffs Office Dispatch,Law Dispatch,Hoke County,2
+24007,5dc7,D,HOKESONARC,Sheriff Office Narcotics,Law Tac,Hoke County,2
+24008,5dc8,D,HOKE NARC,Sheriff Narc,Law Tac,Hoke County,2
+24010,5dca,D,HOKE TAC1,County Tactical 1,Fire-Tac,Hoke County,2
+24011,5dcb,D,HOKE TAC2,County Tactical 2,Multi-Tac,Hoke County,2
+24022,5dd6,D,RAEFORD PD,Raeford PD Disp,Law Dispatch,Hoke County,2
+24030,5dde,D,HOKE SO 2,Sheriff Dispatch 2,Law Dispatch,Hoke County,2
+24500,5fb4,D,HYDECOSOMAIN,Hyde County Sheriff Main,Law Dispatch,Hyde County,2
+24501,5fb5,D,HYDEEMDISP,Hyde County Emergency Management,Multi-Talk,Hyde County,2
+24502,5fb6,D,HYDEEMSDISP,Hyde County EMS ,EMS Dispatch,Hyde County,2
+24503,5fb7,D,HYDEFDDISP,Hyde County Fire,Fire Dispatch,Hyde County,2
+24504,5fb8,D,HYDEMAID,Hyde County Mutual Aid,Interop,Hyde County,2
+24505,5fb9,D,HYDESOADMIN,Hyde County Sheriff Admin,Law Talk,Hyde County,2
+24506,5fba,D,HYDESOOPS,Hyde County Sheriff OPS,Law Tac,Hyde County,2
+24507,5fbb,D,HYDETAC40,Hyde County TAC 40,Multi-Tac,Hyde County,2
+24508,5fbc,D,HYDETAC50,Hyde County TAC 50,Multi-Tac,Hyde County,2
+24509,5fbd,D,HYDETAC60,Hyde County TAC 60,Multi-Tac,Hyde County,2
+24510,5fbe,D,HYDETAC70,Hyde County TAC 70,Multi-Tac,Hyde County,2
+24511,5fbf,D,HYDETAC80,Hyde County TAC 80,Multi-Tac,Hyde County,2
+24512,5fc0,D,HYDETAC90,Hyde County TAC 90,Multi-Tac,Hyde County,2
+25000,61a8,D,IREDELL A/C,Animal Control,Public Works,Iredell County,2
+25001,61a9,D,IREDELL EM,Emergency Management,Emergency Ops,Iredell County,2
+25002,61aa,D,IREDELLCOEMS,EMS,EMS Dispatch,Iredell County,2
+25003,61ab,D,IredCoEMSOps,EMS Operations,EMS-Tac,Iredell County,2
+25004,61ac,D,IREDELLFDOPS,Fire - Operations,Fire-Tac,Iredell County,2
+25005,61ad,D,IREDELLCO FD,Fire,Fire Dispatch,Iredell County,2
+25007,61af,D,IREDELLNARC2,Sheriff's Office - NARC2,Law Talk,Iredell County,2
+25008,61b0,D,IREDERESQOPS,Rescue - Operations,EMS Dispatch,Iredell County,2
+25009,61b1,D,IREDELLCO SO,Sheriff's Office,Law Dispatch,Iredell County,2
+25010,61b2,D,IREDELLCO SO,IREDELLCO SO,Law Tac,Iredell County,2
+25011,61b3,D,IREDESOADMIN,Sheriff's Office - Admin,Law Talk,Iredell County,2
+25012,61b4,D,IREDESOCIVIL,Sheriff's Office - Civil,Law Talk,Iredell County,2
+25013,61b5,D,IREDESOINVES,Sheriff's Office - Investigative,Law Talk,Iredell County,2
+25014,61b6,D,IREDELSONARC,Sheriff's Office - NARC1,Law Talk,Iredell County,2
+25015,61b7,D,IREDELLSOOPS,Sheriff's Office - Operations,Law Tac,Iredell County,2
+25016,61b8,D,IREDELSOPTRL,Sheriff's Office - Patrol,Law Tac,Iredell County,2
+25017,61b9,D,IREDELSOOPS2,Sheriff's Office - Operations 2,Law Talk,Iredell County,2
+25018,61ba,D,IREDELLEOC,Emergency Operations Center,Emergency Ops,Iredell County,2
+25019,61bb,D,IREDELLTAC1,TAC1,Multi-Tac,Iredell County,2
+25020,61bc,D,IREDELLTAC2,TAC2,Multi-Tac,Iredell County,2
+25021,61bd,D,IREDELLTAC3,TAC3,Multi-Tac,Iredell County,2
+25022,61be,D,IREDELLTAC4,TAC4,Multi-Tac,Iredell County,2
+25023,61bf,D,IREDELLTAC5,TAC5,Multi-Tac,Iredell County,2
+25024,61c0,D,IREDELLTAC6,TAC6,Multi-Tac,Iredell County,2
+25025,61c1,D,IREDELLTAC7,TAC7,Multi-Tac,Iredell County,2
+25026,61c2,D,IREDELLTAC8,TAC8,Multi-Tac,Iredell County,2
+25036,61cc,D,MOORESVEMS,Moores EMS,EMS Dispatch,Iredell County,2
+25037,61cd,D,MOORESVFDDIS,Moores Fire - Dispatch,Fire-Tac,Iredell County,2
+25038,61ce,D,MOORESVFDOPS,Moores Fire - Operations,Fire-Tac,Iredell County,2
+25039,61cf,D,MOORESVPDDIS,Moores Police - Dispatch,Law Tac,Iredell County,2
+25040,61d0,D,MOORESVPDOPS,Moores Police - Operations,Law Tac,Iredell County,2
+25050,61da,D,STATESFDADMI,Statesville Fire - Admin,Fire-Talk,Iredell County,2
+25051,61db,D,STATESFDDISP,Statesville Fire - Dispatch,Fire Dispatch,Iredell County,2
+25052,61dc,D,STATESFDOPS,Statesville Fire - Operations,Fire-Tac,Iredell County,2
+25053,61dd,D,STATESPDADMI,Statesville Police - Admin,Law Talk,Iredell County,2
+25054,61de,D,STATESPDDISP,Statesville Police - Dispatch,Law Dispatch,Iredell County,2
+25055,61df,D,STATESPDINVE,Statesville Police - Investigations,Law Talk,Iredell County,2
+25056,6.10E+01,D,STATESPDNARC,Statesville Police - NARC,Law Talk,Iredell County,2
+25057,6.10E+02,D,STATESPDPTRL,Statesville Police - Patrol,Law Tac,Iredell County,2
+25058,6.10E+03,D,STATESPDOPS,Statesville Police - Operations,Law Tac,Iredell County,2
+25068,61ec,D,TROUTPDADMIN,Trout Police - Admin,Law Talk,Iredell County,2
+25069,61ed,D,TROUTPDPTRL,Trout Police - Patrol,Law Tac,Iredell County,2
+25500,639c,D,JackCo EmMgt,Emergency Management,Emergency Ops,Jackson County,2
+25501,639d,D,JackCo EMS,EMS,EMS Dispatch,Jackson County,2
+25502,639e,D,JackCo Fire,Fire,Fire Dispatch,Jackson County,2
+25503,639f,D,JacksonCo MA,Mutual Aid,Interop,Jackson County,2
+25504,63a0,D,JackCo Law,Law Enforcement,Law Dispatch,Jackson County,2
+25505,63a1,D,JackCo Tac,Tactical,Law Tac,Jackson County,2
+26002,6592,D,JohnstonCoFD,Fire and EMS,Fire Dispatch,Johnston County,2
+26003,6593,D,JohnstnCoLaw,Law,Law Dispatch,Johnston County,2
+26504,6788,D,JONESSO,Jones County Sheriff Office - Dispatch,Law Dispatch,Jones County,2
+27000,6978,D,LEECOM,Lee County Common,Multi-Talk,Lee County,2
+27001,6979,D,LEEEM,Lee County Emergency Management,Multi-Talk,Lee County,2
+27002,697a,D,LEEEMS,Lee County EMS,EMS Dispatch,Lee County,2
+27003,697b,D,LEEEMSADMIN,Lee County EMS Admin,EMS-Talk,Lee County,2
+27004,697c,D,LEEEMSOPS,Lee County EMS OPS,EMS-Tac,Lee County,2
+27005,697d,D,LEEFDADMIN,Lee County FD Admin,Fire-Talk,Lee County,2
+27006,697e,D,LEEFDOPS,Lee County FD OPS,Fire-Tac,Lee County,2
+27007,697f,D,LEEFIRE,Lee County FD,Fire Dispatch,Lee County,2
+27008,6980,D,LEEMAID,Lee County Mutual Aid,Interop,Lee County,2
+27009,6981,D,LEESO,Lee County Sheriff,Law Dispatch,Lee County,2
+27010,6982,D,LEESOADMIN,Lee County Sheriff Admin,Law Talk,Lee County,2
+27011,6983,D,LEESOCID,Lee County Sheriff CID,Law Tac,Lee County,2
+27012,6984,D,LEESONARC,Lee County Sheriff NARC,Law Tac,Lee County,2
+27013,6985,D,LEESOOPS,Lee County Sheriff OPS,Law Tac,Lee County,2
+27014,6986,D,LEETAC,Lee County TAC,Multi-Tac,Lee County,2
+27015,6987,D,LEETAC2,Lee County TAC 2,Multi-Tac,Lee County,2
+27016,6988,D,LEETAC3,Lee County TAC 3,Multi-Tac,Lee County,2
+27017,6989,D,LEETAC4,Lee County TAC 4,Multi-Tac,Lee County,2
+27018,698a,D,LEETAC5,Lee County TAC 5,Multi-Tac,Lee County,2
+27019,698b,D,LEETAC6,Lee County TAC 6,Multi-Tac,Lee County,2
+27020,698c,D,LEETAC7,Lee County TAC 7,Multi-Tac,Lee County,2
+27021,698d,D,LEETAC8,Lee County TAC 8,Multi-Tac,Lee County,2
+27031,6997,D,SANFRDPDADM,Sanford PD Admin,Law Talk,Lee County,2
+27032,6998,D,SANFRDPDCID,Sanford PD CID,Law Tac,Lee County,2
+27033,6999,D,SANFRDPDDISP,Sanford PD Dispatch,Law Dispatch,Lee County,2
+27034,699a,D,SANFRDPDOPS,Sanford PD OPS,Law Tac,Lee County,2
+27035,699b,D,SANFRDPDSOPS,Sanford PD Special OPS,Law Tac,Lee County,2
+27500,6b6c,D,LENOIRCOEM,Emergency Management,Emergency Ops,Lenoir County,2
+27501,6b6d,D,LENOIRCOEMS,EMS,EMS Dispatch,Lenoir County,2
+27502,6b6e,D,LENOIRCOFD,Fire,Fire Dispatch,Lenoir County,2
+27503,6b6f,D,LENOIRCOLAW,County Law,Law Dispatch,Lenoir County,2
+27504,6b70,D,LENOIRMAIDD,Mutual Aid,Interop,Lenoir County,2
+27505,6b71,D,LENOIRCOTAC1,County TAC 1,Law Tac,Lenoir County,2
+28000,6d60,D,LINCOLNEM,Lincoln County Emergency Management ,Multi-Talk,Lincoln County,2
+28001,6d61,D,LINCOLNEMS,Lincoln County EMS,EMS Dispatch,Lincoln County,2
+28002,6d62,D,LINCOLNFIRE,Lincoln County Fire,Fire Dispatch,Lincoln County,2
+28003,6d63,D,LINCOLNMAID,Lincoln County Mutual Aid,Interop,Lincoln County,2
+28004,6d64,D,LINCOLNSO,Lincoln County Sheriff,Law Dispatch,Lincoln County,2
+28005,6d65,D,LINCOLNTAC,Lincoln County TAC,Multi-Tac,Lincoln County,2
+28500,6f54,D,MCDOWELLEM,McDowell County EM,Emergency Ops,McDowell County,2
+28501,6f55,D,MCDOWELLEMS,McDowell County EMS,EMS Dispatch,McDowell County,2
+28502,6f56,D,MCDOWELLFIRE,McDowell County Fire,Fire Dispatch,McDowell County,2
+28503,6f57,D,MCDOWELLMAID,McDowell County Mutual Aid,Interop,McDowell County,2
+28504,6f58,D,MCDOWELLSO,McDowell County Law,Law Tac,McDowell County,2
+28505,6f59,D,MCDOWELLTAC,McDowell County TAC,Multi-Tac,McDowell County,2
+29000,7148,D,MACON EM,Macon County Emergency Management,Emergency Ops,Macon County,2
+29001,7149,D,MACON EMS,Macon County EMS,EMS Dispatch,Macon County,2
+29002,714a,D,MACON FIRE,Macon County Fire,Fire Dispatch,Macon County,2
+29003,714b,D,MACON MA,Macon County Mutual Aid,Interop,Macon County,2
+29004,714c,D,MACON LAW,Macon County Law Enforcement,Law Dispatch,Macon County,2
+29005,714d,D,MACON TAC,Macon County TAC,Law Tac,Macon County,2
+29500,733c,D,MADISONEM,Madison County Emergency Management,Multi-Talk,Madison County,2
+29501,733d,D,MADISONEMS,Madison County EMS,EMS Dispatch,Madison County,2
+29502,733e,D,MADISONFIRE,Madison County Fire,Fire Dispatch,Madison County,2
+29503,733f,D,MADISONMAID,Madison County Mutual Aid,Interop,Madison County,2
+29504,7340,D,MADISONSO,Madison County Sheriff,Law Dispatch,Madison County,2
+29505,7341,D,MADISONTAC,Madison County TAC,Multi-Tac,Madison County,2
+30000,7530,D,MARTINCOMM,County Common,Multi-Talk,Martin County,2
+30001,7531,D,MARTINEM,Emergency Management,Emergency Ops,Martin County,2
+30002,7532,D,MARTINEMS,EMS,EMS Dispatch,Martin County,2
+30003,7533,D,MARTINFD,Fire,Fire Dispatch,Martin County,2
+30004,7534,D,MARTINLAW,County Law,Law Dispatch,Martin County,2
+30005,7535,D,MARTINMAID,Mutual Aid,Interop,Martin County,2
+30006,7536,D,MARTINPW,Public Works,Public Works,Martin County,2
+30007,7537,D,MARTINSOADMN,Sheriffs Office Admin,Law Tac,Martin County,2
+30008,7538,D,MARTINSOINV,Sheriffs Office Investigations,Law Tac,Martin County,2
+30010,753a,D,MARTINSOSRO,Sheriffs Office School Resource Officer,Law Tac,Martin County,2
+30011,753b,D,MARTINTAC1,County Tac 1,Multi-Tac,Martin County,2
+30012,753c,D,MARTINTAC2,County Tac 2,Multi-Tac,Martin County,2
+30013,753d,D,MARTINTAC3,County Tac 3,Multi-Tac,Martin County,2
+30023,7547,D,WILLIMSTONPD,Williamston Police Department Dispatch,Law Dispatch,Martin County,2
+31000,7918,D,MITCHELL EM,Emergency Management - MCEM,Emergency Ops,Mitchell County,2
+31001,7919,D,MCEMSDISP,EMS Dispatch,EMS Dispatch,Mitchell County,2
+31002,791a,D,MCFDDISP,Fire Dispatch,Fire Dispatch,Mitchell County,2
+31004,791c,D,MITCHELLSO,Sheriff,Law Dispatch,Mitchell County,2
+31042,7942,D,MCTRANS,Transportation Authority,Transportation,Mitchell County,2
+31500,7b0c,D,MONTCOCOM,County Common,Multi-Tac,Montogomery County,2
+31501,7b0d,D,MONTESTAC1,Emergency Services Tac 1,Emergency Ops,Montogomery County,2
+31502,7b0e,D,MONTESTAC2,Emergency Services Tac 2,Emergency Ops,Montogomery County,2
+31503,7b0f,D,MONTESTAC3,Emergency Services Tac 3,Emergency Ops,Montogomery County,2
+31504,7b10,D,MONTESTAC4,Emergency Services Tac 4,Emergency Ops,Montogomery County,2
+31505,7b11,D,MONTESTAC5,Emergency Services Tac 5,Emergency Ops,Montogomery County,2
+31506,7b12,D,MONTGMRYEM,Emergency Management,Emergency Ops,Montogomery County,2
+31507,7b13,D,MONTGMRYEMS,EMS,EMS Dispatch,Montogomery County,2
+31508,7b14,D,MONTGOMRYFI,Fire,Fire Dispatch,Montogomery County,2
+31509,7b15,D,MONTGMRYSO,Sheriffs Office,Law Dispatch,Montogomery County,2
+31510,7b16,D,MONTGOMPD,Montgomery Police,Law Dispatch,Montogomery County,2
+31511,7b17,D,MONTGMPDTAC,Montogmery Police Tac,Law Tac,Montogomery County,2
+31512,7b18,D,MONTGMAID,Mutual Aid,Interop,Montogomery County,2
+31513,7b19,D,MONTGADMI,Mongomery Administration,Law Tac,Montogomery County,2
+31514,7b1a,D,MONTGSOJAIL,Sheriffs Offcie Jail,Law Tac,Montogomery County,2
+31515,7b1b,D,MONTGSOSURV,Sheriffs Office Survelliance,Law Tac,Montogomery County,2
+31516,7b1c,D,MONTGSOTAC,Sheriffs Office Tac,Law Tac,Montogomery County,2
+31526,7b26,D,BISCOEPDTAC,Biscoe Police Tac,Law Tac,Montogomery County,2
+31536,7b30,D,MONTPDADM,Montgomery Police Administration,Law Tac,Montogomery County,2
+31546,7b3a,D,MTGILDPDTAC,Mount Gilead Police Tac,Law Tac,Montogomery County,2
+31556,7b44,D,STARPDTAC,Star Police Tac,Law Tac,Montogomery County,2
+31566,7b4e,D,TROYPDTAC,Troy Police Tac,Law Tac,Montogomery County,2
+32000,7d00,D,MOORECOMMON,County Common,Multi-Tac,Moore County,2
+32001,7d01,D,MOOREEM,Emergenct Management,Emergency Ops,Moore County,2
+32002,7d02,D,MOORECOEMS,EMS Dispatch,EMS Dispatch,Moore County,2
+32003,7d03,D,MCOEEMSADMI,EMS Administration,EMS-Tac,Moore County,2
+32004,7d04,D,MOOREEVENT,County Event,Multi-Tac,Moore County,2
+32005,7d05,D,MOOREFDADMIN,Fire Administration,Fire-Tac,Moore County,2
+32006,7d06,D,MOORECOFD,Fire Dispatch,Fire Dispatch,Moore County,2
+32007,7d07,D,MOORELAW,County Law,Interop,Moore County,2
+32008,7d08,D,MCOLAWADMN,County Law Administration,Interop,Moore County,2
+32009,7d09,D,MOORELEEMER,County Law Emergency,Interop,Moore County,2
+32010,7d0a,D,MOOREMAID,Mutual Aid ,Interop,Moore County,2
+32011,7d0b,D,MOOREPSEMER,County Public Safety Emergency,Multi-Tac,Moore County,2
+32012,7d0c,D,MOORECOSO,Sheriffs Office Dispatch,Law Dispatch,Moore County,2
+32013,7d0d,D,MOORESOADMIN,Sheriffs Office Administration,Law Tac,Moore County,2
+32014,7d0e,D,MOORESOINVES,Sheriffs Office Investigation,Law Tac,Moore County,2
+32015,7d0f,D,MOORESONARC,Sheriffs Office Narcotics,Law Tac,Moore County,2
+32016,7d10,D,MOORESOPATRL,Sheriffs Office Patrol,Law Tac,Moore County,2
+32017,7d11,D,MOORESOSRT,Sheriffs Office SRT,Law Tac,Moore County,2
+32018,7d12,D,MOORESPECIAL,County Special,Law Tac,Moore County,2
+32019,7d13,D,MOORESRO,School Resource Officers,Law Tac,Moore County,2
+32020,7d14,D,MOORETAC,County Tac,Multi-Tac,Moore County,2
+32021,7d15,D,MOORETAC2,County Tac 2,Multi-Tac,Moore County,2
+32022,7d16,D,MOORETAC3,County Tac 3,Multi-Tac,Moore County,2
+32023,7d17,D,MOORETAC4,County Tac 4,Multi-Tac,Moore County,2
+32024,7d18,D,MOORETAC5,County Tac 5,Multi-Tac,Moore County,2
+32025,7d19,D,MOORETAC6,County Tac 6,Multi-Tac,Moore County,2
+32026,7d1a,D,MOORETAC7,County Tac 7,Multi-Tac,Moore County,2
+32027,7d1b,D,MOORETAC8,County Tac 8,Multi-Tac,Moore County,2
+32028,7d1c,D,MOORETRAIN1,Training 1,Law Tac,Moore County,2
+32029,7d1d,D,MOOREJAIL,Sheriffs Office Jail,Corrections,Moore County,2
+32038,7d26,D,ABERPDADMIN,Aberdeen Police Administration,Law Tac,Moore County,2
+32039,7d27,D,ABERDEENPD,Aberdeen Police Dispatch,Law Dispatch,Moore County,2
+32040,7d28,D,ABERPDINVEST,Aberdeen Police Investigations,Law Tac,Moore County,2
+32050,7d32,D,CARTHPDADMN,Carthage Police Administration,Law Tac,Moore County,2
+32060,7d3c,D,PINEPDADMIN,Pinehurst Police Administration,Law Tac,Moore County,2
+32061,7d3d,D,PINEHURSTPD,Pinehurst Police Department Dispatch,Law Dispatch,Moore County,2
+32062,7d3e,D,PINEPDINVEST,Pinehurst Police Investigations,Law Tac,Moore County,2
+32072,7d48,D,SANDHL COL,Sandhills Community College Police,Law Dispatch,Moore County,2
+32082,7d52,D,SOPPDADMIN,Southern Pines Police Administration,Law Tac,Moore County,2
+32083,7d53,D,SOPPDDISP,Southern Pines Police Dispatch,Law Dispatch,Moore County,2
+32084,7d54,D,SOPPDINVEST,Southern Pines Police Investigation,Law Tac,Moore County,2
+32085,7d55,D,SOPPDSRT,Southern Pines Police SRT,Law Tac,Moore County,2
+32500,7ef4,D,NCSOMUTAID,County Mutuail Aid,Interop,Nash County,2
+32501,7ef5,D,NASH SO1,Sheriffs Office 1,Law Dispatch,Nash County,2
+32502,7ef6,D,NASH SO 2,Sheriffs Office 2,Law Tac,Nash County,2
+32503,7ef7,D,NASH EM,Emergency Management,Emergency Ops,Nash County,2
+32504,7ef8,D,NASH EMS,EMS,EMS Dispatch,Nash County,2
+32505,7ef9,D,NASHFIRE,Fire,Fire Dispatch,Nash County,2
+32506,7efa,D,NASHMUTAID,Nash Mutual AId,Multi-Tac,Nash County,2
+32507,7efb,D,NASH TAC,Nash Tac,Law Tac,Nash County,2
+32517,7f05,D,NASHVLLPDADM,Nashville Police Administration ,Law Tac,Nash County,2
+32518,7f06,D,NASHVLLPDDSP,Nashville Police Dispatch,Law Dispatch,Nash County,2
+32519,7f07,D,NASHVLLPDINV,Nashville Police Investigation,Law Tac,Nash County,2
+33000,8.00E+09,D,NEW HAN EM,New Hanover Emergency Management,Multi-Talk,New Hanover County,2
+33001,8.00E+10,D,NEW HAN EMS,New Hanover EMS,EMS Dispatch,New Hanover County,2
+33002,80ea,D,NEW HAN FIRE,New Hanover Fire,Fire Dispatch,New Hanover County,2
+33003,80eb,D,NEW HAN SO,New Hanover Sheriff,Law Dispatch,New Hanover County,2
+33004,80ec,D,NEW HAN TAC,New Hanover TAC,Multi-Tac,New Hanover County,2
+33005,80ed,D,NEWHANOMAID,New Hanover Mutual AId,Interop,New Hanover County,2
+33006,80ee,D,NHLESOPS,New Hanover Law Special Ops,Law Tac,New Hanover County,2
+33007,80ef,D,NHRMCVITA,New Hanover Regional Medical Center Vitalink,EMS-Tac,Statewide Medical Transport ,2
+33500,82dc,D,NRTHPTNMAID,Northhampton County Mutual Aid,Interop,Northhampton County,2
+33501,82dd,D,NRTHAMPEM,Northhampton County Emergency Management,Multi-Talk,Northhampton County,2
+33502,82de,D,NRTHAMPEMS,Northhampton County EMS,EMS Dispatch,Northhampton County,2
+33503,82df,D,NRTHAMPFIRE,Northhampton County Fire,Fire Dispatch,Northhampton County,2
+33504,8.20E+01,D,NRTHAMPSO,Northhampton County Sheriff,Law Dispatch,Northhampton County,2
+33505,8.20E+02,D,NRTHAMPTAC,Northhampton County TAC,Multi-Tac,Northhampton County,2
+34004,84d4,D,OSNLOWSO,Onslow County Sheriff's Office,Law Dispatch,Onslow County,2
+34500,86c4,D,OC Emerg,Emergency,Emergency Ops,Orange County,2
+34501,86c5,D,OC FD TG 1,OCORFDTG1,Fire-Tac,Orange County,2
+34502,86c6,D,OC EM ADMN,Emergency Management - Admin,Multi-Talk,Orange County,2
+34503,86c7,D,OC EMS DISP,EMS - Dispatch,EMS Dispatch,Orange County,2
+34504,86c8,D,OC MAID,Mutual Aid 1,Interop,Orange County,2
+34505,86c9,D,OC MAID,Mutual Aid 2,Interop,Orange County,2
+34506,86ca,D,OC OPS 1,Operations 1,Multi-Tac,Orange County,2
+34507,86cb,D,OC OPS 10,Operations 10,Multi-Tac,Orange County,2
+34508,86cc,D,OC OPS 11,Operations 11,Multi-Tac,Orange County,2
+34509,86cd,D,OC OPS 2,Operations 2,Multi-Tac,Orange County,2
+34510,86ce,D,OC OPS 3,Operations 3,Multi-Tac,Orange County,2
+34511,86cf,D,OC OPS 4,Operations 4,Multi-Tac,Orange County,2
+34512,86d0,D,OC OPS 5,Operations 5,Multi-Tac,Orange County,2
+34513,86d1,D,OC OPS 6,Operations 6,Multi-Tac,Orange County,2
+34514,86d2,D,OC OPS 7,Operations 7,Multi-Tac,Orange County,2
+34515,86d3,D,OC OPS 8,Operations 8,Multi-Tac,Orange County,2
+34516,86d4,D,OC OPS 9,Operations 9,Multi-Tac,Orange County,2
+34517,86d5,D,OCSO ADM,Sheriff's Office - Admin,Law Talk,Orange County,2
+34518,86d6,D,OCSO DET,Sheriff's Office - Detention,Corrections,Orange County,2
+34519,86d7,D,OCSO DISP,Sheriff's Office - Dispatch,Law Dispatch,Orange County,2
+34520,86d8,D,OCSO INFO,Sheriff's Office - Info,Law Talk,Orange County,2
+34521,86d9,D,OCSO INV,Sheriff's Office - Investigations,Law Talk,Orange County,2
+34522,86da,D,OCSO PAT,Sheriff's Office - Patrol,Law Tac,Orange County,2
+34523,86db,D,OCSO OPS,Sheriff's Office - Operations,Law Tac,Orange County,2
+34524,86dc,D,OVFD ADM3,Volunteer Fire - Admin 3,Fire-Talk,Orange County,2
+34525,86dd,D,OVFD ADM1,Volunteer Fire - Admin 1,Fire-Talk,Orange County,2
+34526,86de,D,OVFD ADM2,Volunteer Fire - Admin 2,Fire-Talk,Orange County,2
+34527,86df,D,OC Fire/EMS,Countywide Fire and EMS Dispatch,Fire Dispatch,Orange County,2
+34537,8.60E+10,D,CARR FD AD,Carrboro Fire - Admin,Fire-Talk,Orange County,2
+34538,86ea,D,CARR FD DISP,Carrboro Fire - Dispatch,Fire Dispatch,Orange County,2
+34539,86eb,D,CARR PD AD,Carrboro Police - Admin,Law Talk,Orange County,2
+34540,86ec,D,CARR PD DISP,Carrboro Police - Dispatch,Law Dispatch,Orange County,2
+34541,86ed,D,CARR PD INFO,Carrboro Police - Info,Law Talk,Orange County,2
+34542,86ee,D,CARR PD INV,Carrboro Police - Investigations,Law Talk,Orange County,2
+34543,86ef,D,CARR PD OPS,Carrboro Police - Operations,Law Tac,Orange County,2
+34544,86f0,D,OCVFA3,Volunteer Fire - Administration,Law Tac,Orange County,2
+34553,86f9,D,CHILL FD 1,Chapel Hill Fire,Fire-Tac,Orange County,2
+34554,86fa,D,CHILL FD AD,Chapel Hill Fire - Admin,Fire-Talk,Orange County,2
+34555,86fb,D,CHILL FD DIP,Chapel Hill Fire - Dispatch,Fire Dispatch,Orange County,2
+34556,86fc,D,CHILL PD AD,Chapel Hill Police - Admin,Law Talk,Orange County,2
+34557,86fd,D,CHILL PD DIP,Chapel Hill Police - Dispatch,Law Dispatch,Orange County,2
+34558,86fe,D,CHILL PD INF,Chapel Hill Police - Info,Law Talk,Orange County,2
+34559,86ff,D,CHILL PD INV,Chapel Hill Police - Investigations,Law Talk,Orange County,2
+34560,8700,D,CHILL PD PAT,Chapel Hill Police - Patrol,Law Tac,Orange County,2
+34561,8701,D,CHILL PD OPS,Chapel Hill Police - Operations,Law Tac,Orange County,2
+34571,870b,D,HILBO GENSV,Hillsborough - General Service,Multi-Talk,Orange County,2
+34572,870c,D,HILBO PD AD,Hillsborough Police - Admin,Law Talk,Orange County,2
+34573,870d,D,HILBO PD DIP,Hillsborough - Dispatch,Law Dispatch,Orange County,2
+34574,870e,D,HILBO PD INF,Hillsborough - Info,Law Talk,Orange County,2
+34575,870f,D,HILBO PD PTL,Hillsborough - Patrol,Law Tac,Orange County,2
+34576,8710,D,HILBO PD OPS,Hillsborough - Operations,Law Tac,Orange County,2
+34577,8711,D,HILBO PD INV,Hillsborough - Investigations,Law Talk,Orange County,2
+35000,88b8,D,PAMLICOEM,Pamlico EM,Multi-Talk,Pamlico County,2
+35001,88b9,D,PAMLICOEMS,Pamlico EMS,EMS Dispatch,Pamlico County,2
+35002,88ba,D,PAMLICOFD,Pamlico FD,Fire Dispatch,Pamlico County,2
+35003,88bb,D,PAMLICOMAID,Pamlico MAID,Interop,Pamlico County,2
+35004,88bc,D,PAMLICOSO,Pamlico Sheriff,Law Dispatch,Pamlico County,2
+35005,88bd,D,PAMLICOTAC1,Pamlico Tac 1,Multi-Tac,Pamlico County,2
+35006,88be,D,PAMLICONARC,Pamlico NARC,Law Tac,Pamlico County,2
+35500,8aac,D,PASQOCAMDANI,Pasquotank Camden Animal Control,Law Tac,Pasquotank County,2
+35501,8aad,D,PASQCMDCOMM,Pasquotank Camden Common,Multi-Dispatch,Pasquotank County,2
+35502,8aae,D,PASQOCAMDFMA,Pasquotank Camden FMAR,Other,Pasquotank County,2
+35503,8aaf,D,PASQOCAMDPWC,Pasquotank Camden Public Works,Public Works,Pasquotank County,2
+35504,8ab0,D,PASQCMDTAC1,Pasquotank Camden Tac 1,Multi-Talk,Pasquotank County,2
+35505,8ab1,D,PASQCMDTAC2,Pasquotank Camden Tac 2,Multi-Talk,Pasquotank County,2
+35506,8ab2,D,PASQCMDTAC3,Pasquotank Camden Tac 3,Multi-Talk,Pasquotank County,2
+35507,8ab3,D,PASQOCMDTAC4,Pasquotank Camden Tac 4,Multi-Talk,Pasquotank County,2
+35508,8ab4,D,PASQCMDTAC5,Pasquotank Camden Tac 5,Multi-Talk,Pasquotank County,2
+35509,8ab5,D,PASQCMDTAC6,Pasquotank Camden Tac 6,Multi-Talk,Pasquotank County,2
+35510,8ab6,D,PASQCMDTAC7,Pasquotank Camden Tac 7,Multi-Talk,Pasquotank County,2
+35511,8ab7,D,PASQCMDTAC8,Pasquotank Camden Tac 8,Multi-Talk,Pasquotank County,2
+35512,8ab8,D,CAMDEN TAC,Sheriffs Office Tac,Law Tac,Camden County,2
+35513,8ab9,D,PASQUOTANKEM,Emergency Management,Emergency Ops,Pasquotank County,2
+35514,8aba,D,PASQOTNKEMS,EMS,EMS Dispatch,Pasquotank County,2
+35515,8abb,D,PASQUOTANKFD,Fire,Fire Dispatch,Pasquotank County,2
+35516,8abc,D,PASQOTANKSO,Sheriffs Office,Law Dispatch,Pasquotank County,2
+35517,8abd,D,PASQTNKSOOPS,Sheriffs Office Operations,Law Tac,Pasquotank County,2
+35518,8abe,D,PASQOTNKMAID,Mutual Aid,Interop,Pasquotank County,2
+35528,8ac8,D,CAMDENFIRE,Fire,Fire Dispatch,Camden County,2
+35529,8ac9,D,CAMDENSO,Sheriffs Office,Law Dispatch,Camden County,2
+35530,8aca,D,CAMDENSOOPS,Sheriffs Office Operations,Law Tac,Camden County,2
+35540,8ad4,D,ECITYFDDISP,Elizabeth City Fire,Fire Dispatch,Pasquotank County,2
+35541,8ad5,D,ECITYPD,Elizabeth City Police,Law Dispatch,Pasquotank County,2
+35542,8ad6,D,ECITYPDOPS,Elizabeth City Police Operations,Law Tac,Pasquotank County,2
+35543,8ad7,D,ECITYPDSPECO,Elizabeth City Special Operations,Law Tac,Pasquotank County,2
+36000,8ca0,D,PENDERAIROPS,Pender Sheriffs Office Air Operations,Law Tac,Pender County,2
+36001,8ca1,D,PENDERSOCOMM,Pender County Common,Multi-Tac,Pender County,2
+36002,8ca2,D,PENDERCWIDE1,Pender County Wide 1,Multi-Talk,Pender County,2
+36003,8ca3,D,PENDERCWIDE2,Pender County Wide 2,Multi-Talk,Pender County,2
+36004,8ca4,D,PENDERCWIDE3,Pender County Wide 3,Multi-Talk,Pender County,2
+36005,8ca5,D,PENDERCWIDE4,Pender County Wide 4,Multi-Talk,Pender County,2
+36006,8ca6,D,PENDEREMS,Pender County EMS,EMS Dispatch,Pender County,2
+36007,8ca7,D,PENDEREMSTA,Pender County EMS Talk Around,EMS-Tac,Pender County,2
+36008,8ca8,D,PENDERFIRE,Pender County Fire,Fire Dispatch,Pender County,2
+36009,8ca9,D,PENDERFIRETA,Pender County Fire Talk Around,Fire-Tac,Pender County,2
+36010,8caa,D,PENDERLAW,Pender County Law,Law Dispatch,Pender County,2
+36011,8cab,D,PENDERLAWTA,Pender County Law Talk Around ,Law Tac,Pender County,2
+36012,8cac,D,PCOLEOSPEC,Pender Sheriffs Office Special,Law Tac,Pender County,2
+36013,8cad,D,PENDERMAID,Pender County Mutual AId,Interop,Pender County,2
+36014,8cae,D,PENDEROPS5,Pender County Operations 5,Law Tac,Pender County,2
+36015,8caf,D,PENDERSOAC,Animal Control,Law Tac,Pender County,2
+36016,8cb0,D,PENDERSOJAIL,Pender Sheriffs Office Jail,Law Tac,Pender County,2
+36017,8cb1,D,PENDCOEM,Emergency Management,Emergency Ops,Pender County,2
+36018,8cb2,D,PENDCOSO,Pender County Sheriffs Office ,Law Dispatch,Pender County,2
+36028,8cbc,D,BURGAWPDTA,Burgaw Police,Law Dispatch,Pender County,2
+36038,8cc6,D,SURFCITYPDTA,Surf City Police,Law Dispatch,Pender County,2
+36048,8cd0,D,TOPSAILPDTA,Topsail Island Police,Law Dispatch,Pender County,2
+36058,8cda,D,WARSAWPD1,Warsaw Police 1,Law Dispatch,Pender County,2
+36059,8cdb,D,WARSAWPD2,Warsaw Police 2,Law Tac,Pender County,2
+36060,8cdc,D,WARSAWPD3,Warsaw Police 3,Law Tac,Pender County,2
+36500,8.00E+94,D,PERQUIMANSMA,Mutual Aid,Interop,Perquimans County,2
+36501,8.00E+95,D,PRQUIMANSEM,Emeregency Management,Emergency Ops,Perquimans County,2
+36502,8.00E+96,D,PRQUIMANSEM,EMS,EMS-Tac,Perquimans County,2
+36503,8.00E+97,D,PERQUIMANSFD,Fire,Fire Dispatch,Perquimans County,2
+36504,8.00E+98,D,PERQUIMANSSO,Sheriffs Office,Law Dispatch,Perquimans County,2
+36505,8.00E+99,D,PRQUIMANSTA,County Tac,Law Tac,Perquimans County,2
+37000,9088,D,PERSONCID,Person County CID,Law Tac,Person County,2
+37001,9089,D,PERSONCOMM,Person County Common,Multi-Talk,Person County,2
+37002,908a,D,PERSONDETENT,Person County Detention,Corrections,Person County,2
+37003,908b,D,PERSONEM,Person County Emergency Management,Multi-Talk,Person County,2
+37004,908c,D,PERSONEMS,Person County EMS,EMS Dispatch,Person County,2
+37005,908d,D,PERSONFIRE,Person County FD,Fire Dispatch,Person County,2
+37006,908e,D,PERSONMAIDD,Person County Mutual Aid,Interop,Person County,2
+37007,908f,D,PERSONRESQ,Person County Rescue,EMS Dispatch,Person County,2
+37008,9090,D,PERSONSO,Person County Sheriff,Law Dispatch,Person County,2
+37009,9091,D,PERSOADMIN,Person County Sheriff Admin,Law Tac,Person County,2
+37010,9092,D,PERSONSOSOPS,Person County Sheriff OPS,Law Tac,Person County,2
+37011,9093,D,PERSONTAC,Person County TAC,Multi-Tac,Person County,2
+37012,9094,D,PERSONTAC2,Person County Tac 2,Multi-Tac,Person County,2
+37013,9095,D,PERSONTAC3,Person County Tac 3,Multi-Tac,Person County,2
+37014,9096,D,PERSONTAC4,Person County Tac 4,Multi-Tac,Person County,2
+37015,9097,D,PERSONTAC5,Person County Tac 5,Multi-Tac,Person County,2
+37016,9098,D,PERSONTAC6,Person County Tac 6,Multi-Tac,Person County,2
+37026,90a2,D,ROXBOROFDADM,Roxboro FD Admin,Fire-Talk,Person County,2
+37027,90a3,D,ROXFDDISP,Roxboro FD Dispatch,Fire Dispatch,Person County,2
+37028,90a4,D,ROXBOROPDADM,Roxboro PD Admin,Law Tac,Person County,2
+37029,90a5,D,ROXPDPATROL,Roxboro PD Patrol,Law Tac,Person County,2
+37500,927c,D,PITTCCPD,Pitt Comunity College Police,Law Dispatch,Pitt County,2
+37501,927d,D,PCMHPDCID,Pitt County Memorial Hospital Police Investigations,Law Tac,Pitt County,2
+37502,927e,D,PCMHPD,Pitt County Memorial Hospital Police ,Law Dispatch,Pitt County,2
+37503,927f,D,PCMHTACC,Pitt County Memorial Hospital Police Tac,Law Tac,Pitt County,2
+37504,9280,D,PITCOSO3,Sheriffs Office Tac 3,Law Tac,Pitt County,2
+37505,9281,D,PITTCOABC,Pitt County ABC,Law Dispatch,Pitt County,2
+37506,9282,D,PITTCOEMS,EMS,EMS Dispatch,Pitt County,2
+37507,9283,D,PITTCOEM,Emergency Management,Emergency Ops,Pitt County,2
+37508,9284,D,PITTCOFD,Fire,Fire Dispatch,Pitt County,2
+37509,9285,D,PITTCOM,County Common,Multi-Talk,Pitt County,2
+37510,9286,D,PITTCOMAID,County Mutual Aid,Interop,Pitt County,2
+37511,9287,D,PITTSOADMN,Sheriffs Office Administration,Law Tac,Pitt County,2
+37512,9288,D,PITTSOCID,Sheriffs Office Investigations,Law Tac,Pitt County,2
+37513,9289,E,PITTSONARC,Pitt County Sheriff Narcotics ,Law Tac,Pitt County,2
+37514,928a,D,PITTSO,Sheriffs Office,Law Dispatch,Pitt County,2
+37515,928b,D,PITTSO2,Sheriffs Office Tac 2,Law Tac,Pitt County,2
+37516,928c,D,PITTEVENT1,County Event 1,Multi-Tac,Pitt County,2
+37517,928d,D,PITTMAID,Mutual Aid,Interop,Pitt County,2
+37518,928e,D,PITTPSTAC1,Public Safety Tac 1,Multi-Talk,Pitt County,2
+37519,928f,D,PITTPSTAC2,Public Safety Tac 2,Multi-Talk,Pitt County,2
+37520,9290,D,PITTPSTAC3,Public Safety Tac 3,Multi-Talk,Pitt County,2
+37521,9291,D,PITTPSTAC4,Public Safety Tac 4,Multi-Talk,Pitt County,2
+37522,9292,E,PITTNARCTF,Pitt County Narcotics Task Force,Law Tac,Pitt County,2
+37532,929c,D,AYDENPD,Ayden Police,Law Dispatch,Pitt County,2
+37542,92a6,D,BETHELPD,Bethel Police,Law Dispatch,Pitt County,2
+37552,92b0,D,FARMVLEPD,Farmville Police,Law Dispatch,Pitt County,2
+37562,92ba,D,GREENVPDCOMM,Grennville Police Common,Multi-Talk,Pitt County,2
+37563,92bb,D,GREENVILLEFD,Greenville Fire/EMS - Dispatch,Multi-Dispatch,Pitt County,2
+37564,92bc,D,GREENVLEPD,Greenville Police,Law Dispatch,Pitt County,2
+37565,92bd,D,GREENVPDACNS,Greenville Police Animal Control,Law Tac,Pitt County,2
+37566,92be,D,GREENVPDADMI,Greenville Police Administration,Law Tac,Pitt County,2
+37569,92c1,D,GRVLPDCID,Greenville Police Inviestigations,Law Tac,Pitt County,2
+37579,92cb,D,GRIFTONPD,Grifton Police,Law Dispatch,Pitt County,2
+37589,92d5,D,WINTRVLEPD,Winterville Police,Law Dispatch,Pitt County,2
+38000,9470,D,POLK EM,Emergency Management,Emergency Ops,Polk County,2
+38001,9471,D,POLK EMS,EMS,EMS Dispatch,Polk County,2
+38002,9472,D,POLK FD,Fire Departments,Fire Dispatch,Polk County,2
+38003,9473,D,POLK M/A,Mutual Aid,Interop,Polk County,2
+38004,9474,D,POLK SO,Sheriff's Office,Law Dispatch,Polk County,2
+38005,9475,D,POLK SO TAC,Sheriff's Office - Tactical,Law Tac,Polk County,2
+38500,9664,D,CLIMAX FD,Climax FD Tac,Fire-Tac,Randolph County,2
+38501,9665,D,RANDOLPHCOMM,County Common,Multi-Tac,Randolph County,2
+38502,9666,D,RANDSONARC,Sheriff's Office Narcotics,Law Talk,Randolph County,2
+38503,9667,D,JULIAN FD,Julian FD Tac,Fire-Tac,Randolph County,2
+38504,9668,D,MUNICIPALPD,Municipal Police,Law Dispatch,Randolph County,2
+38505,9669,D,RANDOLPHEM,Emergency Management,Emergency Ops,Randolph County,2
+38506,966a,D,RANDOLPH EMS,EMS,EMS Dispatch,Randolph County,2
+38507,966b,D,RandolphEMS2,EMS 2,EMS-Tac,Randolph County,2
+38508,966c,D,RANDOLPFDADM,Fire Administration,Fire-Tac,Randolph County,2
+38509,966d,D,RANDOLPHCOFD,Fire Dispatch,Fire Dispatch,Randolph County,2
+38510,966e,D,RANDOLPHHELP,Randolph Help,Other,Randolph County,2
+38511,966f,D,RANDOLPHJAIL,Sheriff's Office Jail,Corrections,Randolph County,2
+38512,9670,D,RANDMAID,Mutual Aid,Interop,Randolph County,2
+38513,9671,D,RANDOLPHCOSO,Sheriff's Office,Law Dispatch,Randolph County,2
+38514,9672,D,RANDSO2,Sheriffs Office Dispatch 2,Law Dispatch,Randolph County,2
+38516,9674,D,APLHATAC1,Alpha Tac 1,Multi-Tac,Randolph County,2
+38517,9675,D,LVL CROSS FD,Level Cross FD Tac (Old Alpha Tac 2),Fire-Tac,Randolph County,2
+38518,9676,D,ASH RAND RSQ,Ash Rand Rescue Squad Tac (Old Alpha Tac 3),Fire-Tac,Randolph County,2
+38519,9677,D,RAMSEUR FD,Ramseur FD Tac (Old Delta Tac 1),Fire-Tac,Randolph County,2
+38520,9678,D,TABERNACL FD,Tabernacle FD Tac (Old Bravo Tac 1),Fire-Tac,Randolph County,2
+38521,9679,D,WESTSIDE FD,Westside FD Tac (Old Bravo Tac 2),Fire-Tac,Randolph County,2
+38522,967a,D,FARM/NEWHOPE,Farmer / New Hope FD Tac (Old Bravo Tac 3),Fire-Tac,Randolph County,2
+38523,967b,D,FRANLNVL FD,Franklinville FD Tac (Old Delta Tac 2),Fire-Tac,Randolph County,2
+38524,967c,D,EAST SIDE FD,East Side FD Tac (Old Delta Tac 3),Fire-Tac,Randolph County,2
+38534,9686,D,SEAGROVE FD,Seagrove FD Tac (Old Charly Tac 1),Fire-Tac,Randolph County,2
+38535,9687,D,ULAH FD,Ulah FD Tac (Old Charly Tac 2),Fire-Tac,Randolph County,2
+38536,9688,D,RANDOLPHSPOP,Special Operations,Law Tac,Randolph County,2
+38556,969c,D,COLERID/BENN,Coleridge / Bennett FD Tac (Old Charly Tac 3),Fire-Tac,Randolph County,2
+38577,96b1,D,RANDLMAN FD,Randleman FD Tac,Fire Dispatch,Randolph County,2
+38586,96ba,D,LIBRTY/STALY,Liberty / Staley FD Tac,Fire-Tac,Randolph County,2
+38596,96c4,D,GUILRANDFIRE,Guilford - Randolph Fire Tac,Fire-Tac,Randolph County,2
+38610,96d2,D,ASHEBOROPD1,Asheboro - Police 1,Law Dispatch,Randolph County,2
+38611,96d3,D,ASHEBOROPD2,Asheboro - Police 2,Law Tac,Randolph County,2
+38613,96d5,D,ASHEBORO FD,Asheboro FD Tac,Fire-Tac,Randolph County,2
+38616,96d8,D,FAIRGROVE FD,Fairgrove FD Tac,Fire-Tac,Randolph County,2
+39005,985d,D,RICHMONDEMS,EMS,EMS Dispatch,Richmond County,2
+39006,985e,D,RICHMONDFD,Fire,Fire Dispatch,Richmond County,2
+39007,985f,D,RICHMNDSO,Sheriffs Office,Law Dispatch,Richmond County,2
+39026,9872,D,HAMLETPD,Hamlet Police,Law Dispatch,Richmond County,2
+39036,987c,D,RockinghamPD,Rockingham Police,Law Dispatch,Richmond County,2
+39037,987d,D,RckghmPD Adm,Rockingham Police Administration,Law Talk,Richmond County,2
+39500,9a4c,D,ROBCOMMON,COUNTY COMMON,Multi-Tac,Robeson County,2
+39501,9a4d,D,RCEMMAIN,EMERGENCY MANAGEMENT MAIN,Multi-Tac,Robeson County,2
+39502,9a4e,D,ROBESONEMS,EMS Dispatch,EMS Dispatch,Robeson County,2
+39503,9a4f,D,RCEMSTAC2,EMS TAC 2,EMS-Tac,Robeson County,2
+39504,9a50,D,ROB FD ADMN,Fire Admin,Fire-Talk,Robeson County,2
+39505,9a51,D,ROBESONFD,Fire Dispatch,Fire Dispatch,Robeson County,2
+39509,9a55,D,ROBM/A,MUTUAL AID,Interop,Robeson County,2
+39511,9a57,D,RCRESQTAC1,RESCUE TAC 1,EMS-Tac,Robeson County,2
+39512,9a58,D,ROBESONRESQ,Rescue Dispatch,EMS Dispatch,Robeson County,2
+39513,9a59,D,ROBESONSO,Sheriffs Office Dispatch,Law Dispatch,Robeson County,2
+39519,9a5f,D,RCFIRETAC1,FIRE TAC 1,Fire-Tac,Robeson County,2
+39520,9a60,D,RCEMTAC1,EMERGENCY MANAGEMENT TAC 1,Multi-Tac,Robeson County,2
+39521,9a61,D,RCFIRETAC2,FIRE TAC 2,Fire-Tac,Robeson County,2
+39522,9a62,D,RCFIRETAC3,FIRE TAC 3,Fire-Tac,Robeson County,2
+39523,9a63,D,RCFIRETAC4,FIRE TAC 4,Fire-Tac,Robeson County,2
+39524,9a64,D,RCFIRETAC5,FIRE TAC 5,Fire-Tac,Robeson County,2
+39528,9a68,D,RCEMSTAC1,EMS TAC 1,EMS-Tac,Robeson County,2
+39529,9a69,D,RCTRAINING1,COUNTY TRAINING 1,Other,Robeson County,2
+40001,9c41,D,RCOSONARC,Sheriffs Office NArcotics,Law Tac,Rockingham County,2
+40002,9c42,D,SO PAT,Sheriff Patrol,Law Dispatch,Rockingham County,2
+40003,9c43,D,Common Talk,Fire/EMS/Sheriff Common Talk,Interop,Rockingham County,2
+40006,9c46,D,ROCKINGHAMEM,EMS,EMS Dispatch,Rockingham County,2
+40007,9c47,D,ROCKINGHAMFD,Fire Dispatch,Fire Dispatch,Rockingham County,2
+40008,9c48,D,ROCKINGHAMSO,Sheriff Dispatch,Multi-Tac,Rockingham County,2
+40009,9c49,D,ROCK TAC 9,Tac 9,Multi-Tac,Rockingham County,2
+40010,9c4a,D,RockinghamMA,Mutual Aid,Interop,Rockingham County,2
+40011,9c4b,D,ROCKINGHAMRS,Volunteer Rescue Dispatch,Multi-Tac,Rockingham County,2
+40012,9c4c,D,EDEN TAC 2,Eden Tac 2,Multi-Tac,Rockingham County,2
+40013,9c4d,D,REID TAC 1,Reidsville Tac 1,Multi-Tac,Rockingham County,2
+40014,9c4e,D,REID TAC 2,Reidsville Tac 2,Multi-Tac,Rockingham County,2
+40015,9c4f,D,ROCK TAC 2,Tac 2,Multi-Tac,Rockingham County,2
+40016,9c50,D,ROCK TAC 3,Tac 3,Multi-Tac,Rockingham County,2
+40017,9c51,D,ROCK TAC 4,Tac 4,Multi-Tac,Rockingham County,2
+40018,9c52,D,ROCK TAC 5,Tac 5,Multi-Tac,Rockingham County,2
+40019,9c53,D,ROCK TAC 6,Tac 6,Multi-Tac,Rockingham County,2
+40020,9c54,D,ROCK TAC 7,Tac 7,Multi-Tac,Rockingham County,2
+40021,9c55,D,ROCK TAC 8,Tac 8,Multi-Tac,Rockingham County,2
+40022,9c56,D,EDEN TAC 1,Eden Tac 1,Multi-Tac,Rockingham County,2
+40033,9c61,D,EDENFDTAC,Eden Fire Tactical,Fire-Tac,Rockingham County,2
+40035,9c63,D,EDEN PD DISP,Eden Police 1,Law Dispatch,Rockingham County,2
+40037,9c65,D,ROCKCOEvents,Event,Multi-Tac,Rockingham County,2
+40048,9c70,D,MADISON PD,Madison Police,Law Dispatch,Rockingham County,2
+40059,9c7b,D,MAYO PD,Mayodan PD Dispatch,Law Dispatch,Rockingham County,2
+40069,9c85,D,REIDSVILLEFD,Reidsville Fire Dispatch,Fire Dispatch,Rockingham County,2
+40071,9c87,D,REIDSVILLEPD,Reidsville Police Dispatch,Law Dispatch,Rockingham County,2
+40500,9.00E+34,D,ROWANEM,Rowan Co EM,Multi-Talk,Rowan County,2
+40501,9.00E+35,D,ROWANEMS,Rowan Co EMS,EMS Dispatch,Rowan County,2
+40502,9.00E+36,D,ROWANFIRE,Rowan Co FD,Fire Dispatch,Rowan County,2
+40503,9.00E+37,D,ROWANMAID,Rowan Co MAID,Interop,Rowan County,2
+40504,9.00E+38,D,ROWANSO,Rowan Co Sheriff,Law Dispatch,Rowan County,2
+40505,9.00E+39,D,ROWANTAC,Rowan Co TAC,Multi-Tac,Rowan County,2
+41000,a028,D,RUTHERFRDEM,Emergency Management,Emergency Ops,Rutherford County,2
+41001,a029,D,RUTHERFRDEMS,EMS,EMS Dispatch,Rutherford County,2
+41002,a02a,D,RUTHERFRDFD,Fire Department,Fire Dispatch,Rutherford County,2
+41003,a02b,D,RUTHERFRDSO,Sheriffs Office,Law Dispatch,Rutherford County,2
+41004,a02c,D,RUTHERFRDTAC,Tactical,Law Tac,Rutherford County,2
+41005,a02d,D,RUTHCO M/A,Mutual Aid,Interop,Rutherford County,2
+41010,a032,D,RuthCoFDTac2,Fire Tactical 2,Fire-Tac,Rutherford County,2
+41021,a03d,D,LAKELUREFD,Lake Lure Fire Dept - Dispatch,Fire Dispatch,Rutherford County,2
+41500,a21c,D,SC EM 2,Sampson EM 2,Emergency Ops,Sampson County,2
+41501,a21d,D,SC EM 1,Sampson EM 1,Emergency Ops,Sampson County,2
+41502,a21e,D,SAMPEMS2,Sampson EMS 2,EMS-Tac,Sampson County,2
+41503,a21f,D,SAMPEMS3,Sampson EMS 3,EMS-Tac,Sampson County,2
+41504,a220,D,SAMPSONCOEMS,EMS Dispatch,EMS Dispatch,Sampson County,2
+41505,a221,D,SAMPFDTAC2,Fire Tactical 2,Fire Dispatch,Sampson County,2
+41506,a222,D,SAMPFDTAC3,Fire Tactical 3,Fire-Tac,Sampson County,2
+41507,a223,D,SAMPFDDISP,Fire Dispatch,Fire Dispatch,Sampson County,2
+41508,a224,D,SC M/A,Sampson Mutual Aid,Multi-Tac,Sampson County,2
+41509,a225,D,SAMPPDCMD,Sampson Command Staff,Law Talk,Sampson County,2
+41510,a226,D,SAMPFDTAC6,Fire Tactical 6,Fire-Tac,Sampson County,2
+41511,a227,D,SAMP CID,Sampson CID,Law Tac,Sampson County,2
+41512,a228,D,SAMPSONCO SO,Sheriff's Office Dispatch,Law Dispatch,Sampson County,2
+41513,a229,D,SAMPSONSHEAT,Sheriffs Office HEAT ,Law Tac,Sampson County,2
+41514,a22a,D,SAMP PAT1,Sampson Patrol 1,Law Tac,Sampson County,2
+41515,a22b,D,SAMP PAT2,Sampson Patrol 2,Law Tac,Sampson County,2
+41516,a22c,D,SAMP SID,Sampson SID,Law Tac,Sampson County,2
+41526,a236,D,CLINTPDADM,Clinton PD ADMIN,Law Talk,Sampson County,2
+41527,a237,D,CLINTON PD,Clinton Police Dispatch,Law Dispatch,Sampson County,2
+41528,a238,D,CLINTPDINV,Clinton PD INV,Law Tac,Sampson County,2
+41529,a239,D,CLINTPDNARC,Clinton PD NARC,Law Tac,Sampson County,2
+41530,a23a,D,CLINTPD2,Clinton PD 2,Law Tac,Sampson County,2
+41541,a245,D,SAMPFDTAC5,Fire Tactical 5,Fire-Tac,Sampson County,2
+41542,a246,D,SAMPFDTAC4,Fire Tactical 4,Fire-Tac,Sampson County,2
+41552,a250,D,SC EMS 4,Sampson EMS 4,EMS-Tac,Sampson County,2
+42000,a410,D,SCOTLANDEM,Emergency Management,Emergency Ops,Scotland County,2
+42001,a411,D,SCOTLANDEMS,EMS,EMS Dispatch,Scotland County,2
+42002,a412,D,SCOTLANDFIRE,Fire,Fire Dispatch,Scotland County,2
+42003,a413,D,SCOTLANDMAID,Mutual Aid,Interop,Scotland County,2
+42004,a414,D,SCOTLANDSO,Sheriffs Office,Law Dispatch,Scotland County,2
+42005,a415,D,SCOTLANDTAC,County Tac,Multi-Tac,Scotland County,2
+42500,a604,D,STANLYCOM,Stanly County Common,Multi-Talk,Stanly County ,2
+42501,a605,D,STANLYEM,Stanly County Emergency Management,Multi-Talk,Stanly County ,2
+42502,a606,D,STANLYEMS,Stanly County EMS,EMS Dispatch,Stanly County ,2
+42503,a607,D,STANLYFIRE,Stanly County Fire,Fire Dispatch,Stanly County ,2
+42504,a608,D,STANLYMAIDD,Stanly County Mutual Aid,Interop,Stanly County ,2
+42505,a609,D,STNLYRSQDISP,Stanly County Rescue Dispatch,EMS Dispatch,Stanly County ,2
+42506,a60a,D,STANLYSO,Stanly County Sheriff,Law Dispatch,Stanly County ,2
+42507,a60b,D,STANLYSOADMN,Stanly County Sheriff Admin,Law Talk,Stanly County ,2
+42508,a60c,D,STANLYSOINV,Stanly County Sheriff INV,Law Talk,Stanly County ,2
+42509,a60d,D,STANLYSONARC,Stanly County Sheriff NARC,Law Tac,Stanly County ,2
+42510,a60e,D,STANLYSOPTRL,Stanly County Sheriff Patrol,Law Tac,Stanly County ,2
+42511,a60f,D,STAN OPS1,Stanly County OPS 1,Multi-Tac,Stanly County ,2
+42512,a610,D,STAN OPS2,Stanly County OPS 2,Multi-Tac,Stanly County ,2
+42513,a611,D,STAN OPS3,Stanly County OPS 3,Multi-Tac,Stanly County ,2
+42514,a612,D,STAN OPS4,Stanly County OPS 4,Multi-Tac,Stanly County ,2
+42524,a61c,D,ALBEMPDADMN,Albemarle PD Admin,Law Talk,Stanly County ,2
+42525,a61d,D,ALBEMPDDISP,Albemarle PD Dispatch,Law Dispatch,Stanly County ,2
+43001,a7f9,D,STOKES EMS,EMS,EMS Dispatch,Stokes County,2
+43002,a7fa,D,STOKES FIRE,Fire,Fire Dispatch,Stokes County,2
+43004,a7fc,D,STOKES LAW,Countywide Law Enforcement Dispatch,Law Dispatch,Stokes County,2
+43005,a7fd,D,Stokes Tac 1,Sheriff's Office - Tactical 1 (all county agencies),Multi-Tac,Stokes County,2
+43006,a7fe,D,Stokes Tac 2,Sheriff's Office - Tactical 2 (all county agencies),Multi-Tac,Stokes County,2
+43007,a7ff,D,Stokes Tac 3,Sheriff's Office - Tactical 3 (all county agencies),Multi-Tac,Stokes County,2
+43014,a806,D,STOKESPATROL,Sheriffs Office Patrol ,Law Tac,Stokes County,2
+43041,a821,D,KING PD 1,King Police,Law Dispatch,Stokes County,2
+43503,a9ef,D,SURRY EMS,Surry Co EMS Dispatch,EMS Dispatch,Surry County,2
+43504,a9f0,D,SCOEMSADMIN,Surry County EMS Administration,EMS-Tac,Surry County,2
+43506,a9f2,D,SURR FIRE,Surry Co. Fire ,Fire Dispatch,Surry County,2
+43511,a9f7,D,SURRYCO SO,Sheriff's Office,Law Dispatch,Surry County,2
+43513,a9f9,D,SURRYSOCID1,Surry Sheriff CID 1,Law Tac,Surry County,2
+43523,aa03,D,SurryCo Tac7,Tactical 7,Multi-Tac,Surry County,2
+43545,aa19,D,ELKINFDADMN,Elkin FD Admin,Fire-Talk,Surry County,2
+43546,aa1a,D,ELKINPDADMN,Elkin PD Admin,Law Talk,Surry County,2
+43547,aa1b,D,ELKINPDCID,Elkin PD CID,Law Tac,Surry County,2
+43548,aa1c,D,ELKIN PD,Elkin Police,Law Dispatch,Surry County,2
+43549,aa1d,D,ELKINPDSERT1,Elkin PD SERT 1,Law Tac,Surry County,2
+43562,aa2a,D,MT AIRY PD,Mount Airy Police Department,Law Dispatch,Surry County,2
+43563,aa2b,D,MT AIRY FIRE,Mount Airy Fire Department,Fire Dispatch,Surry County,2
+43575,aa37,D,PILOT MT PD,Pilot Mountain Police,Law Dispatch,Surry County,2
+44000,abe0,D,SWAINEM,Swain County Emergency Management,Multi-Talk,Swain County,2
+44001,abe1,D,SWAINEMS,Swain County EMS,EMS Dispatch,Swain County,2
+44002,abe2,D,SWAINFIRE,Swain County Fire,Fire Dispatch,Swain County,2
+44003,abe3,D,SWAINMAID,Swain County Mutual Aid,Interop,Swain County,2
+44004,abe4,D,SWAINSO,Swain County Sheriff,Law Dispatch,Swain County,2
+44005,abe5,D,SWAINTAC,Swain County TAC,Multi-Tac,Swain County,2
+44500,add4,D,TRANSCO EM,Emergency Management,Emergency Ops,Transylvania County,2
+44501,add5,D,TRANSCO EMS,EMS,EMS Dispatch,Transylvania County,2
+44502,add6,D,TRANSCO FD,Fire Department,Fire Dispatch,Transylvania County,2
+44503,add7,D,TRANSCO SO,Sheriff's Dispatch,Law Dispatch,Transylvania County,2
+44504,add8,D,TRANSCOTAC,Tactical,Law Tac,Transylvania County,2
+44505,add9,D,TRANSCO M/A,Mutual Aid,Interop,Transylvania County,2
+45000,afc8,D,TYRRELLEM,Tyrrell County Emergency Management,Multi-Talk,Tyrrell County,2
+45001,afc9,D,TYRRELLEMS,Tyrrell County EMS,EMS Dispatch,Tyrrell County,2
+45002,afca,D,TYRRELLFIRE,Tyrrell County Fire,Fire Dispatch,Tyrrell County,2
+45003,afcb,D,TYRRELLMAID,Tyrrell County Mutual Aid,Interop,Tyrrell County,2
+45004,afcc,D,TYRRELLSO,Tyrrell County Sheriff,Law Dispatch,Tyrrell County,2
+45005,afcd,D,TYRRELLTAC,Tyrrell County TAC,Multi-Tac,Tyrrell County,2
+45500,b1bc,D,UNIONCOM,Union County Common,Multi-Talk,Union County ,2
+45501,b1bd,D,UNIONEM,Union County Emergency Management,Multi-Talk,Union County ,2
+45502,b1be,D,UNIONEMS,Union County EMS,EMS Dispatch,Union County ,2
+45503,b1bf,D,UNIONEMSALER,Union County EMS Alert,EMS Dispatch,Union County ,2
+45504,b1c0,D,UNIONFDALERT,Union County Fire Dept Alert,Fire Dispatch,Union County ,2
+45505,b1c1,D,UNIONFIRE,Union County Fire,Fire Dispatch,Union County ,2
+45506,b1c2,D,UNIONMAID,Union County Mutual Aid,Interop,Union County ,2
+45507,b1c3,D,UNIONSO,Union County Sheriff,Law Dispatch,Union County ,2
+45508,b1c4,D,UNIONSOCID,Union County Sheriff CID,Law Tac,Union County ,2
+45509,b1c5,D,UNIONSONARC,Union County Sheriff NARC,Law Tac,Union County ,2
+45510,b1c6,D,UNIONTAC,Union County TAC,Multi-Tac,Union County ,2
+45511,b1c7,D,UNIONTAC2,Union County TAC 2,Multi-Tac,Union County ,2
+45512,b1c8,D,UNIONTAC3,Union County TAC 3,Multi-Tac,Union County ,2
+45513,b1c9,D,UNIONTAC4,Union County TAC 4,Multi-Tac,Union County ,2
+45514,b1ca,D,UNIONTAC5,Union County TAC 5,Multi-Tac,Union County ,2
+45515,b1cb,D,UNIONTAC6,Union County TAC 6,Multi-Tac,Union County ,2
+45525,b1d5,D,MONROFDADMN,Monroe FD Admin,Fire-Talk,Union County ,2
+45526,b1d6,D,MONROFDALERT,Monroe FD Alert,Fire Dispatch,Union County ,2
+45527,b1d7,D,MONROFDDISP,Monroe FD Dispatch,Fire Dispatch,Union County ,2
+45528,b1d8,D,MONROPDDISP,Monroe PD Dispatch,Law Dispatch,Union County ,2
+46002,b3b2,D,VANCEEMS,EMS Dispatch,EMS Dispatch,Vance County,2
+46003,b3b3,D,VANCEFIRE,Fire Dispatch,Fire Dispatch,Vance County,2
+46004,b3b4,D,VANCEMAIDD,Mutual AId,Interop,Vance County,2
+46005,b3b5,D,VANCECOSO,Sheriff's Office,Law Dispatch,Vance County,2
+46006,b3b6,D,VANCESOADMIN,Sheriffs Office Administration,Law Tac,Vance County,2
+46007,b3b7,D,VANCESOCID,Sheriffs Office Investigations,Law Tac,Vance County,2
+46008,b3b8,D,VANCESOCIVIL,Sheriffs Office Civil,Law Tac,Vance County,2
+46010,b3ba,D,VANCESOSPEC,Sheriffs Office Special Operations,Law Tac,Vance County,2
+46011,b3bb,D,VANCETAC,County Tac 1,Multi-Talk,Vance County,2
+46012,b3bc,D,VANCETAC2,County Tac 2,Multi-Talk,Vance County,2
+46013,b3bd,D,VANCETAC3,County Tac 3,Multi-Talk,Vance County,2
+46014,b3be,D,VANCETAC4,County Tac 4,Multi-Talk,Vance County,2
+46015,b3bf,D,VANCETAC5,County Tac 5,Multi-Talk,Vance County,2
+46016,b3c0,D,VANCETAC6,County Tac 6,Multi-Talk,Vance County,2
+46017,b3c1,D,VANCETAC7,County Tac 7,Multi-Talk,Vance County,2
+46018,b3c2,D,VANCETAC8,County Tac 8,Multi-Talk,Vance County,2
+46028,b3cc,D,HNDERFDADMN,Henderson Police Administration,Law Tac,Vance County,2
+46029,b3cd,D,HNDERFDDISP,Henderson Fire Dispatch,Fire Dispatch,Vance County,2
+46030,b3ce,D,HNDERPDCID,Henderson Police Investigations,Law Tac,Vance County,2
+46031,b3cf,D,HNDERPDDISP,Henderson Police Dispatch,Law Dispatch,Vance County,2
+46034,b3d2,D,HNDERPDSOP,Henderson Police Special Operations,Law Tac,Vance County,2
+46036,b3d4,D,HNDERSNPDTAC,Henderson Police Tac,Law Tac,Vance County,2
+46541,b5cd,D,VW-SO,Wake Sheriff Dispatch 1 Patch to Wake 800Mhz,Law Dispatch,Wake County ,2
+46586,b5fa,D,VW-COFD,Wake County Fire Department Backup,Fire-Tac,Wake County ,2
+46609,b611,D,VW-TAC1,Wake County TAC 1 Backup,Multi-Tac,Wake County ,2
+46610,b612,D,VW-TAC2,Wake County TAC 2 Backup,Multi-Tac,Wake County ,2
+46611,b613,D,VW-TAC3,Wake County TAC 3 Backup,Multi-Tac,Wake County ,2
+46612,b614,D,VW-TAC4,Wake County TAC 4 Backup,Multi-Tac,Wake County ,2
+46613,b615,D,VW-TAC5,Wake County TAC 5 Backup,Multi-Tac,Wake County ,2
+46614,b616,D,VW-TAC6,Wake County TAC 6 Backup,Multi-Tac,Wake County ,2
+46638,b62e,D,VW-EM,Wake County Emergency Management Backup,Multi-Talk,Wake County ,2
+46664,b648,D,VW-EMS,Wake County EMS Backup,EMS-Tac,Wake County ,2
+46714,b67a,D,VW-LEAST,Wake County Law East Backup,Law Dispatch,Wake County ,2
+46753,b6a1,D,VW-MAID,Wake County Mutual Aid Backup,Interop,Wake County ,2
+46754,b6a2,D,VW-LWEST,Wake County Law West Backup,Law Dispatch,Wake County ,2
+46929,b751,D,VW-RALPD,Raleigh Police Department Backup,Law Tac,Wake County ,2
+47500,b98c,D,WARRENCOMM,County Common,Multi-Tac,Warren County,2
+47501,b98d,D,WARRENEM,Emergency Management,Emergency Ops,Warren County,2
+47502,b98e,D,WARRENEMS,EMS,EMS Dispatch,Warren County,2
+47503,b98f,D,WARRENFD,Fire,Fire Dispatch,Warren County,2
+47504,b990,D,WARRENMAID,Mutual Aid,Interop,Warren County,2
+47505,b991,D,WARRENRESCUE,Rescue,EMS Dispatch,Warren County,2
+47506,b992,D,WARRENSO,Sheriffs Office,Law Dispatch,Warren County,2
+47518,b99e,D,WARRENTONPD,Warrenton Police,Law Dispatch,Warren County,2
+47529,b9a9,D,NORLINAPD,Norlina Police,Law Dispatch,Warren County,2
+48000,bb80,D,WSHTNCO M/A,Mutual Aid,Interop,Washington County,2
+48001,bb81,D,WSHTNCO E/M,Emergency Management,Emergency Ops,Washington County,2
+48002,bb82,D,WSHTNCO EMS,EMS - Dispatch,EMS Dispatch,Washington County,2
+48003,bb83,D,WSHTNCO FD,Fire - Dispatch,Fire Dispatch,Washington County,2
+48005,bb85,D,WSHTNCO SO,Sheriff's Office - Dispatch (includes Plymouth Police),Law Dispatch,Washington County,2
+48006,bb86,D,WSHTNCO TAC,Tactical,Multi-Tac,Washington County,2
+48500,bd74,D,WATAUGA EM,Emergency Managemet,Emergency Ops,Watauga County,2
+48501,bd75,D,WATAUGAMEDIC,EMS Medic,EMS-Tac,Watauga County,2
+48502,bd76,D,WATAUGAFIRE,Fire,Fire Dispatch,Watauga County,2
+48503,bd77,D,WATAUGA SO,Sheriffs Office,Law Dispatch,Watauga County,2
+48504,bd78,D,WATAUGATAC,Watauga TAC,Multi-Tac,Watauga County,2
+48505,bd79,D,WATAUGACOM,Watauga Common,Interop,Watauga County,2
+48506,bd7a,D,WATAUGA MAID,Mutual Aid,Interop,Watauga County,2
+48507,bd7b,D,WATAUGA RSQ,Watauga Rescue,EMS Dispatch,Watauga County,2
+48508,bd7c,D,WATAUGASOADM,Watauga Sheriff Common,Law Tac,Watauga County,2
+48509,bd7d,D,WATAUGASOINV,Watauga Sheriff Investigations,Law Tac,Watauga County,2
+48510,bd7e,D,WATAUGASONAR,Watauga Sheriff Narcotics,Law Tac,Watauga County,2
+48511,bd7f,D,WATAUGASOPTR,Watauga Sheriff Patrol,Law Tac,Watauga County,2
+48512,bd80,D,WATAUGASORT,Watauga Sheriff SORT,Law Tac,Watauga County,2
+48513,bd81,D,WATAUGATAC2,Watauga TAC 2,Emergency Ops,Watauga County,2
+48514,bd82,D,WATAUGATAC3,Watauga TAC 3,Emergency Ops,Watauga County,2
+48515,bd83,D,WATAUGATAC4,Watauga TAC 4,Emergency Ops,Watauga County,2
+48516,bd84,D,WATAUGATAC5,Watauga TAC 5,Emergency Ops,Watauga County,2
+48517,bd85,D,WATAUGATAC6,Watauga TAC 6,Emergency Ops,Watauga County,2
+48518,bd86,D,WATAUGATAC7,Watauga TAC 7,Emergency Ops,Watauga County,2
+48519,bd87,D,WATAUGATAC8,Watauga TAC 8,Emergency Ops,Watauga County,2
+48529,bd91,D,BEECHEMSDISP,Beech MTN EMS Dispatch,EMS Dispatch,Watauga County,2
+48530,bd92,D,BEECHFDDISP,Beech MTN FD Dispatch,Fire Dispatch,Watauga County,2
+48531,bd93,D,BEECHMTNPD,Beech Mountain Police - Dispatch,Law Dispatch,Watauga County,2
+48532,bd94,D,BEECHMTNPDIN,Beech MTN PD Investigations,Law Tac,Watauga County,2
+48533,bd95,D,BEECHMTNPDPT,Beech MTN PD Patrol,Law Tac,Watauga County,2
+48543,bd9f,D,BLOWROCKFDDI,Blowing Rock FD Dispatch,Fire Dispatch,Watauga County,2
+48544,bda0,D,BLOWROCKPDDI,Blowing Rock PD Dispatch,Law Dispatch,Watauga County,2
+48554,bdaa,D,BOONEFDADMIN,Boone FD Admin,Fire-Tac,Watauga County,2
+48555,bdab,D,BOONEFDDISP,Boone FD Dispatch,Fire Dispatch,Watauga County,2
+48556,bdac,D,BOONEPDADMIN,Boone PD Admin,Law Tac,Watauga County,2
+48557,bdad,D,BOONE PD,Boone Police Dispatch,Law Dispatch,Watauga County,2
+48558,bdae,D,BOONEPDINVES,Boone PD Invetigations,Law Tac,Watauga County,2
+48559,bdaf,D,BOONEPDNARC,Boone PD Narcotics,Law Tac,Watauga County,2
+48560,bdb0,D,BOONE PATROL,Boone Police Patrol ,Law Tac,Watauga County,2
+48561,bdb1,D,BOONEPDSORT,Boone PD SORT,Law Tac,Watauga County,2
+48571,bdbb,D,SEVENDEVPDDI,Seven Devils PD Dispatch,Law Dispatch,Watauga County,2
+49000,bf68,D,WAYNE EM,Wayne Emergency Management,Multi-Talk,Wayne County,2
+49001,bf69,D,WAYNE EMS,Wayne EMS,EMS Dispatch,Wayne County,2
+49002,bf6a,D,WAYNE FIRE,Wayne Fire,Fire Dispatch,Wayne County,2
+49003,bf6b,D,WAYNE SO,Wayne Sheriff,Law Dispatch,Wayne County,2
+49004,bf6c,D,WAYNE TAC,Wayne TAC,Multi-Tac,Wayne County,2
+49005,bf6d,D,WAYNEMAID,Wayne Mutual Aid,Interop,Wayne County,2
+49500,c15c,D,WILKESCOM,Wilkes County Common,Multi-Talk,Wilkes County,2
+49501,c15d,D,WILKESRESQ,Wilkes County Rescue Dispatch,EMS Dispatch,Wilkes County,2
+49502,c15e,D,WILKEMSTG1,Wilkes County EMS 1,EMS Dispatch,Wilkes County,2
+49503,c15f,D,WILKEMTG1,Wilkes County EM 1,Multi-Talk,Wilkes County,2
+49504,c160,D,WILKFDTG1,Wilkes County FD 1,Fire Dispatch,Wilkes County,2
+49505,c161,D,WILKESMAID,Wilkes County Mutual Aid,Interop,Wilkes County,2
+49506,c162,D,WILKSOADMN,Wilkes County Sheriff Admin,Law Tac,Wilkes County,2
+49507,c163,D,WILKSOINV,Wilkes County Sheriff INV,Law Tac,Wilkes County,2
+49508,c164,D,WILKSONARC,Wilkes County Sheriff NARC,Law Tac,Wilkes County,2
+49509,c165,D,WILKSOPTRL,Wilkes County Sheriff Patrol ,Law Dispatch,Wilkes County,2
+49510,c166,D,WILKSOTG1,Wilkes County Sheriff 1,Law Dispatch,Wilkes County,2
+49511,c167,D,WILKESTAC,Wilkes County TAC,Multi-Tac,Wilkes County,2
+49512,c168,D,WILKESTAC2,Wilkes County TAC 2,Multi-Tac,Wilkes County,2
+49513,c169,D,WILKESTAC3,Wilkes County TAC 3,Multi-Tac,Wilkes County,2
+49514,c16a,D,WILKESTAC4,Wilkes County TAC 4,Multi-Tac,Wilkes County,2
+49524,c174,D,WILKPDDISP,Wilkesboro PD Dispatch,Law Dispatch,Wilkes County,2
+49525,c175,D,WILKPDTAC,Wilkesboro PD TAC,Law Tac,Wilkes County,2
+49535,c17f,D,NWILKPDDISP,North Wilkesboro PD Dispatch,Law Dispatch,Wilkes County,2
+49536,c180,D,NWILKPDTAC,North Wilkesboro PD TAC,Law Tac,Wilkes County,2
+50000,c350,D,WCOEM,Emergency Management,Emergency Ops,Wilson County,2
+50001,c351,D,WCOEMS,EMS,EMS Dispatch,Wilson County,2
+50002,c352,D,WCOFIRE,FIRE,Fire Dispatch,Wilson County,2
+50003,c353,D,WCOSO,Sheriffs Office,Law Dispatch,Wilson County,2
+50004,c354,D,WCOSOTAC,TAC,Law Tac,Wilson County,2
+50005,c355,D,WCSOCOMMON,Common,Multi-Tac,Wilson County,2
+50006,c356,D,WCOEMSADMIN,EMS Administration,EMS-Tac,Wilson County,2
+50007,c357,D,WCO LAW,County Law,Law Tac,Wilson County,2
+50008,c358,D,WCOLEADMIN,County Law Administration,Law Tac,Wilson County,2
+50009,c359,D,WCOLESOPS,County Law Ops,Law Tac,Wilson County,2
+50010,c35a,D,WCO MAIDD,Mutual Aid,Interop,Wilson County,2
+50011,c35b,D,WCOSOADMIN,Sheriffs Administration,Law Tac,Wilson County,2
+50012,c35c,D,WCOSOCIVIL,Civil,Law Tac,Wilson County,2
+50013,c35d,D,WCONSOINVEST,Investigations,Law Tac,Wilson County,2
+50015,c35f,D,WCOSOPATROL,Patrol,Law Tac,Wilson County,2
+50016,c360,D,WCO TAC2,County Tac 2,Interop,Wilson County,2
+50017,c361,D,WCO TAC3,County Tac 3,Interop,Wilson County,2
+50018,c362,D,WCO TAC4,County Tac 4,Interop,Wilson County,2
+50019,c363,D,WCO TAC5,County Tac 5,Interop,Wilson County,2
+50020,c364,D,WCO TAC6,County Tac 6,Interop,Wilson County,2
+50021,c365,D,WCO TRAIN1,County Training,Law Tac,Wilson County,2
+50031,c36f,D,WCTYFDDISP,Wilson City Fire,Fire Dispatch,Wilson County,2
+50032,c370,D,WCTYPDADMIN,Wilson City Administration,Other,Wilson County,2
+50033,c371,D,WCTYPDDISP,Wilson City Police Department,Law Dispatch,Wilson County,2
+50034,c372,D,WCTYPDINVEST,Wilson City Police Investigations,Law Tac,Wilson County,2
+50035,c373,D,WCTYFDADMIN,Wilson City Fire Administration,Fire-Tac,Wilson County,2
+50500,c544,D,YADKINCOMM,Yadkin County Common,Multi-Talk,Yadkin County,2
+50501,c545,D,YADKINEM,Yadkin County Emergency Management,Multi-Talk,Yadkin County,2
+50502,c546,D,YADKINEMS,Yadkin County EMS,EMS Dispatch,Yadkin County,2
+50503,c547,D,YADKINFD,Yadkin County FD,Fire Dispatch,Yadkin County,2
+50504,c548,D,YADKINSO,Yadkin County Sheriff,Law Dispatch,Yadkin County,2
+50505,c549,D,YADKINMAID,Yadkin County Mutual Aid,Interop,Yadkin County,2
+50506,c54a,D,YADSOADMIN,Yadkin County Sheriff Admin,Law Talk,Yadkin County,2
+50507,c54b,D,YADKINSOINV,Yadkin County Sheriff Investigations,Law Talk,Yadkin County,2
+50508,c54c,D,YADKINSOPAT,Yadkin County Sheriff Patrol,Law Talk,Yadkin County,2
+50509,c54d,D,YADKINSO NAR,Yadkin County Sheriff Narcotics,Law Talk,Yadkin County,2
+50510,c54e,D,YADKINTAC1,Yadkin County TAC 1,Multi-Tac,Yadkin County,2
+50511,c54f,D,YADKINTAC2,Yadkin County TAC 2,Multi-Tac,Yadkin County,2
+50512,c550,D,YADKINTAC3,Yadkin County TAC 3,Multi-Tac,Yadkin County,2
+50513,c551,D,YADKINTAC4,Yadkin County TAC 4,Multi-Tac,Yadkin County,2
+50523,c55b,D,BOONVILLEPD,Boonville PD,Law Dispatch,Yadkin County,2
+50533,c565,D,EASTBENDPD,East Bend PD,Law Dispatch,Yadkin County,2
+50543,c56f,D,JONESVILLEPD,Jonesville PD ,Law Dispatch,Yadkin County,2
+50553,c579,D,YADKINVILLEP,Yadkinville PD,Law Dispatch,Yadkin County,2
+51000,c738,D,YANCEYAC1,Yancey TAC 1,Multi-Tac,Yancey County,2
+51001,c739,D,YANCEYEM,Yancey EM,Multi-Talk,Yancey County,2
+51002,c73a,D,YANCEY EMS,Yancey EMS,EMS Dispatch,Yancey County,2
+51003,c73b,D,YANCEYFD,Yancey FD,Fire Dispatch,Yancey County,2
+51004,c73c,D,Yancey Shrf,Yancey Sheriff,Law Dispatch,Yancey County,2
+51005,c73d,D,YANCEYMAIDD,Yancey Mutual Aid,Interop,Yancey County,2
+51502,c92e,D,ALECOMM1,ALE COMMON 1,Law Tac,Alcohol Law Enforcement ALE,2
+51503,c92f,D,ALECOMM2,ALE COMMON 2,Law Tac,Alcohol Law Enforcement ALE,2
+51504,c930,D,ALEDIST1,ALE DIST 1,Law Tac,Alcohol Law Enforcement ALE,2
+51505,c931,D,ALEDIST10,ALE DIST 10,Law Tac,Alcohol Law Enforcement ALE,2
+51506,c932,D,ALEDIST2,ALE DIST 2,Law Tac,Alcohol Law Enforcement ALE,2
+51507,c933,D,ALEDIST3,ALE DIST 3,Law Tac,Alcohol Law Enforcement ALE,2
+51508,c934,D,ALEDIST4,ALE DIST 4,Law Tac,Alcohol Law Enforcement ALE,2
+51509,c935,D,ALEDIST5,ALE DIST 5,Law Tac,Alcohol Law Enforcement ALE,2
+51510,c936,D,ALEDIST6,ALE DIST 6,Law Tac,Alcohol Law Enforcement ALE,2
+51511,c937,D,ALEDIST7,ALE DIST 7,Law Tac,Alcohol Law Enforcement ALE,2
+51512,c938,D,ALEDIST8,ALE DIST 8,Law Tac,Alcohol Law Enforcement ALE,2
+51513,c939,D,ALEDIST9,ALE DIST 9,Law Tac,Alcohol Law Enforcement ALE,2
+51514,c93a,D,ALEWIDE1,ALE STATEWIDE 1,Law Tac,Alcohol Law Enforcement ALE,2
+51515,c93b,D,ALEWIDE2,ALE STATEWIDE 2,Law Tac,Alcohol Law Enforcement ALE,2
+51516,c93c,D,ALEDIST11,ALE DIST 11,Law Tac,Alcohol Law Enforcement ALE,2
+51520,c940,D,AIRCARE ADM,Wake Forest Baptist Air Care - Admin,EMS-Tac,Forsyth County,2
+51521,c941,D,AIRCARE AIR,Wake Forest Baptist Air Care - Air Units,EMS Dispatch,Forsyth County,2
+51523,c943,D,AIRCARE GRND,Wake Forest Baptist Air Care - Ground Units,EMS Dispatch,Forsyth County,2
+51527,c947,D,BUTNER PS,Butner Public Safety Dispatch,Law Tac,Granville County,2
+51533,c94d,D,CMCAIR,Carolina Medical Center Air,Hospital,Mecklenburg County,2
+51535,c94f,D,MEDCENTERAIR,Med Center Flightwatch Ground,EMS-Talk,Statewide Medical Transport ,2
+51539,c953,D,LF GND OPS,Ground Operations,EMS-Tac,Duke Life Flight (Durham County),2
+51542,c956,D,DukeLifeflig,Duke Lifeflight,EMS Dispatch,Duke Life Flight (Durham County),2
+51543,c957,D,VIDANT AIR,Vidant Air,Hospital,Statewide Medical Transport ,2
+51544,c958,D,VIDANTDISP,Vidant Care Dispatch,Hospital,Statewide Medical Transport ,2
+51545,c959,D,VIDANT GRD,Vidant Care Ground Transport,Hospital,Statewide Medical Transport ,2
+51549,c95d,D,ECSU PD,Elizabeth City State Univ PD,Law Dispatch,Pasquotank County,2
+51551,c95f,D,VIPER COML,VIPER Communications Logistics,Public Works,Radio Technicians ,2
+51555,c963,D,CHERY HOS PD,Cherry Hospital Police ,Law Dispatch,Wayne County,2
+51556,c964,D,CHERY HOS TR,Cherry Hospital Transport,Hospital,Wayne County,2
+51567,c96f,D,FSUPDADMIN,Fayetteville State University PD Admin,Law Talk,Cumberland County,2
+51568,c970,D,FSUPDDISP,Fayetteville State University PD Dispatch,Law Dispatch,Cumberland County,2
+51569,c971,D,FSUPDINVEST,Fayetteville State University PD Investigations,Law Talk,Cumberland County,2
+51579,c97b,D,LZCENTDIG,Landing Zone Central ,EMS-Tac,State Office of EMS,2
+51580,c97c,D,LZEASTDIG,Landing Zone East ,EMS-Tac,State Office of EMS,2
+51581,c97d,D,LZWESTDIG,Landing Zone West,EMS-Tac,State Office of EMS,2
+51582,c97e,D,MAMAAIRADMN,Mountain Area Medical Airlift Admin,EMS-Talk,Buncombe County,2
+51583,c97f,D,MAMAAIROPS,Mountain Area Medical Airlift Air Ops,EMS-Tac,Buncombe County,2
+51584,c980,D,MAMA DISP,Mountain Area Medical Airlift Dispatch,EMS Dispatch,Buncombe County,2
+51586,c982,D,Cone ADM,Moses Cone Admin,Hospital,Guilford County,2
+51587,c983,D,Cone Disp,Moses Cone Dispatch,EMS Dispatch,Guilford County,2
+51588,c984,D,Cone Ground,Moses Cone Ground,EMS Dispatch,Guilford County,2
+51591,c987,D,A&T ADM,NC A&T PD Admin,Law Talk,Guilford County,2
+51592,c988,D,A&T PD Disp,NC A&T PD Dispatch,Law Dispatch,Guilford County,2
+51593,c989,D,A&T CID,NC A&T PD CID,Law Tac,Guilford County,2
+51595,c98b,D,NCALEHQ,ALE HQ,Law Tac,Alcohol Law Enforcement ALE,2
+51596,c98c,D,NCALETRAIN,ALE TRAIN,Law Tac,Alcohol Law Enforcement ALE,2
+51597,c98d,D,CAPEAST,Civil Air Patrol East,Aircraft,NC Civil Air Patrol CAP,2
+51598,c98e,D,CAPPIED,Civil Air Patrol Piedmont,Aircraft,NC Civil Air Patrol CAP,2
+51599,c98f,D,CAPSWIDE,Civil Air Patrol Statewide ,Aircraft,NC Civil Air Patrol CAP,2
+51600,c990,D,CAPWEST,Civil Air Patrol West,Aircraft,NC Civil Air Patrol CAP,2
+51601,c991,D,NCDACSADMIN,NC Dept Agriculture and Consumer SVCS Admin,Multi-Talk,NC Department of Agriculture and Consumer Services ,2
+51602,c992,D,NCDACSCOM,NC Dept Agriculture and Consumer SVCS Common,Multi-Talk,NC Department of Agriculture and Consumer Services ,2
+51603,c993,D,NCDACSDIST,NC Dept Agriculture and Consumer SVCS DIST,Multi-Talk,NC Department of Agriculture and Consumer Services ,2
+51604,c994,D,NCDACSFD,NC Dept Agriculture and Consumer SVCS FD,Multi-Talk,NC Department of Agriculture and Consumer Services ,2
+51605,c995,D,NCDACSMP,NC Dept Agriculture and Consumer SVCS MP,Multi-Talk,NC Department of Agriculture and Consumer Services ,2
+51606,c996,D,NCDACSPID,NC Dept Agriculture and Consumer SVCS PID,Multi-Talk,NC Department of Agriculture and Consumer Services ,2
+51607,c997,D,NCDACSVS,NC Dept Agriculture and Consumer SVCS VS,Multi-Talk,NC Department of Agriculture and Consumer Services ,2
+51608,c998,D,NCDEPTAGTG1,NC Dept Agriculture and Consumer SVCS TG 1,Multi-Talk,NC Department of Agriculture and Consumer Services ,2
+51610,c99a,D,NCDMFCENTRAL,Marine Fisheries Central,Other,Marine Fishery,2
+51611,c99b,D,NCDMFCOMM1,Marine Fisheries Common 1,Other,Marine Fishery,2
+51612,c99c,D,NCDMFCOMM2,Marine Fisheries Common 2,Other,Marine Fishery,2
+51613,c99d,D,NCDMFNORTH,Marine Fisheries North ,Other,Marine Fishery,2
+51614,c99e,D,NCDMFSOUTH,Marine Fisheries South,Other,Marine Fishery,2
+51615,c99f,D,NCDOCDCCDIV1,Corrections Division 1,Corrections,Department of Corrections,2
+51616,c9a0,D,NCDOCDCCDIV2,Corrections Division 2,Corrections,Department of Corrections,2
+51617,c9a1,D,NCDOCDCCDIV3,Corrections Division 3,Corrections,Department of Corrections,2
+51618,c9a2,D,NCDOCDCCDIV4,Corrections Division 4,Corrections,Department of Corrections,2
+51619,c9a3,D,NCDOCDIST1,Corrections District 1,Corrections,Department of Corrections,2
+51620,c9a4,D,NCDOCDIST7,Corrections District 7,Corrections,Department of Corrections,2
+51621,c9a5,D,NCDOCDIST8,Corrections District 8,Corrections,Department of Corrections,2
+51624,c9a8,D,NCDOCDIST9,Corrections District 9,Corrections,Department of Corrections,2
+51625,c9a9,D,NCDOCDIST10,Corrections District 10,Corrections,Department of Corrections,2
+51626,c9aa,D,NCDOCDIST11,Corrections District 11,Corrections,Department of Corrections,2
+51627,c9ab,D,NCDOCDIST12,Corrections District 12,Corrections,Department of Corrections,2
+51628,c9ac,D,NCDOCDIST13,Corrections District 13,Corrections,Department of Corrections,2
+51629,c9ad,D,NCDOCDIST14,Corrections District 14,Corrections,Department of Corrections,2
+51630,c9ae,D,NCDOCDIST2,Corrections District 2,Corrections,Department of Corrections,2
+51631,c9af,D,NCDOCDIST15,Corrections District 15,Corrections,Department of Corrections,2
+51633,c9b1,D,NCDOCDIST16,Corrections District 16,Corrections,Department of Corrections,2
+51635,c9b3,D,NCDOCDIST17,Corrections District 17,Corrections,Department of Corrections,2
+51637,c9b5,D,NCDOCDIST18,Corrections District 18,Corrections,Department of Corrections,2
+51638,c9b6,D,NCDOCDIST19A,Corrections District 19A,Corrections,Department of Corrections,2
+51639,c9b7,D,NCDOCDIST19B,Corrections District 19B,Corrections,Department of Corrections,2
+51641,c9b9,D,NCDOCDIST3,Corrections District 3,Corrections,Department of Corrections,2
+51643,c9bb,D,NCDOCDIST20,Corrections District 20,Corrections,Department of Corrections,2
+51644,c9bc,D,NCDOCDIST32,Corrections District 32,Corrections,Department of Corrections,2
+51645,c9bd,D,NCDOCDIST21,Corrections District 21,Corrections,Department of Corrections,2
+51646,c9be,D,NCDOCDIST22,Corrections District 22,Corrections,Department of Corrections,2
+51647,c9bf,D,NCDOCDIST23,Corrections District 23,Corrections,Department of Corrections,2
+51648,c9c0,D,NCDOCDIST24,Corrections District 24,Corrections,Department of Corrections,2
+51649,c9c1,D,NCDOCDIST25,Corrections District 25,Corrections,Department of Corrections,2
+51650,c9c2,D,NCDOCDIST38,Corrections District 38,Corrections,Department of Corrections,2
+51651,c9c3,D,NCDOCDIST26,Corrections District 26,Corrections,Department of Corrections,2
+51653,c9c5,D,NCDOCDIST27,Corrections District 27,Corrections,Department of Corrections,2
+51654,c9c6,D,NCDOCDIST41,Corrections District 41,Corrections,Department of Corrections,2
+51655,c9c7,D,NCDOCDIST28,Corrections District 28,Corrections,Department of Corrections,2
+51656,c9c8,D,NCDOCDIST29,Corrections District 29,Corrections,Department of Corrections,2
+51657,c9c9,D,NCDOCDIST44,Corrections District 44,Corrections,Department of Corrections,2
+51658,c9ca,D,NCDOCDIST30,Corrections District 30,Corrections,Department of Corrections,2
+51659,c9cb,D,NCDOCDIST4,Corrections District 4,Corrections,Department of Corrections,2
+51661,c9cd,D,NCDOCDIST5,Corrections District 5,Corrections,Department of Corrections,2
+51662,c9ce,D,NCDOCDIST6,Corrections District 6,Corrections,Department of Corrections,2
+51664,c9d0,D,NCDOCDOP1PRI,Corrections DOP 1 Primary,Corrections,Department of Corrections,2
+51665,c9d1,D,NCDOCDOP1TAC,Corrections DOP 1 TAC,Corrections,Department of Corrections,2
+51666,c9d2,D,NCDOCDOP1TRA,Corrections DOP 1 Transportation,Corrections,Department of Corrections,2
+51667,c9d3,D,NCDOCDOP2PRI,Corrections DOP 2 Primary,Corrections,Department of Corrections,2
+51668,c9d4,D,NCDOCDOP2TAC,Corrections DOP 2 TAC,Corrections,Department of Corrections,2
+51669,c9d5,D,NCDOCDOP2TRA,Corrections DOP 2 Transportation,Corrections,Department of Corrections,2
+51670,c9d6,D,NCDOCDOP3PRI,Corrections DOP 3 Primary,Corrections,Department of Corrections,2
+51671,c9d7,D,NCDOCDOP3TAC,Corrections DOP 3 TAC,Corrections,Department of Corrections,2
+51672,c9d8,D,NCDOCDOP3TRA,Corrections DOP 3 Transportation,Corrections,Department of Corrections,2
+51673,c9d9,D,NCDOCDOP4PRI,Corrections DOP 4 Primary,Corrections,Department of Corrections,2
+51674,c9da,D,NCDOCDOP4TAC,Corrections DOP 4 TAC,Corrections,Department of Corrections,2
+51675,c9db,D,NCDOCDOP4TRA,Corrections DOP 4 Transportation,Corrections,Department of Corrections,2
+51676,c9dc,D,NCDOCDOP5PRI,Corrections DOP 5 Primary,Corrections,Department of Corrections,2
+51677,c9dd,D,NCDOCDOP5TAC,Corrections DOP 5 TAC,Corrections,Department of Corrections,2
+51678,c9de,D,NCDOCDOP5TRA,Corrections DOP 5 Transportation,Corrections,Department of Corrections,2
+51679,c9df,D,NCDOCSW1,Corrections Statewide 1,Corrections,Department of Corrections,2
+51680,c9e0,D,NCDOCSW2,Corrections Statewide 2,Corrections,Department of Corrections,2
+51681,c9e1,D,NCDOCSW3,Corrections Statewide 3,Corrections,Department of Corrections,2
+51682,c9e2,D,NCDOCSW4,Corrections Statewide 4,Corrections,Department of Corrections,2
+51683,c9e3,D,NCDOCSW5,Corrections Statewide 5,Corrections,Department of Corrections,2
+51684,c9e4,D,NCDOCSW6,Corrections Statewide 6,Corrections,Department of Corrections,2
+51685,c9e5,D,NCDOCSW7,Corrections Statewide 7,Corrections,Department of Corrections,2
+51686,c9e6,D,NCDOCSW8,Corrections Statewide 8,Corrections,Department of Corrections,2
+51687,c9e7,D,NCDOCSW9,Corrections Statewide 9,Corrections,Department of Corrections,2
+51691,c9eb,D,NCDOTCOMM1,NC DOT COMMON 1,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51692,c9ec,D,NCDOTCOMM2,NC DOT COMMON 2,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51710,c9fe,D,DOT Pender,DOT Pender,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51713,ca01,D,DOT Brunswk,DOT Brunswick,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51714,ca02,D,DOT Newhan,DOT New Hanover ,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51720,ca08,D,DOT Durham,DOT Durham,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51722,ca0a,D,DOT Wake,DOT Wake,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51750,ca26,D,DOT Davidson,DOT Davidson,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51793,ca51,D,DOT DIV 1,DOT DIV 1,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51794,ca52,D,DOT DIV 10,DOT DIV 10,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51795,ca53,D,DOT DIV 11,DOT DIV 11,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51796,ca54,D,DOT DIV 12,DOT DIV 12,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51797,ca55,D,DOT DIV 13,DOT DIV 13,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51798,ca56,D,DOT DIV 14,DOT DIV 14,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51799,ca57,D,DOT DIV 2,DOT DIV 2,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51800,ca58,D,DOT DIV 3,DOT DIV 3,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51801,ca59,D,DOT DIV 4,DOT DIV 4,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51802,ca5a,D,DOT DIV 5,DOT DIV 5,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51803,ca5b,D,DOT DIV 6,DOT DIV 6,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51804,ca5c,D,DOT DIV 7,DOT DIV 7,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51805,ca5d,D,DOT DIV 8,DOT DIV 8,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51806,ca5e,D,DOT DIV 9,DOT DIV 9,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51807,ca5f,D,FERRY NORTH,Ferry North,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51808,ca60,D,FERRY CENTER,Ferry Center,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51809,ca61,D,FERRY SOUTH,Ferry South,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51810,ca62,D,IMDspBun,IMAP Dispatch Buncombe County,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51811,ca63,D,IMOps2Bun,IMAP Ops 2 Buncombe County,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51812,ca64,D,IMOps1Bun,IMAP Ops 1 Buncombe County,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51813,ca65,D,IMDspGC,IMAP Dispatch GASTON/ROWAN/CABARRUS,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51814,ca66,D,IMDspIC,IMAP Dispatch IREDELL/CATAWBA,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51815,ca67,D,IMDspMet,IMAP Dispatch Mecklenburg,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51816,ca68,D,IMOps2Met,IMAP Ops 2 Mecklenburg,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51817,ca69,D,IMOps2GC,IMAP Ops 2 GASTON/ROWAN/CABARRUS,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51818,ca6a,D,IMOps2IC,IMAP Ops 2 IREDELL/CATAWBA,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51819,ca6b,D,IMOps1GC,IMAP Ops 1 GASTON/ROWAN/CABARRUS,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51820,ca6c,D,IMOps1IC,IMAP Ops 1 IREDELL/CATAWBA,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51821,ca6d,D,IMOps1Met,IMAP Ops 1 Mecklenburg,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51822,ca6e,D,IMOps2WDJ,IMAP Ops 2 Wake Durham Johnston ,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51823,ca6f,D,IMDspWDJ,IMAP Dispatch Wake Durham Johnston ,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51824,ca70,D,IMOps1Wlm,IMAP Ops 1 Wilmington,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51825,ca71,D,IMDspWlm,IMAP Dispatch Wilmington,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51826,ca72,D,IMOps1WDJ,IMAP Ops 1 Wake Durham Johnston ,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51827,ca73,D,IMDspHay,IMAP Dispatch Haywood County,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51828,ca74,D,IMOps2Hay,IMAP Ops 2 Haywood County,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51829,ca75,D,IMOps1Hay,IMAP Ops 1 Haywood County,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51830,ca76,D,IMDspFDR,IMAP Dispatch Forsyth,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51831,ca77,D,IMDspGAO,IMAP Dispatch Guilford Triad,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51832,ca78,D,IMOps2GAO,IMAP Ops 2 Guilford Triad,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51833,ca79,D,IMOps2FDR,IMAP Ops 2 Forsyth,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51834,ca7a,D,IMOps1FDR,IMAP Ops 1 Forsyth ,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51835,ca7b,D,IMOps1GAO,IMAP Ops 1 Guilford Triad,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51836,ca7c,D,SWOps1,Statewide Ops 1,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51837,ca7d,D,DOT EAST,DOT East,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51838,ca7e,D,DOT WEST,DOT West,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+51839,ca7f,D,DPRR 1 TG 1,DPRR 1 TG 1,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51840,ca80,D,DPRR 1 TG 2,DPRR 1 TG 2,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51841,ca81,D,DPRR 1 TG 3,DPRR 1 TG 3,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51842,ca82,D,DPRR 1 TG 4,DPRR 1 TG 4,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51843,ca83,D,DPRR 1 TG 5,DPRR 1 TG 5,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51844,ca84,D,DPRR 1 TG 6,DPRR 1 TG 6,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51845,ca85,D,DPRR 1 TG 7,DPRR 1 TG 7,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51846,ca86,D,DPRR 1 TG 8,DPRR 1 TG 8,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51847,ca87,D,DPRR 1 TG 9,DPRR 1 TG 9,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51848,ca88,D,DPRR 1 TG 10,DPRR 1 TG 10,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51849,ca89,D,DPRR 2 TG 1,DPRR 2 TG 1,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51850,ca8a,D,DPRR 2 TG 2,DPRR 2 TG 2,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51851,ca8b,D,DPRR 2 TG 3,DPRR 2 TG 3,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51852,ca8c,D,DPRR 2 TG 4,DPRR 2 TG 4,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51853,ca8d,D,DPRR 2 TG 5,DPRR 2 TG 5,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51854,ca8e,D,DPRR 2 TG 6,DPRR 2 TG 6,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51855,ca8f,D,DPRR 3 TG 7,DPRR 3 TG 7,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51856,ca90,D,DPRR 2 TG 8,DPRR 2 TG 8,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51857,ca91,D,DPRR 2 TG 9,DPRR 2 TG 9,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51858,ca92,D,DPRR 2 TG 10,DPRR 2 TG 10,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51859,ca93,D,DPRR 3 TG 1,DPRR 3 TG 1,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51860,ca94,D,DPRR 3 TG 2,DPRR 3 TG 2,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51861,ca95,D,DPRR 3 TG 3,DPRR 3 TG 3,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51862,ca96,D,DPRR 3 TG 4,DPRR 3 TG 4,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51863,ca97,D,DPRR 3 TG 5,DPRR 3 TG 5,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51864,ca98,D,DPRR 3 TG 6,DPRR 3 TG 6,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51865,ca99,D,DPRR 3 TG 7,DPRR 3 TG 7,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51866,ca9a,D,DPRR 3 TG 8,DPRR 3 TG 8,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51867,ca9b,D,DPRR 3 TG 9,DPRR 3 TG 9,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51868,ca9c,D,DPRR 3 TG 10,DPRR 3 TG 10,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51869,ca9d,D,DPRR 4 TG 1,DPRR 4 TG 1,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51870,ca9e,D,DPRR 4 TG 2,DPRR 4 TG 2,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51871,ca9f,D,DPRR 4 TG 3,DPRR 4 TG 3,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51872,caa0,D,DPRR 4 TG 4,DPRR 4 TG 4,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51873,caa1,D,DPRR 4 TG 5,DPRR 4 TG 5,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51874,caa2,D,DPRR 4 TG 6,DPRR 4 TG 6,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51875,caa3,D,DPRR 4 TG 7,DPRR 4 TG 7,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51876,caa4,D,DPRR 4 TG 8,DPRR 4 TG 8,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51877,caa5,D,DPRR 4 TG 9,DPRR 4 TG 9,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51878,caa6,D,DPRR 4 TG 10,DPRR 4 TG 10,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51879,caa7,D,DPRR 5 TG 1,DPRR 5 TG 1,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51880,caa8,D,DPRR 5 TG 2,DPRR 5 TG 2,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51881,caa9,D,DPRR 5 TG 3,DPRR 5 TG 3,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51882,caaa,D,DPRR 5 TG 4,DPRR 5 TG 4,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51883,caab,D,DPRR 5 TG 5,DPRR 5 TG 5,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51884,caac,D,DPRR 5 TG 6,DPRR 5 TG 6,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51885,caad,D,DPRR 5 TG 7,DPRR 5 TG 7,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51886,caae,D,DPRR 5 TG 8,DPRR 5 TG 8,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51887,caaf,D,DPRR 5 TG 9,DPRR 5 TG 9,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51888,cab0,D,DPRR 5 TG 10,DPRR 5 TG 10,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51889,cab1,D,DPRR 6 TG 1,DPRR 6 TG 1,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51890,cab2,D,DPRR 6 TG 2,DPRR 6 TG 2,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51891,cab3,D,DPRR 6 TG 3,DPRR 6 TG 3,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51892,cab4,D,DPRR 6 TG 4,DPRR 6 TG 4,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51893,cab5,D,DPRR 6 TG 5,DPRR 6 TG 5,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51894,cab6,D,DPRR 6 TG 6,DPRR 6 TG 6,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51895,cab7,D,DPRR 6 TG 7,DPRR 6 TG 7,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51896,cab8,D,DPRR 6 TG 8,DPRR 6 TG 8,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51897,cab9,D,DPRR 6 TG 9,DPRR 6 TG 9,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51898,caba,D,DPRR 6 TG 10,DPRR 6 TG 10,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51899,cabb,D,DPRR 7 TG 1,DPRR 7 TG 1,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51900,cabc,D,DPRR 7 TG 2,DPRR 7 TG 2,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51901,cabd,D,DPRR 7 TG 3,DPRR 7 TG 3,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51902,cabe,D,DPRR 7 TG 4,DPRR 7 TG 4,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51903,cabf,D,DPRR 7 TG 5,DPRR 7 TG 5,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51904,cac0,D,DPRR 7 TG 6,DPRR 7 TG 6,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51905,cac1,D,DPRR 7 TG 7,DPRR 7 TG 7,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51906,cac2,D,DPRR 7 TG 8,DPRR 7 TG 8,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51907,cac3,D,DPRR 7 TG 9,DPRR 7 TG 9,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51908,cac4,D,DPRR 7 TG 10,DPRR 7 TG 10,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51909,cac5,D,DPRR 8 TG 1,DPRR 8 TG 1,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51910,cac6,D,DPRR 8 TG 2,DPRR 8 TG 2,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51911,cac7,D,DPRR 8 TG 3,DPRR 8 TG 3,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51912,cac8,D,DPRR 8 TG 4,DPRR 8 TG 4,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51913,cac9,D,DPRR 8 TG 5,DPRR 8 TG 5,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51914,caca,D,DPRR 8 TG 6,DPRR 8 TG 6,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51915,cacb,D,DPRR 8 TG 7,DPRR 8 TG 7,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51916,cacc,D,DPRR 8 TG 8,DPRR 8 TG 8,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51917,cacd,D,DPRR 8 TG 9,DPRR 8 TG 9,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51918,cace,D,DPRR 8 TG 10,DPRR 8 TG 10,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51919,cacf,D,DPRR 9 TG 1,DPRR 9 TG 1,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51920,cad0,D,DPRR 9 TG 2,DPRR 9 TG 2,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51921,cad1,D,DPRR 9 TG 3,DPRR 9 TG 3,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51922,cad2,D,DPRR 9 TG 4,DPRR 9 TG 4,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51923,cad3,D,DPRR 9 TG 5,DPRR 9 TG 5,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51924,cad4,D,DPRR 9 TG 6,DPRR 9 TG 6,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51925,cad5,D,DPRR 9 TG 7,DPRR 9 TG 7,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51926,cad6,D,DPRR 9 TG 8,DPRR 9 TG 8,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51927,cad7,D,DPRR 9 TG 9,DPRR 9 TG 9,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51928,cad8,D,DPRR 9 TG 10,DPRR 9 TG 10,Multi-Tac,Domestic Preparedness and Readiness Regions (DPRR),2
+51938,cae2,D,EMCBO,Central Branch,Interop,Statewide Interop,2
+51941,cae5,D,EMEBO,Eastern Branch,Interop,Statewide Interop,2
+51943,cae7,D,EMEOC,Emergency Operations Center,Interop,Statewide Interop,2
+51947,caeb,D,NC EM RRT,Regional Response Team,Interop,Statewide Interop,2
+51950,caee,D,SW SMAT,SMAT,EMS-Talk,Statewide Interop,2
+51951,caef,D,EM USAR,EM USAR,Emergency Ops,Emergency Management,2
+51953,caf1,D,EMWBO,Western Branch,Interop,Statewide Interop,2
+51955,caf3,D,ALPHA1,Statewide Events Alpha 1,Interop,Statewide Event ,2
+51956,caf4,D,ALPHA2,Statewide Events Alpha 2,Interop,Statewide Event ,2
+51957,caf5,D,ALPHA3,Statewide Events Alpha 3,Interop,Statewide Event ,2
+51958,caf6,D,ALPHA4,Statewide Events Alpha 4,Interop,Statewide Event ,2
+51959,caf7,D,BRAVO1,Statewide Events Bravo 1,Interop,Statewide Event ,2
+51960,caf8,D,BRAVO2,Statewide Events Bravo 2,Interop,Statewide Event ,2
+51961,caf9,D,BRAVO3,Statewide Events Bravo 3,Interop,Statewide Event ,2
+51962,cafa,D,BRAVO4,Statewide Events Bravo 4,Interop,Statewide Event ,2
+51963,cafb,D,CHRLY1,Statewide Events Charlie 1,Interop,Statewide Event ,2
+51964,cafc,D,CHRLY2,Statewide Events Charlie 2,Interop,Statewide Event ,2
+51965,cafd,D,CHRLY3,Statewide Events Charlie 3,Interop,Statewide Event ,2
+51966,cafe,D,CHRLY4,Statewide Events Charlie 4,Interop,Statewide Event ,2
+51967,caff,D,DELTA1,Statewide Events Delta 1,Interop,Statewide Event ,2
+51968,cb00,D,DELTA2,Statewide Events Delta 2,Interop,Statewide Event ,2
+51969,cb01,D,DELTA3,Statewide Events Delta 3,Interop,Statewide Event ,2
+51970,cb02,D,DELTA4,Statewide Events Delta 4,Interop,Statewide Event ,2
+51971,cb03,D,ECHO 1,Statewide Events Echo 1,Interop,Statewide Event ,2
+51972,cb04,D,ECHO 2,Statewide Events Echo 2,Interop,Statewide Event ,2
+51973,cb05,D,ECHO 3,Statewide Events Echo 3,Interop,Statewide Event ,2
+51974,cb06,D,ECHO 4,Statewide Events Echo 4,Interop,Statewide Event ,2
+51975,cb07,D,FOXTROT1,Statewide Events Foxtrot 1,Interop,Statewide Event ,2
+51976,cb08,D,FOXTROT2,Statewide Events Foxtrot 2,Interop,Statewide Event ,2
+51977,cb09,D,FOXTROT3,Statewide Events Foxtrot 3,Interop,Statewide Event ,2
+51978,cb0a,D,FOXTROT4,Statewide Events Foxtrot 4,Interop,Statewide Event ,2
+51979,cb0b,D,GOLF 1,Statewide Events Golf 1,Interop,Statewide Event ,2
+51980,cb0c,D,GOLF 2,Statewide Events Golf 2,Interop,Statewide Event ,2
+51981,cb0d,D,GOLF 3,Statewide Events Golf 3,Interop,Statewide Event ,2
+51982,cb0e,D,GOLF 4,Statewide Events Golf 4,Interop,Statewide Event ,2
+51983,cb0f,D,HOTEL 1,Statewide Events Hotel 1,Interop,Statewide Event ,2
+51984,cb10,D,HOTEL 2,Statewide Events Hotel 2,Interop,Statewide Event ,2
+51985,cb11,D,HOTEL 3,Statewide Events Hotel 3,Interop,Statewide Event ,2
+51986,cb12,D,HOTEL 4,Statewide Events Hotel 4,Interop,Statewide Event ,2
+51987,cb13,D,AIRSUPPORT,NC Forestry Service Air Support,Aircraft,NC Forestry Service,2
+51988,cb14,D,NCFSCOMM1,NC Forestry Service Common 1,Multi-Tac,NC Forestry Service,2
+51989,cb15,D,NCFSCOMM2,NC Forestry Service Common 2,Multi-Tac,NC Forestry Service,2
+51990,cb16,D,NCFSHQ,NC Forestry Service Head Quarters,Law Tac,NC Forestry Service,2
+51991,cb17,D,NCFSLE,NC Forestry Service Law Enforcement,Law Tac,NC Forestry Service,2
+51992,cb18,D,NCFSREG 1,NC Forestry Service Region 1,Multi-Talk,NC Forestry Service,2
+51993,cb19,D,NCFSREG 2,NC Forestry Service Region 2,Multi-Talk,NC Forestry Service,2
+51994,cb1a,D,NCFSREG 3,NC Forestry Service Region 3,Multi-Talk,NC Forestry Service,2
+51995,cb1b,D,HART277OPS,HART 277 OPS,Emergency Ops,NC HART ,2
+51996,cb1c,D,HART278OPS,HART 278 OPS,Emergency Ops,NC HART ,2
+51997,cb1d,D,HART279OPS,HART 279 OPS,Emergency Ops,NC HART ,2
+51998,cb1e,D,HART660OPS,HART 660 OPS,Emergency Ops,NC HART ,2
+51999,cb1f,D,HART661OPS,HART 661 OPS,Emergency Ops,NC HART ,2
+52000,cb20,D,HART662OPS,HART 662 OPS,Emergency Ops,NC HART ,2
+52001,cb21,D,HART663OPS,HART 663 OPS,Emergency Ops,NC HART ,2
+52002,cb22,D,HART963OPS,HART 963 OPS,Emergency Ops,NC HART ,2
+52003,cb23,D,NCHARTCMD,NC HART COMMAND,Emergency Ops,NC HART ,2
+52004,cb24,D,NCHARTKD1,HART KD 1,Emergency Ops,NC HART ,2
+52005,cb25,D,NCHARTKD2,HART KD 2,Emergency Ops,NC HART ,2
+52006,cb26,D,NCHARTKD3,HART KD 3,Emergency Ops,NC HART ,2
+52007,cb27,D,NCHARTKD4,HART KD 4,Emergency Ops,NC HART ,2
+52008,cb28,D,NCHARTKD5,HART KD 5,Emergency Ops,NC HART ,2
+52009,cb29,D,NCHARTKD6,HART KD 6,Emergency Ops,NC HART ,2
+52010,cb2a,D,NCHARTOPS,HART OPS,Emergency Ops,NC HART ,2
+52011,cb2b,D,NCL&TCOM1,NC License and Theft Common 1,Multi-Tac,License and Theft,2
+52012,cb2c,D,NCL&TCOM2,NC License and Theft Common 2,Multi-Tac,License and Theft,2
+52013,cb2d,D,NCL&TDIST1,NC License and Theft District 1,Law Dispatch,License and Theft,2
+52014,cb2e,D,NCL&TDIST2,NC License and Theft District 2,Law Dispatch,License and Theft,2
+52015,cb2f,D,NCL&TDIST3,NC License and Theft District 3,Law Dispatch,License and Theft,2
+52016,cb30,D,NCL&TDIST4,NC License and Theft District 4,Law Dispatch,License and Theft,2
+52017,cb31,D,NCL&TDIST5,NC License and Theft District 5,Law Dispatch,License and Theft,2
+52018,cb32,D,NCL&TDIST6,NC License and Theft District 6,Law Dispatch,License and Theft,2
+52019,cb33,D,NCL&TDIST7,NC License and Theft District 7,Law Dispatch,License and Theft,2
+52020,cb34,D,NCL&TDIST8,NC License and Theft District 8,Law Dispatch,License and Theft,2
+52021,cb35,D,NCL&THQ,NC License and Theft Head Quarters,Law Dispatch,License and Theft,2
+52022,cb36,D,NCL&TSUPPLY,NC LIcense and Theft Supply ,Law Tac,License and Theft,2
+52023,cb37,D,NCL&TTRAIN,NC License and Theft Training,Law Tac,License and Theft,2
+52024,cb38,D,NCGAPD 1,Police 1,Law Dispatch,NC General Assembly,2
+52025,cb39,D,NCGAPD 2,Police 2,Law Tac,NC General Assembly,2
+52027,cb3b,D,NCNG1,National Guard 1,Military,North Carolina National Guard,2
+52028,cb3c,D,NCNG2,National Guard 2,Military,North Carolina National Guard,2
+52029,cb3d,D,NCNG3,National Guard 3,Military,North Carolina National Guard,2
+52030,cb3e,D,NCNG4,National Guard 4,Military,North Carolina National Guard,2
+52031,cb3f,D,NGAIRBOSS,National Guard Air Boss,Military,North Carolina National Guard,2
+52032,cb40,D,NGJOC,National Guard Joint Operations Center,Military,North Carolina National Guard,2
+52033,cb41,D,NGJRSOI1,National Guard SOI 1,Military,North Carolina National Guard,2
+52034,cb42,D,NGJRSOI2,National Guard SOI 2,Military,North Carolina National Guard,2
+52035,cb43,D,NGJTF,National Guard Joint Task Force,Military,North Carolina National Guard,2
+52036,cb44,D,NGLUH046,National Guard LUH 046,Military,North Carolina National Guard,2
+52037,cb45,D,NGLUH047,National Guard LUH 047,Military,North Carolina National Guard,2
+52038,cb46,D,NGLUH048,National Guard LUH 048,Military,North Carolina National Guard,2
+52039,cb47,D,NGLUH049,National Guard LUH 049,Military,North Carolina National Guard,2
+52040,cb48,D,NGLUHFLTCMD,National Guard LUH Flight Command,Military,North Carolina National Guard,2
+52041,cb49,D,NGLUHFLTOPS,National Guard LUH Flight OPS,Military,North Carolina National Guard,2
+52042,cb4a,D,NGMSC,National Guard MSC,Military,North Carolina National Guard,2
+52043,cb4b,D,NGRRF,National Guard RRF,Military,North Carolina National Guard,2
+52046,cb4e,D,NCOSFMADMIN,NC Office of Fire Marshal Admin,Fire-Tac,NC Office of Fire Marshal ,2
+52047,cb4f,D,NCOSFMCOUNTY,NC Office of Fire Marshal County ,Fire-Tac,NC Office of Fire Marshal ,2
+52048,cb50,D,NCOSFMEAST,NC Office of Fire Marshal East,Fire-Tac,NC Office of Fire Marshal ,2
+52049,cb51,D,NCOSFMRAL,NC Office of Fire Marshal Raleigh,Fire-Tac,NC Office of Fire Marshal ,2
+52050,cb52,D,NCOSFMWEST,NC Office of Fire Marshal West,Fire-Tac,NC Office of Fire Marshal ,2
+52051,cb53,D,NCPHSWIDE,NC Department of Public Health Statewide,Public Works,Department of Public Health,2
+52053,cb55,D,PORTMOREHD,Port Authority Morehead,Transportation,NC Ports Authority ,2
+52054,cb56,E,PORTWILMNTN,Port Authority Wilmington,Transportation,NC Ports Authority ,2
+52055,cb57,D,SBICALLSWIDE,SBI Calling Channel Statewide,Law Tac,State Bureau of Investigation,2
+52059,cb5b,D,NCSBICOMMON1,NC SBI Common 1,Law Talk,State Bureau of Investigation,2
+52060,cb5c,D,NCSBICOMMON2,NC SBI Common 2,Law Talk,State Bureau of Investigation,2
+52062,cb5e,D,SBI DIST 8,SBI District 8,Law Tac,State Bureau of Investigation,2
+52063,cb5f,D,SBI PRI,SBI Primary,Law Dispatch,State Bureau of Investigation,2
+52064,cb60,D,SBI SEC,SBI Secondary,Law Tac,State Bureau of Investigation,2
+52067,cb63,E,NCSBISRTSW,SBI SRT Statewide,Law Tac,State Bureau of Investigation,2
+52068,cb64,D,NCSBITG3,NC SBI TG 3,Law Tac,State Bureau of Investigation,2
+52069,cb65,D,NCSBITG4,NC SBI TG 4,Law Tac,State Bureau of Investigation,2
+52070,cb66,D,NCSFADMIN,NC State Fairgrounds Admin,Law Tac,NC State Fairgrounds,2
+52071,cb67,D,NCSFMAIN,NC State Fairgrounds Main,Law Tac,NC State Fairgrounds,2
+52072,cb68,D,NCSFMAINT,NC State Fairgrounds Maintenance,Multi-Tac,NC State Fairgrounds,2
+52083,cb73,D,IMDspTAe,IMAP Turnpike Authority East,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+52084,cb74,D,IMDspTAc,IMAP Turnpike Authority Central,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+52085,cb75,D,IMDspTAw,IMAP Turnpike Authority West,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+52086,cb76,D,IMDspTAsw,IMAP Turnpike Authority Statewide,Transportation,NC DOT Including IMAP Motorists Assistance along I40 ,2
+52087,cb77,D,NCWRCAIR1,Wildlife Resource Commission Air 1,Law Tac,Wildlife Resource,2
+52088,cb78,D,NCWRCAIR2,Wildlife Resource Commission Air 2,Law Tac,Wildlife Resource,2
+52089,cb79,D,NCWRCAIR3,Wildlife Resource Commission Air 3,Law Tac,Wildlife Resource,2
+52090,cb7a,D,NCWRCAIR4,Wildlife Resource Commission Air 4,Law Tac,Wildlife Resource,2
+52091,cb7b,D,NCWRCCOM1,Wildlife Resource Commission Common 1,Law Talk,Wildlife Resource,2
+52092,cb7c,D,NCWRCCOM2,Wildlife Resource Commission Common 2,Law Talk,Wildlife Resource,2
+52093,cb7d,D,NCWRCDIST1,Wildlife Resource Commission District 1 ,Law Dispatch,Wildlife Resource,2
+52094,cb7e,D,NCWRCDIST1CC,Wildlife Resource Commission District 1 Common,Law Tac,Wildlife Resource,2
+52095,cb7f,D,NCWRCDIST2,Wildlife Resource Commission District 2 ,Law Dispatch,Wildlife Resource,2
+52096,cb80,D,NCWRCDIST2CC,Wildlife Resource Commission District 2 Common,Law Tac,Wildlife Resource,2
+52097,cb81,D,NCWRCDIST3,Wildlife Resource Commission District 3,Law Dispatch,Wildlife Resource,2
+52098,cb82,D,NCWRCDIST3CC,Wildlife Resource Commission District 3 Common,Law Tac,Wildlife Resource,2
+52099,cb83,D,NCWRCDIST4,Wildlife Resource Commission District 4,Law Dispatch,Wildlife Resource,2
+52100,cb84,D,NCWRCDIST4CC,Wildlife Resource Commission District 4 Common,Law Tac,Wildlife Resource,2
+52101,cb85,D,NCWRCDIST5,Wildlife Resource Commission District 5,Law Dispatch,Wildlife Resource,2
+52102,cb86,D,NCWRCDIST5CC,Wildlife Resource Commission District 5 Common,Law Tac,Wildlife Resource,2
+52103,cb87,D,NCWRCDIST6,Wildlife Resource Commission District 6 ,Law Dispatch,Wildlife Resource,2
+52104,cb88,D,NCWRCDIST6CC,Wildlife Resource Commission District 6 Common,Law Tac,Wildlife Resource,2
+52105,cb89,D,NCWRCDIST7,Wildlife Resource Commission District 7 ,Law Dispatch,Wildlife Resource,2
+52106,cb8a,D,NCWRCDIST7CC,Wildlife Resource Commission District 7 Common,Law Tac,Wildlife Resource,2
+52107,cb8b,D,NCWRCDIST8,Wildlife Resource Commission District 8,Law Dispatch,Wildlife Resource,2
+52108,cb8c,D,NCWRCDIST8CC,Wildlife Resource Commission District 8 Common,Law Tac,Wildlife Resource,2
+52109,cb8d,D,NCWRCDIST9,Wildlife Resource Commission District 9 ,Law Dispatch,Wildlife Resource,2
+52110,cb8e,D,NCWRCDIST9CC,Wildlife Resource Commission District 9 Common,Law Tac,Wildlife Resource,2
+52112,cb90,D,NCWRCSWIDE,Wildlife Resources Statewide,Law Talk,Wildlife Resource,2
+52119,cb97,D,SCPADMIN,State Capitol Police Admin,Law Tac,State Capitol Police ,2
+52120,cb98,D,SCPINVA,State Capitol Police Investigations A,Law Tac,State Capitol Police ,2
+52121,cb99,D,SCPINVB,State Capitol Police Investigations B,Law Tac,State Capitol Police ,2
+52122,cb9a,D,SCPPRI,State Capitol Police Primary,Law Dispatch,State Capitol Police ,2
+52123,cb9b,D,SCPSEC,State Capitol Police Secondary,Law Tac,State Capitol Police ,2
+52124,cb9c,D,SCPTAC1,State Capitol Police TAC 1,Law Tac,State Capitol Police ,2
+52125,cb9d,D,SCPTAC2,State Capitol Police TAC 2,Law Tac,State Capitol Police ,2
+52126,cb9e,D,SCPTAC3,State Capitol Police TAC 3,Law Tac,State Capitol Police ,2
+52127,cb9f,D,SHP AIROPS,SHP AIR OPS,Law Tac,North Carolina Highway Patrol Various,2
+52129,cba1,E,SHPCIT,SHP CIT,Law Tac,North Carolina Highway Patrol Various,2
+52130,cba2,E,SHPCITDEACOM,SHP CIT DEA COM,Law Tac,North Carolina Highway Patrol Various,2
+52134,cba6,D,Trp A Com 1,TROOP A COMMON 1,Law Tac,NCSHP Troop A Greenville,2
+52135,cba7,D,Trp A Com 2,TROOP A COMMON 2,Law Tac,NCSHP Troop A Greenville,2
+52136,cba8,D,Trp A Dist 1,"TROOP A DIST1 Dare, Currituck Cos",Law Dispatch,NCSHP Troop A Greenville,2
+52137,cba9,D,Trp A Dist 2,"TROOP A DIST2 Hertford Gates, Bertie Cos",Law Dispatch,NCSHP Troop A Greenville,2
+52138,cbaa,D,Trp A Dist 3,"TROOP A DIST3 Pasquotank, Chowan, Perquimans, Camden Cos",Law Dispatch,NCSHP Troop A Greenville,2
+52139,cbab,D,Trp A Dist 4,"TROOP A DIST4 Beaufort, Washington, Tyrrell, Hyde Cos",Law Dispatch,NCSHP Troop A Greenville,2
+52140,cbac,D,Trp A Dist 5,"TROOP A DIST5 Pitt, Martin Cos",Law Dispatch,NCSHP Troop A Greenville,2
+52141,cbad,D,Trp A Dist 6,"TROOP A DIST6 Craven, Pamlico Cos",Law Dispatch,NCSHP Troop A Greenville,2
+52142,cbae,D,Trp A Dist 7,"TROOP A DIST7 Lenoir, Jones Cos",Law Dispatch,NCSHP Troop A Greenville,2
+52143,cbaf,D,Trp A Dist 8,TROOP A DIST8 Carteret Co,Law Dispatch,NCSHP Troop A Greenville,2
+52144,cbb0,D,Trp A HQ,TROOP A H/Q GRP,Law Talk,NCSHP Troop A Greenville,2
+52145,cbb1,D,Trp B Com 1,TRP B COMMON 1,Law Tac,NCSHP Troop B Fayetteville,2
+52146,cbb2,D,Trp B COm 2,TRP B COMMON 2,Law Tac,NCSHP Troop B Fayetteville,2
+52147,cbb3,D,Trp B Dist 1,TROOP B DIST1 Cumberland Co,Law Dispatch,NCSHP Troop B Fayetteville,2
+52148,cbb4,D,Trp B Dist 2,TROOP B DIST2 Sampson Co,Law Dispatch,NCSHP Troop B Fayetteville,2
+52149,cbb5,D,Trp B Dist 3,TROOP B DIST3 Onslow Co,Law Dispatch,NCSHP Troop B Fayetteville,2
+52150,cbb6,D,Trp B Dist 4,"TROOP B DIST4 Duplin, Pender Cos",Law Dispatch,NCSHP Troop B Fayetteville,2
+52151,cbb7,D,Trp B Dist 5,"TROOP B DIST5 Columbus, Bladen Cos",Law Dispatch,NCSHP Troop B Fayetteville,2
+52152,cbb8,D,Trp B Dist 6,"TROOP B DIST6 New Hanover, Brunswick Cos",Law Dispatch,NCSHP Troop B Fayetteville,2
+52153,cbb9,D,Trp B Dist 7,TROOP B DIST7 Robeson Co,Law Dispatch,NCSHP Troop B Fayetteville,2
+52154,cbba,D,Trp B Dist 8,TROOP B DIST8 Harnett Co,Law Dispatch,NCSHP Troop B Fayetteville,2
+52155,cbbb,D,Trp B HQ,TRP B H/Q GRP,Law Talk,NCSHP Troop B Fayetteville,2
+52156,cbbc,D,Trp C Com 1,TRP C COMMON 1,Law Tac,NCSHP Troop C Raleigh,2
+52157,cbbd,D,Trp C Com 2,TRP C COMMON 2,Law Tac,NCSHP Troop C Raleigh,2
+52158,cbbe,D,Trp C Dist 1,"TROOP C DIST1 Nash, Edgecombe Cos",Law Dispatch,NCSHP Troop C Raleigh,2
+52159,cbbf,D,Trp C Dist 2,TROOP C DIST2 Wayne Co,Law Dispatch,NCSHP Troop C Raleigh,2
+52160,cbc0,D,Trp C Dist 3,TROOP C DIST3 Wake Co,Law Dispatch,NCSHP Troop C Raleigh,2
+52161,cbc1,D,Trp C Dist 4,"TROOP C DIST4 Franklin, Vance, Warren Cos",Law Dispatch,NCSHP Troop C Raleigh,2
+52162,cbc2,D,Trp C Dist 5,"TROOP C DIST5 Wilson, Greene Cos",Law Dispatch,NCSHP Troop C Raleigh,2
+52163,cbc3,D,Trp C Dist 6,TROOP C DIST6 Johnston Co,Law Dispatch,NCSHP Troop C Raleigh,2
+52164,cbc4,D,Trp C Dist 7,"TROOP C DIST7 Durham, Granville Cos",Law Dispatch,NCSHP Troop C Raleigh,2
+52165,cbc5,D,Trp C Dist 8,"TROOP C DIST8 Northampton, Halifax Cos",Law Dispatch,NCSHP Troop C Raleigh,2
+52166,cbc6,D,Trp C HQ,TRP C H/Q GRP,Law Talk,NCSHP Troop C Raleigh,2
+52167,cbc7,D,Trp D Com 1,TRP D COMMON 1,Law Tac,NCSHP Troop D Greensboro,2
+52168,cbc8,D,Trp D Com 2,TRP D COMMON 2,Law Tac,NCSHP Troop D Greensboro,2
+52169,cbc9,D,Trp D Dist 1,"TROOP D DIST1 Chatham, Lee Cos",Law Dispatch,NCSHP Troop D Greensboro,2
+52170,cbca,D,Trp D Dist 2,TROOP D DIST2 Guilford Co,Law Dispatch,NCSHP Troop D Greensboro,2
+52171,cbcb,D,Trp D Dist 3,TROOP D DIST3 Rockingham Co,Law Dispatch,NCSHP Troop D Greensboro,2
+52172,cbcc,D,Trp D Dist 4,"TROOP D DIST4 Person, Caswell Cos",Law Dispatch,NCSHP Troop D Greensboro,2
+52173,cbcd,D,Trp D Dist 5,TROOP D DIST5 Alamance Co,Law Dispatch,NCSHP Troop D Greensboro,2
+52174,cbce,D,Trp D Dist 6,TROOP D DIST6 Randolph Co,Law Dispatch,NCSHP Troop D Greensboro,2
+52175,cbcf,D,Trp D Dist 7,TROOP D DIST7 Orange Co,Law Dispatch,NCSHP Troop D Greensboro,2
+52176,cbd0,D,Trp D HQ,TRP D H/Q GRP,Law Talk,NCSHP Troop D Greensboro,2
+52177,cbd1,D,Trp E Com 1,TRP E COMMON 1,Law Tac,NCSHP Troop E Salisbury,2
+52178,cbd2,D,Trp E Com 2,TRP E COMMON 2,Law Tac,NCSHP Troop E Salisbury,2
+52179,cbd3,D,Trp E Dist 1,TROOP E DIST1 Davidson Co,Law Dispatch,NCSHP Troop E Salisbury,2
+52180,cbd4,D,Trp E Dist 2,"TROOP E DIST2 Stanly, Montgomery Cos",Law Dispatch,NCSHP Troop E Salisbury,2
+52181,cbd5,D,Trp E Dist 3,TROOP E DIST3 Rowan Co,Law Dispatch,NCSHP Troop E Salisbury,2
+52182,cbd6,D,Trp E Dist 4,TROOP E DIST4 Forsyth Co,Law Dispatch,NCSHP Troop E Salisbury,2
+52183,cbd7,D,Trp E Dist 5,"TROOP E DIST5 Stokes, Surry Cos",Law Dispatch,NCSHP Troop E Salisbury,2
+52184,cbd8,D,Trp E Dist 6,TROOP E DIST6 Cabarrus Co,Law Dispatch,NCSHP Troop E Salisbury,2
+52185,cbd9,D,Trp E Dist 7,"TROOP E DIST7 Davie, Yadkin Cos",Law Dispatch,NCSHP Troop E Salisbury,2
+52186,cbda,D,Trp E HQ,TRP E H/Q GRP,Law Talk,NCSHP Troop E Salisbury,2
+52187,cbdb,D,Trp F Com 1,TRP F COMMON 1,Law Tac,NCSHP Troop F Newton,2
+52188,cbdc,D,Trp F Com 2,TRP F COMMON 2,Law Tac,NCSHP Troop F Newton,2
+52189,cbdd,D,Trp F Dist 1,TROOP F DIST1 Burke Co,Law Dispatch,NCSHP Troop F Newton,2
+52190,cbde,D,Trp F Dist 2,"TROOP F DIST2 Wilkes, Ashe, Alleghany Cos",Law Dispatch,NCSHP Troop F Newton,2
+52191,cbdf,D,Trp F Dist 3,"TROOP F DIST3 Caldwell, Watauga Cos",Law Dispatch,NCSHP Troop F Newton,2
+52192,cbe0,D,Trp F Dist 4,"TROOP F DIST4 Iredell, Alexander Cos",Law Dispatch,NCSHP Troop F Newton,2
+52193,cbe1,D,Trp F Dist 5,"TROOP F DIST5 Catawba, Lincoln Cos",Law Dispatch,NCSHP Troop F Newton,2
+52194,cbe2,D,Trp F HQ,TRP F H/Q GRP,Law Talk,NCSHP Troop F Newton,2
+52195,cbe3,D,Trp G Com 1,TRP G COMMON 1,Law Tac,NCSHP Troop G Asheville,2
+52196,cbe4,D,Trp G Com 2,TRP G COMMON 2,Law Tac,NCSHP Troop G Asheville,2
+52197,cbe5,D,Trp G Dist 1,"TROOP G DIST1 Yancey, Mitchell, Avery, Madison Cos",Law Dispatch,NCSHP Troop G Asheville,2
+52198,cbe6,D,Trp G Dist 2,"TROOP G DIST2 McDowell, Rutherford Cos",Law Dispatch,NCSHP Troop G Asheville,2
+52199,cbe7,D,Trp G Dist 3,"TROOP G DIST3 Henderson, Transylvania, Polk Cos",Law Dispatch,NCSHP Troop G Asheville,2
+52200,cbe8,D,Trp G Dist 4,TROOP G DIST4 Buncombe Co,Law Dispatch,NCSHP Troop G Asheville,2
+52201,cbe9,D,Trp G Dist 5,"TROOP G DIST5 Haywood, Jackson Cos",Law Dispatch,NCSHP Troop G Asheville,2
+52202,cbea,D,Trp G Dist 6,"TROOP G DIST6 Swain, Macon, Clay, Cherokee, Graham Cos",Law Dispatch,NCSHP Troop G Asheville,2
+52203,cbeb,D,Trp G HQ,TRP G H/Q GRP,Law Talk,NCSHP Troop G Asheville,2
+52204,cbec,D,Trp H Com 1,TRP H COMMON 1,Law Tac,NCSHP Troop H Monroe,2
+52205,cbed,D,Trp H Com 2,TRP H COMMON 2,Law Tac,NCSHP Troop H Monroe,2
+52206,cbee,D,Trp H Dist 1,TROOP H DIST1 Gaston Co,Law Dispatch,NCSHP Troop H Monroe,2
+52207,cbef,D,Trp H Dist 2,"TROOP H DIST2 Richmond, Scotland Cos",Law Dispatch,NCSHP Troop H Monroe,2
+52208,cbf0,D,Trp H Dist 3,"TROOP H DIST3 Union, Anson Cos",Law Dispatch,NCSHP Troop H Monroe,2
+52209,cbf1,D,Trp H Dist 4,TROOP H DIST4 Cleveland Co,Law Dispatch,NCSHP Troop H Monroe,2
+52210,cbf2,D,Trp H Dist 5,TROOP H DIST5 Mecklenburg Co,Law Dispatch,NCSHP Troop H Monroe,2
+52211,cbf3,D,Trp H Dist 6,"TROOP H DIST6 Moore, Hoke Cos",Law Dispatch,NCSHP Troop H Monroe,2
+52212,cbf4,D,Trp H HQ,TRP H H/Q GRP,Law Talk,NCSHP Troop H Monroe,2
+52216,cbf8,D,SHP GOV,SHP Governors Mansion Raleigh,Law Tac,North Carolina Highway Patrol Various,2
+52218,cbfa,D,SHPMOTOR,SHP Motor Units,Law Tac,North Carolina Highway Patrol Various,2
+52222,cbfe,D,SHPSOSHQ,SHP Sheriff HQ,Law Tac,North Carolina Highway Patrol Various,2
+52224,cc00,D,Trp A MAID,NCSHP Troop A Mutual Aid,Interop,NCSHP Troop A Greenville,2
+52225,cc01,D,Trp B MAID,NCSHP Troop B Mutual Aid,Interop,NCSHP Troop B Fayetteville,2
+52226,cc02,D,Trp C MAID,NCSHP Troop C Mutual Aid,Interop,NCSHP Troop C Raleigh,2
+52227,cc03,D,Trp D MAID,NCSHP Troop D Mutual Aid,Interop,NCSHP Troop D Greensboro,2
+52228,cc04,D,Trp E MAID,NCSHP Troop E Mutual Aid,Interop,NCSHP Troop E Salisbury,2
+52229,cc05,D,Trp F MAID,NCSHP Troop F Mutual Aid,Interop,NCSHP Troop F Newton,2
+52230,cc06,D,Trp G MAID,NCSHP Troop G Mutual Aid,Interop,NCSHP Troop G Asheville,2
+52231,cc07,D,Trp H MAID,NCSHP Troop H Mutual Aid,Interop,NCSHP Troop H Monroe,2
+52255,cc1f,D,SWCALL,Statewide Calling Channel,Interop,Statewide Interop,2
+52256,cc20,D,SWEMS,Statewide EMS Channel,Interop,Statewide Interop,2
+52257,cc21,D,SWFIRE,Statewide Fire Channel,Interop,Statewide Interop,2
+52258,cc22,D,SWGEN,Statewide General Channel,Interop,Statewide Interop,2
+52259,cc23,D,SWLAW,Statewide Law Channel,Interop,Statewide Interop,2
+52263,cc27,D,CABE,Cabes Land Trail State Park,Public Works,NC Parks Service,2
+52264,cc28,D,FOMA,Fort Macon State Park,Public Works,NC Parks Service,2
+52265,cc29,D,GOCR,Goose Creek State Park,Public Works,NC Parks Service,2
+52266,cc2a,D,GORG,Gorges State Park,Public Works,NC Parks Service,2
+52267,cc2b,D,HABE,Hammock Beach State Park,Public Works,NC Parks Service,2
+52268,cc2c,D,HARO,Hanging Rock State Park,Public Works,NC Parks Service,2
+52269,cc2d,D,HARI,Haw River State Park,Public Works,NC Parks Service,2
+52270,cc2e,D,CHRO,Chimney Rock State Park,Public Works,NC Parks Service,2
+52271,cc2f,D,JONE,Jones Lake State Park,Public Works,NC Parks Service,2
+52272,cc30,D,JORD,Jordan Lake State Park,Public Works,NC Parks Service,2
+52273,cc31,D,JORI,Jockeys Ridge State Park,Public Works,NC Parks Service,2
+52274,cc32,D,CACRWEWO,Carver's Creek Weymouth Woods Sandhills Nature Preserve,Public Works,NC Parks Service,2
+52275,cc33,D,KELA,Kerr Lake State Park,Public Works,NC Parks Service,2
+52276,cc34,D,LAJA,Lake James State Park,Public Works,NC Parks Service,2
+52277,cc35,D,LANO,Lake Norman State Park,Public Works,NC Parks Service,2
+52278,cc36,D,LAWA,Lake Waccamaw State Park,Public Works,NC Parks Service,2
+52279,cc37,D,LURI,Lumber River State Park,Public Works,NC Parks Service,2
+52280,cc38,D,MARI,Mayo River State Park,Public Works,NC Parks Service,2
+52281,cc39,D,MEMI,Merchants Millpond State Park,Public Works,NC Parks Service,2
+52282,cc3a,D,MEMO,Medoc Mountain State Park,Public Works,NC Parks Service,2
+52285,cc3d,D,CLNE,Cliffs of the Neuse State Park,Public Works,NC Parks Service,2
+52286,cc3e,D,NERIMOJE,New River Mount Jefferson,Public Works,NC Parks Service,2
+52287,cc3f,D,PETT,Pettigrew State Park,Public Works,NC Parks Service,2
+52288,cc40,D,PIMO,Pilot Mountain State Park,Public Works,NC Parks Service,2
+52289,cc41,D,RARO,Raven Rock State Park,Public Works,NC Parks Service,2
+52290,cc42,D,SILA,Singletary State Park,Public Works,NC Parks Service,2
+52292,cc44,D,STMO,Stone Mountain State Park,Public Works,NC Parks Service,2
+52293,cc45,D,WIUM,William B Umstead State Park,Public Works,NC Parks Service,2
+52296,cc48,D,CRMO,Crowders Mountain State Park,Public Works,NC Parks Service,2
+52300,cc4c,D,NODI OPS,State Parks Northern District OPS,Public Works,NC Parks Service,2
+52301,cc4d,D,SODI OPS,State Parks Southern District OPS,Public Works,NC Parks Service,2
+52302,cc4e,D,EADI OPS,State Parks Eastern District OPS,Public Works,NC Parks Service,2
+52303,cc4f,D,WEDI OPS,State Parks Western District OPS,Public Works,NC Parks Service,2
+52304,cc50,D,SP SWTAC,State Parks Statewide TAC,Public Works,NC Parks Service,2
+52305,cc51,D,SP TAC 1,State Parks TAC 1,Public Works,NC Parks Service,2
+52306,cc52,D,SP TAC 2,State Parks TAC 2,Public Works,NC Parks Service,2
+52307,cc53,D,DISW,Dismal Swamp State Park,Public Works,NC Parks Service,2
+52308,cc54,D,SP TAC 3,State Parks TAC 3,Public Works,NC Parks Service,2
+52309,cc55,D,SP TAC 4,State Parks TAC 4,Public Works,NC Parks Service,2
+52310,cc56,D,SP TAC 5,State Parks TAC 5,Public Works,NC Parks Service,2
+52311,cc57,D,SP TAC 6,State Parks TAC 6,Public Works,NC Parks Service,2
+52312,cc58,D,SP TAC 7,State Parks TAC 7,Public Works,NC Parks Service,2
+52313,cc59,D,SP TAC 8,State Parks TAC 8,Public Works,NC Parks Service,2
+52314,cc5a,D,SP TAC 9,State Parks TAC 9,Public Works,NC Parks Service,2
+52315,cc5b,D,SP TAC10,State Parks TAC 10,Public Works,NC Parks Service,2
+52316,cc5c,D,SP TAC11,State Parks TAC 11,Public Works,NC Parks Service,2
+52317,cc5d,D,SP TAC12,State Parks TAC 12,Public Works,NC Parks Service,2
+52318,cc5e,D,ELKNGRMO,Elk Knob Grandfather Mountain,Public Works,NC Parks Service,2
+52319,cc5f,D,SP TAC13,State Parks TAC 13,Public Works,NC Parks Service,2
+52320,cc60,D,SP TAC14,State Parks TAC 14,Public Works,NC Parks Service,2
+52321,cc61,D,SP TAC15,State Parks TAC 15,Public Works,NC Parks Service,2
+52322,cc62,D,SP TAC16,State Parks TAC 16,Public Works,NC Parks Service,2
+52323,cc63,D,SP TAC17,State Parks TAC 17,Public Works,NC Parks Service,2
+52324,cc64,D,SP TAC18,State Parks TAC 18,Public Works,NC Parks Service,2
+52325,cc65,D,SP TAC19,State Parks TAC 19,Public Works,NC Parks Service,2
+52326,cc66,D,SP LE1,State Parks LE 1,Public Works,NC Parks Service,2
+52327,cc67,D,SP LE2,State Parks LE 2,Public Works,NC Parks Service,2
+52328,cc68,D,SP LE3,State Parks LE 3,Public Works,NC Parks Service,2
+52329,cc69,D,ENRI,Eno River State Park,Public Works,NC Parks Service,2
+52330,cc6a,D,SP LE4,State Parks LE 4,Public Works,NC Parks Service,2
+52331,cc6b,D,SP LE5,State Parks LE 5,Public Works,NC Parks Service,2
+52332,cc6c,D,SP LE6,State Parks LE 6,Public Works,NC Parks Service,2
+52333,cc6d,D,SP LE7,State Parks LE 7,Public Works,NC Parks Service,2
+52334,cc6e,D,FALA,Falls Lake Recreation Park,Public Works,NC Parks Service,2
+52335,cc6f,D,FOFI,Fort Fisher State Park,Public Works,NC Parks Service,2
+52336,cc70,E,SHP MW TECH,State Highway Patrol - Microwave Techs,Public Works,Radio Technicians ,2
+52339,cc73,D,UNCACADMIN,UNC AirCare Admin,Hospital,Statewide Medical Transport ,2
+52340,cc74,D,UNCACAIROPS,UNC AirCare OPS,Hospital,Statewide Medical Transport ,2
+52341,cc75,D,UNCACGRDOPS,UNC AIrCare Ground Ops,Hospital,Statewide Medical Transport ,2
+52342,cc76,D,UNCACDISP,UNC AirCare Dispatch,Hospital,Statewide Medical Transport ,2
+52351,cc7f,D,UNC-G PD DIS,UNC-G PD Dispatch,Law Dispatch,Guilford County,2
+52353,cc81,D,UNC-G PD CID,UNC-G PD CID,Law Tac,Guilford County,2
+52354,cc82,D,UNCHOSP ED,UNC Hospital Emergency Department,Hospital,Orange County,2
+52363,cc8b,D,VCPOOL 1,Central Pool 1,Interop,Statewide/Systemwide,2
+52364,cc8c,D,VCPOOL 2,Central Pool 2,Interop,Statewide/Systemwide,2
+52365,cc8d,D,VCROAM 1,Central Roam 1,Interop,Statewide/Systemwide,2
+52366,cc8e,D,VCROAM 2,Central Roam 2,Interop,Statewide/Systemwide,2
+52367,cc8f,D,VEPOOL 1,East Pool 1,Interop,Statewide/Systemwide,2
+52368,cc90,D,VEPOOL 2,East Pool 2,Interop,Statewide/Systemwide,2
+52369,cc91,D,VEROAM 1,East Roam 1,Interop,Statewide/Systemwide,2
+52370,cc92,D,VEROAM 2,East Roam 2,Interop,Statewide/Systemwide,2
+52371,cc93,D,VIPERMEDAIR,VMN Med Air Talkgroup,Hospital,VIPER Medical Network VMN,2
+52372,cc94,D,Agape,Agape Community Heath Center Washington VMA1,Hospital,VIPER Medical Network VMN,2
+52373,cc95,D,BeaufortCnty,Beaufort County Washington VMA10,Hospital,VIPER Medical Network VMN,2
+52374,cc96,D,Caswell CHC,Caswell Family CHC Yanceyville VMG4,Hospital,VIPER Medical Network VMN,2
+52375,cc97,D,WAKEMED GAME,WakeMed Garner VMG5,Hospital,VIPER Medical Network VMN,2
+52376,cc98,D,Mission Hosp,Mission Hospital Asheville VMG6,Hospital,VIPER Medical Network VMN,2
+52377,cc99,D,WakeMed Apex,Wake Med Apex VMG7,Hospital,VIPER Medical Network VMN,2
+52378,cc9a,D,Franklin Med,Franklin Regional Med Center Louisburg VMG8,Hospital,VIPER Medical Network VMN,2
+52379,cc9b,D,Boone Trail,Boone Trail Med CHC Mamers VMG9,Hospital,VIPER Medical Network VMN,2
+52380,cc9c,D,Vance Warren,Vance Warren CHC Manson VMG10,Hospital,VIPER Medical Network VMN,2
+52381,cc9d,D,Person Med,Person Family Medical Roxboro VMG11,Hospital,VIPER Medical Network VMN,2
+52382,cc9e,D,New Bern Ped,New Bern Ridge Pediatrics Raleigh VMG12,Hospital,VIPER Medical Network VMN,2
+52383,cc9f,D,Nash General,Nash General Rocky Mount VMG13,Hospital,VIPER Medical Network VMN,2
+52384,cca0,D,Bladen Hosp,Bladen County Hosp Elizabethtown VMA11,Hospital,VIPER Medical Network VMN,2
+52385,cca1,D,Carteret Gen,Carteret General Morehead City VMG14,Hospital,VIPER Medical Network VMN,2
+52386,cca2,D,NorthernHosp,Northern Hospital Surry Mt Airy VMG15,Hospital,VIPER Medical Network VMN,2
+52387,cca3,D,NCSpcaltyHos,NC Specialty Hospital Durham VMG16,Hospital,VIPER Medical Network VMN,2
+52388,cca4,D,Lincoln VMH1,Lincoln Community Heath Durham VMH1,Hospital,VIPER Medical Network VMN,2
+52389,cca5,D,Butner Hosp,Central Regional Hospital Butner VMH2,Hospital,VIPER Medical Network VMN,2
+52390,cca6,D,Rural Health,Rural Health Group Roanoke Rapids VMH3,Hospital,VIPER Medical Network VMN,2
+52391,cca7,D,Wilson CHC,Wilson CHC VMH4,Hospital,VIPER Medical Network VMN,2
+52392,cca8,D,Ahoskie Med,Ahoskie Family Physicians VMH5,Hospital,VIPER Medical Network VMN,2
+52393,cca9,D,WAKE MED,Wake Med Cary VMH6,Hospital,VIPER Medical Network VMN,2
+52394,ccaa,D,Moses Cone,Moses Cone Greensboro VMH7,Hospital,VIPER Medical Network VMN,2
+52395,ccab,D,Dosher Hosp,Dosher Hospital Southport VMA12,Hospital,VIPER Medical Network VMN,2
+52396,ccac,D,Richmond Hsp,Richmond Hospital Rockingham VMH8,Hospital,VIPER Medical Network VMN,2
+52397,ccad,D,MntgomryHosp,Montgomery Hospital Troy VMH,Hospital,VIPER Medical Network VMN,2
+52398,ccae,D,Wash. County,Washington County Plymouth,Hospital,VIPER Medical Network VMN,2
+52399,ccaf,D,Wake Med,Wake Med Childrens Raleigh VMH11,Hospital,VIPER Medical Network VMN,2
+52400,ccb0,D,Wake Med N.,Wake Med North Raleigh VMH12,Hospital,VIPER Medical Network VMN,2
+52401,ccb1,D,Presbyterian,Presbyterian Hospital Charlotte VMH13,Hospital,VIPER Medical Network VMN,2
+52402,ccb2,D,Windsor Med,Windsor Medical Center CHC VMH14,Hospital,VIPER Medical Network VMN,2
+52403,ccb3,D,Bertie Hosp,Bertie Memorial Hospital Windsor VMH15,Hospital,VIPER Medical Network VMN,2
+52404,ccb4,D,CabarrusHlth,Cabarrus Community Health Concord VMH16,Hospital,VIPER Medical Network VMN,2
+52405,ccb5,D,Gaston Med,Gaston Family Health Gastonia VMI1,Hospital,VIPER Medical Network VMN,2
+52406,ccb6,D,Asheville VA,Asheville VA VMA13,Hospital,VIPER Medical Network VMN,2
+52407,ccb7,D,Wake Med,Wake Med Brier Creek VMI2,Hospital,VIPER Medical Network VMN,2
+52408,ccb8,D,Carolinas SP,Carolinas SP VMI3,Hospital,VIPER Medical Network VMN,2
+52409,ccb9,D,CW WilamsCHC,CW Williams Metrolina CHC Metrolina VMI4,Hospital,VIPER Medical Network VMN,2
+52410,ccba,D,Hoke Co med,Hoke Co 1st Health VMI5,Hospital,VIPER Medical Network VMN,2
+52411,ccbb,D,Carolinas ME,Carolinas ME VMI6,Hospital,VIPER Medical Network VMN,2
+52412,ccbc,D,Wade Family,Wade Family Medical CMC VMI7,Hospital,VIPER Medical Network VMN,2
+52413,ccbd,D,Hghsmth Rany,Highsmith Rainey Hospital Fayetteville VMI8,Hospital,VIPER Medical Network VMN,2
+52414,ccbe,D,Presbyterian,Presbyterian VMI9,Hospital,VIPER Medical Network VMN,2
+52415,ccbf,D,TricountyCMC,Tricounty CMC Newton Grove VMI10,Hospital,VIPER Medical Network VMN,2
+52416,ccc0,D,Lumberton HC,Lumberton Health Center VMI11,Hospital,VIPER Medical Network VMN,2
+52417,ccc1,D,Grace Hosp,Grace Hospital Morganton VMA14,Hospital,VIPER Medical Network VMN,2
+52418,ccc2,D,NH CMC,New Hanover CMC WIlmington VMI12,Hospital,VIPER Medical Network VMN,2
+52419,ccc3,D,KstnCMCVMI13,Kinston Community CMC VMI13,Hospital,VIPER Medical Network VMN,2
+52420,ccc4,D,Snow Hill,Snow Hill Medical Center VMI14,Hospital,VIPER Medical Network VMN,2
+52421,ccc5,D,Naval Hospit,Naval Hospital Camp Lejeune VMI15,Hospital,VIPER Medical Network VMN,2
+52422,ccc6,D,Cherry Hosp,Cherry Hospital Goldsboro VMI16,Hospital,VIPER Medical Network VMN,2
+52423,ccc7,D,Mashburn Med,Mashburn Medical Center Marshall VMJ1,Hospital,VIPER Medical Network VMN,2
+52424,ccc8,D,BlueRidgeMed,Blue Ridge Family Practice Hendersonville VMJ2,Hospital,VIPER Medical Network VMN,2
+52425,ccc9,D,Ridgelawn,Ridgelawn Clinic Asheville VMJ3,Hospital,VIPER Medical Network VMN,2
+52426,ccca,D,Johnston Med,Johnston MedCenter Clayton VMJ4,Hospital,VIPER Medical Network VMN,2
+52427,cccb,D,State OEMS,STATE OEMS VMJ5,Hospital,VIPER Medical Network VMN,2
+52428,cccc,D,Valdese Hosp,Valdese General Hospital VMA15,Hospital,VIPER Medical Network VMN,2
+52429,cccd,D,NECarConVMJ6,Northeast MedCenter Cabarrus Concord VMJ6,Hospital,VIPER Medical Network VMN,2
+52430,ccce,D,Thoasvle Med,Thomasville Medical Center VMJ7,Hospital,VIPER Medical Network VMN,2
+52431,cccf,D,LexingtonMem,Lexington Memorial Hospital VMJ8,Hospital,VIPER Medical Network VMN,2
+52432,ccd0,D,Special Ops,Special Ops VMJ9,Hospital,VIPER Medical Network VMN,2
+52433,ccd1,D,HIGH POINT,High Point Regional Hospital VMJ10,Hospital,VIPER Medical Network VMN,2
+52434,ccd2,D,Wesley Long,Wesley Long Greensboro VMJ11,Hospital,VIPER Medical Network VMN,2
+52435,ccd3,D,Womens,Womens Hospital VMJ12,Hospital,VIPER Medical Network VMN,2
+52436,ccd4,D,Johnston Med,Johnston Med Center Smithfield VMJ13,Hospital,VIPER Medical Network VMN,2
+52437,ccd5,D,Carrboro CHC,Carrboro CHC VMJ14,Hospital,VIPER Medical Network VMN,2
+52438,ccd6,D,Presb. Hosp.,Presbyterian Hospital Matthews VMJ15,Hospital,VIPER Medical Network VMN,2
+52439,ccd7,D,Caldwell Mem,Caldwell Memorial Lenoir VMA16,Hospital,VIPER Medical Network VMN,2
+52440,ccd8,D,Carolinas,Carolinas POI VMJ16,Hospital,VIPER Medical Network VMN,2
+52440,ccd8,D,HokeHospital,Hoke Hospital,Hospital,Hoke County,2
+52441,ccd9,D,Presb. Hosp.,Presbytrian Hospital Huntersville VMK1,Hospital,VIPER Medical Network VMN,2
+52442,ccda,D,Pineville,Pineville Hospital & Steele Creek VMK2,Hospital,VIPER Medical Network VMN,2
+52443,ccdb,D,CMC Hospital,CMC University Hospital Charlotte VMK3,Hospital,VIPER Medical Network VMN,2
+52444,ccdc,D,MoreheadHsp,Morehead Memorial Hospital Eden VMK4,Hospital,VIPER Medical Network VMN,2
+52445,ccdd,D,Rowan Med,Rowan Regional Medical Center VMK5,Hospital,VIPER Medical Network VMN,2
+52446,ccde,D,Indian Hosp,Cherokee Indian Hospital VMK6,Hospital,VIPER Medical Network VMN,2
+52447,ccdf,D,State EOC,STATE EOC VMK7,Hospital,VIPER Medical Network VMN,2
+52448,cce0,D,PittCoDisatr,Pitt Co Disaster VMK8,Hospital,VIPER Medical Network VMN,2
+52449,cce1,D,PittCo Admin,Pitt Co Admin VMK9,Hospital,VIPER Medical Network VMN,2
+52450,cce2,D,Halifax Med,Halifax Medical Roanoke Rapids VMB1,Hospital,VIPER Medical Network VMN,2
+52451,cce3,D,NavyCicC.P.,Naval Clinic Cherry Point VMK10,Hospital,VIPER Medical Network VMN,2
+52452,cce4,D,Cape Fear,Cape Fear Hosp New Hanover VMK11,Hospital,VIPER Medical Network VMN,2
+52453,cce5,D,UNCAdmnVMK12,UNC Admin VMK12,Hospital,VIPER Medical Network VMN,2
+52454,cce6,D,UNC Disaster,UNC Disaster VMK13,Hospital,VIPER Medical Network VMN,2
+52455,cce7,D,CommunityCHC,Community CHC Morrisville VMK14,Hospital,VIPER Medical Network VMN,2
+52456,cce8,D,Duke RAC SMT,Duke RAC SMAT 400 VMK15,Hospital,VIPER Medical Network VMN,2
+52457,cce9,D,NC BAPTIST,NC BAPTIST Disaster VMK16,Hospital,VIPER Medical Network VMN,2
+52458,ccea,D,SMAT HOME,SMAT HOME VML1,Hospital,VIPER Medical Network VMN,2
+52459,cceb,D,SMRS Command,SMRS COMMAND VML2,Hospital,VIPER Medical Network VMN,2
+52460,ccec,D,SMRS Logist,SMRS Logistics VML3,Hospital,VIPER Medical Network VMN,2
+52461,cced,D,Catawba Med,Catawba Valley Medical Conover VMB2,Hospital,VIPER Medical Network VMN,2
+52462,ccee,D,SMRS VML4,SMRS Staging VML4,Hospital,VIPER Medical Network VMN,2
+52463,ccef,D,SMRS Transp.,SMRS Transportation VML5,Hospital,VIPER Medical Network VMN,2
+52464,ccf0,D,SMRSOps1VML6,SMRS OPS 1 VML6,Hospital,VIPER Medical Network VMN,2
+52465,ccf1,D,SMRS2 VML7,SMRS OPS 2 VML7,Hospital,VIPER Medical Network VMN,2
+52466,ccf2,D,AIR Medical,AIR Medical Dispatch VML8,Hospital,VIPER Medical Network VMN,2
+52467,ccf3,D,FryHckryVMB3,Frye Regional Hickory VMB3,Hospital,VIPER Medical Network VMN,2
+52468,ccf4,D,Cone MedCent,Cone MedCenter High Point VMA2,Hospital,VIPER Medical Network VMN,2
+52469,ccf5,D,Chatham Hosp,Chatham Hospital Siler City VMB4,Hospital,VIPER Medical Network VMN,2
+52470,ccf6,D,Murphy Med,Murphy Medical Center VMB5,Hospital,VIPER Medical Network VMN,2
+52471,ccf7,D,Chowan Hosp,Chowan Hospital Edenton VMB6,Hospital,VIPER Medical Network VMN,2
+52472,ccf8,D,ClevlndShlby,Cleveland Regional Med Center Shelby VMB7,Hospital,VIPER Medical Network VMN,2
+52473,ccf9,D,Harnett Hosp,Central Harnett Hospital,Hospital,VIPER Medical Network VMN,2
+52474,ccfa,D,Kings Mt,Kings Mountain Hospital VMB9,Hospital,VIPER Medical Network VMN,2
+52475,ccfb,D,ColumbusWHvl,Columbus Whiteville VMB10,Hospital,VIPER Medical Network VMN,2
+52476,ccfc,D,Craven Med.,Craven Regional Medical New Bern VMB11,Hospital,VIPER Medical Network VMN,2
+52477,ccfd,D,Cape FearMed,Cape Fear Valley Med Fayetteville VMB12,Hospital,VIPER Medical Network VMN,2
+52478,ccfe,D,Fayetteville,Fayetteville VA VMB13,Hospital,VIPER Medical Network VMN,2
+52479,ccff,D,AlleghanyMed,Alleghany Memorial Hospital Sparta VMA3,Hospital,VIPER Medical Network VMN,2
+52480,cd00,D,Womack Med,Womack Army Medical Center Fort Bragg VMB14,Hospital,VIPER Medical Network VMN,2
+52481,cd01,D,Davie VMB15,Davie County Mocksville VMB15,Hospital,VIPER Medical Network VMN,2
+52482,cd02,D,Duplin Gener,Duplin General KeansvilleVMB16,Hospital,VIPER Medical Network VMN,2
+52483,cd03,D,Duke Medical,Duke Medical Center Durham VMC1,Hospital,VIPER Medical Network VMN,2
+52484,cd04,D,Durham VMC2,Durham VA VMC2,Hospital,VIPER Medical Network VMN,2
+52485,cd05,D,DURHAM,Durham Regional Hospital VMC3,Hospital,VIPER Medical Network VMN,2
+52486,cd06,D,Alamance Med,Alamance Medical Center Burlington VMC4,Hospital,VIPER Medical Network VMN,2
+52487,cd07,D,GranvilleMed,Granville Medical Center Oxford VMC5,Hospital,VIPER Medical Network VMN,2
+52488,cd08,D,Our Comm Med,Our Community Scotland Neck VMC6,Hospital,VIPER Medical Network VMN,2
+52489,cd09,D,BtsyJhnsVMC7,Betsy Johnson Dunn VMC7,Hospital,VIPER Medical Network VMN,2
+52490,cd0a,D,Anson Hosp,Anson Community Hospital VMA4,Hospital,VIPER Medical Network VMN,2
+52491,cd0b,D,Haywood RMC,Haywood Regional Medical Cylde VMC8,Hospital,VIPER Medical Network VMN,2
+52492,cd0c,D,Margaret P,Margaret Pardee Hendersonville VMC9,Hospital,VIPER Medical Network VMN,2
+52493,cd0d,D,ParkridgeHos,Parkridge Hospital Hendersonville VMC10,Hospital,VIPER Medical Network VMN,2
+52494,cd0e,D,RonkeChowHsp,Roanoke Chowan Hosp Ashoskie VMC11,Hospital,VIPER Medical Network VMN,2
+52495,cd0f,D,Lake Norman,Lake Norman Med Center Mooresville VMC12,Hospital,VIPER Medical Network VMN,2
+52496,cd10,D,Davis Med,Davis Regional Med Center Statesville VMC13,Hospital,VIPER Medical Network VMN,2
+52497,cd11,D,Iredell Hosp,Iredell Memorial Hosp Statesville VMC14,Hospital,VIPER Medical Network VMN,2
+52498,cd12,D,HarrisVMC15,Harris Regional Sylvia VMC15,Hospital,VIPER Medical Network VMN,2
+52499,cd13,D,CentlCarHosp,Central Carolina Hospital Sanford VMC16,Hospital,VIPER Medical Network VMN,2
+52500,cd14,D,LenoirMemorl,Lenoir Memorial Hospital Kinston VMD1,Hospital,VIPER Medical Network VMN,2
+52501,cd15,D,Anson Region,Anson Regional CHC Wadesboro VMA5,Hospital,VIPER Medical Network VMN,2
+52502,cd16,D,AngelMedical,Angel Medical Center Franklin VMD2,Hospital,VIPER Medical Network VMN,2
+52503,cd17,D,Martin Genrl,Martin General Hospital Williamston VMD3,Hospital,VIPER Medical Network VMN,2
+52504,cd18,D,McdowelMarn,Mcdowell Hospital Marion VMD4,Hospital,VIPER Medical Network VMN,2
+52505,cd19,D,CMC MainMed,CMC Main Charlotte VMD5,Hospital,VIPER Medical Network VMN,2
+52506,cd1a,D,OBX Nags,Outer Banks Hospital Nags Head VMD6,Hospital,VIPER Medical Network VMN,2
+52507,cd1b,D,Spruce Pine,Spruce Pine Community VMD7,Hospital,VIPER Medical Network VMN,2
+52508,cd1c,D,Moore Hosp,Moore Regional Hospital Pinehurst VMD8,Hospital,VIPER Medical Network VMN,2
+52509,cd1d,D,Onslow Hosp,Onslow Memorial Hosp Jacksonville VMD9,Hospital,VIPER Medical Network VMN,2
+52510,cd1e,D,UNC Hospital,UNC Hospital Chapel Hill VMD10,Hospital,VIPER Medical Network VMN,2
+52511,cd1f,D,AlbemarleHos,Albemarle Hospital Elizabeth City VMD11,Hospital,VIPER Medical Network VMN,2
+52512,cd20,D,Ashe Hosp,Ashe Memorial Hosp Jefferson VMA6,Hospital,VIPER Medical Network VMN,2
+52513,cd21,D,Pender VMD12,Pender Memorial Hospital Burgaw VMD12,Hospital,VIPER Medical Network VMN,2
+52514,cd22,D,Person Memor,Person Memorial Hospital Roxboro VMD13,Hospital,VIPER Medical Network VMN,2
+52515,cd23,D,Pitt Hosp,Pitt County Hospital Greenville VMD14,Hospital,VIPER Medical Network VMN,2
+52516,cd24,D,RandolphHosp,Randolph Hospital VMD15,Hospital,VIPER Medical Network VMN,2
+52517,cd25,D,SandhillsMed,Sandhills Medical Hamlet VMD16,Hospital,VIPER Medical Network VMN,2
+52518,cd26,D,SEmedlmbertn,Southeastern Regional Med Lumberton VME1,Hospital,VIPER Medical Network VMN,2
+52519,cd27,D,Annie Penn,Annie Penn Hospital Reidsville VME2,Hospital,VIPER Medical Network VMN,2
+52520,cd28,D,Wake Forest,Wake Forest Baptist Hospital Winston Salem VME3,Hospital,VIPER Medical Network VMN,2
+52521,cd29,D,Forsyth VME4,Forsyth Medical Center Winston Salem VME4,Hospital,VIPER Medical Network VMN,2
+52522,cd2a,D,Sampson Med,Sampson Medical Center Clinton VME5,Hospital,VIPER Medical Network VMN,2
+52523,cd2b,D,Cannon Hosp,Charles Cannon Hospital Linville VMA7,Hospital,VIPER Medical Network VMN,2
+52524,cd2c,D,Scotland Hos,Scotland Memorial Laurinburg VME6,Hospital,VIPER Medical Network VMN,2
+52525,cd2d,D,Stanly Memor,Stanly Memorial Hospital Albemarle VME7,Hospital,VIPER Medical Network VMN,2
+52526,cd2e,D,StokesReynol,Stokes Reynolds Danbury VME8,Hospital,VIPER Medical Network VMN,2
+52527,cd2f,D,Hugh Chatham,Hugh Chatham Hospital Elkin VME9,Hospital,VIPER Medical Network VMN,2
+52528,cd30,D,Swain Hosp,Swain County Hospital Bryson City VME10,Hospital,VIPER Medical Network VMN,2
+52529,cd31,D,Trnsyl Hosp,Transylvania Hospital Brevard VME11,Hospital,VIPER Medical Network VMN,2
+52530,cd32,D,Union Med,Union Regional Med Center Monroe VME12,Hospital,VIPER Medical Network VMN,2
+52531,cd33,D,Parham Hospi,Maria Parham Hospital Henderson VME13,Hospital,VIPER Medical Network VMN,2
+52532,cd34,D,DukeRal Hosp,Duke Raleigh Hospital VME14,Hospital,VIPER Medical Network VMN,2
+52533,cd35,D,Rex Hospital,Rex Hospital Raleigh VME15,Hospital,VIPER Medical Network VMN,2
+52534,cd36,D,Gaston Hosp,Gaston Memorial Hosp Gastonia VMA8,Hospital,VIPER Medical Network VMN,2
+52535,cd37,D,Wilkes Med,Wilkes Med North Wilkesboro VME16,Hospital,VIPER Medical Network VMN,2
+52536,cd38,D,Wilson Med.,Wilson Medical Center VMF1,Hospital,VIPER Medical Network VMN,2
+52537,cd39,D,Hoots Hosp.,Hoots Memorial Hospital Yadkinville VMF2,Hospital,VIPER Medical Network VMN,2
+52538,cd3a,D,CMC Lincolnt,CMC Lincolnton VMF3,Hospital,VIPER Medical Network VMN,2
+52539,cd3b,D,StLuksClmbus,St Lukes Columbus VMF4,Hospital,VIPER Medical Network VMN,2
+52540,cd3c,D,RutherfrdHsp,Rutherford Hospital Rutherfordton VMF5,Hospital,VIPER Medical Network VMN,2
+52541,cd3d,D,CMC MercyHos,CMC Mercy Hospital Charlotte VMF6,Hospital,VIPER Medical Network VMN,2
+52542,cd3e,D,BlwngRockMed,Blowing Rock Hospital VMF7,Hospital,VIPER Medical Network VMN,2
+52543,cd3f,D,Watauga Med,Watauga Medical Center Boone VMF8,Hospital,VIPER Medical Network VMN,2
+52544,cd40,D,Wake Med,Wake Med Raleigh VMF9,Hospital,VIPER Medical Network VMN,2
+52545,cd41,D,PungoDistMed,Pungo District Hospital Belhaven VMA9,Hospital,VIPER Medical Network VMN,2
+52546,cd42,D,HeritageHosp,Heritage Hospital Tarboro VMF10,Hospital,VIPER Medical Network VMN,2
+52547,cd43,D,VIPER Med.,Highlands Cashiers Hospital VMF11,Hospital,VIPER Medical Network VMN,2
+52548,cd44,D,Wayne Mem.,Wayne Memorial Goldsboro VMF12,Hospital,VIPER Medical Network VMN,2
+52549,cd45,D,BrunswckVM13,Brunswick VMF13,Hospital,VIPER Medical Network VMN,2
+52550,cd46,D,Goshen Med,Goshen Med Center Faison VMF14,Hospital,VIPER Medical Network VMN,2
+52551,cd47,D,SalsbryVMF15,Salisbury VMF15,Hospital,VIPER Medical Network VMN,2
+52552,cd48,D,Baptist Med,Baptist Medical Center PEDS Winston Salem VMF16,Hospital,VIPER Medical Network VMN,2
+52553,cd49,D,KrnersvleMed,Kernersville Medical Center VMG1,Hospital,VIPER Medical Network VMN,2
+52554,cd4a,D,NewHanovrMed,New Hanover Regional Med Wilmington VMG2,Hospital,VIPER Medical Network VMN,2
+52555,cd4b,D,Merce CHC,Merce CHC Randolph CTY Asheboro VMG3,Hospital,VIPER Medical Network VMN,2
+52560,cd50,D,VWPOOL 1,West Pool 1,Interop,Statewide/Systemwide,2
+52561,cd51,D,VWPOOL 2,West Pool 2,Interop,Statewide/Systemwide,2
+52562,cd52,D,VWROAM 1,West Roam 1,Interop,Statewide/Systemwide,2
+52563,cd53,D,VWROAM 2,West Roam 2,Interop,Statewide/Systemwide,2
+52565,cd55,D,WMAIROPS,Wake Med Air Ops,Hospital,Wake Medical Center ,2
+52566,cd56,D,WMGRDOPS,Wake Med Ground Ops,Hospital,Wake Medical Center ,2
+52567,cd57,D,WMSECTY1,Wake Med Security 1,Hospital,Wake Medical Center ,2
+52568,cd58,D,WMADMIN,Wake Med Admin,Hospital,Wake Medical Center ,2
+52569,cd59,D,WMAIRDISP,Wake Med Air Dispatch,Hospital,Wake Medical Center ,2
+52570,cd5a,D,WMEDCOM,Wake Med Common,Hospital,Wake Medical Center ,2
+52571,cd5b,D,WMGRDDISP,Wake Med Ground Dispatch,Hospital,Wake Medical Center ,2
+52572,cd5c,D,WMLEDISP,Wake Med Law Dispatch,Hospital,Wake Medical Center ,2
+52573,cd5d,D,WMLEMAIN,Wake Med Law Main,Hospital,Wake Medical Center ,2
+52574,cd5e,D,WMLENE,Wake Med Law Northeast,Hospital,Wake Medical Center ,2
+52575,cd5f,D,WMLESW,Wake Med Law Southwest,Hospital,Wake Medical Center ,2
+52576,cd60,D,WMLETAC,Wake Med Law TAC,Hospital,Wake Medical Center ,2
+52577,cd61,D,WMOPS,Wake Med OPS,Hospital,Wake Medical Center ,2
+52578,cd62,D,WRCBURN1,Wildlife Resource Commission Burn 1,Law Tac,Wildlife Resource,2
+52579,cd63,D,WRCBURN10,Wildlife Resource Commission Burn 10,Law Tac,Wildlife Resource,2
+52580,cd64,D,WRCBURN2,Wildlife Resource Commission Burn 2,Law Tac,Wildlife Resource,2
+52581,cd65,D,WRCBURN3,Wildlife Resource Commission Burn 3,Law Tac,Wildlife Resource,2
+52582,cd66,D,WRCBURN4,Wildlife Resource Commission Burn 4,Law Tac,Wildlife Resource,2
+52583,cd67,D,WRCBURN5,Wildlife Resource Commission Burn 5,Law Tac,Wildlife Resource,2
+52584,cd68,D,WRCBURN6,Wildlife Resource Commission Burn 6,Law Tac,Wildlife Resource,2
+52585,cd69,D,WRCBURN7,Wildlife Resource Commission Burn 7,Law Tac,Wildlife Resource,2
+52586,cd6a,D,WRCBURN8,Wildlife Resource Commission Burn 8,Law Tac,Wildlife Resource,2
+52587,cd6b,D,WRCBURN9,Wildlife Resource Commission Burn 9,Law Tac,Wildlife Resource,2
+52588,cd6c,D,WRCMUTAID,Wildlife Resource Commission Mutual Aid,Law Tac,Wildlife Resource,2
+52590,cd6e,D,UNCHOSPPD,UNC Hospital PD Dispatch,Law Dispatch,Orange County,2
+52591,cd6f,D,UNCPD INFO,UNC Police Information,Law Tac,Orange County,2
+52592,cd70,D,UNCPD DISP,UNC Police Dispatch,Law Dispatch,Orange County,2
+52594,cd72,D,ECU PD1,East Carolina University Police,Law Dispatch,Pitt County,2
+52624,cd90,D,UNCITSNETADM,UNC ITS Network Admin,Schools,Orange County,2
+52625,cd91,D,UNCITSNETTEC,UNC ITS Network Techs,Schools,Orange County,2
+52626,cd92,D,UNCITSNETWFI,UNC ITS Wifi Techs,Schools,Orange County,2
+52628,cd94,D,UNCITSTELECO,UNC ITS Telecom Techs,Schools,Orange County,2
+52629,cd95,D,UNCITSCNTRL,UNC ITS Control Center,Schools,Orange County,2
+52630,cd96,D,UNC ITS ALT1,UNC ITS Alternate 1,Schools,Orange County,2
+52631,cd97,D,UNC ITS ALT2,UNC ITS Alternate 2,Schools,Orange County,2
+52632,cd98,D,UNCMEDOIF,UNC School of Medicine Office Information Systems,Schools,Orange County,2
+52635,cd9b,D,UNCPARKG,UNC Parking,Multi-Talk,Orange County,2
+52636,cd9c,D,UNCDPSP2P,UNC DPS P2P,Multi-Talk,Orange County,2
+52637,cd9d,D,UNC SEC,UNC Security ,Security,Orange County,2
+52639,cd9f,D,UNC EVENT1,UNC Chapel Hill Event 1,Security,Orange County,2
+52640,cda0,D,UNC EVENT 2,UNC Chapel Hill Event 2,Security,Orange County,2
+52641,cda1,D,UNC EVENT 3,UNC Chapel Hill Event 3,Security,Orange County,2
+52642,cda2,D,UNC EVENT 4,UNC Chapel Hill Event 4,Security,Orange County,2
+52643,cda3,D,UNC EVENT 5,UNC Chapel Hill Event 5,Security,Orange County,2
+52644,cda4,D,UNCHOSPRAL,UNC Hospital Raleigh Intake,Hospital,Wake County ,2
+52654,cdae,D,NCFS Dist 1,District 1 Operations,Fire-Talk,NC Forestry Service,2
+52655,cdaf,D,NCFS Dist 2,District 2 Operations,Fire-Talk,NC Forestry Service,2
+52656,cdb0,D,NCFS Dist 3,District 3 Operations,Fire-Talk,NC Forestry Service,2
+52657,cdb1,D,NCFS Dist 4,District 4 Operations,Fire-Talk,NC Forestry Service,2
+52658,cdb2,D,NCFS Dist 5,District 5 Operations,Fire-Talk,NC Forestry Service,2
+52659,cdb3,D,NCFS Dist 6,District 6 Operations,Fire-Talk,NC Forestry Service,2
+52660,cdb4,D,NCFS Dist 7,District 7 Operations,Fire-Talk,NC Forestry Service,2
+52661,cdb5,D,NCFS Dist 8,District 8 Operations,Fire-Talk,NC Forestry Service,2
+52662,cdb6,D,NCFS Dist 9,District 9 Operations,Fire-Talk,NC Forestry Service,2
+52663,cdb7,D,NCFS Dist 10,District 10 Operations,Fire-Talk,NC Forestry Service,2
+52664,cdb8,D,NCFS Dist 11,District 11 Operations,Fire-Talk,NC Forestry Service,2
+52665,cdb9,D,NCFS Dist 12,District 12 Operations,Fire-Talk,NC Forestry Service,2
+52666,cdba,D,NCFS Dist 13,District 13 Operations,Fire-Talk,NC Forestry Service,2
+53352,d068,D,UNC-G ADM,UNC-G PD Admin,Law Talk,Guilford County,2
+57500,e09c,D,NCSCCOMMTG,NC SC Common ,Interop,South Carolina Interoperability ,2
+57501,e09d,D,SCHPCOMM,SCHP Common ,Interop,South Carolina Interoperability ,2
+57502,e09e,D,SCHPSTATEWID,SCHP Statewide,Interop,South Carolina Interoperability ,2
+57503,e09f,D,SCHPTROOP3,SCHP Troop 3,Interop,South Carolina Interoperability ,2
+57504,e0a0,D,SCHPTROOP4,SCHP Troop 4,Interop,South Carolina Interoperability ,2
+57505,e0a1,D,SCHPTROOP5,SCHP Troop 5,Interop,South Carolina Interoperability ,2
+60500,ec54,E,ATFEASH,ATF Asheville,Federal,ATF Alcohol Tobacco Firearms and Explosives,2
+60501,ec55,E,ATFECLT,ATF Charlotte,Federal,ATF Alcohol Tobacco Firearms and Explosives,2
+60502,ec56,E,ATFECOM,ATF Common,Federal,ATF Alcohol Tobacco Firearms and Explosives,2
+60503,ec57,E,ATFEFAY,ATF Fayetteville,Federal,ATF Alcohol Tobacco Firearms and Explosives,2
+60504,ec58,E,ATFEGBO,ATF Greensboro,Federal,ATF Alcohol Tobacco Firearms and Explosives,2
+60505,ec59,E,ATFEILM,ATF Wilmington,Federal,ATF Alcohol Tobacco Firearms and Explosives,2
+60506,ec5a,E,ATFERDU,ATF Raleigh Durham,Federal,ATF Alcohol Tobacco Firearms and Explosives,2
+60526,ec6e,D,FBIAVL,FBI Asheville ,Federal,Federal Bureau of Investigation,2
+60527,ec6f,D,FBICLT,FBI Charlotte,Federal,Federal Bureau of Investigation,2
+60528,ec70,D,FBICOM,FBI Common,Federal,Federal Bureau of Investigation,2
+60529,ec71,D,FBIECTY,FBI Elizabeth ,Federal,Federal Bureau of Investigation,2
+60530,ec72,D,FBIFAY,FBI Fayetteville,Federal,Federal Bureau of Investigation,2
+60531,ec73,D,FBIGBO,FBI Greensboro,Federal,Federal Bureau of Investigation,2
+60532,ec74,D,FBIGVL,FBI Greenville,Federal,Federal Bureau of Investigation,2
+60533,ec75,D,FBIHIC,FBI Hickory,Federal,Federal Bureau of Investigation,2
+60534,ec76,D,FBIILM,FBI ILM,Federal,Federal Bureau of Investigation,2
+60535,ec77,D,FBIRAL,FBI Raleigh,Federal,Federal Bureau of Investigation,2
+60545,ec81,D,FEDCOM1,Federal Common 1,Federal,Federal Common,2
+60546,ec82,D,FEDCOM2,Federal Common 2,Federal,Federal Common,2
+60556,ec8c,D,HARVEYPRI,Harvey Point Primary,Federal,Department of Defense,2
+60557,ec8d,D,HARVEYSEC,Harvey Point Secondary,Federal,Department of Defense,2
+60558,ec8e,D,USACE-FALLS,US Army Corps of Engineers Falls Lake,Federal,Department of Defense,2
+60559,ec8f,D,USACE-ILM,US Army Corps of Engineers ILM,Federal,Department of Defense,2
+60560,ec90,D,USACE-JORDAN,US Army Corps of Engineers Jordan Lake,Federal,Department of Defense,2
+60561,ec91,D,USACE-NC,US Army Corps of Engineers NC,Federal,Department of Defense,2
+60562,ec92,D,USDOD,US DOD,Federal,Department of Defense,2
+60584,eca8,D,NWSILM,National Weather Service ILM,Federal,NOAA National Weather Service,2
+60594,ecb2,D,DEAAVL,DEA Asheville ,Federal,Drug Enforcement Agency ,2
+60595,ecb3,D,DEACLT,DEA Charlotte ,Federal,Drug Enforcement Agency ,2
+60596,ecb4,D,DEACOMM,DEA Common ,Federal,Drug Enforcement Agency ,2
+60597,ecb5,D,DEAFAY,DEA Fayetteville,Federal,Drug Enforcement Agency ,2
+60598,ecb6,D,DEAGBO,DEA Greensboro,Federal,Drug Enforcement Agency ,2
+60599,ecb7,D,DEAILM,DEA ILM,Federal,Drug Enforcement Agency ,2
+60600,ecb8,D,DEARAL,DEA Raleigh,Federal,Drug Enforcement Agency ,2
+60610,ecc2,D,USDHSERO,US DHS ICE ERO Enforcement and Removal Operations ,Federal,US Immigration and Customs Enforcement ,2
+60611,ecc3,D,USDHSHSI,US DHS HSI Homeland Security Operations,Federal,US Immigration and Customs Enforcement ,2
+60612,ecc4,D,USDHSICE,US DHS ICE,Federal,US Immigration and Customs Enforcement ,2
+60613,ecc5,D,USDHSICEAVL,US DHS ICE Asheville,Federal,US Immigration and Customs Enforcement ,2
+60614,ecc6,D,USDHSICECLT,US DHS ICE Charlotte ,Federal,US Immigration and Customs Enforcement ,2
+60615,ecc7,D,USDHSICECOM1,US DHS ICE Common 1,Federal,US Immigration and Customs Enforcement ,2
+60616,ecc8,D,USDHSICECOM2,US DHS ICE Common 2,Federal,US Immigration and Customs Enforcement ,2
+60617,ecc9,D,USDHSICEILM,US DHS ICE ILM,Federal,US Immigration and Customs Enforcement ,2
+60618,ecca,D,USDHSICERAL,US DHS ICE Raleigh ,Federal,US Immigration and Customs Enforcement ,2
+60619,eccb,D,USDHSICEWS,US DHS ICE Winston Salem,Federal,US Immigration and Customs Enforcement ,2
+60643,ece3,D,USFSLEOPS1,US Forestry Service OPS 1,Federal,US Forestry Service,2
+60644,ece4,D,USFSLEOPS2,US Forestry Service OPS 2,Federal,US Forestry Service,2
+60654,ecee,D,USFWS1,US Fish & Wildlife 1,Federal,US Fish and Wildlife Service,2
+60655,ecef,D,USFWS2,US Fish & Wildlife 2,Federal,US Fish and Wildlife Service,2
+60656,ecf0,D,USFWS3,US Fish & Wildlife 3,Federal,US Fish and Wildlife Service,2
+60666,ecfa,D,USMSCOMMON,USMS Common,Federal,US Marshals Service,2
+60667,ecfb,D,USMSEAST,USMS EAST,Federal,US Marshals Service,2
+60668,ecfc,D,USMSMIDDLE,USMS MIDDLE,Federal,US Marshals Service,2
+60669,ecfd,D,USMSWEST,USMS WEST,Federal,US Marshals Service,2
+60670,ecfe,D,USMSEAST2,USMS EAST 2,Federal,US Marshals Service,2
+60671,ecff,D,USMSMIDD2,USMS MIDDLE 2,Federal,US Marshals Service,2
+60672,ed00,D,USMSWEST2,USMS WEST 2,Federal,US Marshals Service,2
+60679,ed07,D,VAASHPRI,VA Asheville Primary,Hospital,NC Department of Veterans Affairs,2
+60680,ed08,D,VAASHSEC,VA Asheville Secondary,Hospital,NC Department of Veterans Affairs,2
+60681,ed09,D,VACOMMON,VA Common,Hospital,NC Department of Veterans Affairs,2
+60682,ed0a,D,VADURPRI,VA Durham Primary ,Hospital,NC Department of Veterans Affairs,2
+60683,ed0b,D,VADURSEC,VA Durham Secondary,Hospital,NC Department of Veterans Affairs,2
+60684,ed0c,D,VAFAYPRI,VA Fayetteville Primary,Hospital,NC Department of Veterans Affairs,2
+60685,ed0d,D,VAFAYSEC,VA Fayetteville Secondary,Hospital,NC Department of Veterans Affairs,2
+60686,ed0e,D,VASALPRI,VA Salisbury Primary,Hospital,NC Department of Veterans Affairs,2
+60687,ed0f,D,VASALSEC,VA Salisbury Secondary,Hospital,NC Department of Veterans Affairs,2
+60727,ed37,D,EBCIMUTAID,EBCI Mutual Aid,Interop,Eastern Band Cherokee Indians EBCI,2
+60728,ed38,D,EBCIEM,EBCI Emergency Management,Emergency Ops,Eastern Band Cherokee Indians EBCI,2
+60729,ed39,D,EBCIEMS,EBCI EMS,EMS Dispatch,Eastern Band Cherokee Indians EBCI,2
+60730,ed3a,D,EBCIFD,EBCI Fire Departments,Fire Dispatch,Eastern Band Cherokee Indians EBCI,2
+60731,ed3b,D,EBCILAW,EBCI Law ,Law Dispatch,Eastern Band Cherokee Indians EBCI,2
+60732,ed3c,D,EBCITAC1,EBCI TAC 1,Multi-Tac,Eastern Band Cherokee Indians EBCI,2

@@ -1,0 +1,20 @@
+{ "sources": [
+	{"center": 855000000.0,
+	"rate": 10000000.0,
+	"digitalRecorders": 10,
+	"gain": 35,
+	"driver": "osmosdr",
+	"device": "bladerf=0"}
+],
+"systems": [
+	{	"control_channels": [853787500],
+		"type": "p25",
+		"talkgroupsFile": "Cabarrus.csv"},
+		{	"control_channels": [852287500],
+			"type": "p25",
+			"talkgroupsFile": "Viper.csv"}
+],
+"modulation": "QPSK",
+"captureDir": "/home/tripp/share/dualrecord/",
+"uploadServer": ""
+}
