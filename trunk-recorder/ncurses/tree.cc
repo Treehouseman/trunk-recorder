@@ -1220,8 +1220,10 @@ std::string Tree::TTimeParse(int stime){
 	}
 	std::stringstream ttp;
 	if(stime >= 604800){
+		if(stime/60/60/24/7 < 100)
+			ttp << " ";
 		if(stime/60/60/24/7 < 10)
-			tpp << " ";
+			ttp << " ";
 		ttp << stime/60/60/24/7 << ":";
 		if(stime/60/60/24<10){
 			ttp << "0" << stime/60/60/24%7 << ":";
