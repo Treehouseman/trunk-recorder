@@ -389,9 +389,8 @@ void start_recorder(Call *call, TrunkMessage message) {
         if (talkgroup)
         {
           if (talkgroup->mode == 'A') {
-			  tout.NewLog("Got analog call");
             recorder = source->get_analog_recorder(talkgroup->get_priority());
-			isanalog-true;//Treehouseman got analog call
+			isanalog = true;//Treehouseman got analog call
           } else {
             recorder = source->get_digital_recorder(talkgroup->get_priority());
           }
@@ -401,7 +400,7 @@ void start_recorder(Call *call, TrunkMessage message) {
           // A talkgroup was not found from the talkgroup file.
           if (default_mode == "analog") {
             recorder = source->get_analog_recorder(2);
-			isanalog=true;//Treehouseman got analog call
+			isanalog = true;//Treehouseman got analog call
           } else {
             recorder = source->get_digital_recorder(2);
           }
