@@ -389,6 +389,7 @@ void start_recorder(Call *call, TrunkMessage message) {
         if (talkgroup)
         {
           if (talkgroup->mode == 'A') {
+			  tout.NewLog("Got analog call");
             recorder = source->get_analog_recorder(talkgroup->get_priority());
 			isanalog-true;//Treehouseman got analog call
           } else {
