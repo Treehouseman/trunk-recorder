@@ -36,6 +36,7 @@ Call::Call(long t, double f, System *s, Config c, int csys_id) {
   tdma            = false;
   encrypted       = false;
   emergency       = false;
+  conventional    = false;
   nac             = csys_id;
   dev             = "";
   this->create_filename();
@@ -57,6 +58,7 @@ Call::Call(TrunkMessage message, System *s, Config c, int csys_id) {
   state           = monitoring;
   debug_recording = false;
   recorder        = NULL;
+  conventional    = false;
   tdma            = message.tdma;
   encrypted       = message.encrypted;
   emergency       = message.emergency;
@@ -138,7 +140,7 @@ void Call::end_call() {
     this->get_recorder()->stop();
 
     if (this->config.upload_server != "") {
-      send_call(this, sys, config);
+      //send_call(this, sys, config);
     } else {}
 
     if (sys->get_upload_script().length() != 0) {

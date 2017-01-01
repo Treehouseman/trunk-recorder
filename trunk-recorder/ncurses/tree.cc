@@ -958,7 +958,7 @@ bool Tree::getcol(int loc){
 		currcol=5;
 		break;
 		case 3:
-		currcol=6;
+		currcol=4;
 		break;
 		case 4:
 		break;
