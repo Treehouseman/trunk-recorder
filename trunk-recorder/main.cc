@@ -188,7 +188,8 @@ void load_config()
 	  unsigned int newid;
 	  ss << std::hex << newidstr;
 	  ss >> newid;
-	  tout.SysId(newid);
+	  if(system->get_system_type() != "conventional")
+		tout.SysId(newid);
 	  system->set_sys_nac(newid);
       systems.push_back(system);
     }
@@ -1027,7 +1028,7 @@ bool monitor_system() {
             } else {
               system_added = true;
             }
-
+			csys_id=1230;//Treehouseman giving conventional their own ID
             BOOST_LOG_TRIVIAL(info) << "Monitoring Conventional Channel: " << channel << " Talkgroup: " << talkgroup;
             Call *call = new Call(talkgroup, channel, system, config, csys_id);
             talkgroup++;

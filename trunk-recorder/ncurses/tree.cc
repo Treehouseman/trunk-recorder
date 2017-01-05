@@ -649,13 +649,15 @@ bool Tree::StartCurses(){
 	//if (has_colors){
 		coloren = true;
 		start_color();
-		init_pair(1, COLOR_GREEN, COLOR_BLACK);
-		init_pair(2, COLOR_RED, COLOR_BLACK);
-		init_pair(3, COLOR_CYAN, COLOR_BLACK);
-		init_pair(4, COLOR_WHITE, COLOR_BLACK);
-		init_pair(5, COLOR_MAGENTA, COLOR_BLACK);
-		init_pair(6, COLOR_BLUE, COLOR_BLACK);
-		init_pair(7, COLOR_YELLOW, COLOR_BLACK);
+		use_default_colors();
+		init_pair(1,   2, COLOR_BLACK); //Green
+		init_pair(2,   1, COLOR_BLACK); //Red
+		init_pair(3,   6, COLOR_BLACK); //Cyan
+		init_pair(4,   7, COLOR_BLACK); //White
+		init_pair(5,   5, COLOR_BLACK); //Magenta
+		init_pair(6,   4, COLOR_BLACK); //Blue
+		init_pair(7,   3, COLOR_BLACK); //Yellow
+		init_pair(8, 214, 0); //Orange
 	//}
 	//cbreak();			/* Line buffering disabled, Pass on
 					// * everty thing to me 		*/
@@ -958,7 +960,7 @@ bool Tree::getcol(int loc){
 		currcol=5;
 		break;
 		case 3:
-		currcol=4;
+		currcol=8;
 		break;
 		case 4:
 		break;
@@ -1217,8 +1219,8 @@ std::string Tree::TTimeParse(int stime){
 	}
 	std::stringstream ttp;
 	if(stime >= 604800){
-		if(stime/60/60/24/7 < 100)
-			ttp << " ";
+		//if(stime/60/60/24/7 < 100)
+		//	ttp << " ";
 		if(stime/60/60/24/7 < 10)
 			ttp << " ";
 		ttp << stime/60/60/24/7 << ":";
@@ -1423,6 +1425,9 @@ int Tree::read_fields (FILE *cfp, unsigned long long int *fields)
   return 1;
 }
 void Tree::NewLog(std::string input){
+	std::stringstream inputstream;
+	inputstream << TreeTime[0] << ":" << TreeTime[1] << ":" << TreeTime[2] << " - " << input;
+	input = inputstream.str();
 	if(!curseenable)
 		return;
 	if (logpos < 20){
@@ -1477,7 +1482,10 @@ void Tree::LogRef(){
 		if(LogMsgs[i]=="")
 			break;
 		std::stringstream ls;
-		ls << LogMsgs[i] << "\n";
+		if (i < 19)
+			ls << LogMsgs[i] << "\n";
+		else
+			ls << LogMsgs[i];
 		std::string lss = ls.str();
 		const char * lchar = lss.c_str();
 		wprintw(LOGwin, lchar);
@@ -1742,8 +1750,6 @@ void Tree::DatRef(){
 	wattron(DATwin, COLOR_PAIR(4));
 	wmove(DATwin, R1h-1, 1);
 	wprintw(DATwin, "Call Data");
-	wattroff(DATwin, COLOR_PAIR(4));
-	wattron(DATwin, COLOR_PAIR(4));
 	wmove(DATwin, 1,3);
 	wprintw(DATwin, "Call Data");
 	for(int i = 0; i < 10; i++){

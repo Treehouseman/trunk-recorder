@@ -164,7 +164,6 @@ include_directories(
     ${CMAKE_BINARY_DIR}/include
     ${CMAKE_SOURCE_DIR}/op25_repeater/lib
     ${CMAKE_SOURCE_DIR}/op25_repeater/include
-	${CURSES_INCLUDE_DIR}
 )
 
 link_directories(
