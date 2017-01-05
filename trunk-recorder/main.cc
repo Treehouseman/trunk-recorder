@@ -363,7 +363,7 @@ bool replace(std::string& str, const std::string& from, const std::string& to) {
 }
 
 void start_recorder(Call *call, TrunkMessage message) {
-  Talkgroup *talkgroup = talkgroups->find_talkgroup(call->get_talkgroup());
+  Talkgroup *talkgroup = talkgroups->find_talkgroup(call->get_talkgroup(), csys_id);
   bool source_found    = false;
   bool recorder_found  = false;
   Recorder *recorder;
@@ -1129,7 +1129,7 @@ int main(void)
 
   for (vector<System *>::iterator it = systems.begin(); it != systems.end(); it++) {
     System *system = *it;
-    talkgroups->load_talkgroups(system->get_talkgroups_file());
+    talkgroups->load_talkgroups(system->get_talkgroups_file(), system->get_sys_nac());
   }
 
 

@@ -17,7 +17,7 @@ class Talkgroups {
 								std::vector<Talkgroup *> talkgroups;
 public:
 								Talkgroups();
-								void load_talkgroups(std::string filename);
-								Talkgroup *find_talkgroup(long tg);
+								void load_talkgroups(std::string filename, int s);
+								Talkgroup *find_talkgroup(long tg, int s);
 };
 #endif
