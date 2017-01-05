@@ -657,7 +657,7 @@ bool Tree::StartCurses(){
 		init_pair(5,   5, COLOR_BLACK); //Magenta
 		init_pair(6,   4, COLOR_BLACK); //Blue
 		init_pair(7,   3, COLOR_BLACK); //Yellow
-		init_pair(8, 214, 0); //Orange
+		init_pair(8, 214, COLOR_BLACK); //Orange
 	//}
 	//cbreak();			/* Line buffering disabled, Pass on
 					// * everty thing to me 		*/
@@ -1713,7 +1713,7 @@ void Tree::MsgRef(){
 				if(maxmsg[i] >= (5*x)){
 					wattron(SYSwin, COLOR_PAIR(2));
 					//wprintw(SYSwin, "X");
-					waddch(SYSwin, ACS_CKBOARD);
+					waddch(SYSwin, ' '|A_REVERSE);
 					wattroff(SYSwin, COLOR_PAIR(2));
 				}
 			}
@@ -1722,7 +1722,7 @@ void Tree::MsgRef(){
 				if(avgmsg[i] >= (5*x)){
 					wattron(SYSwin, COLOR_PAIR(1));
 					//wprintw(SYSwin, "X");
-					waddch(SYSwin, ACS_CKBOARD);
+					waddch(SYSwin, ' '|A_REVERSE);
 					wattroff(SYSwin, COLOR_PAIR(1));
 				}
 			}
@@ -1731,7 +1731,7 @@ void Tree::MsgRef(){
 				if(minmsg[i] >= (5*x)){
 					wattron(SYSwin, COLOR_PAIR(3));
 					//wprintw(SYSwin, "X");
-					waddch(SYSwin, ACS_CKBOARD);
+					waddch(SYSwin, ' '|A_REVERSE);
 					wattroff(SYSwin, COLOR_PAIR(3));
 				}
 			}

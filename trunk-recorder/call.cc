@@ -177,6 +177,7 @@ double Call::get_freq() {
 double Call::get_current_length() {
   if ((state == recording) && recorder) {
     return get_recorder()->get_current_length();
+	//return time(NULL) - start_time; //Segfault bandaid
   } else {
     return -1;
   }
@@ -187,7 +188,8 @@ void Call::set_freq(double f) {
     long position;
 
     if (state == recording) {
-      position = get_recorder()->get_current_length();
+		position = time(NULL) - start_time;//Segfault bandaid
+      //position = get_recorder()->get_current_length();
     } else {
       position = time(NULL) - start_time;
     }
