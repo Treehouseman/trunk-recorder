@@ -143,7 +143,7 @@ void Call::end_call() {
       //send_call(this, sys, config);
     } else {}
 
-    if (sys->get_upload_script().length() != 0) {
+    if (sys->get_upload_script().length() != 0 && !this->encrypted) {
       BOOST_LOG_TRIVIAL(info) << "Running upload script: " << shell_command.str();
       int rc = system(shell_command.str().c_str());
     }
