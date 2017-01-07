@@ -176,6 +176,8 @@ void load_config()
 
       system->set_api_key(node.second.get<std::string>("apiKey", ""));
       BOOST_LOG_TRIVIAL(info) << "API Key: " << system->get_api_key();
+	  system->set_auto_retune(node.second.get<int>("autoRetune", 1));
+	  BOOST_LOG_TRIVIAL(info) << "Auto Retune: " << system->get_auto_retune();
       system->set_short_name(node.second.get<std::string>("shortName", default_script.str()));
       BOOST_LOG_TRIVIAL(info) << "Short Name: " << system->get_short_name();
       system->set_upload_script(node.second.get<std::string>("uploadScript", ""));
@@ -188,8 +190,10 @@ void load_config()
 	  unsigned int newid;
 	  ss << std::hex << newidstr;
 	  ss >> newid;
-	  if(system->get_system_type() != "conventional")
-		tout.SysId(newid);
+	  bool isconventional = false;
+	  if(system->get_system_type() == "conventional")
+		  isconventional=true;
+	  tout.SysId(newid, isconventional);
 	  system->set_sys_nac(newid);
       systems.push_back(system);
     }
@@ -432,7 +436,7 @@ void start_recorder(Call *call, TrunkMessage message) {
 			  call->set_dev(recradio.substr(4));
 			  recradio2=recradio.substr(4);
 		  }
-		  tout.StartCall(call->get_talkgroup(), call->get_freq(), recradio2, isanalog, csys_id); //Treehouseman Start Call Notification
+		  tout.StartCall(call->get_talkgroup(), call->get_freq(), recradio2, isanalog, csys_id, 0); //Treehouseman Start Call Notification
 		  //Treehouseman end
           recorder_found = true;
         } else {
@@ -480,23 +484,16 @@ void stop_inactive_recorders() {
     Call *call = *it;
 
     if (call->is_conventional() && call->get_recorder()) {
-      if (call->get_current_length() > 1.0) {                                                                                                                           //
-                                                                                                                                                                        // checks
-                                                                                                                                                                        // to
-                                                                                                                                                                        // see
-                                                                                                                                                                        // if
-                                                                                                                                                                        // any
-        BOOST_LOG_TRIVIAL(info) << "Recorder: " <<  call->get_current_length() << " Idle: " << call->get_recorder()->is_idle() << " Count: " << call->get_idle_count(); //
-                                                                                                                                                                        // recording
-                                                                                                                                                                        // has
-                                                                                                                                                                        // happened
+		  double calllength = call->get_current_length();
+		  int calltg = call->get_talkgroup();
+		  int callidle = call->get_idle_count();
+		  bool callisidle = call->get_recorder()->is_idle();
+		  tout.conventionalStatus(calltg, call->get_nac(), calllength, callidle, callisidle, call->get_dev());
+      if (call->get_current_length() > 1.0) {
 
-        if (call->get_recorder()->is_idle()) {                                                                                                                          //
-                                                                                                                                                                        // if
-                                                                                                                                                                        // it
-                                                                                                                                                                        // is
-                                                                                                                                                                        // idle,
-                                                                                                                                                                        // that
+        BOOST_LOG_TRIVIAL(info) << "Recorder: " <<  call->get_current_length() << " Idle: " << call->get_recorder()->is_idle() << " Count: " << call->get_idle_count(); 
+
+        if (call->get_recorder()->is_idle()) {
           // means the squelch is
           // on and it has stopped
           // recording
@@ -886,7 +883,7 @@ void check_message_count(float timeDiff) {
       float msgs_decoded_per_second = sys->message_count / timeDiff;
 
       if (msgs_decoded_per_second < 1) {
-        if (sys->control_channel_count() > 1) {
+        if (sys->control_channel_count() > 1 && sys->get_auto_retune()) {
           retune_system(sys);
         } else {
           BOOST_LOG_TRIVIAL(error) << "There is only one control channel defined";
@@ -1001,7 +998,7 @@ for(int i = 0; i < 10; i++){
 bool monitor_system() {
   bool system_added = false;
   Source *source    = NULL;
-
+  int convsys = 0;
   for (vector<System *>::iterator sys_it = systems.begin(); sys_it != systems.end(); sys_it++) {
     System *system       = *sys_it;
     bool    source_found = false;
@@ -1028,15 +1025,30 @@ bool monitor_system() {
             } else {
               system_added = true;
             }
-			csys_id=1230;//Treehouseman giving conventional their own ID
+			csys_id=1230+convsys;//Treehouseman giving conventional their own ID
             BOOST_LOG_TRIVIAL(info) << "Monitoring Conventional Channel: " << channel << " Talkgroup: " << talkgroup;
             Call *call = new Call(talkgroup, channel, system, config, csys_id);
             talkgroup++;
             call->set_conventional(true);
-
+			//tout.(talkgroup, csys_id, source->get_device())
+			std::string recradio = source->get_device();
+		  int radioend =0;
+		  radioend = recradio.find(',');
+		  std::string recradio2;
+		  if(radioend!=std::string::npos){
+			  call->set_dev(recradio.substr(4,radioend-4));
+			  recradio2=recradio.substr(4,radioend-4);
+			  //tout.NewLog("End short");
+		  }
+		  else{ 
+			  call->set_dev(recradio.substr(4));
+			  recradio2=recradio.substr(4);
+		  }
+			tout.StartCall(talkgroup-1, channel, recradio2, 1, csys_id, 1);
+			call->set_dev(recradio2);
             analog_recorder_sptr rec;
             rec = source->create_conventional_recorder(tb);
-            rec->start(call, talkgroup + 100);
+            rec->start(call, talkgroup);
             call->set_recorder((Recorder *)rec.get());
             call->set_state(recording);
             system->add_conventional_recorder(rec);
@@ -1047,6 +1059,7 @@ bool monitor_system() {
           }
         }
       }
+	  convsys++;
     } else {
       double control_channel_freq = system->get_current_control_channel();
       BOOST_LOG_TRIVIAL(info) << "Control Channel: " << control_channel_freq;

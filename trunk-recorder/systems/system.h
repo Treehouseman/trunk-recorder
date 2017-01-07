@@ -22,6 +22,7 @@ public:
         std::string system_type;
         std::string upload_script;
         int message_count;
+		int auto_retune;
         int retune_attempts;
         time_t last_message_time;
 
@@ -43,6 +44,8 @@ public:
         void set_api_key(std::string api_key);
         bool get_qpsk_mod();
         void set_qpsk_mod(bool);
+		void set_auto_retune(int retune);
+		int get_auto_retune();
         std::string get_system_type();
         int get_sys_id();
         void set_system_type(std::string);

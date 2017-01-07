@@ -28,14 +28,14 @@ public:
 void SetCurses(int option, int enable);
 void SourceDev(std::string dev, int dig, int ana);
 void PurgeArrays();
-void StartCall(long tg, long freq, std::string dev, bool isanalog, int nac);
+void StartCall(long tg, long freq, std::string dev, bool isanalog, int nac, bool conventional);
 bool StartCurses();
 void MissingTG(long tg, int nac);
 void KillCall(long tg, long freq, int elapsed, int since, int sys);
 void Long(long tg, long freq, int elapsed, int since, int sys);
 void Retune(int elasped, int since, long tg, long old_freq, long new_freq, bool isgood);
 void DoubleCall(long newtg, long oldtg, long freq, int since, int elapsed);
-void SysId(int sysid);
+void SysId(int sysid, bool isconventional);
 void Rate(int mps);
 void CursesError();
 bool SetupLog();
@@ -44,7 +44,7 @@ void EndWin();
 void setColor(long currid, long tg);
 bool getcol(int loc);
 void msgdata();
-void EndCall(long tg, int elapsed, std::string dev);
+void EndCall(long tg, double elapsed, std::string dev, bool conventional);
 void CallHist(long tg, long elapsed);
 void ccId(int sys);
 void TimeUp();
@@ -63,6 +63,8 @@ void recreate();
 void Get_Key();
 void MakeWindows();
 void Coordinates();
+void conventionalStatus(int tg, int nac, double length, int idle, bool isidle, std::string dev);
+//void NewLogs(std::ostringstream &nls);
 //void StartWindows();
 int read_fields (FILE *cfp, unsigned long long int *fields);
 std::string TTimeParse(int stime);
@@ -74,5 +76,35 @@ std::string cparse(long input, int space);
 void Wav(int msg);
 private:
 static void do_resize(int null);
+};
+typedef std::ostream& (*STRFUNC)(std::ostream&);
+
+class TreeLog
+{
+public:
+
+    TreeLog()
+    {}
+
+    template<typename T>
+    TreeLog& operator<<( const T &output )
+    {
+            //std::stringstream nls;
+			nls << output;
+			//tout.NewLog(nls.str());
+        return *this;
+    }
+    // for std::endl and other manipulators
+    typedef std::ostream& (*STRFUNC)(std::ostream&);
+    TreeLog& operator<<( STRFUNC func )
+    {
+		tout.NewLog(nls.str());
+		nls.flush();
+       // func(std::cerr);
+        return *this;
+    }
+private:
+Tree tout;
+std::stringstream nls;
 };
 #endif

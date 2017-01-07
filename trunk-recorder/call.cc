@@ -94,7 +94,10 @@ void Call::end_call() {
   stop_time = time(NULL);
 
   if (state == recording) {
-	  tout.EndCall(this->get_talkgroup(), this->elapsed(), dev);//Treehouseman ending call
+	  if(!conventional)
+		tout.EndCall(this->get_talkgroup(), this->elapsed(), dev, conventional);//Treehouseman ending call
+	  else if(conventional)
+		  tout.EndCall(this->get_talkgroup(), this->get_current_length(), dev, conventional);
     BOOST_LOG_TRIVIAL(info) << "Ending Recorded Call \tTG: " <<   this->get_talkgroup() << "\tLast Update: " << this->since_last_update() << " Call Elapsed: " << this->elapsed();
     std::ofstream myfile(status_filename);
     std::stringstream shell_command;

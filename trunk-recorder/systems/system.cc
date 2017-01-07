@@ -124,3 +124,9 @@ void System::set_sys_nac(int nac){
 int System::get_sys_nac(){
 	return sys_nac;
 }
+int System::get_auto_retune(){
+	return auto_retune;
+}
+void System::set_auto_retune(int retune){
+	auto_retune=retune;
+}

@@ -196,6 +196,5 @@ void p25_trunking::tune_offset(double f) {
   freq = f;
   int offset_amount = (f - center);
   prefilter->set_center_freq(offset_amount); // have to flip this for 3.7
-  // BOOST_LOG_TRIVIAL(info) << "Offset set to: " << offset_amount << " Freq: "
-  //  << freq;
+  BOOST_LOG_TRIVIAL(info) << "Offset set to: " << offset_amount << " Freq: " << freq;
 }
