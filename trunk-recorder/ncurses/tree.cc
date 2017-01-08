@@ -1305,12 +1305,7 @@ std::string Tree::TTimeParse(int stime){
 		if(stime/60/60/24/7 < 10)
 			ttp << " ";
 		ttp << stime/60/60/24/7 << ":";
-		if(stime/60/60/24<10){
-			ttp << "0" << stime/60/60/24%7 << ":";
-		}
-		else{
-			ttp << stime/60/60/24%7 << ":";
-		}
+		ttp << stime/60/60/24%7 << ":";
 		if(stime/60/60%24<10){
 			ttp << "0" << stime/60/60%24 << ":";
 		}
