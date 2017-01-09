@@ -17,6 +17,7 @@ bool coloren = false;
 long analoggroups[100][100][3];//[radio][recorder][tg, length, system count]
 long digitalgroups[100][100][3];
 long conventionalgroups[100][100][4];//[radio][recorder][tg,length,system,idle]
+bool recorderused[100][100][3];
 long colorgroups[100];
 int colorsystems[100];
 int currcol = 4;
@@ -1652,9 +1653,24 @@ void Tree::RecRef(){
 	ss2 << i+1;
 	ss2 >> s2;
 	const char * d = s2.c_str();
+	if(digitalgroups[x][i][0]!=0){
+		recorderused[x][i][0]=true;
 	wattron(RECwin, COLOR_PAIR(3));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(3));
+	}
+	else{
+		if(recorderused[x][i][0]){
+	wattron(RECwin, COLOR_PAIR(3));
+	wprintw(RECwin, d);
+	wattroff(RECwin, COLOR_PAIR(3));
+	}
+	else{
+	wattron(RECwin, COLOR_PAIR(4));
+	wprintw(RECwin, d);
+	wattroff(RECwin, COLOR_PAIR(4));
+	}
+	}
 	wmove(RECwin, 1+i,4+(TGblockx*x));
 	getcol(digitalgroups[x][i][2]);
 		wattron(RECwin, COLOR_PAIR(currcol));
@@ -1682,9 +1698,24 @@ void Tree::RecRef(){
 	ss2 << i+1;
 	ss2 >> s2;
 	const char * d = s2.c_str();
+	if(analoggroups[x][i][0]!=0){
+		recorderused[x][i][1]=true;
 	wattron(RECwin, COLOR_PAIR(2));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(2));
+	}
+	else{
+		if(recorderused[x][i][1]){
+	wattron(RECwin, COLOR_PAIR(2));
+	wprintw(RECwin, d);
+	wattroff(RECwin, COLOR_PAIR(2));
+	}
+	else{
+	wattron(RECwin, COLOR_PAIR(4));
+	wprintw(RECwin, d);
+	wattroff(RECwin, COLOR_PAIR(4));
+	}
+	}
 	wmove(RECwin, 1+i+digrec[x],4+(TGblockx*x));
 	getcol(analoggroups[x][i][2]);
 		wattron(RECwin, COLOR_PAIR(currcol));
@@ -1712,9 +1743,24 @@ void Tree::RecRef(){
 	ss2 << i+1;
 	ss2 >> s2;
 	const char * d = s2.c_str();
+	if(conventionalgroups[x][i][0]!=0){
+		recorderused[x][i][2]=true;
 	wattron(RECwin, COLOR_PAIR(8));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(8));
+	}
+	else{
+		if(recorderused[x][i][2]){
+	wattron(RECwin, COLOR_PAIR(8));
+	wprintw(RECwin, d);
+	wattroff(RECwin, COLOR_PAIR(8));
+	}
+	else{
+	wattron(RECwin, COLOR_PAIR(4));
+	wprintw(RECwin, d);
+	wattroff(RECwin, COLOR_PAIR(4));
+	}
+	}
 	wmove(RECwin, 1+i+digrec[x]+anarec[x],4+(TGblockx*x));
 	getcol(conventionalgroups[x][i][2]);
 		wattron(RECwin, COLOR_PAIR(currcol));
