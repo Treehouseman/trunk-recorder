@@ -314,7 +314,11 @@ void Tree::conventionalStatus(int tg, int nac, double length, int idle, bool isi
 	
 	//TreeLog() << "Got Status Update" << std::endl;
 	//return;
-	int intlength = length+0.5;
+	int intlength = 0;
+	if(length > 1)
+		intlength = length+0.5;
+	else
+		return;
 	//TreeLog() << "Update: " << tg << " " << length << " " << intlength << " " << idle << " " << isidle << std::endl;
 	int csyspos=0;
 	for(int i = 0; i < 100; i++){
@@ -337,7 +341,7 @@ void Tree::conventionalStatus(int tg, int nac, double length, int idle, bool isi
 			}
 		}
 	}
-	TreeLog() << "Finished status update";
+	//TreeLog() << "Finished status update";
 }
 void Tree::SetCurses(int option, int enable){
 	switch(option){
