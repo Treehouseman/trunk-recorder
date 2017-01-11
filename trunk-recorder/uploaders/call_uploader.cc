@@ -68,8 +68,9 @@ void build_call_request(struct call_data_t *call, boost::asio::streambuf& reques
   } else {
     freq_list = "[]";
   }
-
+  add_post_field(oss, "talkgroup",     boost::lexical_cast<std::string>(call->talkgroup),  boundary);
   add_post_field(oss, "freq",          boost::lexical_cast<std::string>(call->freq),       boundary);
+  add_post_field(oss, "nac",           boost::lexical_cast<std::string>(call->nac),        boundary);
   add_post_field(oss, "start_time",    boost::lexical_cast<std::string>(call->start_time), boundary);
   add_post_field(oss, "stop_time",     boost::lexical_cast<std::string>(call->stop_time),  boundary);
 
@@ -150,6 +151,7 @@ void* upload_call_thread(void *thread_arg) {
   server_info->hostname      = call_info->hostname;
   server_info->port          = call_info->port;
   server_info->path          = call_info->path;
+  BOOST_LOG_TRIVIAL(info) << "Call Path " << call_info->path << " Server Path " << server_info->path;
 
   /*boost::filesystem::path m4a(call_info->filename);
   m4a = m4a.replace_extension(".m4a");
@@ -183,6 +185,7 @@ void send_call(Call *call, System *sys, Config config) {
     call_info->hostname      = std::string(what[2].first, what[2].second);
     call_info->port          = std::string(what[3].first, what[3].second);
     call_info->path          = std::string(what[4].first, what[4].second);
+	BOOST_LOG_TRIVIAL(info) << "What[4].first " << what[4].first << " What[4].second " << what[4].second;
 
     // std::cout << "Upload - Scheme: " << call_info->scheme << " Hostname: " <<
     // call_info->hostname << " Port: " << call_info->port << " Path: " <<
@@ -198,7 +201,13 @@ void send_call(Call *call, System *sys, Config config) {
   Call_Source *source_list = call->get_source_list();
   Call_Freq   *freq_list   = call->get_freq_list();
   call_info->talkgroup    = call->get_talkgroup();
+  std::stringstream tgs;
+  tgs << call->get_nac() << call->get_talkgroup();
+  std::string tgsb = tgs.str();
+  call_info->talkgroup = atoi(tgsb.c_str());
+  BOOST_LOG_TRIVIAL(info) << "Call Info Talkgroup " << call_info->talkgroup;
   call_info->freq         = call->get_freq();
+  call_info->nac          = call->get_nac();
   call_info->encrypted    = call->get_encrypted();
   call_info->emergency    = call->get_emergency();
   call_info->tdma         = call->get_tdma();
@@ -208,9 +217,9 @@ void send_call(Call *call, System *sys, Config config) {
   call_info->stop_time    = call->get_stop_time();
   call_info->api_key      = sys->get_api_key();
   call_info->short_name   = sys->get_short_name();
-  std::stringstream ss;
+  /*std::stringstream ss;
   ss << "/" << sys->get_short_name() << "/upload";
-  call_info->path = ss.str();
+  call_info->path = ss.str();*/
 
   // std::cout << "Upload - Scheme: " << call_info->scheme << " Hostname: " <<
   // call_info->hostname << " Port: " << call_info->port << " Path: " <<

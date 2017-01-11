@@ -143,12 +143,12 @@ void Call::end_call() {
     this->get_recorder()->stop();
 
     if (this->config.upload_server != "") {
-      //send_call(this, sys, config);
+      send_call(this, sys, config);
     } else {}
 
     if (sys->get_upload_script().length() != 0 && !this->encrypted) {
       BOOST_LOG_TRIVIAL(info) << "Running upload script: " << shell_command.str();
-      int rc = system(shell_command.str().c_str());
+      //int rc = system(shell_command.str().c_str());
     }
   }
 

@@ -25,6 +25,7 @@ struct call_data_t {
         std::string hostname;
         std::string port;
         std::string path;
+		int nac;
         std::string api_key;
         std::string short_name;
         int tdma;

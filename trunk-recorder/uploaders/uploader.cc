@@ -61,7 +61,7 @@ int http_upload(struct server_data_t *server_info,   boost::asio::streambuf& req
     tcp::resolver resolver(io_service);
     tcp::resolver::query query(server_info->hostname, server_info->port, tcp::resolver::query::canonical_name);
     tcp::resolver::iterator endpoint_iterator = resolver.resolve(query);
-
+    BOOST_LOG_TRIVIAL(info) << server_info->hostname << " " << server_info->port << " " << server_info->path << " " << server_info->server;
     // Try each endpoint until we successfully establish a connection.
     boost::asio::ip::tcp::socket socket(io_service);
 
