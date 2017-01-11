@@ -40,7 +40,7 @@ void build_call_request(struct call_data_t *call, boost::asio::streambuf& reques
   std::string source_list = "[";
 
   if (call->source_count != 0) {
-    for (int i = 0; i < call->source_count; i++) {
+    /*for (int i = 0; i < call->source_count; i++) {
       source_list = source_list + "{ \"pos\": " + boost::lexical_cast<std::string>(call->source_list[i].position) + ", \"src\": " + boost::lexical_cast<std::string>(call->source_list[i].source) + " }";
 
       if (i < (call->source_count - 1)) {
@@ -48,7 +48,17 @@ void build_call_request(struct call_data_t *call, boost::asio::streambuf& reques
       } else {
         source_list = source_list + "]";
       }
-    }
+    }*/
+	source_list += " ";
+	for(int i = 0; i < call->source_count; i++){
+		source_list = source_list + boost::lexical_cast<std::string>(call->source_list[i].source);
+		if(i<(call->source_count -1)){
+			source_list=source_list + ", ";
+		}
+		else{
+			source_list = source_list + " ]";
+		}
+	}
   } else {
     source_list = "[]";
   }
