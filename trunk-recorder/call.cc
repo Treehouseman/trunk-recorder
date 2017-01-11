@@ -142,7 +142,7 @@ void Call::end_call() {
     }
     this->get_recorder()->stop();
 
-    if (this->config.upload_server != "") {
+    if (this->config.upload_server != "" && !this->encrypted) {
       send_call(this, sys, config);
     } else {}
 
