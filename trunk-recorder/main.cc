@@ -147,7 +147,18 @@ void load_config()
           BOOST_LOG_TRIVIAL(info) << sub_node.second.get<double>("", 0) << " ";
           system->add_channel(channel);
         }
-      } else {
+      }
+	  else if (system->get_system_type() == "conventionalP25") {
+        BOOST_LOG_TRIVIAL(info) << "Conventional Channels: ";
+        BOOST_FOREACH(boost::property_tree::ptree::value_type  & sub_node, node.second.get_child("channels"))
+        {
+          double channel = sub_node.second.get<double>("", 0);
+
+          BOOST_LOG_TRIVIAL(info) << sub_node.second.get<double>("", 0) << " ";
+          system->add_channel(channel);
+        }
+      }
+	  else {
         BOOST_LOG_TRIVIAL(info) << "Control Channels: ";
         BOOST_FOREACH(boost::property_tree::ptree::value_type  & sub_node, node.second.get_child("control_channels"))
         {
@@ -959,7 +970,48 @@ bool monitor_system() {
           }
         }
       }
-    } else {
+    }
+	else if (system->get_system_type() == "conventionalP25") {
+      std::vector<double> channels = system->get_channels();
+      int talkgroup                = 1;
+
+      for (vector<double>::iterator chan_it = channels.begin(); chan_it != channels.end(); chan_it++) {
+        double channel = *chan_it;
+
+        for (vector<Source *>::iterator src_it = sources.begin(); src_it != sources.end(); src_it++) {
+          source = *src_it;
+
+          if ((source->get_min_hz() <= channel) &&
+              (source->get_max_hz() >= channel)) {
+            // The source can cover the System's control channel
+
+            system_added = true;
+            if (source->get_squelch_db() == 0 ) {
+                BOOST_LOG_TRIVIAL(error) << "Squelch needs to be specified for the Source for Conventional Systems";
+                system_added = false;
+            } else {
+              system_added = true;
+            }
+
+            BOOST_LOG_TRIVIAL(info) << "Monitoring Conventional Channel: " << channel << " Talkgroup: " << talkgroup;
+            Call *call = new Call(talkgroup, channel, system, config);
+            talkgroup++;
+            call->set_conventional(true);
+
+            p25_recorder_sptr rec;
+            rec = source->create_conventionalP25_recorder(tb);
+            rec->start(call, talkgroup + 100);
+            call->set_recorder((Recorder *)rec.get());
+            call->set_state(recording);
+            system->add_conventionalP25_recorder(rec);
+            calls.push_back(call);
+
+            // break out of the for loop
+            break;
+          }
+        }
+      }
+    }	else {
       double control_channel_freq = system->get_current_control_channel();
       BOOST_LOG_TRIVIAL(info) << "Control Channel: " << control_channel_freq;
 
