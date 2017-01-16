@@ -64,6 +64,7 @@ Call::Call(TrunkMessage message, System *s, Config c, int csys_id) {
   emergency       = message.emergency;
   nac             = csys_id;
   dev             = "";
+  conventional    = false;
 
   this->create_filename();
 }
