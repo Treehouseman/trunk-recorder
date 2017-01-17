@@ -86,6 +86,7 @@ Config config;
 int cursesen = 0;
 int currid;
 int csys_id = 0;
+unsigned int tsyscount = 0;
 Tree tout;
 //Treehouseman 
 
@@ -161,6 +162,15 @@ void load_config()
           BOOST_LOG_TRIVIAL(info) << sub_node.second.get<double>("", 0) << " ";
           system->add_channel(channel);
         }
+      }  else if (system->get_system_type() == "conventionalP25") {
+        BOOST_LOG_TRIVIAL(info) << "Conventional Channels: ";
+        BOOST_FOREACH(boost::property_tree::ptree::value_type  & sub_node, node.second.get_child("channels"))
+        {
+          double channel = sub_node.second.get<double>("", 0);
+
+          BOOST_LOG_TRIVIAL(info) << sub_node.second.get<double>("", 0) << " ";
+          system->add_channel(channel);
+        }
       } else {
         BOOST_LOG_TRIVIAL(info) << "Control Channels: ";
         BOOST_FOREACH(boost::property_tree::ptree::value_type  & sub_node, node.second.get_child("control_channels"))
@@ -185,10 +195,20 @@ void load_config()
       system->set_talkgroups_file(node.second.get<std::string>("talkgroupsFile", ""));
       BOOST_LOG_TRIVIAL(info) << "Talkgroups File: " << system->get_talkgroups_file();
 	  std::stringstream ss;//Treehouseman adding system nac to system
-	  std::string newidstr = node.second.get<std::string>("sysId", "");
 	  unsigned int newid;
+	  std::string newidstr = node.second.get<std::string>("sysId", "");
+	  if(newidstr != ""){
+		  tsyscount++;
 	  ss << std::hex << newidstr;
 	  ss >> newid;
+	  }
+	  else{
+		  newid = tsyscount;
+		  tsyscount++;
+	  }
+		  
+	  
+	  
 	  bool isconventional = false;
 	  if(system->get_system_type() == "conventional")
 		  isconventional=true;
@@ -488,27 +508,21 @@ void stop_inactive_recorders() {
 		  int callidle = call->get_idle_count();
 		  bool callisidle = call->get_recorder()->is_idle();
 		  tout.conventionalStatus(calltg, call->get_nac(), calllength, callidle, callisidle, call->get_dev());
+      // if any recording has happened
       if (call->get_current_length() > 1.0) {
+        BOOST_LOG_TRIVIAL(trace) << "Recorder: " <<  call->get_current_length() << " Idle: " << call->get_recorder()->is_idle() << " Count: " << call->get_idle_count();
 
-        BOOST_LOG_TRIVIAL(info) << "Recorder: " <<  call->get_current_length() << " Idle: " << call->get_recorder()->is_idle() << " Count: " << call->get_idle_count(); 
-
+        // means that the squelch is on and it has stopped recording
         if (call->get_recorder()->is_idle()) {
-          // means the squelch is
-          // on and it has stopped
-          // recording
-          call->increase_idle_count();           // increase the number of
-          // periods it has not
-          // been recording for
-        } else if (call->get_idle_count() > 0) { // if it starts recording
-          // again, then reset the
-          // idle count
+          // increase the number of periods it has not been recording for
+          call->increase_idle_count();
+        } else if (call->get_idle_count() > 0) {
+          // if it starts recording again, then reset the idle count
           call->reset_idle_count();
         }
 
-        if (call->get_idle_count() > 5) { // if no additional recording
-          // has happened in the past X
-          // periods, stop and open new
-          // file
+        // if no additional recording has happened in the past X periods, stop and open new file
+        if (call->get_idle_count() > 5) {
           call->end_call();
           call->restart_call();
         }
@@ -878,7 +892,7 @@ void check_message_count(float timeDiff) {
   for (std::vector<System *>::iterator it = systems.begin(); it != systems.end(); ++it) {
     System *sys = (System *)*it;
 
-    if (sys->system_type != "conventional") {
+    if ((sys->system_type != "conventional") && (sys->system_type != "conventionalP25")) {
       float msgs_decoded_per_second = sys->message_count / timeDiff;
 
       if (msgs_decoded_per_second < 1) {
@@ -1003,7 +1017,7 @@ bool monitor_system() {
     bool    source_found = false;
 
 
-    if (system->get_system_type() == "conventional") {
+    if ((system->get_system_type() == "conventional") || (system->get_system_type() == "conventionalP25")) {
       std::vector<double> channels = system->get_channels();
       int talkgroup                = 1;
 
@@ -1018,9 +1032,10 @@ bool monitor_system() {
             // The source can cover the System's control channel
 
             system_added = true;
-            if (source->get_squelch_db() == 0 ) {
-                BOOST_LOG_TRIVIAL(error) << "Squelch needs to be specified for the Source for Conventional Systems";
-                system_added = false;
+
+            if (source->get_squelch_db() == 0) {
+              BOOST_LOG_TRIVIAL(error) << "Squelch needs to be specified for the Source for Conventional Systems";
+              system_added = false;
             } else {
               system_added = true;
             }
@@ -1035,23 +1050,35 @@ bool monitor_system() {
 		  radioend = recradio.find(',');
 		  std::string recradio2;
 		  if(radioend!=std::string::npos){
-			  call->set_dev(recradio.substr(4,radioend-4));
+			  //call->set_dev(recradio.substr(4,radioend-4));
 			  recradio2=recradio.substr(4,radioend-4);
 			  //tout.NewLog("End short");
 		  }
 		  else{ 
-			  call->set_dev(recradio.substr(4));
+			  //call->set_dev(recradio.substr(4));
 			  recradio2=recradio.substr(4);
 		  }
-			tout.StartCall(talkgroup-1, channel, recradio2, 1, csys_id, 1);
+			
 			call->set_dev(recradio2);
-            analog_recorder_sptr rec;
-            rec = source->create_conventional_recorder(tb);
-            rec->start(call, talkgroup);
-            call->set_recorder((Recorder *)rec.get());
-            call->set_state(recording);
-            system->add_conventional_recorder(rec);
-            calls.push_back(call);
+            if (system->get_system_type() == "conventional") {
+              analog_recorder_sptr rec;
+              rec = source->create_conventional_recorder(tb);
+              rec->start(call, talkgroup);
+              call->set_recorder((Recorder *)rec.get());
+              call->set_state(recording);
+			  tout.StartCall(talkgroup-1, channel, recradio2, 1, csys_id, 1);
+              system->add_conventional_recorder(rec);
+              calls.push_back(call);
+            } else { // has to be "conventionalP25"
+              p25_recorder_sptr rec;
+              rec = source->create_conventionalP25_recorder(tb);
+              rec->start(call, talkgroup);
+              call->set_recorder((Recorder *)rec.get());
+              call->set_state(recording);
+			  tout.StartCall(talkgroup-1, channel, recradio2, 0, csys_id, 1);
+              system->add_conventionalP25_recorder(rec);
+              calls.push_back(call);
+            }
 
             // break out of the for loop
             break;
@@ -1093,6 +1120,7 @@ bool monitor_system() {
                                                      system->get_sys_id());
             tb->connect(source->get_src_block(), 0, system->p25_trunking, 0);
           }
+
           // break out of the For Loop
           break;
         }

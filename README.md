@@ -1,5 +1,86 @@
-Trunk Recorder - v2.1
+Trunk Recorder v2.1.1 with Ncurses
 =================
+I'm going to leave the original instructions unchanged at the bottom of my additions.
+
+This branch now incorporates extended colors in ncurses, and thus requires ncurses6, which can be obtained from here https://www.gnu.org/software/ncurses/
+Make sure to uninstall older versions of ncurses first!
+
+![Interface](images/9-6.PNG?raw=true )
+
+### Config.json Changes
+I've added some flags to the config file in order to control the default actions of ncurses.
+with addition of the changes, the file should look like this at the end.
+```
+"captureDir": "$Capture_Directory",
+"ncurses": 1,
+"ncurses_group": 0,
+"ncurses_cpu": 1,
+"ncurses_dbg": 1,
+"ncurses_lavg": 0
+]
+```
+
+The options they control are as follows:
+"ncurses": is the ncurses interface itself, 1 for enabled, 0 for disabled
+"ncurses_group": is the default window assortment, 0 is all in the large format shown above (though rearranged as shown in pictures below), 1 is Recorders, Call Data, and Message Rate, 2 is Past Calls, CPU, and Missing (Missing talkgroups from the CSV files), and 3 is Errors and Logging in a smaller format. Pictures of all these are below.
+"ncurses_cpu": This controls the default setting for having either individual CPU bars, or one average
+"ncurses_dbg": This is not currently used but will eventually control debug/verbose logging on screen
+"ncurses_lavg": This controls the default for having the system load average values (1, 5, 15 minute) along with the CPU window
+
+I've also added different system tracking so I can keep things separate on the interface, so you have to add the hex system ID between the type and talkgroup file. 
+This also includes conventional recorders, where each conventional system will overlap talkgroup numbers, it is best to give each a unique nac value.
+If no nac is provided, then it will simply count how many systems there are.
+```
+"type": "p25",
+"sysId": "1f0",
+"talkgroupsFile": "$TG.csv",
+```
+or
+```
+"type": "smartnet",
+"sysId": "f18",
+"talkgroupsFile": "$TG.csv",
+```
+
+Another optional flag to go with the system settings is autoRetune, this sets whether or not it is allowed to use recorder's automatic retuning feature. I've added this because it was causing logging spam on the ncurses screen due to one system with poor signal.
+To use it simply add 
+```
+"autoRetune": 0,
+```
+This will disable Retuning, the default value of 1 is assumed if you do not add it.
+
+Another thing of note for conventional systems is that it can be extremely helpful if squelch is set, to use the 
+```
+"idleSilence": 1,
+```
+flag when defining a radio/source, this will help remove static on analog recorders.
+
+### Keyboard Controls
+'0': Sets Window Group 0
+'1': Sets Window Group 1
+'2': Sets Window Group 2
+'3': Sets Window Group 3
+'4': Sets Window Group 4 (currently blank)
+'C'/'c': Changes the ncurses_cpu value
+'V'/'v': Changes the ncurses_lavg value
+'R': Sends a resized window trigger redrawing all the windows
+'r': Does a "clear()" at the next refresh, should clear out any std::cout messages stuck on the screen
+
+### Group 0
+![Group 0](images/ncurses_big2.PNG)
+
+### Group 1
+![Group 1](images/ncurses_group1.PNG)
+
+### Group 2
+![Group 2](images/ncurses_group2.png)
+
+### Group 3
+![Group 3](images/ncurses_group3.PNG)
+
+### CPU Options
+![CPU Options](images/cpu_options.png)
+
 ### Note: The format for the Config.json file changed in v2.x.
 
 Need help? Got something working? Share it!
@@ -9,8 +90,8 @@ Need help? Got something working? Share it!
 Trunk Recorder is able to record the calls on trunked and conventional radio systems. It uses 1 or more Software Defined Radios (SDRs) to do this. The SDRs capture large swatches of RF and then use software to process what was received. GNURadio is used to do this processing because it provides lots of convenient RF blocks that can be pieced together to allow for complex RF processing. Multiple radio systems can be recorded at the same time.
 
 Trunk Recorder currently supports the following:
- - P25 & SmartNet Trunking Systems
- - Conventional analog systems, where each group has a dedicated RF channel
+ - Trunked P25 & SmartNet Systems
+ - Conventional P25 & analog systems, where each group has a dedicated RF channel
  - SDRs that use the OsmoSDR source ( HackRF, RTL - TV Dongles, BladeRF, and more)
  - Ettus USRPs
  - P25 Phase 1 & Analog voice channels
@@ -96,7 +177,7 @@ Here are the different arguments:
  - **sources** - an array of JSON objects that define the different SDRs available. The following options are used to configure each Source:
    - **center** - the center frequency in Hz to tune the SDR to
    - **rate** - the sampling rate to set the SDR to, in samples / second
-   - **squelch** - Analog Squelch, my rtl-sdr's are around -60. [0 = Disabled]
+   - **squelch** - Analog Squelch, my rtl-sdr's are around -60. [0 = Disabled] _Squelch needs to be set if the System using the source is conventional._
    - **error** - the tuning error for the SDR in Hz. This is the difference between the target value and the actual value. So if you wanted to recv 856MHz but you had to tune your SDR to 855MHz to actually receive it, you would set this to -1000000. You should also probably get a new SDR if it is off by this much.
    - **gain** - the RF gain to set the SDR to. Use a program like GQRX to find a good value.
    - **ifGain** - [hackrf only] sets the if gain.
@@ -115,7 +196,7 @@ Here are the different arguments:
  - **systems** - An array of JSON objects that define the trunking systems that will be recorded. The following options are used to configure each System.
    - **control_channels** - *(For trunked systems)* an array of the control channel frequencies for the system, in Hz. The frequencies will automatically be cycled through if the system moves to an alternate channel.
    - **channels** - *(For conventional systems)* an array of the channel frequencies, in Hz, used for the system. The channels get assigned a virtual talkgroup number based upon their position in the array. Squelch levels need to be specified for the Source(s) being used.
-   - **type** - the type of trunking system. The options are *smartnet*, *p25* & *conventional*.
+   - **type** - the type of trunking system. The options are *smartnet*, *p25*,  *conventional* & *conventionalP25*.
    - **talkgroupsFile** - this is a CSV file that provides information about the talkgroups. It determines whether a talkgroup is analog or digital, and what priority it should have. This file should be located in the same directory as the trunk-recorder executable.
    - **shortName** - this is a nickname for the system. It is used to help name and organize the recordings from this system. It should be 4-6 letters with no spaces.
    - **uploadScript** - this script is called after each recording has finished. Checkout *encode-upload.sh.sample* as an example. The script should be located in the same directory as the trunk-recorder executable.

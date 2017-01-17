@@ -16,12 +16,13 @@ bool verbose = false;
 bool coloren = false;
 long analoggroups[100][100][3];//[radio][recorder][tg, length, system count]
 long digitalgroups[100][100][3];
-long conventionalgroups[100][100][4];//[radio][recorder][tg,length,system,idle]
-bool recorderused[100][100][3];
+long aconventionalgroups[100][100][4];//[radio][recorder][tg,length,system,idle]
+long dconventionalgroups[100][100][4];
+bool recorderused[100][100][4];
 long colorgroups[100];
 int colorsystems[100];
 int currcol = 4;
-long csysid[10];
+long csysid[100];
 int sys_id = 0;
 double load[3];
 WINDOW *create_newwin(int height, int width, int starty, int startx);
@@ -39,9 +40,9 @@ void destroy_win(WINDOW *local_win);
 int systemnumber = 0;
 int currsys;
 int csyscc[100];
-int minmsg[10];
-int maxmsg[10];
-int avgmsg[10];
+int minmsg[100];
+int maxmsg[100];
+int avgmsg[100];
 int syscount = 0;
 int strecx = 0;
 int strecy = 0;
@@ -71,16 +72,17 @@ int ncurses_group = 0;
 int ncurses_lavg = 0;
 std::string Radios[10];
 std::string LogMsgs[20];
-int digrec[10];
+int digrec[100];
 int logpos = 0;
-int anarec[10];
-int convrec[10];
+int anarec[100];
+int aconvrec[100];
+int dconvrec[100];
 long actTG[10][100];
 int radiocount = 0;
 int spos = 0;
 bool looped = false;
-int sysmps[10][60];
-int sysccc[3][10];
+int sysmps[100][60];
+int sysccc[3][100];
 int pastpos = 0;
 int history[28][3];
 int TreeTime[3];
@@ -298,11 +300,11 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional){
 		for(int i = 0; i < TGblocks; i++){
 			if(Radios[i]==dev){
 			for(int x = 0; x < 100; x++){
-				if(conventionalgroups[i][x][0]==tg){
+				if(aconventionalgroups[i][x][0]==tg){
 					//Put logging code here
-					Past(tg, elapsedint, conventionalgroups[i][x][2]);
-					conventionalgroups[i][x][3]=0;
-					conventionalgroups[i][x][1]=0;
+					Past(tg, elapsedint, aconventionalgroups[i][x][2]);
+					aconventionalgroups[i][x][3]=0;
+					aconventionalgroups[i][x][1]=0;
 					return;
 				}
 			}
@@ -330,14 +332,19 @@ void Tree::conventionalStatus(int tg, int nac, double length, int idle, bool isi
 	for(int i = 0; i < TGblocks; i++){
 		if(Radios[i]==dev){
 			//TreeLog() << "Got Radio" << std::endl;
-			for(int x = 0; x < 10; x++){
-				//TreeLog() << tg << " " << conventionalgroups[i][x][0] << " " << conventionalgroups[i][x][2] << " " << csyspos+SYSblocks << std::endl;
-				//if(conventionalgroups[i][x][0]==tg && conventionalgroups[i][x][2]==csyspos+SYSblocks-1){
-					if(conventionalgroups[i][x][0]==tg && conventionalgroups[i][x][2] == (csyspos+SYSblocks)){
+			for(int x = 0; x < 100; x++){
+				//TreeLog() << tg << " " << aconventionalgroups[i][x][0] << " " << aconventionalgroups[i][x][2] << " " << csyspos+SYSblocks << std::endl;
+				//if(aconventionalgroups[i][x][0]==tg && aconventionalgroups[i][x][2]==csyspos+SYSblocks-1){
+					if(aconventionalgroups[i][x][0]==tg && aconventionalgroups[i][x][2] == (csyspos+SYSblocks)){
 					//TreeLog() << "Updating Group" << std::endl;
-						conventionalgroups[i][x][1]=intlength;
-						conventionalgroups[i][x][3]=1;
-				}
+						aconventionalgroups[i][x][1]=intlength;
+						aconventionalgroups[i][x][3]=1;
+					}
+					else if(dconventionalgroups[i][x][0]==tg && dconventionalgroups[i][x][2] == (csyspos+SYSblocks)){
+					//TreeLog() << "Updating Group" << std::endl;
+						dconventionalgroups[i][x][1]=intlength;
+						dconventionalgroups[i][x][3]=1;
+					}
 			}
 		}
 	}
@@ -444,18 +451,36 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 				break;
 			}
 		}
+		if(isanalog){
 		for(int i = 0; i < TGblocks; i++){
 			if(dev == Radios[i]){
-				anarec[i]--;
-					if(conventionalgroups[i][convrec[i]][0]==0){
-						conventionalgroups[i][convrec[i]][0]=tg;
-						conventionalgroups[i][convrec[i]][2]=syscolor;
-						conventionalgroups[i][convrec[i]][3]=0;//idle
-						convrec[i]++;
+				//anarec[i]--;
+					if(aconventionalgroups[i][aconvrec[i]][0]==0){
+						aconventionalgroups[i][aconvrec[i]][0]=tg;
+						aconventionalgroups[i][aconvrec[i]][2]=syscolor;
+						aconventionalgroups[i][aconvrec[i]][3]=0;//idle
+						aconvrec[i]++;
 						RecRef();
 						return;
 				}
 			}
+		}
+		}
+		else{
+			for(int i = 0; i < TGblocks; i++){
+			if(dev == Radios[i]){
+				//anarec[i]--;
+					if(aconventionalgroups[i][dconvrec[i]][0]==0){
+						dconventionalgroups[i][dconvrec[i]][0]=tg;
+						dconventionalgroups[i][dconvrec[i]][2]=syscolor;
+						dconventionalgroups[i][dconvrec[i]][3]=0;//idle
+						dconvrec[i]++;
+						RecRef();
+						return;
+				}
+			}
+		}
+			
 		}
 	}
 }
@@ -713,7 +738,7 @@ bool Tree::StartCurses(){
 	//WINstartx = pWINendx+1
 	//WINendx = WINstartx+WINdefx+(WINblockx*blocks)
 	
-	for(int i = 0; i < 10; i++){
+	for(int i = 0; i < 100; i++){
 		csysid[i] = 0;
 		maxmsg[i] = 0;
 		minmsg[i] = 0;
@@ -1072,7 +1097,7 @@ void Tree::msgdata(){
 			sysmpsbuff[i]=sysccc[1][i];
 			sysccc[1][i]=0;
 	}
-	for(int i = 0; i < 10; i++){
+	for(int i = 0; i < 100; i++){
 		int minm = 100;
 		for(int x = 0; x < 60; x++){
 			if(sysmps[i][x] < minm){
@@ -1081,7 +1106,7 @@ void Tree::msgdata(){
 		}
 		minmsg[i]=minm;
 	}
-	for(int i = 0; i < 10; i++){
+	for(int i = 0; i < 100; i++){
 		int maxm = 0;
 		for(int x = 0; x < 60; x++){
 			if(sysmps[i][x] > maxm){
@@ -1090,7 +1115,7 @@ void Tree::msgdata(){
 		}
 		maxmsg[i]=maxm;
 	}
-	for(int i = 0; i < 10; i++){
+	for(int i = 0; i < 100; i++){
 		int avgm = 0;
 		for(int x = 0; x < 60; x++){
 			avgm = avgm + sysmps[i][x];
@@ -1105,7 +1130,7 @@ void Tree::msgdata(){
 			//sysmps[x][spos] = rand();
 			sysccc[1][i]=0;
 	}
-	for(int i = 0; i < 10; i++){
+	for(int i = 0; i < 100; i++){
 		int minm = 100;
 		for(int x = 0; x < spos; x++){
 			if(sysmps[i][x] < minm){
@@ -1114,7 +1139,7 @@ void Tree::msgdata(){
 		}
 		minmsg[i]=minm;
 	}
-	for(int i = 0; i < 10; i++){
+	for(int i = 0; i < 100; i++){
 		int maxm = 0;
 		for(int x = 0; x < spos; x++){
 			if(sysmps[i][x] > maxm){
@@ -1123,7 +1148,7 @@ void Tree::msgdata(){
 		}
 		maxmsg[i]=maxm;
 	}
-	for(int i = 0; i < 10; i++){
+	for(int i = 0; i < 100; i++){
 		int avgm = 0;
 		for(int x = 0; x < spos; x++){
 			avgm = avgm + sysmps[i][x];
@@ -1733,7 +1758,7 @@ void Tree::RecRef(){
 	//		ss.str("");
 		//	s = "";
 	}
-	for (int i = 0; i < convrec[x]; i++){
+	for (int i = 0; i < dconvrec[x]; i++){
 	std::stringstream ss;
 	std::stringstream ss2;
 	std::string s2;
@@ -1747,36 +1772,21 @@ void Tree::RecRef(){
 	ss2 << i+1;
 	ss2 >> s2;
 	const char * d = s2.c_str();
-	if(conventionalgroups[x][i][0]!=0){
-		recorderused[x][i][2]=true;
 	wattron(RECwin, COLOR_PAIR(8));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(8));
-	}
-	else{
-		if(recorderused[x][i][2]){
-	wattron(RECwin, COLOR_PAIR(8));
-	wprintw(RECwin, d);
-	wattroff(RECwin, COLOR_PAIR(8));
-	}
-	else{
-	wattron(RECwin, COLOR_PAIR(4));
-	wprintw(RECwin, d);
-	wattroff(RECwin, COLOR_PAIR(4));
-	}
-	}
 	wmove(RECwin, 1+i+digrec[x]+anarec[x],4+(TGblockx*x));
-	getcol(conventionalgroups[x][i][2]);
+	getcol(dconventionalgroups[x][i][2]);
 		wattron(RECwin, COLOR_PAIR(currcol));
-		if(conventionalgroups[x][i][1]!=0){
-			ss << conventionalgroups[x][i][0] << " " << conventionalgroups[x][i][1] << "s";
+		if(dconventionalgroups[x][i][1]!=0){
+			ss << dconventionalgroups[x][i][0] << " " << dconventionalgroups[x][i][1] << "s";
 			s = ss.str();
 			const char * c = s.c_str();
 			wprintw(RECwin, c);
 			wattroff(RECwin, COLOR_PAIR(currcol));
 		}
 		else {
-			ss << conventionalgroups[x][i][0];
+			ss << dconventionalgroups[x][i][0];
 			s = ss.str();
 			const char * c = s.c_str();
 			wprintw(RECwin, c);
@@ -1785,7 +1795,44 @@ void Tree::RecRef(){
 	//		ss.str("");
 		//	s = "";
 	}
-	wmove(RECwin, digrec[x]+anarec[x]+convrec[x]+2, 2+(x*TGblockx));
+	for (int i = 0; i < aconvrec[x]; i++){
+	std::stringstream ss;
+	std::stringstream ss2;
+	std::string s2;
+	std::string s;
+	if(i < 9){
+	wmove(RECwin, 1+i+digrec[x]+anarec[x],2+(TGblockx*x));
+	}
+	else{
+	wmove(RECwin, 1+i+digrec[x]+anarec[x],1+(TGblockx*x));
+	}
+	ss2 << i+1;
+	ss2 >> s2;
+	const char * d = s2.c_str();
+	wattron(RECwin, COLOR_PAIR(5));
+	wprintw(RECwin, d);
+	wattroff(RECwin, COLOR_PAIR(5));
+	wmove(RECwin, 1+i+digrec[x]+anarec[x]+dconvrec[x],4+(TGblockx*x));
+	getcol(aconventionalgroups[x][i][2]);
+		wattron(RECwin, COLOR_PAIR(currcol));
+		if(aconventionalgroups[x][i][1]!=0){
+			ss << aconventionalgroups[x][i][0] << " " << aconventionalgroups[x][i][1] << "s";
+			s = ss.str();
+			const char * c = s.c_str();
+			wprintw(RECwin, c);
+			wattroff(RECwin, COLOR_PAIR(currcol));
+		}
+		else {
+			ss << aconventionalgroups[x][i][0];
+			s = ss.str();
+			const char * c = s.c_str();
+			wprintw(RECwin, c);
+			wattroff(RECwin, COLOR_PAIR(currcol));
+		}
+	//		ss.str("");
+		//	s = "";
+	}
+	wmove(RECwin, digrec[x]+anarec[x]+aconvrec[x]+dconvrec[x]+2, 2+(x*TGblockx));
 	wattron(RECwin, COLOR_PAIR(4));
 	const char * r = Radios[x].c_str();
 	wprintw(RECwin, r);
