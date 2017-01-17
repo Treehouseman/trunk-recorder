@@ -149,26 +149,32 @@ int R2y = 35;
 int R1h = 30;
 int R2h = 20;
 int TGstartx = 1;
+int TGstarty = 1;
 int TGblockx = 12;
 int TGdefx = 2;
 int TGendx;
 int SYSstartx;
+int SYSstarty;
 int SYSdefx = 5;
 int SYSblockx = 4;
 int SYSendx;
 int OLDstartx;
+int OLDstarty;
 int OLDdefx = 15;
 int OLDblockx = 0;
 int OLDendx;
 int CPUstartx;
+int CPUstarty;
 int CPUdefx = 6;
 int CPUblockx = 1;
 int CPUendx;
 int DATstartx;
+int DATstarty;
 int DATdefx = 23;
 int DATblockx = 0;
 int DATendx = 0;
 int LOGstartx = 1;
+int LOGstarty;
 int LOGdefx = 125;
 int LOGblockx = 0;
 int LOGendx;
@@ -179,11 +185,13 @@ int OLDblocks = 0;
 int LOGblocks = 0;
 int SYSblocks = 0;
 int MTGstartx = 0;
+int MTGstarty;
 int MTGendx = 0;
 int MTGdefx = 10;
 int MTGblockx = 0;
 int MTGblocks = 0;
 int ERRstartx;
+int ERRstarty;
 int ERRdefx = 17;
 int ERRendx;
 int ERRblockx = 0;
@@ -600,6 +608,14 @@ void Tree::Coordinates(){
 			ErrWinEn=true;
 			R2y=32;
 			R2h=20;
+			TGstarty = R1y;
+			DATstarty = R1y;
+			CPUstarty = R1y;
+			OLDstarty = R1y;
+			SYSstarty = R1y;
+			MTGstarty = R1y;
+			ERRstarty = R1y;
+			LOGstarty = R2y;
 			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
 			SYSstartx = TGendx+1;
 			SYSendx = SYSstartx+SYSdefx+(SYSblockx*SYSblocks);
@@ -629,10 +645,13 @@ void Tree::Coordinates(){
 			clearall=true;
 		break;
 		case 1:
+			R1y = 1;
 			RecWinEn=true;
 			DatWinEn=true;
 			SysWinEn=true;
-			TGstartx=xpos+1;
+			DATstarty = R1y;
+			SYSstarty = R1y;
+			TGstarty = R1y;
 			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks);
 			xpos = TGendx;
 			SYSstartx=xpos+1;
@@ -643,9 +662,13 @@ void Tree::Coordinates(){
 			clearall=true;
 		break;
 		case 2:
+			R1y = 1;
 			OldWinEn=true;
 			CpuWinEn=true;
 			MrecWinEn=true;
+			CPUstarty = R1y;
+			OLDstarty = R1y;
+			MTGstarty = R1y;
 			OLDstartx=xpos+1;
 			OLDendx=OLDstartx+OLDdefx+(OLDblockx*OLDblocks);
 			xpos=OLDendx;
@@ -668,19 +691,65 @@ void Tree::Coordinates(){
 			xpos=MTGendx;
 		break;
 		case 3:
+			R1y = 1;
 			ErrWinEn=true;
+			ERRstarty = R1y;
+			LOGstarty = R1y;
 			ERRstartx=xpos+1;
 			ERRendx=ERRstartx+ERRdefx+(ERRblockx*ERRblocks);
 			xpos=ERRendx;
 			LogWinEn=true;
-			R2y=1;
 			R2h=R1h;
 			LOGstartx=xpos+1;
 			LOGendx=LOGstartx+50+(LOGblockx*LOGblocks);
 			xpos=LOGendx;
 		break;
 		case 4:
-			
+			RecWinEn=true;
+			DatWinEn=true;
+			CpuWinEn=true;
+			OldWinEn=true;
+			MrecWinEn=true;
+			SysWinEn=true;
+			ErrWinEn=true;
+			LogWinEn=true;
+			R1y = 1;
+			R2y=32;
+			R2h=30;
+			TGstarty = R1y;
+			DATstarty = R2y;
+			CPUstarty = R2y;
+			OLDstarty = R2y;
+			SYSstarty = R2y;
+			MTGstarty = R2y;
+			ERRstarty = R2y;
+			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
+			SYSstartx = TGstartx;
+			SYSendx = SYSstartx+SYSdefx+(SYSblockx*SYSblocks);
+			DATstartx = SYSendx + 1;
+			DATendx = DATstartx+DATdefx+(DATblockx*DATblocks);
+			OLDstartx = DATendx+1;
+			OLDendx = OLDstartx+OLDdefx+(OLDblockx*OLDblocks);
+			CPUstartx = OLDendx + 1;
+			if(ncurses_cpu){
+				if(ncurses_lavg)
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks)+3;
+				else
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks);
+			}
+			else{
+				if(ncurses_lavg)
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*1)+3;
+				else
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*1);
+			}
+			MTGstartx = CPUendx+1;
+			MTGendx = MTGstartx+MTGdefx+(MTGblockx*MTGblocks);
+			ERRstartx = MTGendx+1;
+			ERRendx = ERRstartx+ERRdefx+(ERRblockx*ERRblocks);
+			LOGstartx=ERRendx+1;
+			LOGendx=LOGstartx+40+(LOGblockx*LOGblocks);
+			xpos=LOGendx;
 		break;
 	}
 	
@@ -781,36 +850,36 @@ bool Tree::StartCurses(){
 }
 void Tree::MakeWindows(){
 	if(RecWinEn){
-		RECwin = create_newwin(R1h, TGendx-TGstartx, R1y, TGstartx);
+		RECwin = create_newwin(R1h, TGendx-TGstartx, TGstarty, TGstartx);
 		wbkgd(RECwin, COLOR_PAIR(6));
 	}
 	if(SysWinEn){
-		SYSwin = create_newwin(R1h, SYSendx-SYSstartx, R1y, SYSstartx);
+		SYSwin = create_newwin(R1h, SYSendx-SYSstartx, SYSstarty, SYSstartx);
 		wbkgd(SYSwin, COLOR_PAIR(6));
 	}
 	if(OldWinEn){
-		OLDwin = create_newwin(R1h, OLDendx-OLDstartx, R1y, OLDstartx);
+		OLDwin = create_newwin(R1h, OLDendx-OLDstartx, OLDstarty, OLDstartx);
 		wbkgd(OLDwin, COLOR_PAIR(6));
 	}
 	if(CpuWinEn){
-		CPUwin = create_newwin(R1h, CPUendx-CPUstartx, R1y, CPUstartx);
+		CPUwin = create_newwin(R1h, CPUendx-CPUstartx, CPUstarty, CPUstartx);
 		wbkgd(CPUwin, COLOR_PAIR(6));
 	}
 	if(DatWinEn){
-		DATwin = create_newwin(R1h, DATendx-DATstartx, R1y, DATstartx);
+		DATwin = create_newwin(R1h, DATendx-DATstartx, DATstarty, DATstartx);
 		wbkgd(DATwin, COLOR_PAIR(6));
 	}
 	if(MrecWinEn){
-		MRECwin = create_newwin(R1h, MTGendx-MTGstartx, R1y, MTGstartx);
+		MRECwin = create_newwin(R1h, MTGendx-MTGstartx, MTGstarty, MTGstartx);
 		wbkgd(MRECwin, COLOR_PAIR(6));
 	}
 	if(ErrWinEn){
-		ERRwin = create_newwin(R1h, ERRendx-ERRstartx, R1y, ERRstartx);
+		ERRwin = create_newwin(R1h, ERRendx-ERRstartx, ERRstarty, ERRstartx);
 		wbkgd(ERRwin, COLOR_PAIR(6));
 	}
 	if(LogWinEn){
-		LOGwinb = create_newwin(R2h, LOGendx-LOGstartx, R2y, LOGstartx);//This is the border for the log window
-		LOGwin = create_newwin(R2h-2, LOGendx-LOGstartx-2, R2y+1, LOGstartx+1); //This is the actual logging window
+		LOGwinb = create_newwin(R2h, LOGendx-LOGstartx, LOGstarty, LOGstartx);//This is the border for the log window
+		LOGwin = create_newwin(R2h-2, LOGendx-LOGstartx-2, LOGstarty+1, LOGstartx+1); //This is the actual logging window
 		wbkgd(LOGwin, COLOR_PAIR(6));
 		wbkgd(LOGwinb, COLOR_PAIR(6));
 		scrollok(LOGwin, true);
@@ -941,6 +1010,13 @@ void Tree::Get_Key(){
 			ncurses_group=4;
 			resized=true;
 			NewLog("Group 4");
+		break;
+		case '5':
+			if(ncurses_group==5)
+				break;
+			ncurses_group=5;
+			resized=true;
+			NewLog("Group 5");
 		break;
 		case 'r':
 			clearall=true;
