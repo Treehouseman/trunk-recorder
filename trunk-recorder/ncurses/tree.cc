@@ -2,6 +2,7 @@
 #include <sys/sysinfo.h>
 #include <string>
 #include <ncurses.h>
+//#include "../talkgroups.h"
 #include <sstream>
 #include <iostream>
 #include <curses.h>
@@ -36,6 +37,8 @@ WINDOW *LOGwin;
 WINDOW *MRECwin;
 WINDOW *ERRwin;
 WINDOW *CLRwin;
+WINDOW *UTwin;
+WINDOW *UTwinb;
 void destroy_win(WINDOW *local_win);
 int systemnumber = 0;
 int currsys;
@@ -85,6 +88,9 @@ int sysmps[100][60];
 int sysccc[3][100];
 int pastpos = 0;
 int history[28][3];
+std::string UThistory[30];
+int UTcol[30];
+int utpos = 0;
 int TreeTime[3];
 int CallMin[60];
 long CallTDay=0;
@@ -196,6 +202,14 @@ int ERRdefx = 17;
 int ERRendx;
 int ERRblockx = 0;
 int ERRblocks = 0;
+int UTstartx;
+int UTstarty;
+int UTblocks = 0;
+int UTblockx = 0;
+int UTendx;
+int UTdefx = 125;
+int UTdesclen = 50;
+volatile bool UtWinEn = false;
 volatile bool RecWinEn = false;
 volatile bool DatWinEn = false;
 volatile bool OldWinEn = false;
@@ -214,6 +228,8 @@ bool resized = false;
 	FILE *cfp;
 
 bool clearall=true;
+
+//Talkgroups *talk;
 
 
 void Tree::do_resize(int null){
@@ -273,10 +289,16 @@ void Tree::Past(int tg, int elapsed, int color){
 		DatRef();
 	}
 }
-void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional){
+void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, std::string description){
 	if(!curseenable)
 		return;
-	int elapsedint = elapsed+0.5;
+	long endid = 0;
+	long endcol = 0;
+	int elapsedint = 0;
+	if(conventional)
+		elapsedint = elapsed+0.5;
+	else
+		elapsedint = elapsed;
 	if(!conventional){
 		for(int i = 0; i < TGblocks; i++){
 			if(Radios[i]==dev){
@@ -284,6 +306,9 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional){
 				if(analoggroups[i][x][0]==tg){
 					//Put logging code here
 					Past(tg, analoggroups[i][x][1], analoggroups[i][x][2]);
+					endid=sysccc[0][analoggroups[i][x][2]];
+					endcol=analoggroups[i][x][2];
+					UTnew(tg, endid, dev, elapsedint, endcol, description);
 					analoggroups[i][x][0]=0;
 					analoggroups[i][x][1]=0;
 					actcall--;
@@ -292,6 +317,9 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional){
 				}
 				if(digitalgroups[i][x][0]==tg){
 					Past(tg, digitalgroups[i][x][1], digitalgroups[i][x][2]);
+					endid=sysccc[0][digitalgroups[i][x][2]];
+					endcol=digitalgroups[i][x][2];
+					UTnew(tg, endid, dev, elapsedint, endcol, description);
 					//put logging code here
 					digitalgroups[i][x][0]=0;
 					digitalgroups[i][x][1]=0;
@@ -311,8 +339,23 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional){
 				if(aconventionalgroups[i][x][0]==tg){
 					//Put logging code here
 					Past(tg, elapsedint, aconventionalgroups[i][x][2]);
+					int cid = aconventionalgroups[i][x][2]-SYSblocks;
+					endid=csyscc[cid];
+					endcol=aconventionalgroups[i][x][2];
+					UTnew(tg, endid, dev, elapsedint, endcol, description);
 					aconventionalgroups[i][x][3]=0;
 					aconventionalgroups[i][x][1]=0;
+					return;
+				}
+				else if(dconventionalgroups[i][x][0]==tg){
+					//Put logging code here
+					Past(tg, elapsedint, dconventionalgroups[i][x][2]);
+					int cid = dconventionalgroups[i][x][2]-SYSblocks;
+					endid=csyscc[cid];
+					endcol=dconventionalgroups[i][x][2];
+					UTnew(tg, endid, dev, elapsedint, endcol, description);
+					dconventionalgroups[i][x][3]=0;
+					dconventionalgroups[i][x][1]=0;
 					return;
 				}
 			}
@@ -751,6 +794,131 @@ void Tree::Coordinates(){
 			LOGendx=LOGstartx+40+(LOGblockx*LOGblocks);
 			xpos=LOGendx;
 		break;
+		case 5:
+			RecWinEn=true;
+			UtWinEn=true;
+			R1y=1;
+			R2y=32;
+			R2h=20;
+			R1h=30;
+			UTdesclen=50;
+			TGstarty=R1y;
+			TGstartx=1;
+			TGendx=TGstartx+TGdefx+(TGblockx*TGblocks);
+			UTstarty=R2y;
+			UTstartx=1;
+			UTendx=UTstartx+UTdefx+(UTblockx*UTblocks);
+		break;
+		case 6:
+			RecWinEn=true;
+			UtWinEn=true;
+			LogWinEn=true;
+			R1y=1;
+			R2y=32;
+			R2h=20;
+			R1h=30;
+			UTdesclen=25;
+			TGstarty=R1y;
+			TGstartx=1;
+			TGendx=TGstartx+TGdefx+(TGblockx*TGblocks);
+			UTstarty=R2y;
+			UTstartx=1;
+			UTendx=UTstartx+75+(UTblockx*UTblocks);
+			LOGstartx=UTendx+1;
+			LOGendx=LOGstartx+50+(LOGblockx*LOGblocks);
+		break;
+		case 7:
+			RecWinEn=true;
+			DatWinEn=true;
+			CpuWinEn=true;
+			UtWinEn=true;
+			MrecWinEn=true;
+			SysWinEn=true;
+			ErrWinEn=true;
+			R2y=32;
+			R2h=20;
+			UTdesclen=50;
+			TGstarty = R1y;
+			DATstarty = R1y;
+			CPUstarty = R1y;
+			SYSstarty = R1y;
+			MTGstarty = R1y;
+			ERRstarty = R1y;
+			LOGstarty = R2y;
+			UTstarty=R2y;
+			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
+			SYSstartx = TGendx+1;
+			SYSendx = SYSstartx+SYSdefx+(SYSblockx*SYSblocks);
+			DATstartx = SYSendx + 1;
+			DATendx = DATstartx+DATdefx+(DATblockx*DATblocks);
+			CPUstartx = DATendx + 1;
+			if(ncurses_cpu){
+				if(ncurses_lavg)
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks)+3;
+				else
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks);
+			}
+			else{
+				if(ncurses_lavg)
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*1)+3;
+				else
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*1);
+			}
+			MTGstartx = CPUendx+1;
+			MTGendx = MTGstartx+MTGdefx+(MTGblockx*MTGblocks);
+			ERRstartx = MTGendx+1;
+			ERRendx = ERRstartx+ERRdefx+(ERRblockx*ERRblocks);
+			UTstartx=1;
+			UTendx = UTstartx+UTdefx+(UTblockx*UTblocks);
+		break;
+		case 8:
+			RecWinEn=true;
+			DatWinEn=true;
+			CpuWinEn=true;
+			UtWinEn=true;
+			MrecWinEn=true;
+			SysWinEn=true;
+			ErrWinEn=true;
+			LogWinEn=true;
+			R2y=32;
+			R2h=20;
+			UTdesclen=25;
+			TGstarty = R1y;
+			DATstarty = R1y;
+			CPUstarty = R1y;
+			SYSstarty = R1y;
+			MTGstarty = R1y;
+			ERRstarty = R1y;
+			LOGstarty = R2y;
+			UTstarty=R2y;
+			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
+			SYSstartx = TGendx+1;
+			SYSendx = SYSstartx+SYSdefx+(SYSblockx*SYSblocks);
+			DATstartx = SYSendx + 1;
+			DATendx = DATstartx+DATdefx+(DATblockx*DATblocks);
+			CPUstartx = DATendx + 1;
+			if(ncurses_cpu){
+				if(ncurses_lavg)
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks)+3;
+				else
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks);
+			}
+			else{
+				if(ncurses_lavg)
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*1)+3;
+				else
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*1);
+			}
+			MTGstartx = CPUendx+1;
+			MTGendx = MTGstartx+MTGdefx+(MTGblockx*MTGblocks);
+			ERRstartx = MTGendx+1;
+			ERRendx = ERRstartx+ERRdefx+(ERRblockx*ERRblocks);
+			UTstartx=1;
+			UTendx = UTstartx+75+(UTblockx*UTblocks);
+			LOGstartx=UTendx+1;
+			LOGendx = LOGstartx+50+(LOGblockx*LOGblocks);
+		break;
+		
 	}
 	
 }
@@ -773,7 +941,10 @@ void Tree::recreate(){
 		destroy_win(ERRwin);
 	if(SysWinEn)
 		destroy_win(SYSwin);
-	
+	if(UtWinEn){
+		destroy_win(UTwin);
+		destroy_win(UTwinb);
+	}
 	RecWinEn=false;
 	CpuWinEn=false;
 	MrecWinEn=false;
@@ -782,6 +953,7 @@ void Tree::recreate(){
 	OldWinEn=false;
 	ErrWinEn=false;
 	SysWinEn=false;
+	UtWinEn=false;
 	Coordinates();
 	MakeWindows();
 }
@@ -884,6 +1056,14 @@ void Tree::MakeWindows(){
 		wbkgd(LOGwinb, COLOR_PAIR(6));
 		scrollok(LOGwin, true);
 		LogRef();
+	}
+	if(UtWinEn){
+		UTwinb = create_newwin(R2h, UTendx-UTstartx, UTstarty, UTstartx);//This is the border for the log window
+		UTwin = create_newwin(R2h-2, UTendx-UTstartx-2, UTstarty+1, UTstartx+1); //This is the actual logging window
+		wbkgd(UTwin, COLOR_PAIR(6));
+		wbkgd(UTwinb, COLOR_PAIR(6));
+		scrollok(UTwin, true);
+		UtRef();
 	}
 	clearall=true;
 	ScrRef();
@@ -1018,6 +1198,27 @@ void Tree::Get_Key(){
 			resized=true;
 			NewLog("Group 5");
 		break;
+		case '6':
+			if(ncurses_group==6)
+				break;
+			ncurses_group=6;
+			resized=true;
+			NewLog("Group 6");
+		break;
+		case '7':
+			if(ncurses_group==7)
+				break;
+			ncurses_group=7;
+			resized=true;
+			NewLog("Group 7");
+		break;
+		case '8':
+			if(ncurses_group==8)
+				break;
+			ncurses_group=8;
+			resized=true;
+			NewLog("Group 8");
+		break;
 		case 'r':
 			clearall=true;
 			NewLog("Cleared Screen");
@@ -1109,8 +1310,9 @@ void Tree::ScrRef(){
 	CpuRef();
 	MtgRef();
 	ErrRef();
+	UtRef();
 	//LogRef();
-	wmove(LOGwin, 0, 0);
+	//wmove(LOGwin, 0, 0);
 	refresh();
 	//if(delayedref>0)
 	//	delayedref=0;
@@ -2555,4 +2757,116 @@ void Tree::ErrRef(){
 	}
 	wattroff(ERRwin, COLOR_PAIR(4));
 	wrefresh(ERRwin);
+}
+void Tree::UtRef(){
+	if(!curseenable)
+		return;
+	if(!UtWinEn)
+		return;
+	//LOGwin
+	werase(UTwin);
+	werase(UTwinb);
+	wborder(UTwinb, 0,0,0,0,0,0,0,0);
+	wborder(UTwin, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+	wattron(UTwinb, COLOR_PAIR(4));
+	wmove(UTwinb, 0, 1);
+	wprintw(UTwinb, "Call History");
+	wattroff(UTwinb, COLOR_PAIR(4));
+	//wattron(UTwin, COLOR_PAIR(4));
+	wmove(UTwin, 0,0);
+	for(int i = 0; i < 20 && i<utpos; i++){
+		if(UThistory[i]=="")
+			break;
+		std::stringstream ls;
+		if (i < 19)
+			ls << UThistory[i] << "\n";
+		else
+			ls << UThistory[i];
+		std::string lss = ls.str();
+		const char * lchar = lss.c_str();
+		getcol(UTcol[i]);
+		wattron(UTwin, COLOR_PAIR(currcol));
+		wprintw(UTwin, lchar);
+		wattroff(UTwin, COLOR_PAIR(currcol));
+		
+	}
+	//wattroff(LOGwin, COLOR_PAIR(4));
+	wrefresh(UTwinb);
+	wrefresh(UTwin);
+}
+
+void Tree::UTnew(int tg, long nac, std::string radio, int length, int color, std::string description){
+		std::string short_desc = description;
+		std::string buffstr;
+		std::stringstream buffstream;
+		if(strlen(short_desc.c_str())>UTdesclen){
+			short_desc=short_desc.substr(0,UTdesclen);
+		}
+		std::stringstream UTstream;
+		if(TreeTime[0]<10)
+			UTstream << "0";
+		UTstream << TreeTime[0] << ":";
+		if(TreeTime[1]<10)
+			UTstream << "0";
+		UTstream << TreeTime[1] << ":";
+		if(TreeTime[2]<10)
+			UTstream << "0";
+		UTstream << TreeTime[2];
+		UTstream << " - ";
+		buffstream << tg;
+		buffstr = buffstream.str();
+		if(strlen(buffstr.c_str())<7)
+			UTstream << " ";
+		if(strlen(buffstr.c_str())<6)
+			UTstream << " ";
+		if(strlen(buffstr.c_str())<5)
+			UTstream << " ";
+		if(strlen(buffstr.c_str())<4)
+			UTstream << " ";
+		if(strlen(buffstr.c_str())<3)
+			UTstream << " ";
+		if(strlen(buffstr.c_str())<2)
+			UTstream << " ";
+		UTstream << tg;
+		buffstream.str("");
+		buffstr = "";
+		buffstream << std::hex << std::uppercase << nac << std::dec << std::nouppercase;
+		buffstr = buffstream.str();
+		if(strlen(buffstr.c_str())<5)
+			UTstream << " ";
+		if(strlen(buffstr.c_str())<4)
+			UTstream << " ";
+		UTstream << buffstr << " - ";
+		if(strlen(radio.c_str())<5)
+			UTstream << " ";
+		if(strlen(radio.c_str())<4)
+			UTstream << " ";
+		if(strlen(radio.c_str())<3)
+			UTstream << " ";
+		if(strlen(radio.c_str())<2)
+			UTstream << " ";
+		UTstream << radio << " - ";
+		buffstream.str("");
+		buffstream << length;
+		buffstr = "";
+		buffstr = buffstream.str();
+		if(strlen(buffstr.c_str())<3)
+			UTstream << " ";
+		if(strlen(buffstr.c_str())<2)
+			UTstream << " ";
+		UTstream << buffstr << " - " << short_desc;
+		//NewLog(UTstream.str());
+		if (utpos < 20){
+		UThistory[utpos] = UTstream.str();
+		UTcol[utpos]=color;
+		utpos++;
+		}
+		else{
+			for(int i = 0; i < 19; i++){
+				UThistory[i]=UThistory[i+1];
+				UTcol[i]=UTcol[i+1];
+			}
+			UThistory[19]=UTstream.str();
+			UTcol[19]=color;
+		}
 }

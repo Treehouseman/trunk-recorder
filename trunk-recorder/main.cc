@@ -412,6 +412,7 @@ void start_recorder(Call *call, TrunkMessage message) {
 
         if (talkgroup)
         {
+			call->set_description(talkgroup->description);
           if (talkgroup->mode == 'A') {
             recorder = source->get_analog_recorder(talkgroup->get_priority());
 			isanalog = true;//Treehouseman got analog call
@@ -1019,7 +1020,7 @@ bool monitor_system() {
 
     if ((system->get_system_type() == "conventional") || (system->get_system_type() == "conventionalP25")) {
       std::vector<double> channels = system->get_channels();
-      int talkgroup                = 1;
+      int tg                = 1;
 
       for (vector<double>::iterator chan_it = channels.begin(); chan_it != channels.end(); chan_it++) {
         double channel = *chan_it;
@@ -1040,9 +1041,12 @@ bool monitor_system() {
               system_added = true;
             }
 			csys_id=1230+convsys;//Treehouseman giving conventional their own ID
-            BOOST_LOG_TRIVIAL(info) << "Monitoring Conventional Channel: " << channel << " Talkgroup: " << talkgroup;
-            Call *call = new Call(talkgroup, channel, system, config, csys_id);
-            talkgroup++;
+            BOOST_LOG_TRIVIAL(info) << "Monitoring Conventional Channel: " << channel << " Talkgroup: " << tg;
+            Call *call = new Call(tg, channel, system, config, csys_id);
+			Talkgroup *talkgroup = talkgroups->find_talkgroup(tg, csys_id);
+			if(talkgroup)
+				call->set_description(talkgroup->description);
+            tg++;
             call->set_conventional(true);
 			//tout.(talkgroup, csys_id, source->get_device())
 			std::string recradio = source->get_device();
@@ -1063,19 +1067,19 @@ bool monitor_system() {
             if (system->get_system_type() == "conventional") {
               analog_recorder_sptr rec;
               rec = source->create_conventional_recorder(tb);
-              rec->start(call, talkgroup);
+              rec->start(call, tg);
               call->set_recorder((Recorder *)rec.get());
               call->set_state(recording);
-			  tout.StartCall(talkgroup-1, channel, recradio2, 1, csys_id, 1);
+			  tout.StartCall(tg-1, channel, recradio2, 1, csys_id, 1);
               system->add_conventional_recorder(rec);
               calls.push_back(call);
             } else { // has to be "conventionalP25"
               p25_recorder_sptr rec;
               rec = source->create_conventionalP25_recorder(tb);
-              rec->start(call, talkgroup);
+              rec->start(call, tg);
               call->set_recorder((Recorder *)rec.get());
               call->set_state(recording);
-			  tout.StartCall(talkgroup-1, channel, recradio2, 0, csys_id, 1);
+			  tout.StartCall(tg-1, channel, recradio2, 0, csys_id, 1);
               system->add_conventionalP25_recorder(rec);
               calls.push_back(call);
             }

@@ -81,6 +81,18 @@ flag when defining a radio/source, this will help remove static on analog record
 ### Group 4
 ![Group 4](images/ncurses_group4.png)
 
+### Group 5
+![Group 5](images/ncurses_group5.png)
+
+### Group 6
+![Group 6](images/ncurses_group6.png)
+
+### Group 7
+![Group 7](images/ncurses_group7.png)
+
+### Group 8
+![Group 8](images/ncurses_group8.png)
+
 ### CPU Options
 ![CPU Options](images/cpu_options.png)
 

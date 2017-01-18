@@ -37,6 +37,7 @@ Call::Call(long t, double f, System *s, Config c, int csys_id) {
   encrypted       = false;
   emergency       = false;
   conventional    = false;
+  description     = "Unknown";
   nac             = csys_id;
   dev             = "";
   this->create_filename();
@@ -63,6 +64,7 @@ Call::Call(TrunkMessage message, System *s, Config c, int csys_id) {
   encrypted       = message.encrypted;
   emergency       = message.emergency;
   nac             = csys_id;
+  description     = "Unknown";
   dev             = "";
   conventional    = false;
 
@@ -96,9 +98,9 @@ void Call::end_call() {
 
   if (state == recording) {
 	  if(!conventional)
-		tout.EndCall(this->get_talkgroup(), this->elapsed(), dev, conventional);//Treehouseman ending call
+		tout.EndCall(this->get_talkgroup(), this->elapsed(), dev, conventional, description);//Treehouseman ending call
 	  else if(conventional)
-		  tout.EndCall(this->get_talkgroup(), this->get_current_length(), dev, conventional);
+		  tout.EndCall(this->get_talkgroup(), this->get_current_length(), dev, conventional, description);
     BOOST_LOG_TRIVIAL(info) << "Ending Recorded Call \tTG: " <<   this->get_talkgroup() << "\tLast Update: " << this->since_last_update() << " Call Elapsed: " << this->elapsed();
     std::ofstream myfile(status_filename);
     std::stringstream shell_command;
@@ -323,4 +325,7 @@ void Call::set_nac(int n){
 }
 int Call::get_nac(){
 	return nac;
+}
+void Call::set_description(std::string desc){
+	description = desc;
 }

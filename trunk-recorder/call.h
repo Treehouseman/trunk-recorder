@@ -78,6 +78,7 @@ int get_nac();
 								bool get_encrypted();
 								void set_emergency(bool m);
 								bool get_emergency();
+								void set_description(std::string desc);
 private:
 Tree tout;
 int nac;
@@ -94,6 +95,7 @@ int nac;
 								bool debug_recording;
 								bool encrypted;
 								bool emergency;
+								std::string description;
 								bool conventional;
 								char filename[160];
 								char converted_filename[160];

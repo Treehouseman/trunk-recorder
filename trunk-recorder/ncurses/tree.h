@@ -36,6 +36,7 @@ void Long(long tg, long freq, int elapsed, int since, int sys);
 void Retune(int elasped, int since, long tg, long old_freq, long new_freq, bool isgood);
 void DoubleCall(long newtg, long oldtg, long freq, int since, int elapsed);
 void SysId(int sysid, bool isconventional);
+void UtRef();
 void Rate(int mps);
 void CursesError();
 bool SetupLog();
@@ -44,7 +45,7 @@ void EndWin();
 void setColor(long currid, long tg);
 bool getcol(int loc);
 void msgdata();
-void EndCall(long tg, double elapsed, std::string dev, bool conventional);
+void EndCall(long tg, double elapsed, std::string dev, bool conventional, std::string description);
 void CallHist(long tg, long elapsed);
 void ccId(int sys);
 void TimeUp();
@@ -75,6 +76,9 @@ void LogRef();
 std::string cparse(long input, int space);
 void Wav(int msg);
 private:
+//#include "../talkgroups.h"
+void UTnew(int tg, long nac, std::string radio, int length, int color, std::string description);
+
 static void do_resize(int null);
 };
 typedef std::ostream& (*STRFUNC)(std::ostream&);
