@@ -2026,14 +2026,14 @@ void Tree::RecRef(){
 	}
 	else{
 		if(recorderused[x][i][1]){
-	wattron(RECwin, COLOR_PAIR(2));
-	wprintw(RECwin, d);
-	wattroff(RECwin, COLOR_PAIR(2));
-	}
-	else{
 	wattron(RECwin, COLOR_PAIR(4));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(4));
+	}
+	else{
+	wattron(RECwin, COLOR_PAIR(2));
+	wprintw(RECwin, d);
+	wattroff(RECwin, COLOR_PAIR(2));
 	}
 	}
 	}
