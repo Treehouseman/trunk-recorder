@@ -836,7 +836,7 @@ void Tree::Coordinates(){
 			SysWinEn=true;
 			ErrWinEn=true;
 			R2y=32;
-			R2h=20;
+			R2h=22;
 			UTdesclen=100;
 			TGstarty = R1y;
 			DATstarty = R1y;
@@ -881,7 +881,7 @@ void Tree::Coordinates(){
 			ErrWinEn=true;
 			LogWinEn=true;
 			R2y=32;
-			R2h=20;
+			R2h=22;
 			UTdesclen=32;
 			TGstarty = R1y;
 			DATstarty = R1y;
@@ -1608,10 +1608,10 @@ std::string Tree::TTimeParse(int stime){
 	}
 	std::stringstream ttp;
 	if(stime >= 604800){
-		//if(stime/60/60/24/7 < 100)
-		//	ttp << " ";
+		if(stime/60/60/24/7 < 100)
+			ttp << " ";
 		if(stime/60/60/24/7 < 10)
-			ttp << "  ";
+			ttp << " ";
 		ttp << stime/60/60/24/7 << ":";
 		ttp << stime/60/60/24%7 << ":";
 		if(stime/60/60%24<10){
@@ -2012,7 +2012,7 @@ void Tree::RecRef(){
 	ss2 << i+1;
 	ss2 >> s2;
 	const char * d = s2.c_str();
-	if(i<anarec[i]-2){
+	if(i<anarec[x]-2){
 		wattron(RECwin, COLOR_PAIR(2));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(2));
@@ -2847,7 +2847,7 @@ void Tree::UTnew(int tg, long nac, std::string radio, int length, int color, std
 			UTstream << " ";
 		if(strlen(buffstr.c_str())<2)
 			UTstream << " ";
-		UTstream << tg;
+		UTstream << tg << " - ";
 		buffstream.str("");
 		buffstr = "";
 		buffstream << std::hex << std::uppercase << nac << std::dec << std::nouppercase;
