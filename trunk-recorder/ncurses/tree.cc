@@ -88,7 +88,7 @@ int sysmps[100][60];
 int sysccc[3][100];
 int pastpos = 0;
 int history[28][3];
-std::string UThistory[30];
+std::string UThistory[20];
 int UTcol[30];
 int utpos = 0;
 int TreeTime[3];
@@ -801,7 +801,7 @@ void Tree::Coordinates(){
 			R2y=32;
 			R2h=20;
 			R1h=30;
-			UTdesclen=50;
+			UTdesclen=100;
 			TGstarty=R1y;
 			TGstartx=1;
 			TGendx=TGstartx+TGdefx+(TGblockx*TGblocks);
@@ -817,7 +817,7 @@ void Tree::Coordinates(){
 			R2y=32;
 			R2h=20;
 			R1h=30;
-			UTdesclen=25;
+			UTdesclen=32;
 			TGstarty=R1y;
 			TGstartx=1;
 			TGendx=TGstartx+TGdefx+(TGblockx*TGblocks);
@@ -837,7 +837,7 @@ void Tree::Coordinates(){
 			ErrWinEn=true;
 			R2y=32;
 			R2h=20;
-			UTdesclen=50;
+			UTdesclen=100;
 			TGstarty = R1y;
 			DATstarty = R1y;
 			CPUstarty = R1y;
@@ -882,7 +882,7 @@ void Tree::Coordinates(){
 			LogWinEn=true;
 			R2y=32;
 			R2h=20;
-			UTdesclen=25;
+			UTdesclen=32;
 			TGstarty = R1y;
 			DATstarty = R1y;
 			CPUstarty = R1y;
@@ -1062,7 +1062,7 @@ void Tree::MakeWindows(){
 		UTwin = create_newwin(R2h-2, UTendx-UTstartx-2, UTstarty+1, UTstartx+1); //This is the actual logging window
 		wbkgd(UTwin, COLOR_PAIR(6));
 		wbkgd(UTwinb, COLOR_PAIR(6));
-		scrollok(UTwin, true);
+		//scrollok(UTwin, true);
 		UtRef();
 	}
 	clearall=true;
@@ -1611,7 +1611,7 @@ std::string Tree::TTimeParse(int stime){
 		//if(stime/60/60/24/7 < 100)
 		//	ttp << " ";
 		if(stime/60/60/24/7 < 10)
-			ttp << " ";
+			ttp << "  ";
 		ttp << stime/60/60/24/7 << ":";
 		ttp << stime/60/60/24%7 << ":";
 		if(stime/60/60%24<10){
@@ -1960,6 +1960,12 @@ void Tree::RecRef(){
 	ss2 << i+1;
 	ss2 >> s2;
 	const char * d = s2.c_str();
+	if(i < digrec[x]-2){
+	wattron(RECwin, COLOR_PAIR(3));
+	wprintw(RECwin, d);
+	wattroff(RECwin, COLOR_PAIR(3));
+	}
+	else {
 	if(digitalgroups[x][i][0]!=0){
 		recorderused[x][i][0]=true;
 	wattron(RECwin, COLOR_PAIR(3));
@@ -1968,14 +1974,15 @@ void Tree::RecRef(){
 	}
 	else{
 		if(recorderused[x][i][0]){
+	wattron(RECwin, COLOR_PAIR(4));
+	wprintw(RECwin, d);
+	wattroff(RECwin, COLOR_PAIR(4));
+	}
+	else{
 	wattron(RECwin, COLOR_PAIR(3));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(3));
 	}
-	else{
-	wattron(RECwin, COLOR_PAIR(4));
-	wprintw(RECwin, d);
-	wattroff(RECwin, COLOR_PAIR(4));
 	}
 	}
 	wmove(RECwin, 1+i,4+(TGblockx*x));
@@ -2005,6 +2012,12 @@ void Tree::RecRef(){
 	ss2 << i+1;
 	ss2 >> s2;
 	const char * d = s2.c_str();
+	if(i<anarec[i]-2){
+		wattron(RECwin, COLOR_PAIR(2));
+	wprintw(RECwin, d);
+	wattroff(RECwin, COLOR_PAIR(2));
+	}
+	else{
 	if(analoggroups[x][i][0]!=0){
 		recorderused[x][i][1]=true;
 	wattron(RECwin, COLOR_PAIR(2));
@@ -2021,6 +2034,7 @@ void Tree::RecRef(){
 	wattron(RECwin, COLOR_PAIR(4));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(4));
+	}
 	}
 	}
 	wmove(RECwin, 1+i+digrec[x],4+(TGblockx*x));
@@ -2778,10 +2792,14 @@ void Tree::UtRef(){
 		if(UThistory[i]=="")
 			break;
 		std::stringstream ls;
+		std::string UTbuff = UThistory[i];
+		int UTmax = UTendx-UTstartx-3;
+		if(strlen(UTbuff.c_str())>UTmax)
+			UTbuff=UTbuff.substr(0,UTmax);
 		if (i < 19)
-			ls << UThistory[i] << "\n";
+			ls << UTbuff << "\n";
 		else
-			ls << UThistory[i];
+			ls << UTbuff;
 		std::string lss = ls.str();
 		const char * lchar = lss.c_str();
 		getcol(UTcol[i]);
@@ -2799,9 +2817,11 @@ void Tree::UTnew(int tg, long nac, std::string radio, int length, int color, std
 		std::string short_desc = description;
 		std::string buffstr;
 		std::stringstream buffstream;
+		/*
 		if(strlen(short_desc.c_str())>UTdesclen){
 			short_desc=short_desc.substr(0,UTdesclen);
 		}
+		*/
 		std::stringstream UTstream;
 		if(TreeTime[0]<10)
 			UTstream << "0";
