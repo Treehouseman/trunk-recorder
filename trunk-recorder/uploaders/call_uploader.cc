@@ -168,7 +168,7 @@ void convert_upload_call(call_data_t *call_info, server_data_t *server_info) {
   request_.consume(req_size);
   if(call_info->scheme == "https"){
 	  sprintf(del_command, "rm %s", realname.c_str());
-	  //int rc3 = system(del_command);
+	  int rc3 = system(del_command);
 	  }
 }
 
