@@ -99,7 +99,7 @@ int http_upload(struct server_data_t *server_info,   boost::asio::streambuf& req
 
     if (status_code != 200)
     {
-      BOOST_LOG_TRIVIAL(info) << "SSL: Response returned with status code " << status_code << "";
+      BOOST_LOG_TRIVIAL(info) << "HTTP SSL: Response returned with status code " << status_code << "";
       return 1;
     }
 
@@ -153,7 +153,7 @@ int https_upload(struct server_data_t *server_info, boost::asio::streambuf& requ
   typedef ssl::stream<tcp::socket>      ssl_socket;
   boost::asio::io_service io_service;
   boost::asio::streambuf  response_;
-
+	BOOST_LOG_TRIVIAL(info) << server_info->hostname << " " << server_info->port << " " << server_info->path << " " << server_info->server;
   // Open the file for the shortest time possible.
 
 
@@ -244,7 +244,7 @@ int https_upload(struct server_data_t *server_info, boost::asio::streambuf& requ
 
     if (status_code != 200)
     {
-      BOOST_LOG_TRIVIAL(info) << "SSL: Response returned with status code " << status_code << "";
+      BOOST_LOG_TRIVIAL(info) << "HTTPS SSL: Response returned with status code " << status_code << "";
       return 1;
     }
 

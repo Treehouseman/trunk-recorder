@@ -40,7 +40,8 @@ void build_call_request(struct call_data_t *call, boost::asio::streambuf& reques
   std::string source_list = "[";
 
   if (call->source_count != 0) {
-    /*for (int i = 0; i < call->source_count; i++) {
+	  if(call->normal){
+    for (int i = 0; i < call->source_count; i++) {
       source_list = source_list + "{ \"pos\": " + boost::lexical_cast<std::string>(call->source_list[i].position) + ", \"src\": " + boost::lexical_cast<std::string>(call->source_list[i].source) + " }";
 
       if (i < (call->source_count - 1)) {
@@ -48,7 +49,8 @@ void build_call_request(struct call_data_t *call, boost::asio::streambuf& reques
       } else {
         source_list = source_list + "]";
       }
-    }*/
+	  }}
+	  else{
 	source_list += " ";
 	for(int i = 0; i < call->source_count; i++){
 		source_list = source_list + boost::lexical_cast<std::string>(call->source_list[i].source);
@@ -58,7 +60,7 @@ void build_call_request(struct call_data_t *call, boost::asio::streambuf& reques
 		else{
 			source_list = source_list + " ]";
 		}
-	}
+  }}
   } else {
     source_list = "[]";
   }
@@ -78,9 +80,11 @@ void build_call_request(struct call_data_t *call, boost::asio::streambuf& reques
   } else {
     freq_list = "[]";
   }
-  add_post_field(oss, "talkgroup",     boost::lexical_cast<std::string>(call->talkgroup),  boundary);
+  if(!call->normal)
+	add_post_field(oss, "talkgroup",     boost::lexical_cast<std::string>(call->talkgroup),  boundary);
   add_post_field(oss, "freq",          boost::lexical_cast<std::string>(call->freq),       boundary);
-  add_post_field(oss, "nac",           boost::lexical_cast<std::string>(call->nac),        boundary);
+  if(!call->normal)
+	add_post_field(oss, "nac",           boost::lexical_cast<std::string>(call->nac),        boundary);
   add_post_field(oss, "start_time",    boost::lexical_cast<std::string>(call->start_time), boundary);
   add_post_field(oss, "stop_time",     boost::lexical_cast<std::string>(call->stop_time),  boundary);
 
@@ -120,12 +124,27 @@ void build_call_request(struct call_data_t *call, boost::asio::streambuf& reques
 
 void convert_upload_call(call_data_t *call_info, server_data_t *server_info) {
   char shell_command[400];
+  char rename_command[400];
+  char del_command[400];
 
   sprintf(shell_command, "ffmpeg -y -i %s  -c:a libfdk_aac -b:a 32k -cutoff 18000 -hide_banner -loglevel panic %s ", call_info->filename, call_info->converted);
 
   // BOOST_LOG_TRIVIAL(info) << "Converting: " << call_info->converted << "\n";
   // BOOST_LOG_TRIVIAL(info) <<"Command: " << shell_command << "\n";
   int rc = system(shell_command);
+  std::string realname = "";
+  if(call_info->scheme == "https"){
+	  std::string convertedstr = call_info->converted;
+	  std::string rawname = convertedstr.substr(convertedstr.find("-"));
+	  std::stringstream buffname;
+	  buffname << "/home/tripp/share/webupload/" << call_info->talkgroup << rawname;
+	  realname = buffname.str();
+	  BOOST_LOG_TRIVIAL(info) << "New File" << realname;
+	  sprintf(rename_command, "cp %s %s", call_info->converted, realname.c_str());
+	  int rc2 = system(rename_command);
+	  char conv[160];
+	  strcpy(call_info->converted, realname.c_str());
+  }
 
   // BOOST_LOG_TRIVIAL(info) << "Finished converting\n";
 
@@ -147,6 +166,10 @@ void convert_upload_call(call_data_t *call_info, server_data_t *server_info) {
 
   // BOOST_LOG_TRIVIAL(info) << "Try to clear: " << req_size;
   request_.consume(req_size);
+  if(call_info->scheme == "https"){
+	  sprintf(del_command, "rm %s", realname.c_str());
+	  //int rc3 = system(del_command);
+	  }
 }
 
 void* upload_call_thread(void *thread_arg) {
@@ -227,6 +250,79 @@ void send_call(Call *call, System *sys, Config config) {
   call_info->stop_time    = call->get_stop_time();
   call_info->api_key      = sys->get_api_key();
   call_info->short_name   = sys->get_short_name();
+  call_info->normal = false;
+  /*std::stringstream ss;
+  ss << "/" << sys->get_short_name() << "/upload";
+  call_info->path = ss.str();*/
+
+  // std::cout << "Upload - Scheme: " << call_info->scheme << " Hostname: " <<
+  // call_info->hostname << " Port: " << call_info->port << " Path: " <<
+  // call_info->path << "\n";
+
+  for (int i = 0; i < call_info->source_count; i++) {
+    call_info->source_list[i] = source_list[i];
+  }
+
+  for (int i = 0; i < call_info->freq_count; i++) {
+    call_info->freq_list[i] = freq_list[i];
+  }
+
+  int rc = pthread_create(&thread, NULL, upload_call_thread, (void *)call_info);
+
+  // pthread_detach(thread);
+
+  if (rc) {
+    printf("ERROR; return code from pthread_create() is %d", rc);
+  }
+}
+void send_ocall(Call *call, System *sys, Config config) {
+  // struct call_data_t *call_info = (struct call_data_t *) malloc(sizeof(struct
+  // call_data_t));
+  call_data_t *call_info = new call_data_t;
+  pthread_t    thread;
+
+
+  boost::regex  ex("(http|https)://([^/ :]+):?([^/ ]*)(/?[^ #?]*)\\x3f?([^ #]*)#?([^ ]*)");
+  boost::cmatch what;
+  std::string openserver = "https://api.openmhz.com";
+  if (regex_match(openserver.c_str(), what, ex))
+  {
+    // from: http://www.zedwood.com/article/cpp-boost-url-regex
+    call_info->upload_server = openserver;
+    call_info->scheme        = std::string(what[1].first, what[1].second);
+    call_info->hostname      = std::string(what[2].first, what[2].second);
+    call_info->port          = std::string(what[3].first, what[3].second);
+    call_info->path          = std::string(what[4].first, what[4].second);
+	BOOST_LOG_TRIVIAL(info) << "What[4].first " << what[4].first << " What[4].second " << what[4].second;
+
+    // std::cout << "Upload - Scheme: " << call_info->scheme << " Hostname: " <<
+    // call_info->hostname << " Port: " << call_info->port << " Path: " <<
+    // call_info->path << "\n";
+    strcpy(call_info->filename, call->get_filename());
+    strcpy(call_info->converted, call->get_converted_filename());
+  } else {
+    // std::cout << "Unable to parse Server URL\n";
+    return;
+  }
+
+  // std::cout << "Setting up thread\n";
+   Call_Source *source_list = call->get_source_list();
+  Call_Freq   *freq_list   = call->get_freq_list();
+  call_info->talkgroup    = call->get_talkgroup();
+  call_info->freq         = call->get_freq();
+  call_info->encrypted    = call->get_encrypted();
+  call_info->emergency    = call->get_emergency();
+  call_info->tdma         = call->get_tdma();
+  call_info->source_count = call->get_source_count();
+  call_info->freq_count   = call->get_freq_count();
+  call_info->start_time   = call->get_start_time();
+  call_info->stop_time    = call->get_stop_time();
+  call_info->api_key      = sys->get_api_key();
+  call_info->short_name   = sys->get_short_name();
+  call_info->normal = true;
+  std::stringstream ss;
+  ss << "/" << sys->get_short_name() << "/upload";
+  call_info->path = ss.str();
   /*std::stringstream ss;
   ss << "/" << sys->get_short_name() << "/upload";
   call_info->path = ss.str();*/

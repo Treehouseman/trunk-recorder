@@ -26,6 +26,7 @@ struct call_data_t {
         std::string port;
         std::string path;
 		int nac;
+		bool normal;
         std::string api_key;
         std::string short_name;
         int tdma;
@@ -36,6 +37,7 @@ struct call_data_t {
 };
 
 void send_call(Call *call, System *sys, Config config);
+void send_ocall(Call *call, System *sys, Config config);
 
 
 #endif

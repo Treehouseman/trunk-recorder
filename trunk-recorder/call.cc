@@ -147,6 +147,8 @@ void Call::end_call() {
 
     if (this->config.upload_server != "" && !this->encrypted) {
       send_call(this, sys, config);
+	  if(sys->get_api_key() != "")
+		send_ocall(this, sys, config);
     } else {}
 
     if (sys->get_upload_script().length() != 0 && !this->encrypted) {
