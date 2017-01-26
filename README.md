@@ -1,4 +1,4 @@
-Trunk Recorder v2.1.1 with Ncurses
+Trunk Recorder v2.1.2 with Ncurses
 =================
 I'm going to leave the original instructions unchanged at the bottom of my additions.
 

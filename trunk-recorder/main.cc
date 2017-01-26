@@ -171,7 +171,7 @@ void load_config()
           BOOST_LOG_TRIVIAL(info) << sub_node.second.get<double>("", 0) << " ";
           system->add_channel(channel);
         }
-      } else {
+      } else if ((system->get_system_type() == "smartnet") || (system->get_system_type() == "p25")) {
         BOOST_LOG_TRIVIAL(info) << "Control Channels: ";
         BOOST_FOREACH(boost::property_tree::ptree::value_type  & sub_node, node.second.get_child("control_channels"))
         {
@@ -180,6 +180,9 @@ void load_config()
           BOOST_LOG_TRIVIAL(info) << sub_node.second.get<double>("", 0) << " ";
           system->add_control_channel(control_channel);
         }
+      } else {
+        BOOST_LOG_TRIVIAL(error) << "System Type in config.json not recognized";
+        exit(1);
       }
       BOOST_LOG_TRIVIAL(info);
 
@@ -234,8 +237,12 @@ void load_config()
     BOOST_LOG_TRIVIAL(info) << "Capture Directory: " << config.capture_dir;
     config_dir = pt.get<std::string>("configDir", boost::filesystem::current_path().string());
     BOOST_LOG_TRIVIAL(info) << "Config Directory: " << config_dir;
-    config.upload_server = pt.get<std::string>("uploadServer", "encode-upload.sh");
+    config.upload_server = pt.get<std::string>("uploadServer", "");
+	config.upload_server2 = pt.get<std::string>("uploadServer2", "");
+	config.buffpath = pt.get<std::string>("buffPath", "");
     BOOST_LOG_TRIVIAL(info) << "Upload Server: " << config.upload_server;
+	BOOST_LOG_TRIVIAL(info) << "Upload Server2: " << config.upload_server2;
+	BOOST_LOG_TRIVIAL(info) << "Buffer Path: " << config.buffpath;
     default_mode = pt.get<std::string>("defaultMode", "digital");
     BOOST_LOG_TRIVIAL(info) << "Default Mode: " << default_mode;
     config.call_timeout = pt.get<int>("callTimeout", 3);
@@ -266,6 +273,10 @@ void load_config()
       int analog_recorders  = node.second.get<int>("analogRecorders", 0);
 
       std::string driver = node.second.get<std::string>("driver", "");
+      if ((driver != "osmosdr") && (driver != "usrp")) {
+        BOOST_LOG_TRIVIAL(error) << "Driver specified in config.json not recognized, needs to be osmosdr or usrp";
+      }
+      
       std::string device = node.second.get<std::string>("device", "");
 
       BOOST_LOG_TRIVIAL(info) << "Center: " << node.second.get<double>("center", 0);
