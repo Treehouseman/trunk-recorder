@@ -127,7 +127,7 @@ void convert_upload_call(call_data_t *call_info, server_data_t *server_info, ser
   char rename_command[400];
   char del_command[400];
   if(boost::filesystem::exists (call_info->converted)){
-	  BOOST_LOG_TRIVIAL(info) << "M4A File already exists!";
+	  //BOOST_LOG_TRIVIAL(info) << "M4A File already exists!";
   }
   else {
   int nchars = snprintf(shell_command, 400, "ffmpeg -y -i %s  -c:a libfdk_aac -b:a 32k -cutoff 18000 -hide_banner -loglevel panic %s ", call_info->filename, call_info->converted);
@@ -145,7 +145,7 @@ void convert_upload_call(call_data_t *call_info, server_data_t *server_info, ser
 	  std::stringstream buffname;
 	  buffname << call_info->buffpath << call_info->nac << call_info->talkgroup << rawname;
 	  realname = buffname.str();
-	  BOOST_LOG_TRIVIAL(info) << "New File" << realname;
+	  //BOOST_LOG_TRIVIAL(info) << "New File" << realname;
 	  sprintf(rename_command, "cp %s %s", call_info->converted, realname.c_str());
 	  int rc2 = system(rename_command);
 	  char conv[160];
@@ -240,7 +240,7 @@ void* upload_call_thread(void *thread_arg) {
   m4a = m4a.replace_extension(".m4a");
   const std::string& m4a_str(m4a.string());
   strcpy(call_info->converted, m4a_str.c_str());*/
-  BOOST_LOG_TRIVIAL(info) << "Upload Call thread path2 " << server_info2->path;
+  //BOOST_LOG_TRIVIAL(info) << "Upload Call thread path2 " << server_info2->path;
   convert_upload_call(call_info, server_info, server_info2);
   
   delete(server_info);
@@ -269,7 +269,7 @@ void send_ccall(Call *call, System *sys, Config config) {
     call_info->hostname      = std::string(what[2].first, what[2].second);
     call_info->port          = std::string(what[3].first, what[3].second);
     call_info->path          = std::string(what[4].first, what[4].second);
-	BOOST_LOG_TRIVIAL(info) << "What[4].first " << what[4].first << " What[4].second " << what[4].second;
+	//BOOST_LOG_TRIVIAL(info) << "What[4].first " << what[4].first << " What[4].second " << what[4].second;
 
     // std::cout << "Upload - Scheme: " << call_info->scheme << " Hostname: " <<
     // call_info->hostname << " Port: " << call_info->port << " Path: " <<
@@ -289,7 +289,7 @@ void send_ccall(Call *call, System *sys, Config config) {
   tgs << call->get_nac() << call->get_talkgroup();
   std::string tgsb = tgs.str();
   call_info->talkgroup = atoi(tgsb.c_str());
-  BOOST_LOG_TRIVIAL(info) << "Call Info Talkgroup " << call_info->talkgroup;
+  //BOOST_LOG_TRIVIAL(info) << "Call Info Talkgroup " << call_info->talkgroup;
   call_info->freq         = call->get_freq();
   call_info->nac          = call->get_nac();
   call_info->encrypted    = call->get_encrypted();
@@ -439,7 +439,7 @@ void send_bcall(Call *call, System *sys, Config config) {
     call_info->hostname2      = std::string(what[2].first, what[2].second);
     call_info->port2          = std::string(what[3].first, what[3].second);
     call_info->path2          = std::string(what[4].first, what[4].second);
-	BOOST_LOG_TRIVIAL(info) << "Send_Bcall path2 " << call_info->path2;
+	//BOOST_LOG_TRIVIAL(info) << "Send_Bcall path2 " << call_info->path2;
 	//BOOST_LOG_TRIVIAL(info) << "What[4].first " << what[4].first << " What[4].second " << what[4].second;
 
     // std::cout << "Upload - Scheme: " << call_info->scheme << " Hostname: " <<
