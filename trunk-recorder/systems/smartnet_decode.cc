@@ -180,11 +180,11 @@ smartnet_decode::general_work (int noutput_items,
 
 	//you will need to look ahead 84 bits to post 76 bits of data
 	//TODO this needs to be able to handle shorter frames while keeping state in order to end gracefully
-	int size = ninput_items[0];
+	int size = ninput_items[0] -84;
 
 	if(size <= 0) {
 		BOOST_LOG_TRIVIAL(info) << "decode fail noutput: " << noutput_items << " size: " << size;
-		consume_each(0);
+		//consume_each(0);
 		return 0; //better luck next time
 	}
 	if(VERBOSE) BOOST_LOG_TRIVIAL(info) << "decode called with " << noutput_items << " outputs";
@@ -216,11 +216,11 @@ smartnet_decode::general_work (int noutput_items,
 
 
 		outlen += 76;
-//consume_each(preamble_tags.back().offset - abs_sample_cnt + 84);
+consume_each(preamble_tags.back().offset - abs_sample_cnt + 84);
 //this->consume_each(outlen);
 
 
-	BOOST_LOG_TRIVIAL(info) << "consumed " << size << ", produced " << outlen;
+//	BOOST_LOG_TRIVIAL(info) << "consumed " << size << ", produced " << outlen;
 //	consume_each(preamble_tags.back().offset - abs_sample_cnt + 84);
 /*
 
@@ -265,7 +265,7 @@ smartnet_decode::general_work (int noutput_items,
 			d_queue->insert_tail(msg);
 		} else if (VERBOSE) BOOST_LOG_TRIVIAL(info) << "CRC FAILED";
 	}
-	this->consume_each(noutput_items);
+//	this->consume_each(noutput_items);
 	//this->consume_each(0);
 	preamble_tags.clear();
 //	this->consume_each(preamble_tags.back().offset - abs_sample_cnt + 84);
