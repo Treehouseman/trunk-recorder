@@ -59,12 +59,12 @@ static const int MAX_OUT = 1;   // maximum number of output streams
  * The private constructor
  */
 smartnet_decode::smartnet_decode (gr::msg_queue::sptr queue, int sys_id)
-	: gr::sync_block ("decode",
+	: gr::block ("decode",
 	             gr::io_signature::make (MIN_IN, MAX_IN, sizeof (char)),
 	             gr::io_signature::make (0,0,0))
 {
-	//set_relative_rate((double)(76.0/84.0));
-	set_output_multiple(512); //used to be 76
+	set_relative_rate((double)(76.0/84.0));
+	set_output_multiple(76); //used to be 76
 	d_queue = queue;
 	this->sys_id = sys_id;
 	//set_output_multiple(168); //used to be 76
@@ -156,7 +156,7 @@ static smartnet_packet parse(const char *in) {
 
 
 
-/*
+
 void smartnet_decode::forecast (int noutput_items,  gr_vector_int &ninput_items_required)
 																			//estimate number of input samples required for noutput_items samples
 {
@@ -166,10 +166,10 @@ void smartnet_decode::forecast (int noutput_items,  gr_vector_int &ninput_items_
 	ninput_items_required[0] = size;
 }
 
-*/
-int
-smartnet_decode::work (int noutput_items,
 
+int
+smartnet_decode::general_work (int noutput_items,
+                                     gr_vector_int &ninput_items,
                                      gr_vector_const_void_star &input_items,
                                      gr_vector_void_star &output_items)
 {
@@ -180,11 +180,11 @@ smartnet_decode::work (int noutput_items,
 
 	//you will need to look ahead 84 bits to post 76 bits of data
 	//TODO this needs to be able to handle shorter frames while keeping state in order to end gracefully
-	int size = noutput_items - 84;
+	int size = ninput_items[0];
 
 	if(size <= 0) {
-		if(VERBOSE) BOOST_LOG_TRIVIAL(info) << "decode fail noutput: " << noutput_items << " size: " << size;
-		//consume_each(0);
+		BOOST_LOG_TRIVIAL(info) << "decode fail noutput: " << noutput_items << " size: " << size;
+		consume_each(0);
 		return 0; //better luck next time
 	}
 	if(VERBOSE) BOOST_LOG_TRIVIAL(info) << "decode called with " << noutput_items << " outputs";
@@ -198,7 +198,7 @@ smartnet_decode::work (int noutput_items,
 	if(preamble_tags.size() == 0) {
 		if(VERBOSE) BOOST_LOG_TRIVIAL(info) << "No tags found, consumed: " << size << " inputs, abs_sample_cnt: " << abs_sample_cnt;
 
-		//consume_each(size);
+		consume_each(size);
 		return noutput_items; //size;
 	}
 
@@ -216,12 +216,13 @@ smartnet_decode::work (int noutput_items,
 
 
 		outlen += 76;
+//consume_each(preamble_tags.back().offset - abs_sample_cnt + 84);
+//this->consume_each(outlen);
 
 
+	BOOST_LOG_TRIVIAL(info) << "consumed " << size << ", produced " << outlen;
+//	consume_each(preamble_tags.back().offset - abs_sample_cnt + 84);
 /*
-	if(VERBOSE) BOOST_LOG_TRIVIAL(info) << "consumed " << size << ", produced " << outlen;
-	consume_each(preamble_tags.back().offset - abs_sample_cnt + 84);
-
 
 	const char *in = (const char *) input_items[0];
 
@@ -264,12 +265,13 @@ smartnet_decode::work (int noutput_items,
 			d_queue->insert_tail(msg);
 		} else if (VERBOSE) BOOST_LOG_TRIVIAL(info) << "CRC FAILED";
 	}
-  //consume_each(outlen); //preamble_tags.back().offset - abs_sample_cnt + 84);
-
-	//preamble_tags.clear();
-	//this->consume_each(noutput_items);
+	this->consume_each(noutput_items);
+	//this->consume_each(0);
+	preamble_tags.clear();
+//	this->consume_each(preamble_tags.back().offset - abs_sample_cnt + 84);
 	//return noutput_items;
 
 
-	return noutput_items;
+//	return noutput_items;
+	return outlen;
 }

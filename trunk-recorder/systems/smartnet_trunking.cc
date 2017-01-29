@@ -51,17 +51,17 @@ smartnet_trunking::smartnet_trunking(float               f,
   std::vector<gr_complex> dest(lpf_taps.begin(), lpf_taps.end());
   cout << "Number of LPF taps: " << lpf_taps.size() << endl;
 
-  prefilter = make_freq_xlating_fft_filter(decim,
+/*  prefilter = make_freq_xlating_fft_filter(decim,
                                                                          dest,
                                                                          offset,
-                                                                         samp_rate);
+                                                                         samp_rate);*/
 
 
-  /*prefilter =
+  prefilter =
     gr::filter::freq_xlating_fir_filter_ccf::make(decim,
                                                   lpf_taps,
                                                   offset,
-                                                  samp_rate);*/
+                                                  samp_rate);
 
   gr::digital::fll_band_edge_cc::sptr carriertrack =
     gr::digital::fll_band_edge_cc::make(sps, 0.6, 64, 0.35);

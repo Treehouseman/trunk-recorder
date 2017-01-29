@@ -58,6 +58,7 @@
 #include <gnuradio/blocks/file_sink.h>
 #include <gnuradio/gr_complex.h>
 #include <gnuradio/top_block.h>
+#define VERPOSE = true
 
 
 using namespace std;

@@ -179,7 +179,7 @@ void convert_upload_call(call_data_t *call_info, server_data_t *server_info, ser
 	  std::stringstream buffname;
 	  buffname << call_info->buffpath << call_info->nac << call_info->talkgroup << rawname;
 	  realname = buffname.str();
-	  BOOST_LOG_TRIVIAL(info) << "New File" << realname;
+//	  BOOST_LOG_TRIVIAL(info) << "New File" << realname;
 	  sprintf(rename_command, "cp %s %s", call_info->converted, realname.c_str());
 	  int rc2 = system(rename_command);
 	  char conv[160];
