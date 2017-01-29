@@ -906,7 +906,7 @@ void check_message_count(float timeDiff) {
 
     if ((sys->system_type != "conventional") && (sys->system_type != "conventionalP25")) {
       float msgs_decoded_per_second = sys->message_count / timeDiff;
-
+//BOOST_LOG_TRIVIAL(info) << std::hex << std::uppercase << sys->get_sys_nac() << std::dec << std::nouppercase << " " << msgs_decoded_per_second << "/sec, count: " << sys->message_count;
       if (msgs_decoded_per_second < 1) {
         if (sys->control_channel_count() > 1 && sys->get_auto_retune()) {
           retune_system(sys);
