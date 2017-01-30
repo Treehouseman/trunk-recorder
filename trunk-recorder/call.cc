@@ -66,7 +66,7 @@ Call::Call(TrunkMessage message, System *s, Config c, int csys_id) {
   src_count   = 0;
   curr_src_id = 0;
   curr_freq   = 0;
-  set_freq(message.freq);
+
 
   talkgroup  = message.talkgroup;
   sys        = s;
@@ -85,7 +85,8 @@ Call::Call(TrunkMessage message, System *s, Config c, int csys_id) {
   description     = "Unknown";
   dev             = "";
   conventional    = false;
-
+  set_freq(message.freq);
+  add_source(message.source);
   this->create_filename();
 }
 

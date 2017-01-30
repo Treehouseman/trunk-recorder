@@ -61,7 +61,7 @@ int http_upload(struct server_data_t *server_info,   boost::asio::streambuf& req
     tcp::resolver resolver(io_service);
     tcp::resolver::query query(server_info->hostname, server_info->port, tcp::resolver::query::canonical_name);
     tcp::resolver::iterator endpoint_iterator = resolver.resolve(query);
-    BOOST_LOG_TRIVIAL(info) << server_info->hostname << " " << server_info->port << " " << server_info->path << " " << server_info->server;
+//    BOOST_LOG_TRIVIAL(info) << server_info->hostname << " " << server_info->port << " " << server_info->path << " " << server_info->server;
     // Try each endpoint until we successfully establish a connection.
     boost::asio::ip::tcp::socket socket(io_service);
 
@@ -99,7 +99,7 @@ int http_upload(struct server_data_t *server_info,   boost::asio::streambuf& req
 
     if (status_code != 200)
     {
-      BOOST_LOG_TRIVIAL(info) << "HTTP SSL: Response returned with status code " << status_code << "";
+      BOOST_LOG_TRIVIAL(info) << "Response returned with status code " << status_code << "";
       return 1;
     }
 
@@ -178,7 +178,7 @@ int https_upload(struct server_data_t *server_info, boost::asio::streambuf& requ
       return 1;
     }
 
-    // std::cout << "Resolve OK" << "\n";
+     //std::cout << "Resolve OK" << "\n";
     socket.set_verify_mode(boost::asio::ssl::verify_peer);
 
     // socket.set_verify_callback(boost::bind(&client::verify_certificate, this,
@@ -189,23 +189,23 @@ int https_upload(struct server_data_t *server_info, boost::asio::streambuf& requ
 
     if (ec)
     {
-      BOOST_LOG_TRIVIAL(info) << "SSL: Connect failed: " << ec.message() << "";
+      BOOST_LOG_TRIVIAL(error) << "SSL: Connect failed: " << ec.message() << "";
       return 1;
     }
 
-    // std::cout << "Connect OK " << "\n";
+     //std::cout << "Connect OK " << "\n";
     socket.handshake(boost::asio::ssl::stream_base::client, ec);
 
     if (ec)
     {
-      BOOST_LOG_TRIVIAL(info) << "SSL: Handshake failed: " << ec.message() << "";
+      BOOST_LOG_TRIVIAL(error) << "SSL: Handshake failed: " << ec.message() << "";
       return 1;
     }
 
-    // std::cout << "Request: " << "\n";
+     //std::cout << "Request: " << "\n";
     const char *req_header = boost::asio::buffer_cast<const char *>(request_.data());
 
-    // std::cout << req_header << "\n";
+     //std::cout << req_header << "\n";
 
 
     // The handshake was successful. Send the request.
@@ -214,7 +214,7 @@ int https_upload(struct server_data_t *server_info, boost::asio::streambuf& requ
 
     if (ec)
     {
-      BOOST_LOG_TRIVIAL(info) << "SSL: Error write req: " << ec.message() << "";
+      BOOST_LOG_TRIVIAL(error) << "SSL: Error write req: " << ec.message() << "";
       return 1;
     }
 
@@ -244,7 +244,7 @@ int https_upload(struct server_data_t *server_info, boost::asio::streambuf& requ
 
     if (status_code != 200)
     {
-      BOOST_LOG_TRIVIAL(info) << "HTTPS SSL: Response returned with status code " << status_code << "";
+      BOOST_LOG_TRIVIAL(info) << "HTTPS: Response returned with status code " << status_code << "";
       return 1;
     }
 
@@ -255,21 +255,22 @@ int https_upload(struct server_data_t *server_info, boost::asio::streambuf& requ
     std::string header;
 
     while (std::getline(response_stream, header) && header != "\r") {
-      BOOST_LOG_TRIVIAL(trace) <<header << "";
+      BOOST_LOG_TRIVIAL(trace) <<"Header: " <<header << "";
     }
     BOOST_LOG_TRIVIAL(trace) << "";
 
     // Write whatever content we already have to output.
     if (response.size() > 0) {
-      BOOST_LOG_TRIVIAL(trace) << &response;
-    }
+  //    BOOST_LOG_TRIVIAL(trace) << "Response1: " <<&response;
+
     // Read until EOF, writing data to output as we go.
     boost::system::error_code error;
 
     while (boost::asio::read(socket, response, boost::asio::transfer_at_least(1), error)) {
-      BOOST_LOG_TRIVIAL(trace) << &response;
+      BOOST_LOG_TRIVIAL(info) << "Response2: " << &response;
     }
     if (error != boost::asio::error::eof) throw boost::system::system_error(error);
+    }
   }
   catch (std::exception& e)
   {
