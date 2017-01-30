@@ -1371,6 +1371,8 @@ void Tree::msgdata(){
 	
 	if(looped){
 	for(int i = 0; i < SYSblocks; i++){
+			if(sysccc[1][i]>100)
+				sysccc[1][i]=100;
 			sysmps[i][spos] = sysccc[1][i];
 			sysmpsbuff[i]=sysccc[1][i];
 			sysccc[1][i]=0;
@@ -2211,7 +2213,7 @@ void Tree::MsgRef(){
 		wattron(SYSwin, COLOR_PAIR(4));
 		wmove(SYSwin, 23, datapos-1);
 		std::stringstream ss2;
-		ss2 << sysmpsbuff[i];
+		ss2 << avgmsg[i];
 		//ss2 << "ABC";
 		std::string s2 = ss2.str();
 		const char * c2 = s2.c_str();
