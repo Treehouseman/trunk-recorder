@@ -325,7 +325,7 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, 
 					digitalgroups[i][x][0]=0;
 					digitalgroups[i][x][1]=0;
 					actcall--;
-					ScrRef();
+					RecRef();
 					return;
 				}
 			}
@@ -543,7 +543,7 @@ void Tree::MissingTG(long tg, int nac){
 	int syscolor = -1;
 		for(int i = 0; i < 10; i++){
 		if(sysccc[0][i]==nac){
-			syscolor = i;
+			syscolor = getcol(i);
 			break;
 		}
 	}
@@ -1828,7 +1828,7 @@ void Tree::NewLog(std::string input){
 		if(colend!=std::string::npos){
 		if(colend<4){
 			colstr = input.substr(1,colend);
-			input = input.substr(colend);
+			input = input.substr(colend+1);
 			col = atoi(colstr.c_str());
 		}}
 	}
@@ -1918,7 +1918,7 @@ void Tree::LogRef(){
 			loglines++;
 			x = x + 2;
 		}
-		for(int x = 0; x <=loglines; x++){
+		for(int x = loglines; x >=0; x--){
 			if(logline<0)
 				break;
 			std::string lms;
@@ -1934,27 +1934,29 @@ void Tree::LogRef(){
 				else
 					lms = LogMsgs[49-i].substr(msgwidth*x, msgwidth*(x+1));
 			}
-			logbuff[logheight-1-logline]=lms;
-			logcolor[logheight-1-logline]=LogCol[49-i];
+			logbuff[logline]=lms;
+			logcolor[logline]=LogCol[49-i];
 			logline--;
 		}
 	}
 	else{
 		if(logline<0)
 			break;
-		logbuff[logheight-1-logline]=LogMsgs[49-i];
-		logcolor[logheight-1-logline]=LogCol[49-i];
+		logbuff[logline]=LogMsgs[49-i];
+		logcolor[logline]=LogCol[49-i];
 		logline--;
 	}
 	}
 	}
-	for(int i = 0; i < logheight; i++){
-		if(logbuff[i]=="")
-			break;
-		wmove(LOGwin, i, 0);
+	int linepos = 0;
+	for(int i = 0; i <logheight; i++){
+		if(logbuff[i]!=""){
+		wmove(LOGwin, linepos, 0);
 		wattron(LOGwin, COLOR_PAIR(logcolor[i]));
 		wprintw(LOGwin, logbuff[i].c_str());
 		wattroff(LOGwin, COLOR_PAIR(logcolor[i]));
+		linepos++;
+		}
 	}
 	wrefresh(LOGwinb);
 	wrefresh(LOGwin);
