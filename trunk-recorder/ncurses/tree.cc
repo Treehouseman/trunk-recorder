@@ -1127,6 +1127,11 @@ bool Tree::SetupLog(){
 void Tree::TimeUp(){
 	if(!curseenable)
 		return;
+	std::string teststr;
+	for(int i = 0; i < runtime; i ++){
+		teststr+="1";
+	}
+	NewLog(teststr);
 		msgdata();
 
 		if(spos < 59){
@@ -1821,6 +1826,9 @@ int Tree::read_fields (FILE *cfp, unsigned long long int *fields)
   return 1;
 }
 void Tree::NewLog(std::string input){
+	return;
+	if(input == "")
+		return;
 	std::string colstr = "";
 	int col = 4;
 	if(input.at(0)=='@'){
@@ -1882,6 +1890,7 @@ void Tree::NoRecorder(long freq, long tg, int sys, std::string rad){
 	RecErr++;
 }
 void Tree::LogRef(){
+	return;
 	if(!curseenable)
 		return;
 	if(!LogWinEn)
@@ -1919,7 +1928,7 @@ void Tree::LogRef(){
 			x = x + 2;
 		}
 		for(int x = loglines; x >=0; x--){
-			if(logline<0)
+			/*if(logline<0)
 				break;
 			std::string lms;
 			if(x == loglines){
@@ -1933,7 +1942,12 @@ void Tree::LogRef(){
 				}
 				else
 					lms = LogMsgs[49-i].substr(msgwidth*x, msgwidth*(x+1));
-			}
+			}*/
+			std::string lms;
+			if(logwidth*(x+1)<msglength)
+				lms = LogMsgs[49-i].substr(logwidth*x, logwidth*(x+1));
+			else
+				lms = LogMsgs[49-i].substr(logwidth*x);
 			logbuff[logline]=lms;
 			logcolor[logline]=LogCol[49-i];
 			logline--;
