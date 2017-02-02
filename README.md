@@ -3,6 +3,11 @@ Trunk Recorder v2.1.2 with Ncurses
 I'm going to leave the original instructions unchanged at the bottom of my additions.
 
 This branch now incorporates extended colors in ncurses, and thus requires ncurses6, which can be obtained from here https://www.gnu.org/software/ncurses/
+When you run './configure'you need to add the --enable-ext-colors option, it should look like this
+```
+./configure --enable-ext-colors
+```
+
 Make sure to uninstall older versions of ncurses first!
 
 ![Interface](images/9-6.PNG?raw=true )
