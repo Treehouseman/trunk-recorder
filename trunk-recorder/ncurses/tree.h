@@ -43,7 +43,7 @@ bool SetupLog();
 void ScrRef();
 void EndWin();
 void setColor(long currid, long tg);
-bool getcol(int loc);
+int getcol(int loc);
 void msgdata();
 void EndCall(long tg, double elapsed, std::string dev, bool conventional, std::string description);
 void CallHist(long tg, long elapsed);

@@ -74,7 +74,8 @@ int ncurses_dbg = 0;
 int ncurses_group = 0;
 int ncurses_lavg = 0;
 std::string Radios[10];
-std::string LogMsgs[20];
+std::string LogMsgs[50];
+int LogCol[50];
 int digrec[100];
 int logpos = 0;
 int anarec[100];
@@ -454,7 +455,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 		int syscolor = -1;
 			for(int i = 0; i < 100; i++){
 			if(sysccc[0][i]==sys_id){
-				syscolor = i;
+				syscolor = getcol(i);
 				break;
 			}
 		}
@@ -498,7 +499,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 		int syscolor = -1;
 		for(int i = 0; i < 100; i++){
 			if(csyscc[i]==sys_id){
-				syscolor=i+SYSblocks-1;
+				syscolor=getcol(i+SYSblocks-1);
 				break;
 			}
 		}
@@ -615,7 +616,7 @@ void Tree::SysId(int sysid, bool conventional){
 	if(!conventional){
 			sysccc[0][SYSblocks]=sysid;
 			//sysmps[0][SYSblocks]=sysid;
-			sysccc[1][SYSblocks]++;
+			//sysccc[1][SYSblocks]++;
 	SYSblocks++;
 	}
 	else if(conventional){
@@ -628,7 +629,7 @@ void Tree::ccId(int sys){
 	if(!curseenable)
 		return;
 	//Got ID in message
-	for(int i = 0; i < 10; i++){
+	for(int i = 0; i < 100; i++){
 		if(sysccc[0][i]==sys_id){
 			sysccc[1][i] = sysccc[1][i]+1;
 			break;
@@ -984,6 +985,9 @@ bool Tree::StartCurses(){
 		maxmsg[i] = 0;
 		minmsg[i] = 0;
 		avgmsg[i] = 0;
+		for(int x = 0; x < 60; x++){
+			sysmps[i][x]=0;
+		}
 	}
 	Coordinates();
 //newterm(NULL, stdout, stdin);
@@ -1054,7 +1058,7 @@ void Tree::MakeWindows(){
 		LOGwin = create_newwin(R2h-2, LOGendx-LOGstartx-2, LOGstarty+1, LOGstartx+1); //This is the actual logging window
 		wbkgd(LOGwin, COLOR_PAIR(6));
 		wbkgd(LOGwinb, COLOR_PAIR(6));
-		scrollok(LOGwin, true);
+		//scrollok(LOGwin, true);
 		LogRef();
 	}
 	if(UtWinEn){
@@ -1252,10 +1256,11 @@ void Tree::Get_Key(){
 			NewLog("Load Average On");
 		break;
 		default:
-			std::stringstream keyboardin;
+			//std::stringstream keyboardin;
 			//std::string keyboardinstr
-			keyboardin << c ;
-			NewLog(keyboardin.str());
+			//keyboardin << c ;
+			//NewLog(keyboardin.str());
+			TreeLog() << "@4-" << c << std::endl;
 		break;
 	}
 }
@@ -1331,24 +1336,24 @@ void Tree::setColor(long currid, long tg){
 				//}
 }
 
-bool Tree::getcol(int loc){
+int Tree::getcol(int loc){
 	if(!curseenable)
-		return true;
+		return 4;
 	switch (loc){
 		case -1:
-		currcol=4;
+		return 4;
 		break;
 		case 0:
-		currcol=1;
+		return 1;
 		break;
 		case 1:
-		currcol=7;
+		return 7;
 		break;
 		case 2:
-		currcol=5;
+		return 5;
 		break;
 		case 3:
-		currcol=8;
+		return 8;
 		break;
 		case 4:
 		break;
@@ -1362,7 +1367,11 @@ bool Tree::getcol(int loc){
 		break;
 		case 9:
 		break;
+		default:
+		return 4;
+		break;
 	}
+	return 4;
 	
 }
 void Tree::msgdata(){
@@ -1371,14 +1380,14 @@ void Tree::msgdata(){
 	
 	if(looped){
 	for(int i = 0; i < SYSblocks; i++){
-			if(sysccc[1][i]>100)
-				sysccc[1][i]=100;
+			if(sysccc[1][i]>80)
+				sysccc[1][i]=80;
 			sysmps[i][spos] = sysccc[1][i];
 			sysmpsbuff[i]=sysccc[1][i];
 			sysccc[1][i]=0;
 	}
 	for(int i = 0; i < 100; i++){
-		int minm = 100;
+		int minm = 80;
 		for(int x = 0; x < 60; x++){
 			if(sysmps[i][x] < minm){
 				minm = sysmps[i][x];
@@ -1411,13 +1420,14 @@ void Tree::msgdata(){
 			sysccc[1][i]=0;
 	}
 	for(int i = 0; i < 100; i++){
-		int minm = 100;
+		int minm = 80;
 		for(int x = 0; x < spos; x++){
 			if(sysmps[i][x] < minm){
 				minm = sysmps[i][x];
 			}
 		}
-		minmsg[i]=minm;
+		if(spos!=0)
+			minmsg[i]=minm;
 	}
 	for(int i = 0; i < 100; i++){
 		int maxm = 0;
@@ -1811,6 +1821,17 @@ int Tree::read_fields (FILE *cfp, unsigned long long int *fields)
   return 1;
 }
 void Tree::NewLog(std::string input){
+	std::string colstr = "";
+	int col = 4;
+	if(input.at(0)=='@'){
+		int colend = input.find('-');
+		if(colend!=std::string::npos){
+		if(colend<4){
+			colstr = input.substr(1,colend);
+			input = input.substr(colend);
+			col = atoi(colstr.c_str());
+		}}
+	}
 	std::stringstream inputstream;
 	//inputstream << TreeTime[0] << ":" << TreeTime[1] << ":" << TreeTime[2] << " - " << input;
 	if(TreeTime[0]<10)
@@ -1825,15 +1846,18 @@ void Tree::NewLog(std::string input){
 	input = inputstream.str();
 	if(!curseenable)
 		return;
-	if (logpos < 20){
+	if (logpos < 50){
 		LogMsgs[logpos] = input;
+		LogCol[logpos] = col;
 		logpos++;
 	}
 	else{
-		for(int i = 0; i < 19; i++){
+		for(int i = 0; i < 49; i++){
 			LogMsgs[i]=LogMsgs[i+1];
+			LogCol[i]=LogCol[i+1];
 		}
-		LogMsgs[19]=input;
+		LogMsgs[49]=input;
+		LogCol[49]=col;
 	}
 	LogRef();
 }
@@ -1871,22 +1895,67 @@ void Tree::LogRef(){
 	wmove(LOGwinb, 0, 1);
 	wprintw(LOGwinb, "Logging");
 	wattroff(LOGwinb, COLOR_PAIR(4));
-	wattron(LOGwin, COLOR_PAIR(4));
 	wmove(LOGwin, 0,0);
-	for(int i = 0; i < 20; i++){
-		if(LogMsgs[i]=="")
+	
+	
+	
+	
+	int logarea = (LOGendx-LOGstartx-2)/(R2h);
+	int logwidth = LOGendx-LOGstartx-2;
+	int logheight = R2h-2;
+	int logline = logheight - 1;
+	int logcolor[logheight];
+	std::string logbuff[logheight];
+	for(int i = 0; i < 50; i++){
+		if(logline<0)
 			break;
-		std::stringstream ls;
-		if (i < 19)
-			ls << LogMsgs[i] << "\n";
-		else
-			ls << LogMsgs[i];
-		std::string lss = ls.str();
-		const char * lchar = lss.c_str();
-		wprintw(LOGwin, lchar);
-		
+	int msglength = strlen(LogMsgs[49-i].c_str());
+	if(msglength!=0){
+	if(msglength > logwidth){
+		int msgwidth = logwidth-2;
+		int loglines = 0;
+		for(int x = msglength; x > logwidth-2; x-=(logwidth-2)){
+			loglines++;
+			x = x + 2;
+		}
+		for(int x = 0; x <=loglines; x++){
+			if(logline<0)
+				break;
+			std::string lms;
+			if(x == loglines){
+				lms = "  ";
+				lms += LogMsgs[49-i].substr(msgwidth*x, msglength);
+			}
+			else{
+				if(x!=0){
+					lms = "  ";
+					lms += LogMsgs[49-i].substr(msgwidth*x, msgwidth*(x+1));
+				}
+				else
+					lms = LogMsgs[49-i].substr(msgwidth*x, msgwidth*(x+1));
+			}
+			logbuff[logheight-1-logline]=lms;
+			logcolor[logheight-1-logline]=LogCol[49-i];
+			logline--;
+		}
 	}
-	wattroff(LOGwin, COLOR_PAIR(4));
+	else{
+		if(logline<0)
+			break;
+		logbuff[logheight-1-logline]=LogMsgs[49-i];
+		logcolor[logheight-1-logline]=LogCol[49-i];
+		logline--;
+	}
+	}
+	}
+	for(int i = 0; i < logheight; i++){
+		if(logbuff[i]=="")
+			break;
+		wmove(LOGwin, i, 0);
+		wattron(LOGwin, COLOR_PAIR(logcolor[i]));
+		wprintw(LOGwin, logbuff[i].c_str());
+		wattroff(LOGwin, COLOR_PAIR(logcolor[i]));
+	}
 	wrefresh(LOGwinb);
 	wrefresh(LOGwin);
 }
@@ -1948,6 +2017,8 @@ void Tree::RecRef(){
 	wattroff(RECwin, COLOR_PAIR(4));
 	//RECwin
 	for(int x = 0; x < TGblocks; x++){
+		bool highlight = false;
+		bool flash = false;
 	for (int i = 0; i < digrec[x]; i++){
 	std::stringstream ss;
 	std::stringstream ss2;
@@ -1970,6 +2041,9 @@ void Tree::RecRef(){
 	else {
 	if(digitalgroups[x][i][0]!=0){
 		recorderused[x][i][0]=true;
+		highlight = true;
+		if(digrec[x]==i)
+			flash=true;
 	wattron(RECwin, COLOR_PAIR(3));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(3));
@@ -1988,7 +2062,7 @@ void Tree::RecRef(){
 	}
 	}
 	wmove(RECwin, 1+i,4+(TGblockx*x));
-	getcol(digitalgroups[x][i][2]);
+	currcol = digitalgroups[x][i][2];
 		wattron(RECwin, COLOR_PAIR(currcol));
 		if(digitalgroups[x][i][0]!=0){
 			ss << digitalgroups[x][i][0] << " " << digitalgroups[x][i][1] << "s";
@@ -2022,6 +2096,9 @@ void Tree::RecRef(){
 	else{
 	if(analoggroups[x][i][0]!=0){
 		recorderused[x][i][1]=true;
+		highlight = true;
+		if(anarec[x]==i)
+			flash=true;
 	wattron(RECwin, COLOR_PAIR(2));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(2));
@@ -2040,7 +2117,7 @@ void Tree::RecRef(){
 	}
 	}
 	wmove(RECwin, 1+i+digrec[x],4+(TGblockx*x));
-	getcol(analoggroups[x][i][2]);
+	currcol = analoggroups[x][i][2];
 		wattron(RECwin, COLOR_PAIR(currcol));
 		if(analoggroups[x][i][0]!=0){
 			ss << analoggroups[x][i][0] << " " << analoggroups[x][i][1] << "s";
@@ -2070,7 +2147,7 @@ void Tree::RecRef(){
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(8));
 	wmove(RECwin, 1+i+digrec[x]+anarec[x],4+(TGblockx*x));
-	getcol(dconventionalgroups[x][i][2]);
+	currcol = dconventionalgroups[x][i][2];
 		wattron(RECwin, COLOR_PAIR(currcol));
 		if(dconventionalgroups[x][i][1]!=0){
 			ss << dconventionalgroups[x][i][0] << " " << dconventionalgroups[x][i][1] << "s";
@@ -2107,7 +2184,7 @@ void Tree::RecRef(){
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(5));
 	wmove(RECwin, 1+i+digrec[x]+anarec[x]+dconvrec[x],4+(TGblockx*x));
-	getcol(aconventionalgroups[x][i][2]);
+	currcol = aconventionalgroups[x][i][2];
 		wattron(RECwin, COLOR_PAIR(currcol));
 		if(aconventionalgroups[x][i][1]!=0){
 			ss << aconventionalgroups[x][i][0] << " " << aconventionalgroups[x][i][1] << "s";
@@ -2128,8 +2205,16 @@ void Tree::RecRef(){
 	}
 	wmove(RECwin, digrec[x]+anarec[x]+aconvrec[x]+dconvrec[x]+2, 2+(x*TGblockx));
 	wattron(RECwin, COLOR_PAIR(4));
+	if(highlight)
+		wattron(RECwin, A_REVERSE);
+	if(flash)
+		wattron(RECwin, A_BLINK);
 	const char * r = Radios[x].c_str();
 	wprintw(RECwin, r);
+	if(flash)
+		wattroff(RECwin, A_BLINK);
+	if(highlight)
+		wattroff(RECwin, A_REVERSE);
 	wattroff(RECwin, COLOR_PAIR(4));
 	}
 	wrefresh(RECwin);
@@ -2148,24 +2233,21 @@ void Tree::MsgRef(){
 	wattroff(SYSwin, COLOR_PAIR(4));
 	int datapos = 6;
 	wattron(SYSwin, COLOR_PAIR(4));
-	wmove(SYSwin, 1, 1);
-	wprintw(SYSwin, "100");
-	for(int i = 1; i < 19; i++){
+	for(int i = 0; i < 15; i++){
 		std::stringstream ss;
 		std::string s;
 		wmove(SYSwin, i+1, 2);
-		ss << 100-i*5;
+		ss << 80-i*5;
 		ss >> s;
 		const char * c = s.c_str();
 		wprintw(SYSwin, c);
 	}
-	wmove(SYSwin, 20, 3);
+	wmove(SYSwin, 16, 3);
 	wprintw(SYSwin, "5");
-	wmove(SYSwin, 21, 3);
+	wmove(SYSwin, 17, 3);
 	wprintw(SYSwin, "0");
-	wmove(SYSwin, 22, 1);
+	wmove(SYSwin, 18, 1);
 	wprintw(SYSwin, "MPS");
-	
 	wmove(SYSwin, 29, 1);
 	if(SYSblocks < 3){
 		wprintw(SYSwin, "Msg Rate");
@@ -2175,21 +2257,21 @@ void Tree::MsgRef(){
 	}
 	wattroff(SYSwin, COLOR_PAIR(4));
 	wattron(SYSwin, COLOR_PAIR(2));
-	wmove(SYSwin, 24, 1);
+	wmove(SYSwin, 26, 1);
 	if(SYSblocks<2)
 		wprintw(SYSwin, "Max");
 	else
 		wprintw(SYSwin, "Maximum");
 	wattroff(SYSwin, COLOR_PAIR(2));
 	wattron(SYSwin, COLOR_PAIR(1));
-	wmove(SYSwin, 25, 1);
+	wmove(SYSwin, 27, 1);
 	if(SYSblocks<2)
 		wprintw(SYSwin, "Avg");
 	else
 		wprintw(SYSwin, "Average");
 	wattroff(SYSwin, COLOR_PAIR(1));
 	wattron(SYSwin, COLOR_PAIR(3));
-	wmove(SYSwin, 26, 1);
+	wmove(SYSwin, 28, 1);
 	if(SYSblocks<2)
 		wprintw(SYSwin, "Min");
 	else
@@ -2199,9 +2281,9 @@ void Tree::MsgRef(){
 		
 		std::stringstream ss;
 		std::string s;
-		getcol(i);
+		currcol = getcol(i);
 		wattron(SYSwin, COLOR_PAIR(currcol));
-		wmove(SYSwin, 22, datapos-1);
+		wmove(SYSwin, 18, datapos-1);
 		ss << std::hex << std::uppercase << sysccc[0][i] << std::dec << std::nouppercase;
 		ss >> s;
 		if(strlen(s.c_str()) > 3){
@@ -2210,36 +2292,56 @@ void Tree::MsgRef(){
 		const char * c = s.c_str();
 		wprintw(SYSwin, c);
 		wattroff(SYSwin, COLOR_PAIR(currcol));
-		wattron(SYSwin, COLOR_PAIR(4));
-		wmove(SYSwin, 23, datapos-1);
-		std::stringstream ss2;
-		ss2 << avgmsg[i];
-		//ss2 << "ABC";
-		std::string s2 = ss2.str();
-		const char * c2 = s2.c_str();
-		wprintw(SYSwin, c2);
-		wattroff(SYSwin, COLOR_PAIR(4));
-			for(int x = 0; x < 21; x++){
-				wmove(SYSwin, 21-x, datapos);
-				if(maxmsg[i] >= (5*x)){
+		int buffint = 0;
+		int buffcol = 0;
+		for(int x = 0; x < 4; x++){
+			switch(x){
+				case 0:
+					buffint = maxmsg[i];
+					buffcol = 2;
+				break;
+				case 1:
+					buffint = avgmsg[i];
+					buffcol = 1;
+				break;
+				case 2:
+					buffint = minmsg[i];
+					buffcol = 3;
+				break;
+				case 3:
+					if(spos>0)
+						buffint = sysmps[i][spos-1];
+					else
+						buffint = sysmps[i][59];
+					buffcol = 4;
+				break;
+			}
+			wattron(SYSwin, COLOR_PAIR(buffcol));
+			wmove(SYSwin, 19+x, datapos-1);
+			std::stringstream ss2;
+			ss2 << buffint;
+			std::string s2 = ss2.str();
+			const char * c2 = s2.c_str();
+			wprintw(SYSwin, c2);
+			wattroff(SYSwin, COLOR_PAIR(buffcol));
+		}
+			for(int x = 0; x < 17; x++){
+				wmove(SYSwin, 17-x, datapos);
+				if(maxmsg[i] >= (5*x)&&maxmsg[i]!=0){
 					wattron(SYSwin, COLOR_PAIR(2));
 					//wprintw(SYSwin, "X");
 					waddch(SYSwin, ' '|A_REVERSE);
 					wattroff(SYSwin, COLOR_PAIR(2));
 				}
-			}
-			for(int x = 0; x < 21; x++){
-				wmove(SYSwin, 21-x, datapos);
-				if(avgmsg[i] >= (5*x)){
+				wmove(SYSwin, 17-x, datapos);
+				if(avgmsg[i] >= (5*x)&& avgmsg[i]!=0){
 					wattron(SYSwin, COLOR_PAIR(1));
 					//wprintw(SYSwin, "X");
 					waddch(SYSwin, ' '|A_REVERSE);
 					wattroff(SYSwin, COLOR_PAIR(1));
 				}
-			}
-			for(int x = 0; x < 21; x++){
-				wmove(SYSwin, 21-x, datapos);
-				if(minmsg[i] >= (5*x)){
+				wmove(SYSwin, 17-x, datapos);
+				if(minmsg[i] >= (5*x) && minmsg[i]!=0){
 					wattron(SYSwin, COLOR_PAIR(3));
 					//wprintw(SYSwin, "X");
 					waddch(SYSwin, ' '|A_REVERSE);
@@ -2374,7 +2476,7 @@ void Tree::OldRef(){
 	wattron(OLDwin, COLOR_PAIR(4));
 	if(pastpos<28)
 	for(int i = 0; i < pastpos; i ++){
-		getcol(history[i][2]);
+		currcol = history[i][2];
 		std::stringstream hh;
 		std::string hstr;
 		std::stringstream h2;
@@ -2395,7 +2497,7 @@ void Tree::OldRef(){
 	}
 	else{
 		for(int i = 0; i < 28; i ++){
-		getcol(history[i][2]);
+		currcol = history[i][2];
 		std::stringstream hh;
 		std::stringstream h2;
 		std::string hstr;
@@ -2688,7 +2790,7 @@ void Tree::MtgRef(){
 		hh << MTGs[i][0];
 		hh >> hstr;
 		const char * hchar = hstr.c_str();
-		getcol(MTGs[i][1]);
+		currcol = MTGs[i][1];
 		wattron(MRECwin, COLOR_PAIR(currcol));
 		wmove(MRECwin, 1+i, 1);
 		wprintw(MRECwin, hchar);
@@ -2703,7 +2805,7 @@ void Tree::MtgRef(){
 		hh << MTGs[i][0];
 		hh >> hstr;
 		const char * hchar = hstr.c_str();
-		getcol(MTGs[i][1]);
+		currcol = MTGs[i][1];
 		wattron(MRECwin, COLOR_PAIR(currcol));
 		wmove(MRECwin, 1+i, 1);
 		wprintw(MRECwin, hchar);
@@ -2804,10 +2906,9 @@ void Tree::UtRef(){
 			ls << UTbuff;
 		std::string lss = ls.str();
 		const char * lchar = lss.c_str();
-		getcol(UTcol[i]);
-		wattron(UTwin, COLOR_PAIR(currcol));
+		wattron(UTwin, COLOR_PAIR(UTcol[i]));
 		wprintw(UTwin, lchar);
-		wattroff(UTwin, COLOR_PAIR(currcol));
+		wattroff(UTwin, COLOR_PAIR(UTcol[i]));
 		
 	}
 	//wattroff(LOGwin, COLOR_PAIR(4));
@@ -2880,10 +2981,12 @@ void Tree::UTnew(int tg, long nac, std::string radio, int length, int color, std
 		//NewLog(UTstream.str());
 		if (utpos < 20){
 		UThistory[utpos] = UTstream.str();
+		TreeLog() << "@" << color << "-" << UTstream.str() << std::endl;
 		UTcol[utpos]=color;
 		utpos++;
 		}
 		else{
+			TreeLog() << "@" << color << "-" << UTstream.str() << std::endl;
 			for(int i = 0; i < 19; i++){
 				UThistory[i]=UThistory[i+1];
 				UTcol[i]=UTcol[i+1];
