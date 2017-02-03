@@ -15,16 +15,17 @@
 #define MAX_CPU 128
 bool verbose = false;
 bool coloren = false;
-long analoggroups[100][100][3];//[radio][recorder][tg, length, system count]
-long digitalgroups[100][100][3];
-long aconventionalgroups[100][100][4];//[radio][recorder][tg,length,system,idle]
-long dconventionalgroups[100][100][4];
+long analoggroups[100][100][4];//[radio][recorder][tg, length, color, count, nac]
+long digitalgroups[100][100][4];
+long aconventionalgroups[100][100][5];//[radio][recorder][tg,length,color,idle, nac]
+long dconventionalgroups[100][100][5];
 bool recorderused[100][100][4];
 long colorgroups[100];
 int colorsystems[100];
 int currcol = 4;
 long csysid[100];
 int sys_id = 0;
+char * LogMsgsc[50][400];
 double load[3];
 WINDOW *create_newwin(int height, int width, int starty, int startx);
 WINDOW *RECwin;
@@ -42,6 +43,7 @@ WINDOW *UTwinb;
 void destroy_win(WINDOW *local_win);
 int systemnumber = 0;
 int currsys;
+char logconvert[500];
 int csyscc[100];
 int minmsg[100];
 int maxmsg[100];
@@ -114,6 +116,7 @@ int Audio5m=0;
 int Audio15m=0;
 int Audio30m=0;
 int Audio1h=0;
+char logbuff[100][400];
 int Call1h=0;
 long TTraw=0;
 int mtgcount = 0;
@@ -307,7 +310,7 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, 
 				if(analoggroups[i][x][0]==tg){
 					//Put logging code here
 					Past(tg, analoggroups[i][x][1], analoggroups[i][x][2]);
-					endid=sysccc[0][analoggroups[i][x][2]];
+					endid=analoggroups[i][x][3];
 					endcol=analoggroups[i][x][2];
 					UTnew(tg, endid, dev, elapsedint, endcol, description);
 					analoggroups[i][x][0]=0;
@@ -318,7 +321,7 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, 
 				}
 				if(digitalgroups[i][x][0]==tg){
 					Past(tg, digitalgroups[i][x][1], digitalgroups[i][x][2]);
-					endid=sysccc[0][digitalgroups[i][x][2]];
+					endid=digitalgroups[i][x][3];
 					endcol=digitalgroups[i][x][2];
 					UTnew(tg, endid, dev, elapsedint, endcol, description);
 					//put logging code here
@@ -340,8 +343,7 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, 
 				if(aconventionalgroups[i][x][0]==tg){
 					//Put logging code here
 					Past(tg, elapsedint, aconventionalgroups[i][x][2]);
-					int cid = aconventionalgroups[i][x][2]-SYSblocks;
-					endid=csyscc[cid];
+					endid = aconventionalgroups[i][x][4];
 					endcol=aconventionalgroups[i][x][2];
 					UTnew(tg, endid, dev, elapsedint, endcol, description);
 					aconventionalgroups[i][x][3]=0;
@@ -351,8 +353,7 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, 
 				else if(dconventionalgroups[i][x][0]==tg){
 					//Put logging code here
 					Past(tg, elapsedint, dconventionalgroups[i][x][2]);
-					int cid = dconventionalgroups[i][x][2]-SYSblocks;
-					endid=csyscc[cid];
+					endid = dconventionalgroups[i][x][4];
 					endcol=dconventionalgroups[i][x][2];
 					UTnew(tg, endid, dev, elapsedint, endcol, description);
 					dconventionalgroups[i][x][3]=0;
@@ -466,6 +467,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 						if(analoggroups[i][x][0]==0){
 							analoggroups[i][x][0]=tg;
 							analoggroups[i][x][2]=syscolor;
+							analoggroups[i][x][3]=nac;
 							actcall++;
 							if(actcall > callmax)
 								callmax=actcall;
@@ -483,6 +485,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 						if(digitalgroups[i][x][0]==0){
 							digitalgroups[i][x][2]=syscolor;
 							digitalgroups[i][x][0]=tg;
+							digitalgroups[i][x][3]=nac;
 							actcall++;
 							if(actcall>callmax)
 								callmax=actcall;
@@ -511,6 +514,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 						aconventionalgroups[i][aconvrec[i]][0]=tg;
 						aconventionalgroups[i][aconvrec[i]][2]=syscolor;
 						aconventionalgroups[i][aconvrec[i]][3]=0;//idle
+						aconventionalgroups[i][aconvrec[i]][4]=nac;
 						aconvrec[i]++;
 						RecRef();
 						return;
@@ -526,6 +530,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 						dconventionalgroups[i][dconvrec[i]][0]=tg;
 						dconventionalgroups[i][dconvrec[i]][2]=syscolor;
 						dconventionalgroups[i][dconvrec[i]][3]=0;//idle
+						dconventionalgroups[i][dconvrec[i]][4]=nac;
 						dconvrec[i]++;
 						RecRef();
 						return;
@@ -989,6 +994,9 @@ bool Tree::StartCurses(){
 			sysmps[i][x]=0;
 		}
 	}
+	for(int i = 0; i<50; i++){
+		LogMsgsc[i][0]='\0';
+	}
 	Coordinates();
 //newterm(NULL, stdout, stdin);
 //}
@@ -1127,11 +1135,12 @@ bool Tree::SetupLog(){
 void Tree::TimeUp(){
 	if(!curseenable)
 		return;
-	std::string teststr;
-	for(int i = 0; i < runtime; i ++){
-		teststr+="1";
+	/*std::string teststr;
+	for(int i = 0; i < runtime+50; i ++){
+		teststr+="abcdefghijklmnopqrstuvwxyz";
 	}
-	NewLog(teststr);
+	NewLog(teststr);*/
+	//std::cout << "finished test" << std::endl;
 		msgdata();
 
 		if(spos < 59){
@@ -1826,9 +1835,12 @@ int Tree::read_fields (FILE *cfp, unsigned long long int *fields)
   return 1;
 }
 void Tree::NewLog(std::string input){
-	return;
+		if(!curseenable)
+		return;
+	//return;
 	if(input == "")
 		return;
+	int originallength = strlen(input.c_str());
 	std::string colstr = "";
 	int col = 4;
 	if(input.at(0)=='@'){
@@ -1840,6 +1852,7 @@ void Tree::NewLog(std::string input){
 			col = atoi(colstr.c_str());
 		}}
 	}
+	//std::cout << "Stringstream " << nlsize << std::endl;
 	std::stringstream inputstream;
 	//inputstream << TreeTime[0] << ":" << TreeTime[1] << ":" << TreeTime[2] << " - " << input;
 	if(TreeTime[0]<10)
@@ -1852,22 +1865,39 @@ void Tree::NewLog(std::string input){
 		inputstream << "0";
 	inputstream << TreeTime[2] << " - " << input;
 	input = inputstream.str();
-	if(!curseenable)
-		return;
+	if(strlen(input.c_str())>375){
+		input=input.substr(0,375);
+	}
 	if (logpos < 50){
-		LogMsgs[logpos] = input;
+		//LogMsgsc[logpos][0]='\0';
+		memset(LogMsgsc[logpos],'\0',sizeof(LogMsgsc[logpos]));
+		//strcpy(LogMsgsc[logpos][0],input.c_str());
+		memcpy(LogMsgsc[logpos], input.c_str(), strlen(input.c_str())+1);
+		//LogMsgs[logpos] = input;
+		//LogMsgsc[logpos]=input.c_str();
 		LogCol[logpos] = col;
 		logpos++;
 	}
 	else{
 		for(int i = 0; i < 49; i++){
-			LogMsgs[i]=LogMsgs[i+1];
+			size_t msgsize = sizeof(LogMsgsc[i+1]);
+			
+			memset(LogMsgsc[i],'\0',sizeof(LogMsgsc[logpos]));
+			memcpy(LogMsgsc[i], LogMsgsc[i+1], msgsize+1);
+			//LogMsgsc[i][msgsize-1]='\0';
+			//LogMsgsc[i]=LogMsgsc[i+1];
+			//memcpy(LogMsgsc[i][0],LogMsgsc[i+1][0],strlen(LogMsgsc[i+1][0]));
 			LogCol[i]=LogCol[i+1];
 		}
-		LogMsgs[49]=input;
+		//LogMsgsc[49][0]='\0';
+		memset(LogMsgsc[49],'\0',sizeof(LogMsgsc[logpos]));
+		memcpy(LogMsgsc[49], input.c_str(), strlen(input.c_str())+1);
+		//LogMsgs[49]=input;
 		LogCol[49]=col;
 	}
+	//std::cout << "Input size " << originallength << std::endl;
 	LogRef();
+	//std::cout << "newlog done" << std::endl;
 }
 
 void Tree::NoSource(long freq, long tg, int sys){
@@ -1890,7 +1920,7 @@ void Tree::NoRecorder(long freq, long tg, int sys, std::string rad){
 	RecErr++;
 }
 void Tree::LogRef(){
-	return;
+	//return;
 	if(!curseenable)
 		return;
 	if(!LogWinEn)
@@ -1914,66 +1944,123 @@ void Tree::LogRef(){
 	int logheight = R2h-2;
 	int logline = logheight - 1;
 	int logcolor[logheight];
-	std::string logbuff[logheight];
+	//std::string logbuff[logheight];
+	
+	for(int i = 0; i < 100; i++){
+		logbuff[i][0]='\0';
+	}
+	//eturn;
 	for(int i = 0; i < 50; i++){
 		if(logline<0)
 			break;
-	int msglength = strlen(LogMsgs[49-i].c_str());
-	if(msglength!=0){
-	if(msglength > logwidth){
-		int msgwidth = logwidth-2;
-		int loglines = 0;
-		for(int x = msglength; x > logwidth-2; x-=(logwidth-2)){
-			loglines++;
-			x = x + 2;
+		memset(logconvert, '\0',sizeof(logconvert));
+		size_t msglength = 0;
+		if(LogMsgsc[49-i][0]!='\0'){
+			msglength=400;
+			memcpy(logconvert, LogMsgsc[49-i], msglength);
+			//std::cout << "Found Message" << std::endl;
+			msglength=strlen(logconvert);
+			//msglength=strlen(LogMsgsc[49-1][0]);
 		}
-		for(int x = loglines; x >=0; x--){
-			/*if(logline<0)
-				break;
-			std::string lms;
-			if(x == loglines){
-				lms = "  ";
-				lms += LogMsgs[49-i].substr(msgwidth*x, msglength);
+		if(msglength!=0)
+		//std::cout << " msg size " << msglength << std::endl;
+		//size_t msglength = sizeof(LogMsgsc[49-i]);
+		if(msglength!=0){
+			if(msglength>logwidth){
+				//std::cout << "Long Message" << std::endl;
+				char * longbuff[6][400];
+				for(int x = 0; x<6; x++){
+					memset(longbuff[x],'\0',400);
+				}
+				int extralines=0;
+				int offset = 0;
+				int lengthbuff = msglength;
+				char buffspace = ' ';
+				bool msgtrim = false;
+				while(lengthbuff>logwidth-2){
+					if(extralines>=6){
+						lengthbuff=0;
+						extralines=5;
+						msgtrim=true;
+						break;
+					}
+					if(extralines==0){
+						//std::cout << "First Line" << msglength << std::endl;
+						memcpy(longbuff[extralines],logconvert,logwidth);
+						
+						longbuff[extralines][logwidth+1]='\0';
+						extralines++;
+						lengthbuff-=logwidth;
+						//lengthbuff=0;
+						offset+=logwidth;
+					}
+					else{
+						//std::cout << "Line " << extralines << " length " << msglength << std::endl;
+						memcpy(longbuff[extralines],&logconvert[offset-2],logwidth);
+						//strncpy(longbuff[extralines],logconvert+offset-2,logwidth);
+//						for(int x = 0; x<1; x++){
+//							char testchar[100];
+//							memset(testchar, '\0', 100);
+//							memcpy(testchar, &logconvert[offset], logwidth-2);
+//							printf("%s\n", testchar);
+//							memcpy(longbuff[extralines],&logconvert[offset-2],logwidth);
+							//longbuff[extralines][2+x]=logconvert[offset+x];
+//							std::cout << "Copying char " << x << std::endl;
+//							memset(longbuff[extralines][2+x],'a',1);
+//						}
+//						memset(longbuff[extralines][0],' ',2);
+//						longbuff[extralines][logwidth+1]='\0';
+						offset+=logwidth-2;
+						extralines++;
+						lengthbuff-=logwidth-2;
+					}
+				}
+				if(!msgtrim){
+					//extralines--;
+					memcpy(longbuff[extralines],&logconvert[offset-2],lengthbuff);
+					longbuff[extralines][lengthbuff+1]='\0';
+				}
+//				else
+//					NewLog("Trimmed");
+//				memcpy(longbuff[extralines]+2,logconvert+offset,lengthbuff);
+//				longbuff[extralines][lengthbuff+1]='\0';
+//				memset(longbuff[extralines],' ',2);
+				for(int x = extralines; x >= 0; x--){
+					if(logline<0)
+						break;
+					memcpy(logbuff[logline], longbuff[extralines], logwidth);
+					logbuff[logline][logwidth+1]='\0';
+					logcolor[logline]=LogCol[49-i];
+					if(extralines!=0){
+						memset(logbuff[logline], ' ', 2);
+					}
+					logline--;
+					extralines--;
+				}
 			}
 			else{
-				if(x!=0){
-					lms = "  ";
-					lms += LogMsgs[49-i].substr(msgwidth*x, msgwidth*(x+1));
-				}
-				else
-					lms = LogMsgs[49-i].substr(msgwidth*x, msgwidth*(x+1));
-			}*/
-			std::string lms;
-			if(logwidth*(x+1)<msglength)
-				lms = LogMsgs[49-i].substr(logwidth*x, logwidth*(x+1));
-			else
-				lms = LogMsgs[49-i].substr(logwidth*x);
-			logbuff[logline]=lms;
-			logcolor[logline]=LogCol[49-i];
-			logline--;
+				memcpy(logbuff[logline],logconvert,msglength+1);
+				logcolor[logline]=LogCol[49-i];
+				logline--;
+			}
 		}
 	}
-	else{
-		if(logline<0)
-			break;
-		logbuff[logline]=LogMsgs[49-i];
-		logcolor[logline]=LogCol[49-i];
-		logline--;
-	}
-	}
-	}
-	int linepos = 0;
-	for(int i = 0; i <logheight; i++){
-		if(logbuff[i]!=""){
-		wmove(LOGwin, linepos, 0);
-		wattron(LOGwin, COLOR_PAIR(logcolor[i]));
-		wprintw(LOGwin, logbuff[i].c_str());
-		wattroff(LOGwin, COLOR_PAIR(logcolor[i]));
-		linepos++;
+	int offsetpos = 0;
+	for(int i = logheight-1; i >=0; i--){
+		if(logbuff[logheight-1-i][0]=='\0'){
+			offsetpos--;
 		}
 	}
+	for(int i = logheight-1; i >=0; i--){
+		wmove(LOGwin, logheight-1-i+offsetpos, 0);
+		wattron(LOGwin, COLOR_PAIR(logcolor[logheight-1-i]));
+		wprintw(LOGwin, "%s",logbuff[logheight-1-i]);
+		wattroff(LOGwin, COLOR_PAIR(logcolor[logheight-1-i]));
+	}
+	//return;
 	wrefresh(LOGwinb);
 	wrefresh(LOGwin);
+	//std::cout << "logref done" << std::endl;
 }
 
 std::string Tree::cparse(long input, int spaces){
@@ -2997,7 +3084,7 @@ void Tree::UTnew(int tg, long nac, std::string radio, int length, int color, std
 		//NewLog(UTstream.str());
 		if (utpos < 20){
 		UThistory[utpos] = UTstream.str();
-		TreeLog() << "@" << color << "-" << UTstream.str() << std::endl;
+		//TreeLog() << "@" << color << "-" << UTstream.str() << std::endl;
 		UTcol[utpos]=color;
 		utpos++;
 		}
