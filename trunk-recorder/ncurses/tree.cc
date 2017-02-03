@@ -3089,7 +3089,7 @@ void Tree::UTnew(int tg, long nac, std::string radio, int length, int color, std
 		utpos++;
 		}
 		else{
-			TreeLog() << "@" << color << "-" << UTstream.str() << std::endl;
+			//TreeLog() << "@" << color << "-" << UTstream.str() << std::endl;
 			for(int i = 0; i < 19; i++){
 				UThistory[i]=UThistory[i+1];
 				UTcol[i]=UTcol[i+1];
