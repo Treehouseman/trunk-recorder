@@ -4,12 +4,12 @@ using namespace std;
 
 bool analog_recorder::logging = false;
 
-analog_recorder_sptr make_analog_recorder(Source *src)
+analog_recorder_sptr make_analog_recorder(Source *src, bool isAM)
 {
-  return gnuradio::get_initial_sptr(new analog_recorder(src));
+  return gnuradio::get_initial_sptr(new analog_recorder(src, isAM));
 }
 
-analog_recorder::analog_recorder(Source *src)
+analog_recorder::analog_recorder(Source *src, bool isAM)
   : gr::hier_block2("analog_recorder",
                     gr::io_signature::make(1, 1, sizeof(gr_complex)),
                     gr::io_signature::make(0, 0, sizeof(float)))
@@ -86,8 +86,11 @@ analog_recorder::analog_recorder(Source *src)
 
   // k = quad_rate/(2*math.pi*max_dev) = 48k / (6.283185*5000) = 1.527
   fm_demod = make_rx_demod_fm(channel_rate, channel_rate, 5000.0, 75.0e-6);
+  am_demod = make_rx_demod_am(channel_rate, false);
   demod    = gr::analog::quadrature_demod_cf::make(1.527);
   levels = gr::blocks::multiply_const_ff::make(src->get_analog_levels()); // 33);
+  //levels = gr::blocks::multiply_const_ff::make(33);
+  rx_agc = make_rx_agc_cc(channel_rate, true, -30, 15, 2, 100, false);
   valve  = gr::blocks::copy::make(sizeof(gr_complex));
   valve->set_enabled(false);
 
@@ -130,33 +133,64 @@ analog_recorder::analog_recorder(Source *src)
   high_f_taps =  gr::filter::firdes::high_pass(1, 8000, 300, 50, gr::filter::firdes::WIN_HANN);
   high_f = gr::filter::fir_filter_fff::make(1, high_f_taps);
 
+if(!isAM){
+	  if (squelch_db != 0) {
+		// using squelch
+		connect(self(),         0, valve,          0);
+		connect(valve,          0, prefilter,      0);
+		connect(prefilter,      0, downsample_sig, 0);
+		connect(downsample_sig, 0, squelch,        0);
+		connect(squelch,        0, demod,          0);
+		connect(demod,          0, deemph,         0);
+		connect(deemph,         0, decim_audio,    0);
+		connect(decim_audio, 0, high_f, 0);
+		connect(high_f, 0, squelch_two, 0);
+		//connect(decim_audio,    0, squelch_two,    0);
 
-  if (squelch_db != 0) {
-    // using squelch
-    connect(self(),         0, valve,          0);
-    connect(valve,          0, prefilter,      0);
-    connect(prefilter,      0, downsample_sig, 0);
-    connect(downsample_sig, 0, squelch,        0);
-    connect(squelch,        0, demod,          0);
-    connect(demod,          0, deemph,         0);
-    connect(deemph,         0, decim_audio,    0);
-    connect(decim_audio, 0, high_f, 0);
-    connect(high_f, 0, squelch_two, 0);
-    //connect(decim_audio,    0, squelch_two,    0);
+		connect(squelch_two,    0, levels,         0);
+		connect(levels,         0, wav_sink,       0);
+	  } else {
+		// No squelch used
+		connect(self(),         0, valve,          0);
+		connect(valve,          0, prefilter,      0);
+		connect(prefilter,      0, downsample_sig, 0);
+		connect(downsample_sig, 0, demod,          0);
+		connect(demod,          0, deemph,         0);
+		connect(deemph,         0, decim_audio,    0);
+		connect(decim_audio,    0, levels,         0);
+		connect(levels,         0, wav_sink,       0);
+	  }
+}
+else if(isAM){
+	if (squelch_db != 0) {
+		// using squelch
+		connect(self(),         0, valve,          0);
+		connect(valve,          0, prefilter,      0);
+		connect(prefilter,      0, downsample_sig, 0);
+		connect(downsample_sig, 0, squelch,        0);
+		//connect(squelch,        0, am_demod,          0);
+		connect(squelch,        0, rx_agc,         0);
+		connect(rx_agc,         0, am_demod,       0);
+		connect(am_demod,          0, deemph,         0);
+		connect(deemph,         0, decim_audio,    0);
+		connect(decim_audio, 0, high_f, 0);
+		connect(high_f, 0, squelch_two, 0);
+		//connect(decim_audio,    0, squelch_two,    0);
 
-    connect(squelch_two,    0, levels,         0);
-    connect(levels,         0, wav_sink,       0);
-  } else {
-    // No squelch used
-    connect(self(),         0, valve,          0);
-    connect(valve,          0, prefilter,      0);
-    connect(prefilter,      0, downsample_sig, 0);
-    connect(downsample_sig, 0, demod,          0);
-    connect(demod,          0, deemph,         0);
-    connect(deemph,         0, decim_audio,    0);
-    connect(decim_audio,    0, levels,         0);
-    connect(levels,         0, wav_sink,       0);
-  }
+		connect(squelch_two,    0, levels,         0);
+		connect(levels,         0, wav_sink,       0);
+	  } else {
+		// No squelch used
+		connect(self(),         0, valve,          0);
+		connect(valve,          0, prefilter,      0);
+		connect(prefilter,      0, downsample_sig, 0);
+		connect(downsample_sig, 0, am_demod,          0);
+		connect(am_demod,          0, deemph,         0);
+		connect(deemph,         0, decim_audio,    0);
+		connect(decim_audio,    0, levels,         0);
+		connect(levels,         0, wav_sink,       0);
+	  }
+	}
 }
 
 analog_recorder::~analog_recorder() {}

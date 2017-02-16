@@ -50,18 +50,21 @@ class analog_recorder;
 
 
 #include "../../gr_blocks/rx_demod_fm.h"
+#include "../../gr_blocks/rx_demod_am.h"
+//#include "../../gr_blocks/rx_agc_ff.h"
+#include "../../gr_blocks/rx_agc_cc.h"
 
 typedef boost::shared_ptr<analog_recorder> analog_recorder_sptr;
 
 #include "../source.h"
 
-analog_recorder_sptr make_analog_recorder(Source *src);
+analog_recorder_sptr make_analog_recorder(Source *src, bool isAM);
 
 class analog_recorder : public gr::hier_block2, public Recorder
 {
-								friend analog_recorder_sptr make_analog_recorder(Source *src);
+								friend analog_recorder_sptr make_analog_recorder(Source *src, bool isAM);
 protected:
-								analog_recorder(Source *src);
+								analog_recorder(Source *src, bool isAM);
 
 public:
 								~analog_recorder();
@@ -123,6 +126,8 @@ private:
 								gr::analog::pwr_squelch_ff::sptr squelch_two;
 								gr::analog::quadrature_demod_cf::sptr demod;
 								rx_demod_fm_sptr fm_demod;
+								rx_demod_am_sptr am_demod;
+								rx_agc_cc_sptr rx_agc;
 
 								gr::blocks::nonstop_wavfile_sink::sptr wav_sink;
 								gr::blocks::file_sink::sptr raw_sink;

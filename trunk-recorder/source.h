@@ -86,7 +86,7 @@ public:
 								void print_recorders();
 								void tune_digital_recorders();
 								Config * get_config();
-								analog_recorder_sptr create_conventional_recorder(gr::top_block_sptr tb);
+								analog_recorder_sptr create_conventional_recorder(gr::top_block_sptr tb, bool isAM);
 								p25_recorder_sptr create_conventionalP25_recorder(gr::top_block_sptr tb);
 								void create_analog_recorders(gr::top_block_sptr tb, int r);
 								Recorder * get_analog_recorder(int priority);

@@ -1076,7 +1076,7 @@ bool monitor_system() {
 			call->set_dev(recradio2);
             if (system->get_system_type() == "conventional") {
               analog_recorder_sptr rec;
-              rec = source->create_conventional_recorder(tb);
+              rec = source->create_conventional_recorder(tb, true);
               rec->start(call, tg);
               call->set_recorder((Recorder *)rec.get());
               call->set_state(recording);
