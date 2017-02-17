@@ -107,6 +107,7 @@ find_package(GnuradioUHD)
 find_package(GrOsmoSDR)
 find_package(LibHackRF)
 find_package(UHD)
+find_package(LibDSD)
 #Treehouseman adding Curses
 find_package(Curses)
 
@@ -164,6 +165,7 @@ include_directories(
     ${CMAKE_BINARY_DIR}/include
     ${CMAKE_SOURCE_DIR}/op25_repeater/lib
     ${CMAKE_SOURCE_DIR}/op25_repeater/include
+    ${LIBDSD_INCLUDE_DIR}
 )
 
 link_directories(
@@ -172,6 +174,7 @@ link_directories(
     ${GROSMOSDR_LIBRARIES_DIRS}
     ${GNURADIO_UHD_LIBRARIES_DIRS}
     ${UHD_LIBRARIES_DIRS}
+    ${LIBDSD_LIBRARIES}
 )
 
 #set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
@@ -210,6 +213,7 @@ list(APPEND trunk_recorder_sources
   trunk-recorder/recorders/debug_recorder.cc
   trunk-recorder/recorders/analog_recorder.cc
   trunk-recorder/recorders/p25_recorder.cc
+  trunk-recorder/recorders/dsd_recorder.cc
   trunk-recorder/talkgroup.cc
   trunk-recorder/talkgroups.cc
   trunk-recorder/ncurses/tree.cc
@@ -226,4 +230,4 @@ list(APPEND trunk_recorder_sources
 
 add_executable(recorder ${trunk_recorder_sources})
 #Treehouseman added ${CURSES_LIBRARY} to end of link
-target_link_libraries(recorder ssl crypto ${GNURADIO_PMT_LIBRARIES} ${GNURADIO_RUNTIME_LIBRARIES} ${GNURADIO_FILTER_LIBRARIES} ${GNURADIO_DIGITAL_LIBRARIES} ${GNURADIO_ANALOG_LIBRARIES} ${GNURADIO_AUDIO_LIBRARIES} ${GNURADIO_UHD_LIBRARIES} ${UHD_LIBRARIES} ${GNURADIO_BLOCKS_LIBRARIES} ${GROSMOSDR_LIBRARIES} ${Boost_LIBRARIES} ${LIBOP25_REPEATER_LIBRARIES} gnuradio-op25_repeater imbe_vocoder ${CURSES_LIBRARY})
+target_link_libraries(recorder ssl crypto ${GNURADIO_PMT_LIBRARIES} ${GNURADIO_RUNTIME_LIBRARIES} ${GNURADIO_FILTER_LIBRARIES} ${GNURADIO_DIGITAL_LIBRARIES} ${GNURADIO_ANALOG_LIBRARIES} ${GNURADIO_AUDIO_LIBRARIES} ${GNURADIO_UHD_LIBRARIES} ${UHD_LIBRARIES} ${GNURADIO_BLOCKS_LIBRARIES} ${GROSMOSDR_LIBRARIES} ${Boost_LIBRARIES} ${LIBDSD_LIBRARIES} ${LIBOP25_REPEATER_LIBRARIES} gnuradio-op25_repeater imbe_vocoder ${CURSES_LIBRARY})
