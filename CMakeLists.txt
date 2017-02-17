@@ -62,6 +62,10 @@ set(GR_PKG_CONF_DIR     ${GR_CONF_DIR}/${CMAKE_PROJECT_NAME}/conf.d)
 set(GR_LIBEXEC_DIR      libexec)
 set(GR_PKG_LIBEXEC_DIR  ${GR_LIBEXEC_DIR}/${CMAKE_PROJECT_NAME})
 set(GRC_BLOCKS_DIR      ${GR_PKG_DATA_DIR}/grc/blocks)
+set(LIBDSD_INCLUDE_DIR  ${CMAKE_SOURCE_DIR}/gr-dsd/include)
+set(LIBDSD_LIBRARIES    ${CMAKE_SOURCE_DIR}/gr-dsd/dsd/dsd.h)
+set(LIBDSD_LIB          ${CMAKE_SOURCE_DIR}/gr-dsd/include/dsd_api.h)
+set(MELIB_LIB           ${CMAKE_SOURCE_DIR}/gr-dsd/mbelib/mbelib.h)
 
 
 ########################################################################
@@ -107,7 +111,7 @@ find_package(GnuradioUHD)
 find_package(GrOsmoSDR)
 find_package(LibHackRF)
 find_package(UHD)
-find_package(LibDSD)
+#find_package(LibDSD)
 #Treehouseman adding Curses
 find_package(Curses)
 
@@ -166,6 +170,10 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/op25_repeater/lib
     ${CMAKE_SOURCE_DIR}/op25_repeater/include
     ${LIBDSD_INCLUDE_DIR}
+    ${CMAKE_SOURCE_DIR}/gr-dsd/mbelib
+    ${CMAKE_SOURCE_DIR}/gr-dsd/include
+    ${CMAKE_SOURCE_DIR}/gr-dsd/dsd
+    ${CMAKE_SOURCE_DIR}/gr-dsd/mbelib
 )
 
 link_directories(
@@ -175,6 +183,7 @@ link_directories(
     ${GNURADIO_UHD_LIBRARIES_DIRS}
     ${UHD_LIBRARIES_DIRS}
     ${LIBDSD_LIBRARIES}
+    ${LIBDSD_LIB}
 )
 
 #set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
@@ -230,4 +239,4 @@ list(APPEND trunk_recorder_sources
 
 add_executable(recorder ${trunk_recorder_sources})
 #Treehouseman added ${CURSES_LIBRARY} to end of link
-target_link_libraries(recorder ssl crypto ${GNURADIO_PMT_LIBRARIES} ${GNURADIO_RUNTIME_LIBRARIES} ${GNURADIO_FILTER_LIBRARIES} ${GNURADIO_DIGITAL_LIBRARIES} ${GNURADIO_ANALOG_LIBRARIES} ${GNURADIO_AUDIO_LIBRARIES} ${GNURADIO_UHD_LIBRARIES} ${UHD_LIBRARIES} ${GNURADIO_BLOCKS_LIBRARIES} ${GROSMOSDR_LIBRARIES} ${Boost_LIBRARIES} ${LIBDSD_LIBRARIES} ${LIBOP25_REPEATER_LIBRARIES} gnuradio-op25_repeater imbe_vocoder ${CURSES_LIBRARY})
+target_link_libraries(recorder ssl crypto ${GNURADIO_PMT_LIBRARIES} ${GNURADIO_RUNTIME_LIBRARIES} ${GNURADIO_FILTER_LIBRARIES} ${GNURADIO_DIGITAL_LIBRARIES} ${GNURADIO_ANALOG_LIBRARIES} ${GNURADIO_AUDIO_LIBRARIES} ${GNURADIO_UHD_LIBRARIES} ${UHD_LIBRARIES} ${GNURADIO_BLOCKS_LIBRARIES} ${GROSMOSDR_LIBRARIES} ${Boost_LIBRARIES} ${LIBDSD_LIBRARIES} ${LIBDSD_LIB} ${LIBOP25_REPEATER_LIBRARIES} gnuradio-op25_repeater imbe_vocoder ${CURSES_LIBRARY})
