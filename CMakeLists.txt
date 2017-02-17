@@ -194,6 +194,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-narrowing -g")
 
 #Treehouseman add tree.cc
 add_subdirectory(op25_repeater)
+add_subdirectory(gr-dsd)
 list(APPEND trunk_recorder_sources
   trunk-recorder/main.cc
   trunk-recorder/source.cc
