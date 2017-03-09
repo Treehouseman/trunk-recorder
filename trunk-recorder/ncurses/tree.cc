@@ -1,5 +1,5 @@
 #include "tree.h"
-#include <sys/sysinfo.h>
+//#include <sys/sysinfo.h>
 #include <string>
 #include <ncurses.h>
 //#include "../talkgroups.h"
