@@ -1191,7 +1191,7 @@ bool monitor_system() {
 template <class F>
 void add_logs(const F & fmt)
 {
-  boost::log::add_console_log(std::clog, boost::log::keywords::format = fmt);
+  //boost::log::add_console_log(std::clog, boost::log::keywords::format = fmt);
 }
 
 int main(int argc, char **argv)
