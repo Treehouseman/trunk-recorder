@@ -18,6 +18,6 @@ class Talkgroups {
 public:
 								Talkgroups();
 								void load_talkgroups(std::string filename, int s);
-								Talkgroup *find_talkgroup(long tg, int s);
+								Talkgroup *find_talkgroup(long tg);
 };
 #endif

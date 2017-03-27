@@ -101,14 +101,14 @@ void Talkgroups::load_talkgroups(std::string filename, int s) {
   }
 }
 
-Talkgroup * Talkgroups::find_talkgroup(long tg_number, int s) {
+Talkgroup * Talkgroups::find_talkgroup(long tg_number) {
   Talkgroup *tg_match = NULL;
 
   for (std::vector<Talkgroup *>::iterator it = talkgroups.begin();
        it != talkgroups.end(); ++it) {
     Talkgroup *tg = (Talkgroup *)*it;
 
-    if (tg->number == tg_number && tg->nac == s) {
+    if (tg->number == tg_number) {
       tg_match = tg;
       break;
     }

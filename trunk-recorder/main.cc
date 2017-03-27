@@ -14,7 +14,6 @@
 #include <boost/log/sinks/text_file_backend.hpp>
 #include <boost/log/sinks/text_ostream_backend.hpp>
 #include <boost/log/attributes/named_scope.hpp>
-#include <boost/core/null_deleter.hpp>
 #include <boost/program_options.hpp>
 #include <boost/math/constants/constants.hpp>
 #include <boost/algorithm/string/split.hpp>
@@ -44,7 +43,7 @@
 #include <sys/time.h>
 #include <unistd.h>
 
-#include "talkgroups.h"
+
 #include "source.h"
 
 
@@ -83,7 +82,6 @@ std::vector<System *> systems;
 std::map<long, long>  unit_affiliations;
 
 std::vector<Call *> calls;
-Talkgroups *talkgroups;
 gr::top_block_sptr  tb;
 gr::msg_queue::sptr msg_queue;
 
@@ -222,14 +220,13 @@ void load_config(string config_file)
 		  newid = tsyscount;
 		  tsyscount++;
 	  }
-		  
-	  
-	  
 	  bool isconventional = false;
 	  if(system->get_system_type() == "conventional")
 		  isconventional=true;
 	  tout.SysId(newid, isconventional);
 	  system->set_sys_nac(newid);
+      system->set_record_unknown(node.second.get<bool>("recordUnknown",true));
+      BOOST_LOG_TRIVIAL(info) << "Record Unkown Talkgroups: " << system->get_record_unknown();
       systems.push_back(system);
 
       system->set_bandplan(node.second.get<std::string>("bandplan", "800_standard"));
@@ -425,8 +422,8 @@ bool replace(std::string& str, const std::string& from, const std::string& to) {
   return true;
 }
 
-void start_recorder(Call *call, TrunkMessage message) {
-  Talkgroup *talkgroup = talkgroups->find_talkgroup(call->get_talkgroup(), csys_id);
+void start_recorder(Call *call, TrunkMessage message, System *sys) {
+  Talkgroup *talkgroup = sys->find_talkgroup(call->get_talkgroup());
   bool source_found    = false;
   bool recorder_found  = false;
   Recorder *recorder;
@@ -437,7 +434,17 @@ void start_recorder(Call *call, TrunkMessage message) {
   // << "\tTDMA: " << call->get_tdma() <<  "\tEncrypted: " <<
   // call->get_encrypted() << "\tFreq: " << call->get_freq();
 
- // if (call->get_encrypted() == false) {
+/*  if (call->get_encrypted() == true) {
+
+      BOOST_LOG_TRIVIAL(info) <<  "\tRecording not started because it is encrypted: " <<  call->get_freq() << " For TG: " << call->get_talkgroup();
+      return;
+    }*/
+
+  if (!talkgroup && (sys->get_record_unknown() == false)) {
+    BOOST_LOG_TRIVIAL(info) <<  "\tRecording not started because talkgroup is not in Talkgroup File: " <<  call->get_freq() << " TG: " << call->get_talkgroup();
+    return;
+  }
+
     for (vector<Source *>::iterator it = sources.begin(); it != sources.end(); it++) {
       Source *source = *it;
 
@@ -529,11 +536,6 @@ void start_recorder(Call *call, TrunkMessage message) {
 	    tout.NoSource(call->get_freq(), call->get_talkgroup(), csys_id);//Treehouseman Log no source
 	  return;
     }
-//  } else {
-    BOOST_LOG_TRIVIAL(info) <<  "\tRecording not started because it is encrypted: " <<  call->get_freq() << " For TG: " << call->get_talkgroup();
-
-    // anything for encrypted calls could go here...
-  //}
 }
 
 void stop_inactive_recorders() {
@@ -613,14 +615,17 @@ bool retune_recorder(TrunkMessage message, Call *call) {
 
   BOOST_LOG_TRIVIAL(info) << "\tRetune - Elapsed: " << call->elapsed() << "s \tSince update: " << call->since_last_update() << "s \tTalkgroup: " <<  message.talkgroup << "\tOld Freq: " << call->get_freq() << "\tNew Freq: " << message.freq;
 
-  // set the call to the new Freq / TDMA slot
-  call->set_freq(message.freq);
-  call->set_phase2_tdma(message.phase2_tdma);
-  call->set_tdma_slot(message.tdma_slot);
-
 
   if ((source->get_min_hz() <= message.freq) && (source->get_max_hz() >= message.freq)) {
     recorder->tune_offset(message.freq);
+
+      // only set the call freq, if the recorder can be retuned.
+      // set the call to the new Freq / TDMA slot
+      call->set_freq(message.freq);
+      call->set_phase2_tdma(message.phase2_tdma);
+      call->set_tdma_slot(message.tdma_slot);
+
+
 
     if (call->get_debug_recording() == true) {
       call->get_debug_recorder()->tune_offset(message.freq);
@@ -640,12 +645,12 @@ void assign_recorder(TrunkMessage message, System *sys) {
     Call *call = *it;
 
 
-    if (call_found && (call->get_talkgroup() == message.talkgroup)) {
+    if (call_found && (call->get_talkgroup() == message.talkgroup) && (call->get_sys_num() == message.sys_num)) {
       BOOST_LOG_TRIVIAL(info) << "\tALERT! Assign - Total calls: " <<  calls.size() << "\tTalkgroup: " << message.talkgroup << "\tOld Freq: " << call->get_freq() << "\tNew Freq: " << message.freq;
     }
 
     // Does the call have the same talkgroup
-    if (call->get_talkgroup() == message.talkgroup && csys_id == call->get_nac()) {
+    if ((call->get_talkgroup() == message.talkgroup) && (call->get_sys_num() == message.sys_num)){
       call_found = true;
 
       // Is the freq the same?
@@ -689,26 +694,24 @@ void assign_recorder(TrunkMessage message, System *sys) {
     } else {
       // The talkgroup for the call does not match
       // check is the freq is the same as the one being used by the call
+
+      /*
       if ((call->get_freq() == message.freq) &&  (call->get_tdma_slot() == message.tdma_slot)) {
         BOOST_LOG_TRIVIAL(info) << "\tFreq in use -  TG: " << message.talkgroup << "\tFreq: " << message.freq << "\tTDMA: " << message.tdma_slot << "\t Existing call\tTG: " << call->get_talkgroup() << "\tTMDA: " << call->get_tdma_slot() << "\tElapsed: " << call->elapsed() << "s \tSince update: " << call->since_last_update();
 
-        /*
-                call->end_call();
-
-                it = calls.erase(it);
-                        delete call;*/
         call_found = false;
         ++it;
       } else {
         ++it; // move on to the next one
-      }
+      }*/
+      ++it; // move on to the next one
     }
   }
 
 
   if (!call_found) {
     Call *call = new Call(message, sys, config, csys_id);
-    start_recorder(call, message);
+    start_recorder(call, message, sys);
     calls.push_back(call);
   }
 }
@@ -749,11 +752,11 @@ void update_recorder(TrunkMessage message, System *sys) {
     Call *call = *it;
 
     // This should help detect 2 calls being listed for the same tg
-    if (call_found && (call->get_talkgroup() == message.talkgroup)) {
+    if (call_found && (call->get_talkgroup() == message.talkgroup) && (call->get_sys_num() == message.sys_num)) {
       BOOST_LOG_TRIVIAL(info) << "\tALERT! Update - Total calls: " <<  calls.size() << "\tTalkgroup: " << message.talkgroup << "\tOld Freq: " <<  call->get_freq() << "\tNew Freq: " << message.freq;
     }
 
-    if (call->get_talkgroup() == message.talkgroup) {
+    if ((call->get_talkgroup() == message.talkgroup) && (call->get_sys_num() == message.sys_num)) {
       call_found = true;
       call->update(message);
 
@@ -897,28 +900,20 @@ System* find_system(int sys_num) {
 
 void retune_system(System *system) {
   bool source_found            = false;
-  Source *source               = NULL;
+  Source *source               = system->get_source();
   double  control_channel_freq = system->get_next_control_channel();
   std::stringstream rt;//Treehouseman log system retunes
   rt << "Retuning system: " << std::hex << std::uppercase << system->get_sys_nac() << std::nouppercase << std::dec << " Frequency: " << control_channel_freq;
   tout.NewLog(rt.str());
   BOOST_LOG_TRIVIAL(error) << "Retuning to Control Channel: " << control_channel_freq;
 
-  for (vector<Source *>::iterator it = sources.begin(); it != sources.end(); it++) {
-    source = *it;
-    BOOST_LOG_TRIVIAL(info) << "Min: " << source->get_min_hz() << " Max: " << source->get_max_hz();
+
+    BOOST_LOG_TRIVIAL(info) << "System Source - Min Freq: " << source->get_min_hz() << " Max Freq: " << source->get_max_hz();
 
     if ((source->get_min_hz() <= control_channel_freq) &&
         (source->get_max_hz() >= control_channel_freq)) {
       // The source can cover the System's control channel, break out of the
       // For Loop
-      source_found = true;
-      break;
-    }
-  }
-
-
-  if (source_found) {
     if (system->get_system_type() == "smartnet") {
       // what you really need to do is go through all of the sources to find
       // the one with the right frequencies
@@ -932,7 +927,7 @@ void retune_system(System *system) {
     }
     BOOST_LOG_TRIVIAL(info) << "Finished retuning";
   } else {
-    BOOST_LOG_TRIVIAL(error) << "Source not found for Retune";
+    BOOST_LOG_TRIVIAL(error) << "Unable to retune System control channel, freq not covered by the Source used for the inital control channel freq.";
   }
 }
 
@@ -1085,7 +1080,7 @@ bool monitor_system() {
           if ((source->get_min_hz() <= channel) &&
               (source->get_max_hz() >= channel)) {
             // The source can cover the System's control channel
-
+            system->set_source(source);
             system_added = true;
 
             if (source->get_squelch_db() == 0) {
@@ -1097,7 +1092,7 @@ bool monitor_system() {
 			csys_id=1230+convsys;//Treehouseman giving conventional their own ID
             BOOST_LOG_TRIVIAL(info) << "Monitoring Conventional Channel: " << channel << " Talkgroup: " << tg;
             Call *call = new Call(tg, channel, system, config, csys_id);
-			Talkgroup *talkgroup = talkgroups->find_talkgroup(tg, csys_id);
+			Talkgroup *talkgroup = system->find_talkgroup(tg);
 			if(talkgroup)
 				call->set_description(talkgroup->description);
             tg++;
@@ -1155,6 +1150,7 @@ bool monitor_system() {
             (source->get_max_hz() >= control_channel_freq)) {
           // The source can cover the System's control channel
           system_added = true;
+          system->set_source(source);
 
           if (system->get_system_type() == "smartnet") {
             // what you really need to do is go through all of the sources to find
@@ -1211,26 +1207,6 @@ int main(int argc, char **argv)
     boost::log::trivial::severity >= boost::log::trivial::info
     );
 
-  /* log formatter:
-   * [TimeStamp] [ThreadId] [Severity Level] [Scope] Log message
-   */
-   /*
-  auto fmtTimeStamp = boost::log::expressions::
-                      format_date_time<boost::posix_time::ptime>("TimeStamp", "%Y-%m-%d %H:%M:%S.%f");
-  auto fmtSeverity = boost::log::expressions::
-                     attr<boost::log::trivial::severity_level>("Severity");
-  auto fmtScope = boost::log::expressions::format_named_scope("Scope",
-                                                              boost::log::keywords::format = "%n(%f:%l)",
-                                                              boost::log::keywords::iteration = boost::log::expressions::reverse,
-                                                              boost::log::keywords::depth = 2);
-  boost::log::formatter logFmt =
-    boost::log::expressions::format("[%1%] (%2%)   %3%")
-    % fmtTimeStamp % fmtSeverity % boost::log::expressions::smessage;
-
-
-  auto consoleSink = boost::log::add_console_log(std::clog);
-  consoleSink->set_formatter(logFmt);*/
-  //consoleSink->set_formatter(expr::stream << boost::log::expressions::format_date_time<boost::posix_time::ptime>("TimeStamp", "%Y-%m-%d %H:%M:%S.%f"));
 add_logs(
   boost::log::expressions::format("[%1%] (%2%)   %3%")
   % boost::log::expressions::
@@ -1279,15 +1255,6 @@ add_logs(
 	}
   //Treehouseman End
   // Setup the talkgroups from the CSV file
-  talkgroups = new Talkgroups();
-
-
-  BOOST_LOG_TRIVIAL(info) << "Loading Talkgroups..." << std::endl;
-
-  for (vector<System *>::iterator it = systems.begin(); it != systems.end(); it++) {
-    System *system = *it;
-    talkgroups->load_talkgroups(system->get_talkgroups_file(), system->get_sys_nac());
-  }
 
 
   if (monitor_system()) {

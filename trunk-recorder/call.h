@@ -36,6 +36,8 @@ class Recorder;
 #include "systems/system.h"
 #include "systems/parser.h"
 
+
+class System;
 //enum  CallState { monitoring=0, recording=1, stopping=2};
 
 class Call {
@@ -59,6 +61,7 @@ int get_nac();
 
 								char *get_converted_filename();
 								char *get_filename();
+								int get_sys_num();
 								void create_filename();
 								void set_error(Rx_Status rx_status);
 								void set_freq(double f);

@@ -41,7 +41,6 @@ Call::Call(long t, double f, System *s, Config c, int csys_id) {
   curr_freq        = 0;
   src_count        = 0;
   curr_src_id      = 0;
-  set_freq(f);
   talkgroup       = t;
   sys             = s;
   start_time      = time(NULL);
@@ -58,6 +57,7 @@ Call::Call(long t, double f, System *s, Config c, int csys_id) {
   description     = "Unknown";
   nac             = csys_id;
   dev             = "";
+  set_freq(f);
   this->create_filename();
 }
 
@@ -69,12 +69,9 @@ Call::Call(TrunkMessage message, System *s, Config c, int csys_id) {
   src_count        = 0;
   curr_src_id      = 0;
   curr_freq        = 0;
-
-
   talkgroup  = message.talkgroup;
   sys        = s;
   start_time = time(NULL);
-
   stop_time       = time(NULL);
   last_update     = time(NULL);
   state           = monitoring;
@@ -153,6 +150,7 @@ void Call::end_call() {
         myfile << "\"start_time\": " << this->start_time << ",\n";
         myfile << "\"stop_time\": " << this->stop_time << ",\n";
         myfile << "\"emergency\": " << this->emergency << ",\n";
+        //myfile << "\"source\": \"" << this->get_recorder()->get_source()->get_device() << "\",\n";
         myfile << "\"talkgroup\": " << this->talkgroup << ",\n";
 	myfile << "\"encrypted\": " << this->encrypted << ",\n";
 	myfile << "\"nac\": " << this->nac << ",\n";
@@ -257,6 +255,7 @@ void Call::set_freq(double f) {
       freq_list[freq_count - 1].total_len   = rx_status.total_len;
       freq_list[freq_count - 1].spike_count = rx_status.spike_count;
       freq_list[freq_count - 1].error_count = rx_status.error_count;
+      BOOST_LOG_TRIVIAL(error) << "changing freq from: " << curr_freq << " to: " << f;
     }
 
     Call_Freq call_freq = { f, time(NULL), position };
@@ -269,6 +268,9 @@ void Call::set_freq(double f) {
     }
     curr_freq = f;
   }
+}
+int Call::get_sys_num() {
+  return sys->get_sys_num();
 }
 
 long Call::get_talkgroup() {

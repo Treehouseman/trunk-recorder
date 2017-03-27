@@ -41,7 +41,11 @@ System::System(int sys_num) {
   current_control_channel = 0;
   xor_mask_len=0;
   xor_mask = NULL;
+  // Setup the talkgroups from the CSV file
+  talkgroups = new Talkgroups();
 }
+
+
 void System::update_status(TrunkMessage message) {
  if(!sys_id || !wacn || !nac) {
    sys_id = message.sys_id;
@@ -105,7 +109,13 @@ void System::set_qpsk_mod(bool qpsk_mod) {
   this->qpsk_mod = qpsk_mod;
 }
 
+bool System::get_record_unknown() {
+  return this->record_unknown;
+}
 
+void System::set_record_unknown(bool unknown) {
+  this->record_unknown = unknown;
+}
 
 std::string System::get_system_type() {
   return this->system_type;
@@ -120,7 +130,21 @@ std::string System::get_talkgroups_file() {
 }
 
 void System::set_talkgroups_file(std::string talkgroups_file) {
+  BOOST_LOG_TRIVIAL(info) << "Loading Talkgroups...";
   this->talkgroups_file = talkgroups_file;
+  this->talkgroups->load_talkgroups(talkgroups_file, sys_nac);
+}
+
+Source *System::get_source(){
+  return this->source;
+}
+
+void System::set_source(Source *s) {
+  this->source = s;
+}
+
+Talkgroup * System::find_talkgroup(long tg_number) {
+  return talkgroups->find_talkgroup(tg_number);
 }
 
 std::vector<double> System::get_channels(){
