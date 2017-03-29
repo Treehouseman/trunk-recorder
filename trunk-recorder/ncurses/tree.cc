@@ -15,15 +15,14 @@
 #define MAX_CPU 128
 bool verbose = false;
 bool coloren = false;
-long analoggroups[100][100][4];//[radio][recorder][tg, length, color, count, nac]
-long digitalgroups[100][100][4];
-long aconventionalgroups[100][100][5];//[radio][recorder][tg,length,color,idle, nac]
-long dconventionalgroups[100][100][5];
+long analoggroups[100][100][5];//[radio][recorder][tg, length, color, count, nac, sysnum]
+long digitalgroups[100][100][5];
+long aconventionalgroups[100][100][6];//[radio][recorder][tg,length,color,idle, nac, sysnum]
+long dconventionalgroups[100][100][6];
 bool recorderused[100][100][4];
 long colorgroups[100];
 int colorsystems[100];
 int currcol = 4;
-long csysid[100];
 int sys_id = 0;
 char * LogMsgsc[50][400];
 double load[3];
@@ -44,7 +43,7 @@ void destroy_win(WINDOW *local_win);
 int systemnumber = 0;
 int currsys;
 char logconvert[500];
-int csyscc[100];
+int csyscc[2][100];
 int minmsg[100];
 int maxmsg[100];
 int avgmsg[100];
@@ -88,7 +87,7 @@ int radiocount = 0;
 int spos = 0;
 bool looped = false;
 int sysmps[100][60];
-int sysccc[3][100];
+int sysccc[4][100];
 int pastpos = 0;
 int history[28][3];
 std::string UThistory[20];
@@ -247,6 +246,7 @@ void Tree::PurgeArrays(){
 		sysccc[0][i]=0;
 		sysccc[1][i]=0;
 		sysccc[2][i]=0;
+		sysccc[3][i]=0;
 		for(int x = 0; x < 60; x++){
 			sysmps[i][x]=0;
 		}
@@ -293,7 +293,7 @@ void Tree::Past(int tg, int elapsed, int color){
 		DatRef();
 	}
 }
-void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, std::string description){
+void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, std::string description, int sysnum){
 	if(!curseenable)
 		return;
 	long endid = 0;
@@ -307,9 +307,9 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, 
 		for(int i = 0; i < TGblocks; i++){
 			if(Radios[i]==dev){
 			for(int x = 0; x < 100; x++){
-				if(analoggroups[i][x][0]==tg){
+				if(analoggroups[i][x][0]==tg && analoggroups[i][x][4]==sysnum){
 					//Put logging code here
-					Past(tg, analoggroups[i][x][1], analoggroups[i][x][2]);
+					Past(tg, elapsedint, analoggroups[i][x][2]);
 					endid=analoggroups[i][x][3];
 					endcol=analoggroups[i][x][2];
 					UTnew(tg, endid, dev, elapsedint, endcol, description);
@@ -319,8 +319,8 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, 
 					RecRef();
 					return;
 				}
-				if(digitalgroups[i][x][0]==tg){
-					Past(tg, digitalgroups[i][x][1], digitalgroups[i][x][2]);
+				if(digitalgroups[i][x][0]==tg && digitalgroups[i][x][4]==sysnum){
+					Past(tg, elapsedint, digitalgroups[i][x][2]);
 					endid=digitalgroups[i][x][3];
 					endcol=digitalgroups[i][x][2];
 					UTnew(tg, endid, dev, elapsedint, endcol, description);
@@ -365,7 +365,7 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, 
 		}
 	}
 }
-void Tree::conventionalStatus(int tg, int nac, double length, int idle, bool isidle, std::string dev){
+void Tree::conventionalStatus(int tg, double length, int idle, bool isidle, std::string dev, int sysnum){
 	
 	//TreeLog() << "Got Status Update" << std::endl;
 	//return;
@@ -377,7 +377,7 @@ void Tree::conventionalStatus(int tg, int nac, double length, int idle, bool isi
 	//TreeLog() << "Update: " << tg << " " << length << " " << intlength << " " << idle << " " << isidle << std::endl;
 	int csyspos=0;
 	for(int i = 0; i < 100; i++){
-		if(csyscc[i]==nac){
+		if(csyscc[1][i]==sysnum){
 			csyspos=i;
 			break;
 		}
@@ -440,7 +440,7 @@ void Tree::SourceDev(std::string dev, int dig, int ana){
 	anarec[TGblocks]=ana;
 	TGblocks++;
 }
-void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac, bool conventional){
+void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac, bool conventional, int sysnum){
 	/*
 	Call Start loop, TG needs to be put into analog or digital list for dev based on isanalog
 	*/
@@ -456,7 +456,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 		int syscolor = -1;
 			for(int i = 0; i < 100; i++){
 			if(sysccc[0][i]==sys_id){
-				syscolor = getcol(i);
+				syscolor = getcol(sysnum);
 				break;
 			}
 		}
@@ -468,6 +468,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 							analoggroups[i][x][0]=tg;
 							analoggroups[i][x][2]=syscolor;
 							analoggroups[i][x][3]=nac;
+							analoggroups[i][x][4]=sysnum;
 							actcall++;
 							if(actcall > callmax)
 								callmax=actcall;
@@ -486,6 +487,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 							digitalgroups[i][x][2]=syscolor;
 							digitalgroups[i][x][0]=tg;
 							digitalgroups[i][x][3]=nac;
+							digitalgroups[i][x][4]=sysnum;
 							actcall++;
 							if(actcall>callmax)
 								callmax=actcall;
@@ -501,8 +503,8 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 		//TreeLog() << "Start conventional call " << tg << " " << nac << " " << dev << std::endl;
 		int syscolor = -1;
 		for(int i = 0; i < 100; i++){
-			if(csyscc[i]==sys_id){
-				syscolor=getcol(i+SYSblocks-1);
+			if(csyscc[0][i]==nac && csyscc[1][i]==sysnum){
+				syscolor=getcol(sysnum);
 				break;
 			}
 		}
@@ -515,6 +517,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 						aconventionalgroups[i][aconvrec[i]][2]=syscolor;
 						aconventionalgroups[i][aconvrec[i]][3]=0;//idle
 						aconventionalgroups[i][aconvrec[i]][4]=nac;
+						aconventionalgroups[i][aconvrec[i]][5]=sysnum;
 						aconvrec[i]++;
 						RecRef();
 						return;
@@ -531,6 +534,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 						dconventionalgroups[i][dconvrec[i]][2]=syscolor;
 						dconventionalgroups[i][dconvrec[i]][3]=0;//idle
 						dconventionalgroups[i][dconvrec[i]][4]=nac;
+						dconventionalgroups[i][dconvrec[i]][5]=sysnum;
 						dconvrec[i]++;
 						RecRef();
 						return;
@@ -541,14 +545,14 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 		}
 	}
 }
-void Tree::MissingTG(long tg, int nac){
+void Tree::MissingTG(long tg, int nac, int sysnum){
 	if(!curseenable)
 		return;
 	TGErr++;
 	int syscolor = -1;
 		for(int i = 0; i < 10; i++){
 		if(sysccc[0][i]==nac){
-			syscolor = getcol(i);
+			syscolor = getcol(sysnum);
 			break;
 		}
 	}
@@ -614,28 +618,30 @@ void Tree::Long(long tg, long freq, int elapsed, int since, int sys){
 	NewLog(ks.str());
 	LgErr++;
 }
-void Tree::SysId(int sysid, bool conventional){
+void Tree::SysId(int sysid, bool conventional, int sysnum){
 	/*
 	Copy our sysid tracking stuff here
 	*/
 	if(!conventional){
 			sysccc[0][SYSblocks]=sysid;
+			sysccc[3][SYSblocks]=sysnum;
 			//sysmps[0][SYSblocks]=sysid;
 			//sysccc[1][SYSblocks]++;
 	SYSblocks++;
 	}
 	else if(conventional){
-		csyscc[convcount]=sysid;
+		csyscc[0][convcount]=sysid;
+		csyscc[1][convcount]=sysnum;
 		convcount++;
 	}
 }
-void Tree::ccId(int sys){
-	sys_id = sys;
+void Tree::ccId(int sysnum){
 	if(!curseenable)
 		return;
 	//Got ID in message
 	for(int i = 0; i < 100; i++){
-		if(sysccc[0][i]==sys_id){
+		if(sysccc[3][i]==sysnum){
+			sys_id = sysccc[0][i];
 			sysccc[1][i] = sysccc[1][i]+1;
 			break;
 		}
@@ -986,7 +992,6 @@ bool Tree::StartCurses(){
 	//WINendx = WINstartx+WINdefx+(WINblockx*blocks)
 	
 	for(int i = 0; i < 100; i++){
-		csysid[i] = 0;
 		maxmsg[i] = 0;
 		minmsg[i] = 0;
 		avgmsg[i] = 0;

@@ -223,7 +223,7 @@ void load_config(string config_file)
 	  bool isconventional = false;
 	  if(system->get_system_type() == "conventional")
 		  isconventional=true;
-	  tout.SysId(newid, isconventional);
+	  tout.SysId(newid, isconventional, system->get_sys_num());
 	  system->set_sys_nac(newid);
       system->set_record_unknown(node.second.get<bool>("recordUnknown",true));
       BOOST_LOG_TRIVIAL(info) << "Record Unkown Talkgroups: " << system->get_record_unknown();
@@ -463,7 +463,7 @@ void start_recorder(Call *call, TrunkMessage message, System *sys) {
           }
         } else {
           BOOST_LOG_TRIVIAL(error) << "\tTalkgroup not found: " << call->get_freq() << " For TG: " << call->get_talkgroup();
-		  tout.MissingTG(call->get_talkgroup(), csys_id);//Treehouseman Missing TG
+		  tout.MissingTG(call->get_talkgroup(), csys_id, call->get_sys_num());//Treehouseman Missing TG
           // A talkgroup was not found from the talkgroup file.
           if (default_mode == "analog") {
             recorder = source->get_analog_recorder(2);
@@ -498,7 +498,7 @@ void start_recorder(Call *call, TrunkMessage message, System *sys) {
 			  call->set_dev(recradio.substr(4));
 			  recradio2=recradio.substr(4);
 		  }
-		  tout.StartCall(call->get_talkgroup(), call->get_freq(), recradio2, isanalog, csys_id, 0); //Treehouseman Start Call Notification
+		  tout.StartCall(call->get_talkgroup(), call->get_freq(), recradio2, isanalog, csys_id, 0, sys->get_sys_num()); //Treehouseman Start Call Notification
 		  //Treehouseman end
           recorder_found = true;
         } else {
@@ -547,7 +547,7 @@ void stop_inactive_recorders() {
 		  int calltg = call->get_talkgroup();
 		  int callidle = call->get_idle_count();
 		  bool callisidle = call->get_recorder()->is_idle();
-		  tout.conventionalStatus(calltg, call->get_nac(), calllength, callidle, callisidle, call->get_dev());
+		  tout.conventionalStatus(calltg, calllength, callidle, callisidle, call->get_dev(), call->get_sys_num());
       // if any recording has happened
       if (call->get_current_length() > 1.0) {
         BOOST_LOG_TRIVIAL(trace) << "Recorder: " <<  call->get_current_length() << " Idle: " << call->get_recorder()->is_idle() << " Count: " << call->get_idle_count();
@@ -903,7 +903,7 @@ void retune_system(System *system) {
   Source *source               = system->get_source();
   double  control_channel_freq = system->get_next_control_channel();
   std::stringstream rt;//Treehouseman log system retunes
-  rt << "Retuning system: " << std::hex << std::uppercase << system->get_sys_nac() << std::nouppercase << std::dec << " Frequency: " << control_channel_freq;
+  rt << "Retuning system: " << std::hex << std::uppercase << system->get_sys_nac() << " Num: " << system->get_sys_num() << std::nouppercase << std::dec << " Frequency: " << control_channel_freq;
   tout.NewLog(rt.str());
   BOOST_LOG_TRIVIAL(error) << "Retuning to Control Channel: " << control_channel_freq;
 
@@ -1017,7 +1017,7 @@ for(int i = 0; i < 10; i++){
       sys->message_count++;
 
       if (sys) {
-		  tout.ccId(csys_id);//Treehouseman set current system
+		  tout.ccId(sys->get_sys_num());//Treehouseman set current system
         if (sys->get_system_type() == "smartnet") {
 			default_mode="analog";//Treehouseman different defaults
           trunk_messages = smartnet_parser->parse_message(msg->to_string(), sys);
@@ -1119,7 +1119,7 @@ bool monitor_system() {
               rec->start(call, tg);
               call->set_recorder((Recorder *)rec.get());
               call->set_state(recording);
-			  tout.StartCall(tg-1, channel, recradio2, 1, csys_id, 1);
+			  tout.StartCall(tg-1, channel, recradio2, 1, csys_id, 1, system->get_sys_num());
               system->add_conventional_recorder(rec);
               calls.push_back(call);
             } else { // has to be "conventionalP25"
@@ -1128,7 +1128,7 @@ bool monitor_system() {
               rec->start(call, tg);
               call->set_recorder((Recorder *)rec.get());
               call->set_state(recording);
-			  tout.StartCall(tg-1, channel, recradio2, 0, csys_id, 1);
+			  tout.StartCall(tg-1, channel, recradio2, 0, csys_id, 1, system->get_sys_num());
               system->add_conventionalP25_recorder(rec);
               calls.push_back(call);
             }

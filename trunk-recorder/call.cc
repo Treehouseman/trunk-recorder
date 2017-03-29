@@ -123,9 +123,9 @@ void Call::end_call() {
 
   if (state == recording) {
 	  if(!conventional)
-		tout.EndCall(this->get_talkgroup(), this->elapsed(), dev, conventional, description);//Treehouseman ending call
+		tout.EndCall(this->get_talkgroup(), this->elapsed(), dev, conventional, description, sys->get_sys_num());//Treehouseman ending call
 	  else if(conventional)
-		  tout.EndCall(this->get_talkgroup(), this->get_current_length(), dev, conventional, description);
+		  tout.EndCall(this->get_talkgroup(), this->get_current_length(), dev, conventional, description, sys->get_sys_num());
     if (!recorder) {
       BOOST_LOG_TRIVIAL(error) << "Call::end_call() State is recording, but no recorder assigned!";
     }
