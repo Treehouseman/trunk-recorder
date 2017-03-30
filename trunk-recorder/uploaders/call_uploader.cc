@@ -224,8 +224,11 @@ void convert_upload_call(call_data_t *call_info, server_data_t *server_info, ser
   
   
   if(!call_info->isnormal && call_info->buffpath != ""){
-	  sprintf(del_command, "rm %s > /dev/null", realname.c_str());
+	  if(FILE *file = fopen(realname.c_str(), "r")){
+		  fclose(file);
+		  sprintf(del_command, "rm %s > /dev/null", realname.c_str());
 	  int rc3 = system(del_command);
+	  }
 	  }
 }
 
