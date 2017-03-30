@@ -1393,16 +1393,22 @@ int Tree::getcol(int loc){
 		return 8;
 		break;
 		case 4:
+		return 40;
 		break;
 		case 5:
+		return 219;
 		break;
 		case 6:
+		return 149;
 		break;
 		case 7:
+		return 83;
 		break;
 		case 8:
+		return 165;
 		break;
 		case 9:
+		return 160;
 		break;
 		default:
 		return 4;
