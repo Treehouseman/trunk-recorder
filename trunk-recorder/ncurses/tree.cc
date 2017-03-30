@@ -1036,14 +1036,17 @@ bool Tree::StartCurses(){
 		coloren = true;
 		start_color();
 		use_default_colors();
-		init_pair(1,   2, COLOR_BLACK); //Green
+		/*init_pair(1,   2, COLOR_BLACK); //Green
 		init_pair(2,   1, COLOR_BLACK); //Red
 		init_pair(3,   6, COLOR_BLACK); //Cyan
 		init_pair(4,   7, COLOR_BLACK); //White
 		init_pair(5,   5, COLOR_BLACK); //Magenta
 		init_pair(6,   4, COLOR_BLACK); //Blue
 		init_pair(7,   3, COLOR_BLACK); //Yellow
-		init_pair(8, 214, COLOR_BLACK); //Orange
+		init_pair(8, 214, COLOR_BLACK); //Orange*/
+		for(int i = 0; i < 255; i++){
+			init_pair(i, i, COLOR_BLACK);
+		}
 	//}
 	//cbreak();			/* Line buffering disabled, Pass on
 					// * everty thing to me 		*/
@@ -1058,45 +1061,45 @@ bool Tree::StartCurses(){
 void Tree::MakeWindows(){
 	if(RecWinEn){
 		RECwin = create_newwin(R1h, TGendx-TGstartx, TGstarty, TGstartx);
-		wbkgd(RECwin, COLOR_PAIR(6));
+		wbkgd(RECwin, COLOR_PAIR(4));
 	}
 	if(SysWinEn){
 		SYSwin = create_newwin(R1h, SYSendx-SYSstartx, SYSstarty, SYSstartx);
-		wbkgd(SYSwin, COLOR_PAIR(6));
+		wbkgd(SYSwin, COLOR_PAIR(4));
 	}
 	if(OldWinEn){
 		OLDwin = create_newwin(R1h, OLDendx-OLDstartx, OLDstarty, OLDstartx);
-		wbkgd(OLDwin, COLOR_PAIR(6));
+		wbkgd(OLDwin, COLOR_PAIR(4));
 	}
 	if(CpuWinEn){
 		CPUwin = create_newwin(R1h, CPUendx-CPUstartx, CPUstarty, CPUstartx);
-		wbkgd(CPUwin, COLOR_PAIR(6));
+		wbkgd(CPUwin, COLOR_PAIR(4));
 	}
 	if(DatWinEn){
 		DATwin = create_newwin(R1h, DATendx-DATstartx, DATstarty, DATstartx);
-		wbkgd(DATwin, COLOR_PAIR(6));
+		wbkgd(DATwin, COLOR_PAIR(4));
 	}
 	if(MrecWinEn){
 		MRECwin = create_newwin(R1h, MTGendx-MTGstartx, MTGstarty, MTGstartx);
-		wbkgd(MRECwin, COLOR_PAIR(6));
+		wbkgd(MRECwin, COLOR_PAIR(4));
 	}
 	if(ErrWinEn){
 		ERRwin = create_newwin(R1h, ERRendx-ERRstartx, ERRstarty, ERRstartx);
-		wbkgd(ERRwin, COLOR_PAIR(6));
+		wbkgd(ERRwin, COLOR_PAIR(4));
 	}
 	if(LogWinEn){
 		LOGwinb = create_newwin(R2h, LOGendx-LOGstartx, LOGstarty, LOGstartx);//This is the border for the log window
 		LOGwin = create_newwin(R2h-2, LOGendx-LOGstartx-2, LOGstarty+1, LOGstartx+1); //This is the actual logging window
-		wbkgd(LOGwin, COLOR_PAIR(6));
-		wbkgd(LOGwinb, COLOR_PAIR(6));
+		wbkgd(LOGwin, COLOR_PAIR(4));
+		wbkgd(LOGwinb, COLOR_PAIR(4));
 		//scrollok(LOGwin, true);
 		LogRef();
 	}
 	if(UtWinEn){
 		UTwinb = create_newwin(R2h, UTendx-UTstartx, UTstarty, UTstartx);//This is the border for the log window
 		UTwin = create_newwin(R2h-2, UTendx-UTstartx-2, UTstarty+1, UTstartx+1); //This is the actual logging window
-		wbkgd(UTwin, COLOR_PAIR(6));
-		wbkgd(UTwinb, COLOR_PAIR(6));
+		wbkgd(UTwin, COLOR_PAIR(4));
+		wbkgd(UTwinb, COLOR_PAIR(4));
 		//scrollok(UTwin, true);
 		UtRef();
 	}
@@ -1378,19 +1381,19 @@ int Tree::getcol(int loc){
 		return 4;
 	switch (loc){
 		case -1:
-		return 4;
+		return 7;
 		break;
 		case 0:
-		return 1;
+		return 2;
 		break;
 		case 1:
-		return 7;
+		return 3;
 		break;
 		case 2:
 		return 5;
 		break;
 		case 3:
-		return 8;
+		return 214;
 		break;
 		case 4:
 		return 40;
@@ -1871,7 +1874,7 @@ void Tree::NewLog(std::string input){
 		return;
 	int originallength = strlen(input.c_str());
 	std::string colstr = "";
-	int col = 4;
+	int col = 7;
 	if(input.at(0)=='@'){
 		int colend = input.find('-');
 		if(colend!=std::string::npos){
@@ -1959,10 +1962,10 @@ void Tree::LogRef(){
 	werase(LOGwinb);
 	wborder(LOGwinb, 0,0,0,0,0,0,0,0);
 	wborder(LOGwin, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
-	wattron(LOGwinb, COLOR_PAIR(4));
+	wattron(LOGwinb, COLOR_PAIR(7));
 	wmove(LOGwinb, 0, 1);
 	wprintw(LOGwinb, "Logging");
-	wattroff(LOGwinb, COLOR_PAIR(4));
+	wattroff(LOGwinb, COLOR_PAIR(7));
 	wmove(LOGwin, 0,0);
 	
 	
@@ -2143,10 +2146,10 @@ void Tree::RecRef(){
 		return;
 	werase(RECwin);
 	wborder(RECwin, 0,0,0,0,0,0,0,0);
-	wattron(RECwin, COLOR_PAIR(4));
+	wattron(RECwin, COLOR_PAIR(7));
 	wmove(RECwin, R1h-1, 1);
 	wprintw(RECwin, "Recorders");
-	wattroff(RECwin, COLOR_PAIR(4));
+	wattroff(RECwin, COLOR_PAIR(7));
 	//RECwin
 	for(int x = 0; x < TGblocks; x++){
 		bool highlight = false;
@@ -2166,9 +2169,9 @@ void Tree::RecRef(){
 	ss2 >> s2;
 	const char * d = s2.c_str();
 	if(i < digrec[x]-2){
-	wattron(RECwin, COLOR_PAIR(3));
+	wattron(RECwin, COLOR_PAIR(6));
 	wprintw(RECwin, d);
-	wattroff(RECwin, COLOR_PAIR(3));
+	wattroff(RECwin, COLOR_PAIR(6));
 	}
 	else {
 	if(digitalgroups[x][i][0]!=0){
@@ -2176,20 +2179,20 @@ void Tree::RecRef(){
 		RecStatus[0][x]=1;
 		if(digrec[x]==i)
 			RecStatus[1][x]=1;
-	wattron(RECwin, COLOR_PAIR(3));
+	wattron(RECwin, COLOR_PAIR(6));
 	wprintw(RECwin, d);
-	wattroff(RECwin, COLOR_PAIR(3));
+	wattroff(RECwin, COLOR_PAIR(6));
 	}
 	else{
 		if(recorderused[x][i][0]){
-	wattron(RECwin, COLOR_PAIR(4));
+	wattron(RECwin, COLOR_PAIR(7));
 	wprintw(RECwin, d);
-	wattroff(RECwin, COLOR_PAIR(4));
+	wattroff(RECwin, COLOR_PAIR(7));
 	}
 	else{
-	wattron(RECwin, COLOR_PAIR(3));
+	wattron(RECwin, COLOR_PAIR(6));
 	wprintw(RECwin, d);
-	wattroff(RECwin, COLOR_PAIR(3));
+	wattroff(RECwin, COLOR_PAIR(6));
 	}
 	}
 	}
@@ -2221,9 +2224,9 @@ void Tree::RecRef(){
 	ss2 >> s2;
 	const char * d = s2.c_str();
 	if(i<anarec[x]-2){
-		wattron(RECwin, COLOR_PAIR(2));
+		wattron(RECwin, COLOR_PAIR(1));
 	wprintw(RECwin, d);
-	wattroff(RECwin, COLOR_PAIR(2));
+	wattroff(RECwin, COLOR_PAIR(1));
 	}
 	else{
 	if(analoggroups[x][i][0]!=0){
@@ -2231,20 +2234,20 @@ void Tree::RecRef(){
 		RecStatus[0][x]=1;
 		if(anarec[x]==i)
 			RecStatus[1][x]=1;
-	wattron(RECwin, COLOR_PAIR(2));
+	wattron(RECwin, COLOR_PAIR(1));
 	wprintw(RECwin, d);
-	wattroff(RECwin, COLOR_PAIR(2));
+	wattroff(RECwin, COLOR_PAIR(1));
 	}
 	else{
 		if(recorderused[x][i][1]){
-	wattron(RECwin, COLOR_PAIR(4));
+	wattron(RECwin, COLOR_PAIR(7));
 	wprintw(RECwin, d);
-	wattroff(RECwin, COLOR_PAIR(4));
+	wattroff(RECwin, COLOR_PAIR(7));
 	}
 	else{
-	wattron(RECwin, COLOR_PAIR(2));
+	wattron(RECwin, COLOR_PAIR(1));
 	wprintw(RECwin, d);
-	wattroff(RECwin, COLOR_PAIR(2));
+	wattroff(RECwin, COLOR_PAIR(1));
 	}
 	}
 	}
@@ -2275,9 +2278,9 @@ void Tree::RecRef(){
 	ss2 << i+1;
 	ss2 >> s2;
 	const char * d = s2.c_str();
-	wattron(RECwin, COLOR_PAIR(8));
+	wattron(RECwin, COLOR_PAIR(214));
 	wprintw(RECwin, d);
-	wattroff(RECwin, COLOR_PAIR(8));
+	wattroff(RECwin, COLOR_PAIR(214));
 	wmove(RECwin, 1+i+digrec[x]+anarec[x],4+(TGblockx*x));
 	currcol = dconventionalgroups[x][i][2];
 		wattron(RECwin, COLOR_PAIR(currcol));
@@ -2336,7 +2339,7 @@ void Tree::RecRef(){
 		//	s = "";
 	}
 	wmove(RECwin, digrec[x]+anarec[x]+aconvrec[x]+dconvrec[x]+2, 2+(x*TGblockx));
-	wattron(RECwin, COLOR_PAIR(4));
+	wattron(RECwin, COLOR_PAIR(7));
 	if(RecStatus[0][x]==1)
 		wattron(RECwin, A_REVERSE);
 	if(RecStatus[1][x]==1)
@@ -2347,7 +2350,7 @@ void Tree::RecRef(){
 		wattroff(RECwin, A_BLINK);
 	if(RecStatus[0][x]==1)
 		wattroff(RECwin, A_REVERSE);
-	wattroff(RECwin, COLOR_PAIR(4));
+	wattroff(RECwin, COLOR_PAIR(7));
 	}
 	wrefresh(RECwin);
 }
@@ -2359,12 +2362,12 @@ void Tree::MsgRef(){
 		return;
 	werase(SYSwin);
 	wborder(SYSwin, 0,0,0,0,0,0,0,0);
-	wattron(SYSwin, COLOR_PAIR(4));
+	wattron(SYSwin, COLOR_PAIR(7));
 	wmove(SYSwin, R1h-1, 1);
 	wprintw(SYSwin, "Systems");
-	wattroff(SYSwin, COLOR_PAIR(4));
+	wattroff(SYSwin, COLOR_PAIR(7));
 	int datapos = 6;
-	wattron(SYSwin, COLOR_PAIR(4));
+	wattron(SYSwin, COLOR_PAIR(7));
 	for(int i = 0; i < 15; i++){
 		std::stringstream ss;
 		std::string s;
@@ -2387,28 +2390,28 @@ void Tree::MsgRef(){
 	else{
 		wprintw(SYSwin, "Message Rate");
 	}
-	wattroff(SYSwin, COLOR_PAIR(4));
-	wattron(SYSwin, COLOR_PAIR(2));
+	wattroff(SYSwin, COLOR_PAIR(7));
+	wattron(SYSwin, COLOR_PAIR(1));
 	wmove(SYSwin, 26, 1);
 	if(SYSblocks<2)
 		wprintw(SYSwin, "Max");
 	else
 		wprintw(SYSwin, "Maximum");
-	wattroff(SYSwin, COLOR_PAIR(2));
-	wattron(SYSwin, COLOR_PAIR(1));
+	wattroff(SYSwin, COLOR_PAIR(1));
+	wattron(SYSwin, COLOR_PAIR(2));
 	wmove(SYSwin, 27, 1);
 	if(SYSblocks<2)
 		wprintw(SYSwin, "Avg");
 	else
 		wprintw(SYSwin, "Average");
-	wattroff(SYSwin, COLOR_PAIR(1));
-	wattron(SYSwin, COLOR_PAIR(3));
+	wattroff(SYSwin, COLOR_PAIR(2));
+	wattron(SYSwin, COLOR_PAIR(6));
 	wmove(SYSwin, 28, 1);
 	if(SYSblocks<2)
 		wprintw(SYSwin, "Min");
 	else
 		wprintw(SYSwin, "Minimum");
-	wattroff(SYSwin, COLOR_PAIR(3));
+	wattroff(SYSwin, COLOR_PAIR(6));
 	for(int i = 0; i < SYSblocks; i++){
 		
 		std::stringstream ss;
@@ -2430,22 +2433,22 @@ void Tree::MsgRef(){
 			switch(x){
 				case 0:
 					buffint = maxmsg[i];
-					buffcol = 2;
+					buffcol = 1;
 				break;
 				case 1:
 					buffint = avgmsg[i];
-					buffcol = 1;
+					buffcol = 2;
 				break;
 				case 2:
 					buffint = minmsg[i];
-					buffcol = 3;
+					buffcol = 6;
 				break;
 				case 3:
 					if(spos>0)
 						buffint = sysmps[i][spos-1];
 					else
 						buffint = sysmps[i][59];
-					buffcol = 4;
+					buffcol = 7;
 				break;
 			}
 			wattron(SYSwin, COLOR_PAIR(buffcol));
@@ -2460,24 +2463,24 @@ void Tree::MsgRef(){
 			for(int x = 0; x < 17; x++){
 				wmove(SYSwin, 17-x, datapos);
 				if(maxmsg[i] >= (5*x)&&maxmsg[i]!=0){
-					wattron(SYSwin, COLOR_PAIR(2));
-					//wprintw(SYSwin, "X");
-					waddch(SYSwin, ' '|A_REVERSE);
-					wattroff(SYSwin, COLOR_PAIR(2));
-				}
-				wmove(SYSwin, 17-x, datapos);
-				if(avgmsg[i] >= (5*x)&& avgmsg[i]!=0){
 					wattron(SYSwin, COLOR_PAIR(1));
 					//wprintw(SYSwin, "X");
 					waddch(SYSwin, ' '|A_REVERSE);
 					wattroff(SYSwin, COLOR_PAIR(1));
 				}
 				wmove(SYSwin, 17-x, datapos);
-				if(minmsg[i] >= (5*x) && minmsg[i]!=0){
-					wattron(SYSwin, COLOR_PAIR(3));
+				if(avgmsg[i] >= (5*x)&& avgmsg[i]!=0){
+					wattron(SYSwin, COLOR_PAIR(2));
 					//wprintw(SYSwin, "X");
 					waddch(SYSwin, ' '|A_REVERSE);
-					wattroff(SYSwin, COLOR_PAIR(3));
+					wattroff(SYSwin, COLOR_PAIR(2));
+				}
+				wmove(SYSwin, 17-x, datapos);
+				if(minmsg[i] >= (5*x) && minmsg[i]!=0){
+					wattron(SYSwin, COLOR_PAIR(6));
+					//wprintw(SYSwin, "X");
+					waddch(SYSwin, ' '|A_REVERSE);
+					wattroff(SYSwin, COLOR_PAIR(6));
 				}
 			}
 		datapos = datapos+4;
@@ -2492,7 +2495,7 @@ void Tree::DatRef(){
 		return;
 	werase(DATwin);
 	wborder(DATwin, 0,0,0,0,0,0,0,0);
-	wattron(DATwin, COLOR_PAIR(4));
+	wattron(DATwin, COLOR_PAIR(7));
 	wmove(DATwin, R1h-1, 1);
 	wprintw(DATwin, "Call Data");
 	wmove(DATwin, 1,3);
@@ -2590,7 +2593,7 @@ void Tree::DatRef(){
 	datstr2 = dat2.str();
 	const char * datchar3 = datstr2.c_str();
 	wprintw(DATwin, datchar3);
-	wattroff(DATwin, COLOR_PAIR(4));
+	wattroff(DATwin, COLOR_PAIR(7));
 	wrefresh(DATwin);
 }
 void Tree::OldRef(){
@@ -2601,11 +2604,11 @@ void Tree::OldRef(){
 		return;
 	werase(OLDwin);
 	wborder(OLDwin, 0,0,0,0,0,0,0,0);
-	wattron(OLDwin, COLOR_PAIR(4));
+	wattron(OLDwin, COLOR_PAIR(7));
 	wmove(OLDwin, R1h-1, 1);
 	wprintw(OLDwin, "Past Calls");
-	wattroff(OLDwin, COLOR_PAIR(4));
-	wattron(OLDwin, COLOR_PAIR(4));
+	wattroff(OLDwin, COLOR_PAIR(7));
+	wattron(OLDwin, COLOR_PAIR(7));
 	if(pastpos<28)
 	for(int i = 0; i < pastpos; i ++){
 		currcol = history[i][2];
@@ -2649,7 +2652,7 @@ void Tree::OldRef(){
 		wattroff(OLDwin, COLOR_PAIR(currcol));
 	}
 	}
-	wattroff(OLDwin, COLOR_PAIR(4));
+	wattroff(OLDwin, COLOR_PAIR(7));
 	wrefresh(OLDwin);
 }
 void Tree::CpuRef(){
@@ -2661,12 +2664,12 @@ void Tree::CpuRef(){
 		return;
 	werase(CPUwin);
 	wborder(CPUwin, 0,0,0,0,0,0,0,0);
-	wattron(CPUwin, COLOR_PAIR(4));
+	wattron(CPUwin, COLOR_PAIR(7));
 	wmove(CPUwin, R1h-1, 1);
 	wprintw(CPUwin, "CPU");
-	wattroff(CPUwin, COLOR_PAIR(4));
+	wattroff(CPUwin, COLOR_PAIR(7));
 		int datapos = 6;
-	wattron(CPUwin, COLOR_PAIR(4));
+	wattron(CPUwin, COLOR_PAIR(7));
 	wmove(CPUwin, 1, 1);
 	wprintw(CPUwin, "100");
 	for(int i = 1; i < 19; i++){
@@ -2783,31 +2786,31 @@ void Tree::CpuRef(){
 			wprintw(CPUwin, c);
 		}
 	}
-	wattron(CPUwin, COLOR_PAIR(3));
+	wattron(CPUwin, COLOR_PAIR(6));
 	for(int i = 0; i < CPUblocks; i++){
 		if(cpuavg[i] != 0){
 			for(int x = 0; x < 21; x++){
 				wmove(CPUwin, 21-x, cpupos);
 				if(cpuavg[i] >= (5*x)){
 					if((5*x)>=50 && (5*x)<75){
-						wattroff(CPUwin, COLOR_PAIR(3));
-						wattron(CPUwin, COLOR_PAIR(7));
+						wattroff(CPUwin, COLOR_PAIR(6));
+						wattron(CPUwin, COLOR_PAIR(3));
 					}
 					else if((5*x)>=75){
-						wattroff(CPUwin, COLOR_PAIR(3));
-						wattron(CPUwin, COLOR_PAIR(2));
+						wattroff(CPUwin, COLOR_PAIR(6));
+						wattron(CPUwin, COLOR_PAIR(1));
 					}
 					if(cpupos%2==0)
 						waddch(CPUwin, ACS_CKBOARD);
 					else
 						waddch(CPUwin, ' '|A_REVERSE);
 					if((5*x)>=50 && (5*x)<75){
-						wattroff(CPUwin, COLOR_PAIR(7));
-						wattron(CPUwin, COLOR_PAIR(3));
+						wattroff(CPUwin, COLOR_PAIR(3));
+						wattron(CPUwin, COLOR_PAIR(6));
 					}
 					else if((5*x)>=75){
-						wattroff(CPUwin, COLOR_PAIR(2));
-						wattron(CPUwin, COLOR_PAIR(3));
+						wattroff(CPUwin, COLOR_PAIR(1));
+						wattron(CPUwin, COLOR_PAIR(6));
 					}
 				}
 			}
@@ -2822,7 +2825,7 @@ void Tree::CpuRef(){
 		wprintw(CPUwin, "V");
 		wmove(CPUwin, 24, cpupos);
 		wprintw(CPUwin, "G");
-		wattron(CPUwin, COLOR_PAIR(3));
+		wattron(CPUwin, COLOR_PAIR(6));
 		int realavg = 0;
 		for(int i = 0; i < CPUblocks; i++){
 			realavg+=cpuavg[i];
@@ -2833,24 +2836,24 @@ void Tree::CpuRef(){
 				wmove(CPUwin, 21-x, cpupos);
 				if(realavg >= (5*x)){
 					if((5*x)>=50 && (5*x)<75){
-						wattroff(CPUwin, COLOR_PAIR(3));
-						wattron(CPUwin, COLOR_PAIR(7));
+						wattroff(CPUwin, COLOR_PAIR(6));
+						wattron(CPUwin, COLOR_PAIR(3));
 					}
 					else if((5*x)>=75){
-						wattroff(CPUwin, COLOR_PAIR(3));
-						wattron(CPUwin, COLOR_PAIR(2));
+						wattroff(CPUwin, COLOR_PAIR(6));
+						wattron(CPUwin, COLOR_PAIR(1));
 					}
 					if(cpupos%2!=0)
 						waddch(CPUwin, ACS_CKBOARD);
 					else
 						waddch(CPUwin, ' '|A_REVERSE);
 					if((5*x)>=50 && (5*x)<75){
-						wattroff(CPUwin, COLOR_PAIR(7));
-						wattron(CPUwin, COLOR_PAIR(3));
+						wattroff(CPUwin, COLOR_PAIR(3));
+						wattron(CPUwin, COLOR_PAIR(6));
 					}
 					else if((5*x)>=75){
-						wattroff(CPUwin, COLOR_PAIR(2));
-						wattron(CPUwin, COLOR_PAIR(3));
+						wattroff(CPUwin, COLOR_PAIR(1));
+						wattron(CPUwin, COLOR_PAIR(6));
 					}
 				}
 			}
@@ -2858,16 +2861,16 @@ void Tree::CpuRef(){
 		cpupos++;
 	}
 	if(ncurses_lavg){
-		wattroff(CPUwin, COLOR_PAIR(3));
-		wattron(CPUwin, COLOR_PAIR(7));
+		wattroff(CPUwin, COLOR_PAIR(6));
+		wattron(CPUwin, COLOR_PAIR(3));
 		wmove(CPUwin, 23, cpupos);
 		wprintw(CPUwin, "151");
 		wmove(CPUwin, 24, cpupos+2);
 		wprintw(CPUwin, "5");
 		wmove(CPUwin, 22, cpupos);
 		wprintw(CPUwin, "AVG");
-		wattroff(CPUwin, COLOR_PAIR(7));
-		wattron(CPUwin, COLOR_PAIR(3));
+		wattroff(CPUwin, COLOR_PAIR(3));
+		wattron(CPUwin, COLOR_PAIR(6));
 		getloadavg(load, 3);
 	for(int i = 0; i < 3; i++){
 		if(load[i] != 0){
@@ -2875,24 +2878,24 @@ void Tree::CpuRef(){
 				wmove(CPUwin, 21-x, cpupos);
 				if((load[i]/CPUblocks)*100 >= (5*x)){
 					if((5*x)>=50 && (5*x)<75){
-						wattroff(CPUwin, COLOR_PAIR(3));
-						wattron(CPUwin, COLOR_PAIR(7));
+						wattroff(CPUwin, COLOR_PAIR(6));
+						wattron(CPUwin, COLOR_PAIR(3));
 					}
 					else if((5*x)>=75){
-						wattroff(CPUwin, COLOR_PAIR(3));
-						wattron(CPUwin, COLOR_PAIR(2));
+						wattroff(CPUwin, COLOR_PAIR(6));
+						wattron(CPUwin, COLOR_PAIR(1));
 					}
 					if(cpupos%2!=0)
 						waddch(CPUwin, ACS_CKBOARD);
 					else
 						waddch(CPUwin, ' '|A_REVERSE);
 					if((5*x)>=50 && (5*x)<75){
-						wattroff(CPUwin, COLOR_PAIR(7));
-						wattron(CPUwin, COLOR_PAIR(3));
+						wattroff(CPUwin, COLOR_PAIR(3));
+						wattron(CPUwin, COLOR_PAIR(6));
 					}
 					else if((5*x)>=75){
-						wattroff(CPUwin, COLOR_PAIR(2));
-						wattron(CPUwin, COLOR_PAIR(3));
+						wattroff(CPUwin, COLOR_PAIR(1));
+						wattron(CPUwin, COLOR_PAIR(6));
 					}
 				}
 			}
@@ -2900,7 +2903,7 @@ void Tree::CpuRef(){
 		cpupos++;
 	}
 	}
-	wattroff(CPUwin, COLOR_PAIR(3));
+	wattroff(CPUwin, COLOR_PAIR(6));
 	wrefresh(CPUwin);
 }
 void Tree::MtgRef(){
@@ -2911,10 +2914,10 @@ void Tree::MtgRef(){
 		return;
 	werase(MRECwin);
 	wborder(MRECwin, 0,0,0,0,0,0,0,0);
-	wattron(MRECwin, COLOR_PAIR(4));
+	wattron(MRECwin, COLOR_PAIR(7));
 	wmove(MRECwin, R1h-1, 1);
 	wprintw(MRECwin, "Missing");
-	wattroff(MRECwin, COLOR_PAIR(4));
+	wattroff(MRECwin, COLOR_PAIR(7));
 	if(mtgcount<28)
 	for(int i = 0; i < mtgcount; i ++){
 		std::stringstream hh;
@@ -2954,11 +2957,11 @@ void Tree::ErrRef(){
 		return;
 	werase(ERRwin);
 	wborder(ERRwin, 0,0,0,0,0,0,0,0);
-	wattron(ERRwin, COLOR_PAIR(4));
+	wattron(ERRwin, COLOR_PAIR(7));
 	wmove(ERRwin, R1h-1, 1);
 	wprintw(ERRwin, "Errors");
-	wattroff(ERRwin, COLOR_PAIR(4));
-	wattron(ERRwin, COLOR_PAIR(4));
+	wattroff(ERRwin, COLOR_PAIR(7));
+	wattron(ERRwin, COLOR_PAIR(7));
 	for(int i = 0; i < 12; i++){
 		std::stringstream dat;
 		std::string datstr;
@@ -3005,7 +3008,7 @@ void Tree::ErrRef(){
 		const char * datchar = datstr.c_str();
 		wprintw(ERRwin, datchar);
 	}
-	wattroff(ERRwin, COLOR_PAIR(4));
+	wattroff(ERRwin, COLOR_PAIR(7));
 	wrefresh(ERRwin);
 }
 void Tree::UtRef(){
@@ -3018,11 +3021,11 @@ void Tree::UtRef(){
 	werase(UTwinb);
 	wborder(UTwinb, 0,0,0,0,0,0,0,0);
 	wborder(UTwin, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
-	wattron(UTwinb, COLOR_PAIR(4));
+	wattron(UTwinb, COLOR_PAIR(7));
 	wmove(UTwinb, 0, 1);
 	wprintw(UTwinb, "Call History");
-	wattroff(UTwinb, COLOR_PAIR(4));
-	//wattron(UTwin, COLOR_PAIR(4));
+	wattroff(UTwinb, COLOR_PAIR(7));
+	//wattron(UTwin, COLOR_PAIR(7));
 	wmove(UTwin, 0,0);
 	for(int i = 0; i < 20 && i<utpos; i++){
 		if(UThistory[i]=="")
@@ -3043,7 +3046,7 @@ void Tree::UtRef(){
 		wattroff(UTwin, COLOR_PAIR(UTcol[i]));
 		
 	}
-	//wattroff(LOGwin, COLOR_PAIR(4));
+	//wattroff(LOGwin, COLOR_PAIR(7));
 	wrefresh(UTwinb);
 	wrefresh(UTwin);
 }
