@@ -1,4 +1,7 @@
 0,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
+1001,3000000000,D,COURTS-2,Mecklenburg Sheriff Courts 2,Law Tac,Mecklenburg Sheriff Courts,2
+29,01d,D,APC-WAR1,Mecklenburg Sheriff Arrest Processing Center Warrant 1,Corrections,Mecklenburg Sheriff Corrections,2
+31,01f,D,ARREST,Mecklenburg Sheriff Jail Intake,Corrections,Mecklenburg Sheriff Corrections,2
 41,29,D,EVT1 EOC,Mecklenburg Event 1 - EOC,Emergency Ops,Mecklenburg Common/Mutual Aid,2
 43,02b,D,EVT2 FIRE,Mecklenburg Event 2 - Fire,Fire-Talk,Mecklenburg Common/Mutual Aid,2
 45,02d,D,EVT3 EMS,Mecklenburg Event 3 - EMS,EMS-Talk,Mecklenburg Common/Mutual Aid,2
@@ -13,12 +16,14 @@
 63,03f,D,MPD-DISP,Matthews PD Dispatch,Law Dispatch,Matthews Police,2
 65,41,D,MPD-PAT1,Matthews PD Patrol 1,Law Talk,Matthews Police,2
 67,43,D,MPD-PAT2,Matthews PD Patrol 2,Law Talk,Matthews Police,2
+69,45,D,MPD-INV1,Matthews PD Investigations,Law Tac,Matthews Police,2
 73,49,D,MPD-TAC1,Matthews PD Tactical 1,Law Tac,Matthews Police,2
 75,04b,D,MPD-TAC2,Matthews PD Tactical 2,Law Tac,Matthews Police,2
 123,07b,D,NCSHP-2,NCSHP,Law Dispatch,State Highway Patrol,2
 129,81,D,POL MA,Mecklenburg Police Mutual Aid,Law Talk,Mecklenburg Common/Mutual Aid,2
 131,83,D,FIRE MA,Mecklenburg Fire Mutual Aid,Fire-Talk,Mecklenburg Common/Mutual Aid,2
 133,85,D,EMS MA,Mecklenburg EMS Mutual Aid,EMS-Talk,Mecklenburg Common/Mutual Aid,2
+135,87,D,PW MA,Mecklenburg Public Works Mutual Aid,Public Works,Mecklenburg Common/Mutual Aid,2
 147,93,D,NCSHP-1,NCSHP H5,Law Dispatch,State Highway Patrol,2
 153,99,D,EVT12 STW,Mecklenburg Event 12 - South Towns 2,Multi-Talk,Mecklenburg Common/Mutual Aid,2
 155,09b,D,EVT13 MSO,Mecklenburg Event 13 - Mecklenburg Sheriff 1,Law Talk,Mecklenburg Common/Mutual Aid,2
@@ -29,9 +34,18 @@
 187,0bb,D,BRIDGE 4,Bridge 4 (Inter-Dispatch Systemwide),Multi-Tac,Systemwide,2
 189,0bd,D,MCJC-MC,Mecklenburg Sheriff Jail Central Main Channel,Corrections,Mecklenburg Sheriff Corrections,2
 207,0cf,D,BUS-OPS-1,Bus Ops 1,Transportation,Charlotte Area Transit System (CATS),2
+207,0cf,D,BUS-OPS-1,CATS Bus Operations 1,Transportation,Charlotte Area Transit System (CATS),2
 209,0d1,D,BUS-OPS-2,Bus Ops 2,Transportation,Charlotte Area Transit System (CATS),2
+209,0d1,D,BUS-OPS-2,CATS Bus Operations 2,Transportation,Charlotte Area Transit System (CATS),2
 211,0d3,D,BUS-OPS-3,Bus Ops 3,Transportation,Charlotte Area Transit System (CATS),2
+211,0d3,D,BUS-OPS-3,CATS Bus Operations 3,Transportation,Charlotte Area Transit System (CATS),2
+229,0.00E+00,D,MCJC-3,Mecklenburg Sheriff Jail Central 3,Corrections,Mecklenburg Sheriff Corrections,2
+231,0.00E+00,D,MCJC-4,Mecklenburg Sheriff Jail Central 4,Corrections,Mecklenburg Sheriff Corrections,2
+237,0ed,D,WRRC-2,Mecklenburg Sheriff Work Restitution ,Corrections,Mecklenburg Sheriff Corrections,2
+273,111,D,CMC HELO,CMC Helicopter Dispatch,Emergency Ops,Carolina's Medical Center,2
+287,11f,D,CMC LZ 1,CMC Landing Zone Coordination 1,Emergency Ops,Carolina's Medical Center,2
 287,11f,D,CMC LZ 1,CMC Landing Zone Coordination 1,Emergency Ops,Systemwide,2
+289,121,D,CMC LZ 2,CMC Landing Zone Coordination 2,Emergency Ops,Carolina's Medical Center,2
 289,121,D,CMC LZ 2,CMC Landing Zone Coordination 2,Emergency Ops,Systemwide,2
 299,12b,D,UNC-EVNT-1,UNC Charlotte Event 1,Multi-Talk,UNC Charlotte,2
 301,12d,D,UNC-EVNT-2,UNC Charlotte Event 2,Multi-Talk,UNC Charlotte,2
@@ -46,7 +60,9 @@
 319,13f,D,UNC-LBRY-ADM,UNC Charlotte Library Administration,Security,UNC Charlotte,2
 321,141,D,UNC-LBRY-SEC,UNC Charlotte Library Security,Security,UNC Charlotte,2
 323,143,D,UNC-LBRY-CNF,UNC Charlotte Library Conference,Security,UNC Charlotte,2
+337,151,D,CMGC-SEC,Charlotte-Mecklenburg Government Center Security,Security,Charlotte-Mecklenburg Government Center,2
 337,151,D,CMGC-SEC,Charlotte-Mecklenburg Government Center Security,Security,Charlotte-Mecklenburg Services,2
+339,153,D,CMGC-SPV,Charlotte-Mecklenburg Government Center Supervisors,Security,Charlotte-Mecklenburg Government Center,2
 357,165,D,CMS-LAW-3,CMS Police 3,Law Dispatch,Charlotte-Mecklenburg Schools,2
 403,193,D,EMS-DISP,Mecklenburg EMS Dispatch,EMS Dispatch,Mecklenburg EMS/Fire,2
 405,195,D,MEC OPS 14,Mecklenburg Operations 14,Multi-Tac,Mecklenburg EMS/Fire,2
@@ -61,6 +77,7 @@
 425,1a9,D,MEC OPS 20,Mecklenburg Operations 20,Multi-Tac,Mecklenburg EMS/Fire,2
 427,1ab,D,MEC OPS 21,Mecklenburg Operations 21,Multi-Tac,Mecklenburg EMS/Fire,2
 429,1ad,D,MEC OPS 22,Mecklenburg Operations 22,Multi-Tac,Mecklenburg EMS/Fire,2
+445,1bd,D,JCSPD-DSP,Johnson C. Smith University Police Dispatch,Law Dispatch,Johnson C. Smith University,2
 453,1c5,D,MEC DISP,Mecklenburg Fire Dispatch,Multi-Dispatch,Mecklenburg EMS/Fire,2
 455,1c7,D,MEC OPS 12,Mecklenburg Operations 12,Multi-Tac,Mecklenburg EMS/Fire,2
 457,1c9,D,MEC OPS 3,Mecklenburg Operations 3,Multi-Tac,Mecklenburg EMS/Fire,2
@@ -69,6 +86,7 @@
 463,1cf,D,MEC OPS 13,Mecklenburg Operations 13,Multi-Tac,Mecklenburg EMS/Fire,2
 467,1d3,D,MEC CONF,Mecklenburg Conference,Fire-Talk,Mecklenburg EMS/Fire,2
 489,1000000000,D,MECK-TRASH,Trash/Recycling Collection,Utilities,Charlotte-Mecklenburg Services,2
+489,1.00E+09,D,MECK-TRASH,Trash/Recycling Collection,Utilities,Charlotte-Mecklenburg Utilities Department,2
 527,20f,D,STLE-CONF,CMPD Steele Creek Conference,Law Talk,Charlotte-Mecklenburg Police Steele Creek Division,2
 529,211,D,STEELE-CK,CMPD Steele Creek Dispatch,Law Dispatch,Charlotte-Mecklenburg Police Steele Creek Division,2
 531,213,D,WESTOVER,CMPD Westover Dispatch,Law Dispatch,Charlotte-Mecklenburg Police Westover Division,2
@@ -107,11 +125,16 @@
 687,2af,D,UNIV,CMPD University City Dispatch,Law Dispatch,Charlotte-Mecklenburg Police University Division,2
 693,2b5,E,UNIV-TACT,CMPD University Tactical,Law Tac,Charlotte-Mecklenburg Police University Division,2
 697,2b9,D,UNIV-SCU,CMPD University SCU,Law Tac,Charlotte-Mecklenburg Police University Division,2
+731,2db,D,CATS-DISP,CATS Main Dispatch,Transportation,Charlotte Area Transit System (CATS),2
 731,2db,D,CATS-MAIN,CATS Transportation,Transportation,Charlotte Area Transit System (CATS),2
+735,2df,D,RAIL-OPS-1,CATS Light Rail Operations 1,Railroad,Charlotte Area Transit System (CATS),2
 735,2df,D,RAIL-OPS-1,Rail Ops 1,Railroad,Charlotte Area Transit System (CATS),2
+737,2.00E+01,D,RAIL-OPS-2,CATS Light Rail Operations 2,Railroad,Charlotte Area Transit System (CATS),2
 737,20,D,RAIL-OPS-2,Rail Ops 2,Railroad,Charlotte Area Transit System (CATS),2
 739,2000,D,RAIL-OPS-3,Rail Ops 3,Railroad,Charlotte Area Transit System (CATS),2
+739,2.00E+03,D,RAIL-OPS-3,CATS Light Rail Operations 3,Railroad,Charlotte Area Transit System (CATS),2
 741,200000,D,RAIL-OPS-4,Rail Ops 4,Railroad,Charlotte Area Transit System (CATS),2
+741,2.00E+05,D,RAIL-OPS-4,CATS Light Rail Operations 4,Railroad,Charlotte Area Transit System (CATS),2
 759,2f7,D,MEC OPS 7,Mecklenburg Operations 7 ,Multi-Tac,Mecklenburg EMS/Fire,2
 761,2f9,D,MEC OPS 8,Mecklenburg Operations 8,Multi-Tac,Mecklenburg EMS/Fire,2
 763,2fb,D,MEC OPS 9,Mecklenburg Operations 9,Multi-Tac,Mecklenburg EMS/Fire,2
@@ -131,6 +154,7 @@
 803,323,D,PRESB HUNT,EMS to Presbyterian Huntersville,Hospital,Regional EMS to Hospital,2
 805,325,D,LNRMC,EMS to Lake Norman Regional Medical Center,Hospital,Regional EMS to Hospital,2
 811,32b,D,UNION MEM,EMS to Union Memorial,Hospital,Regional EMS to Hospital,2
+813,32d,D,CMC SPARK,EMS to CMC South Park,Hospital,Regional EMS to Hospital,2
 815,32f,E,CENT-TACT,CMPD Central Tactical,Law Tac,Charlotte-Mecklenburg Police Central Division,2
 817,331,E,NTRY-TACT,CMPD North Tryon Tactical,Law Tac,Charlotte-Mecklenburg Police North Tryon Division,2
 819,333,E,MET-TACT,CMPD Metro Tactical,Law Tac,Charlotte-Mecklenburg Police Metro Division,2
@@ -152,12 +176,19 @@
 851,353,D,WOVR-SCU,CMPD Westover Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police Westover Division,2
 853,355,E,FRDM-TACT,CMPD Freedom Tactical,Law Tac,Charlotte-Mecklenburg Police Freedom Division,2
 855,357,D,FRDM-SCU,CMPD Freedom Street Crimes Unit,Law Tac,Charlotte-Mecklenburg Police Freedom Division,2
+947,3b3,D,HPD-CNF1,Huntersville Police Conference,Law Talk,Charlotte-Mecklenburg Police North Division,2
+951,3b7,D,HPD-INV1,Huntersville Police Investigations,Law Tac,Charlotte-Mecklenburg Police North Division,2
 983,3d7,D,CFD 1I,Charlotte Fire Ops 1I,Fire-Tac,Charlotte Fire,2
 985,3d9,D,CFD 1J,Charlotte Fire Ops 1J,Fire-Tac,Charlotte Fire,2
 987,3db,E,CFD 1K,Charlotte Fire Ops 1K,Fire-Tac,Charlotte Fire,2
 991,3df,E,CFD 1CONF,Charlotte Fire Conference 1,Fire-Talk,Charlotte Fire,2
+993,3.00E+01,D,APC-MC,Mecklenburg Sheriff Arrest Processing Center Main Channel,Corrections,Mecklenburg Sheriff Corrections,2
 999,30000000,D,COURTS,Mecklenburg Sheriff Courts 1,Law Tac,Mecklenburg Sheriff Courts,2
-1001,3000000000,D,COURTS-2,Mecklenburg Sheriff Courts 2,Law Tac,Mecklenburg Sheriff Courts,2
+999,3.00E+07,D,COURTS-1,Mecklenburg Sheriff Courts 1,Law Tac,Mecklenburg Sheriff Courts,2
+1001,3.00E+09,D,COURTS-2,Mecklenburg Sheriff Courts 2,Law Tac,Mecklenburg Sheriff Courts,2
+1003,3eb,D,COURTS-3,Mecklenburg Sheriff Courts 3,Law Tac,Mecklenburg Sheriff Courts,2
+1005,3ed,D,COURTS-4,Mecklenburg Sheriff Courts 4,Law Tac,Mecklenburg Sheriff Courts,2
+1007,3ef,D,COURTS-5,Mecklenburg Sheriff Courts 5,Law Tac,Mecklenburg Sheriff Courts,2
 1027,403,D,CFD ALARM,Charlotte Fire Alarm,Fire Dispatch,Charlotte Fire,2
 1029,405,D,CFD 1B,Charlotte Fire Ops 1B,Fire-Tac,Charlotte Fire,2
 1031,407,D,CFD 1C,Charlotte Fire Ops 1C,Fire-Tac,Charlotte Fire,2
@@ -202,6 +233,18 @@
 1157,485,D,REG FIRE 3,Regional Fire 3,Fire-Tac,Systemwide,2
 1159,487,D,REG LAW 1,Regional Law 1,Law Tac,Systemwide,2
 1161,489,D,REG LAW 2,Regional Law 2,Law Tac,Systemwide,2
+1165,48d,D,ESCORT-1,Mecklenburg Sheriff Escorts 1,Law Tac,Mecklenburg Sheriff Patrol,2
+1167,48f,D,ESCORT-2,Mecklenburg Sheriff Escorts 2,Law Tac,Mecklenburg Sheriff Patrol,2
+1169,491,D,ESCORT-3,Mecklenburg Sheriff Escorts 3,Law Tac,Mecklenburg Sheriff Patrol,2
+1171,493,D,ESCORT-4,Mecklenburg Sheriff Escorts 4,Law Tac,Mecklenburg Sheriff Patrol,2
+1173,495,D,ESCORT-5,Mecklenburg Sheriff Escorts 5,Law Tac,Mecklenburg Sheriff Patrol,2
+1175,497,D,ESCORT-6,Mecklenburg Sheriff Escorts 6,Law Tac,Mecklenburg Sheriff Patrol,2
+1177,499,D,ESCORT-7,Mecklenburg Sheriff Escorts 7,Law Tac,Mecklenburg Sheriff Patrol,2
+1179,49b,D,ESCORT-8,Mecklenburg Sheriff Escorts 8,Law Tac,Mecklenburg Sheriff Patrol,2
+1181,49d,D,ESCORT-9,Mecklenburg Sheriff Escorts 9,Law Tac,Mecklenburg Sheriff Patrol,2
+1183,49f,D,ESCORT-10,Mecklenburg Sheriff Escorts 10,Law Tac,Mecklenburg Sheriff Patrol,2
+1201,4b1,D,MCJN-MC,Mecklenburg Sheriff Jail North Main Channel,Corrections,Mecklenburg Sheriff Corrections,2
+1205,4b5,D,MCJN-3,Mecklenburg Sheriff Jail North 3,Corrections,Mecklenburg Sheriff Corrections,2
 1225,4c9,D,REG CALL,Regional Calling,Multi-Tac,Systemwide,2
 1227,4cb,D,REG PURS,Regional Pursuit,Law Tac,Systemwide,2
 1229,4cd,D,REG OPS 1,Regional Operations 1,Multi-Tac,Systemwide,2
@@ -214,17 +257,23 @@
 1243,4db,D,EVENTS-21,Mecklenburg Event 21,Multi-Talk,Mecklenburg Common/Mutual Aid,2
 1245,4dd,D,EVENTS-22,Mecklenburg Event 22,Multi-Talk,Mecklenburg Common/Mutual Aid,2
 1247,4df,D,EVENTS-23,Mecklenburg Event 23,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1249,4.00E+01,D,EVENTS-24,Mecklenburg Event 24,Multi-Talk,Mecklenburg Common/Mutual Aid,2
 1249,40,D,EVENTS-24,Mecklenburg Event 24,Multi-Talk,Mecklenburg Common/Mutual Aid,2
 1251,4000,D,EVENTS-25,Mecklenburg Event 25,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1251,4.00E+03,D,EVENTS-25,Mecklenburg Event 25,Multi-Talk,Mecklenburg Common/Mutual Aid,2
 1253,400000,D,EVENTS-26,Mecklenburg Event 26,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1253,4.00E+05,D,EVENTS-26,Mecklenburg Event 26,Multi-Talk,Mecklenburg Common/Mutual Aid,2
 1255,40000000,D,EVENTS-27,Mecklenburg Event 27,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1255,4.00E+07,D,EVENTS-27,Mecklenburg Event 27,Multi-Talk,Mecklenburg Common/Mutual Aid,2
 1257,4000000000,D,EVENTS-28,Mecklenburg Event 28,Multi-Talk,Mecklenburg Common/Mutual Aid,2
+1257,4.00E+09,D,EVENTS-28,Mecklenburg Event 28,Multi-Talk,Mecklenburg Common/Mutual Aid,2
 1259,4eb,D,EVENTS-29,Mecklenburg Event 29,Multi-Talk,Mecklenburg Common/Mutual Aid,2
 1261,4ed,D,EVENTS-30,Mecklenburg Event 30,Multi-Talk,Mecklenburg Common/Mutual Aid,2
 1263,4ef,D,EVENTS-31,Mecklenburg Event 31,Multi-Talk,Mecklenburg Common/Mutual Aid,2
 1265,4f1,D,EVENTS-32,Mecklenburg Event 32,Multi-Talk,Mecklenburg Common/Mutual Aid,2
 1267,4f3,D,NTH-LAKES,North Lakes,Multi-Tac,Mecklenburg Common/Mutual Aid,2
 1269,4f5,D,STH-LAKES,South Lakes,Multi-Tac,Mecklenburg Common/Mutual Aid,2
+1271,4f7,D,SEC-NET,Mecklenburg Security Network,Interop,Mecklenburg Common/Mutual Aid,2
 1273,4f9,E,BOMB-1,CMPD Bomb Squad 1,Law Tac,Charlotte-Mecklenburg Police Special Operations,2
 1301,515,D,CFD 5I,Charlotte Fire Training 5I,Fire-Tac,Charlotte Fire,2
 1303,517,D,CFD 5J,Charlotte Fire Training 5J,Fire-Tac,Charlotte Fire,2
@@ -234,14 +283,26 @@
 1329,531,D,CFD 10ADMIN,Charlotte Fire Administration 10,Fire-Talk,Charlotte Fire,2
 1557,615,D,MCSO-DISP,Mecklenburg Sheriff Dispatch,Law Dispatch,Mecklenburg Sheriff Patrol,2
 1559,617,D,MCSO-2,Mecklenburg Sheriff 2,Law Tac,Mecklenburg Sheriff Patrol,2
+1561,619,D,MCSO-3,Mecklenburg Sheriff 3,Law Tac,Mecklenburg Sheriff Patrol,2
+1563,61b,D,MCSO-4,Mecklenburg Sheriff 4,Law Tac,Mecklenburg Sheriff Patrol,2
+1565,61d,D,MCSO-5,Mecklenburg Sheriff 5,Law Tac,Mecklenburg Sheriff Patrol,2
+1567,61f,D,MCSO-6,Mecklenburg Sheriff 6,Law Tac,Mecklenburg Sheriff Patrol,2
+1569,621,D,MCSO-7,Mecklenburg Sheriff 7,Law Tac,Mecklenburg Sheriff Patrol,2
 1627,65b,D,DVDPD-1,Davidson Police Dispatch 1,Law Dispatch,Charlotte-Mecklenburg Police North Division,2
 1629,65d,D,DVDPD-2,Davidson Police Dispatch 2,Law Dispatch,Charlotte-Mecklenburg Police North Division,2
 1635,663,D,NM LAW 1,North Meck Law Dispatch 1,Law Dispatch,North Mecklenburg Law,2
+1637,665,D,COR-CNF1,Cornelius Police Conference,Law Talk,North Mecklenburg Law,2
+1655,677,D,S TOWNS,South Meck Towns Mutual Aid,Interop,Mecklenburg Common/Mutual Aid,2
+1669,685,D,N TOWNS,North Meck Towns Mutual Aid,Interop,Mecklenburg Common/Mutual Aid,2
 1675,68b,D,CMS-LAW-1,CMS Police 1,Law Dispatch,Charlotte-Mecklenburg Schools,2
 1677,68d,D,CMS-LAW-2,CMS Police 2,Law Dispatch,Charlotte-Mecklenburg Schools,2
 1679,68f,D,RADIO A,Radio Service A,Business,Radio Service,2
 1681,691,D,RADIO B,Radio Service B,Business,Radio Service,2
+1689,699,D,STS-OPS-1,CATS Special Transportation Services 1,Transportation,Charlotte Area Transit System (CATS),2
+1691,69b,D,STS-OPS-2,CATS Special Transportation Services 2,Transportation,Charlotte Area Transit System (CATS),2
+1693,69d,D,STS-OPS-3,CATS Special Transportation Services 3,Transportation,Charlotte Area Transit System (CATS),2
 1779,6f3,D,AC-DISP,CMPD Animal Control Dispatch,Law Dispatch,Charlotte-Mecklenburg Police Animal Control,2
+1781,6f5,D,AC-CONF,CMPD Animal Control Conference,Law Talk,Charlotte-Mecklenburg Police Animal Control,2
 1871,74f,D,AC-CONF,CMPD Animal Control Conference,Law Talk,Charlotte-Mecklenburg Police Animal Control,2
 2001,7d1,D,MECK-ABC-1,Mecklenburg ABC 1,Law Talk,Mecklenburg Alcoholic Beverage Control,2
 2003,7d3,D,MECK-ABC-2,Mecklenburg ABC 2,Law Talk,Mecklenburg Alcoholic Beverage Control,2
@@ -332,6 +393,7 @@
 7119,1bcf,D,CCMA-PWK,Cabarrus Public Works Mutual Aid,Interop,Cabarrus Common/Mutual Aid,2
 7120,1bd0,D,CCMA-EM,Cabarrus Emergency Management Mutual Aid,Interop,Cabarrus Common/Mutual Aid,2
 7121,1bd1,D,CCMA-EMS,Cabarrus EMS Mutual Aid,Interop,Cabarrus Common/Mutual Aid,2
+7122,1bd2,D,CAB-ROW,Cabarrus/Rowan Bridge,Interop,Cabarrus Common/Mutual Aid,2
 7134,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
 7135,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
 7136,0,D,UNK-NOW,Unknown,Unknown,Unknown,2
@@ -364,15 +426,145 @@
 18542,486e,D,GFD 11,Fire 11,Fire-Tac,Gastonia Fire,2
 18554,487a,D,GFD DISP,Fire Dispatch,Fire Dispatch,Gastonia Fire,2
 18556,487c,D,GFD TRNG,Fire Training ,Fire-Tac,Gastonia Fire,2
+25071,61ef,D,MrsvlPDDisp1,Dispatch 1,Law Dispatch,Iredell County - Mooresville Police,2
+25072,61f0,D,MrsvlPDDisp2,Dispatch 2,Law Dispatch,Iredell County - Mooresville Police,2
+25073,61f1,D,MrsvlPD Conf,Conference,Law Talk,Iredell County - Mooresville Police,2
+25084,61fc,D,IredellCoStr,Street Department,Public Works,Iredell County,2
+25101,620d,D,IredellCoSh,Sheriff Dispatch,Law Dispatch,Iredell County,2
+25119,621f,D,MrsvlFDDisp1,Dispatch 1,Fire Dispatch,Iredell County - Mooresville Fire,2
+25120,6220,D,MrsvlFDDisp2,Dispatch 2,Fire Dispatch,Iredell County - Mooresville Fire,2
+25121,6221,D,MrsvlFD FG B,Fireground B,Fire-Tac,Iredell County - Mooresville Fire,2
+25122,6222,D,MrsvlFD FG C,Fireground C,Fire-Tac,Iredell County - Mooresville Fire,2
+25123,6223,D,MrsvlFD FG D,Fireground D,Fire-Tac,Iredell County - Mooresville Fire,2
+25124,6224,D,MrsvlFD FG E,Fireground E,Fire-Tac,Iredell County - Mooresville Fire,2
+25125,6225,D,MrsvlFD FG F,Fireground F,Fire-Tac,Iredell County - Mooresville Fire,2
+25126,6226,D,MrsvlFD FG G,Fireground G,Fire-Tac,Iredell County - Mooresville Fire,2
+25127,6227,D,MrsvlFD FG H,Fireground H,Fire-Tac,Iredell County - Mooresville Fire,2
+25128,6228,E,MrsvlFD Conf,Conference,Fire-Talk,Iredell County - Mooresville Fire,2
+25129,6229,D,Mrsvl FD Trn,Training,Fire-Talk,Iredell County - Mooresville Fire,2
+25130,622a,D,Mrsvl FD FMO,Fire Marshal's Office,Fire-Tac,Iredell County - Mooresville Fire,2
+25131,622b,D,Mrsvl FD Adm,Administration,Fire-Talk,Iredell County - Mooresville Fire,2
+25132,622c,D,MrsvlFD Sta7,Station 7,Fire-Tac,Iredell County - Mooresville Fire,2
+25133,622d,D,MrsvlFD Sta1,Station 1,Fire-Tac,Iredell County - Mooresville Fire,2
+25134,622e,D,MrsvlFD Sta2,Station 2,Fire-Tac,Iredell County - Mooresville Fire,2
+25135,622f,D,MrsvlFD Sta3,Station 3,Fire-Tac,Iredell County - Mooresville Fire,2
+25136,6230,D,MrsvlFD Sta4,Station 4,Fire-Tac,Iredell County - Mooresville Fire,2
+25137,6231,D,MrsvlFD Sta5,Station 5,Fire-Tac,Iredell County - Mooresville Fire,2
+25138,6232,D,MrsvlFD Sta6,Station 6,Fire-Tac,Iredell County - Mooresville Fire,2
+25139,6233,D,Mrsvl FD Haz,Hazmat,Fire-Tac,Iredell County - Mooresville Fire,2
+25140,6234,D,MrsvlFD FG I,Fireground I,Fire-Tac,Iredell County - Mooresville Fire,2
+25141,6235,D,MrsvlFD FG J,Fireground J,Fire-Tac,Iredell County - Mooresville Fire,2
+25142,6236,D,MrsvlFD FG K,Fireground K,Fire-Tac,Iredell County - Mooresville Fire,2
+25143,6237,D,MrsvlFD FG L,Fireground L,Fire-Tac,Iredell County - Mooresville Fire,2
+25144,6238,D,MrsvlFD FG M,Fireground M,Fire-Tac,Iredell County - Mooresville Fire,2
+25145,6239,D,MrsvlFD FG N,Fireground N,Fire-Tac,Iredell County - Mooresville Fire,2
+25146,623a,E,MrsvlFD FG O,Fireground O,Fire-Tac,Iredell County - Mooresville Fire,2
+25147,623b,D,IredCoFDDisp,Fire Dispatch,Fire Dispatch,Iredell County,2
+25148,623c,D,IredCoEMSDis,EMS Dispatch,EMS-Tac,Iredell County,2
+25149,623d,D,IredCo MA,Countywide Mutual Aid,Interop,Iredell County,2
+25150,623e,D,IredCoFDConf,Fire Conference,Interop,Iredell County,2
+25151,623f,D,IredCoFD Adm,Fire Administration,Fire-Talk,Iredell County,2
+25152,6240,D,IredCoFD FMO,Fire Marshal's Office,Fire-Tac,Iredell County,2
+25153,6241,D,IredCoFDTrn1,Fire Training 1,Fire-Talk,Iredell County,2
+25154,6242,D,IredCoFDTrn2,Fire Training 2,Fire-Talk,Iredell County,2
+25155,6243,D,IredCoFDTrn3,Fire Training 3,Fire-Talk,Iredell County,2
+25156,6244,D,Shepherds FD,Shepherds Fire Station 5,Fire-Tac,Iredell County,2
+25157,6245,D,MountMournFD,Mount Mourne Fire Station 7,Fire-Tac,Iredell County,2
+25158,6246,D,Troutman FD,Troutman Fire Station 10,Fire-Tac,Iredell County,2
+25159,6247,D,LakeNormanFD,Lake Norman Fire Station 11,Fire-Tac,Iredell County,2
+25160,6248,D,SoIredell FD,South Iredell Fire Station 12,Fire-Tac,Iredell County,2
+25163,624b,D,IredellCo EM,Emergency Management,Emergency Ops,Iredell County,2
+25164,624c,D,IredCoEMS T3,EMS Tactical 3 Conference,EMS-Talk,Iredell County,2
+25165,624d,D,IredCoEMS T1,EMS Tactical 1,EMS-Tac,Iredell County,2
+25166,624e,D,IredCoEMS T2,EMS Tactical 2,EMS-Tac,Iredell County,2
+25170,6252,D,MrsvlFDEmerg,Emergency,Fire-Tac,Iredell County - Mooresville Fire,2
+25187,6263,D,Mrsvl Garage,Garage,Public Works,Iredell County - Mooresville Services,2
+25193,6269,D,MrsvlUtility,Utility Dispatch,Public Works,Iredell County - Mooresville Services,2
+25194,626a,D,Mrsvl Street,Street,Public Works,Iredell County - Mooresville Services,2
+25198,626e,D,Mrsvl Waste,Waste,Utilities,Iredell County - Mooresville Services,2
+25233,6291,D,IredCo FD MA,Countywide Fire Mutual Aid,Interop,Iredell County,2
+25234,6292,D,IredCoEMS MA,Countywide EMS Mutual Aid,Interop,Iredell County,2
+25235,6293,D,Mrsvl PD MA,Mutual Aid,Interop,Iredell County - Mooresville Police,2
+25236,6294,D,Mrsvl Event1,Event 1,Interop,Iredell County - Mooresville Services,2
+25237,6295,D,Mrsvl Event2,Event 2,Interop,Iredell County - Mooresville Services,2
+25238,6296,D,Mrsvl Event3,Event 3,Interop,Iredell County - Mooresville Services,2
+25239,6297,D,Mrsvl Event4,Event 4,Interop,Iredell County - Mooresville Services,2
+25240,6298,D,Mrsvl Event5,Event 5,Interop,Iredell County - Mooresville Services,2
+25241,6299,D,Mrsvl Event6,Event 6,Interop,Iredell County - Mooresville Services,2
+25242,629a,D,Mrsvl Event7,Event 7,Interop,Iredell County - Mooresville Services,2
+25243,629b,D,Mrsvl Event8,Event 8,Interop,Iredell County - Mooresville Services,2
+25244,629c,D,Mrsvl Event9,Event 9,Interop,Iredell County - Mooresville Services,2
+25245,629d,D,Mrsvl Evnt10,Event 10,Interop,Iredell County - Mooresville Services,2
+25246,629e,D,Mrsvl Evnt11,Event 11,Interop,Iredell County - Mooresville Services,2
+25247,629f,D,Mrsvl Evnt12,Event 12,Interop,Iredell County - Mooresville Services,2
+25248,62a0,D,Mrsvl Evnt13,Event 13,Interop,Iredell County - Mooresville Services,2
+25249,62a1,D,Mrsvl Evnt14,Event 14,Interop,Iredell County - Mooresville Services,2
+25250,62a2,D,Mrsvl Evnt15,Event 15,Interop,Iredell County - Mooresville Services,2
+25251,62a3,D,Mrsvl Evnt16,Event 16,Interop,Iredell County - Mooresville Services,2
 30541,774d,E,BOMB-2,CMPD Bomb Squad 2,Law Tac,Charlotte-Mecklenburg Police Special Operations,2
+30551,7757,D,CDIARPT-OPS1,CDI Airport Operations 1,Transportation,Charlotte Douglas International Airport,2
+30555,775b,D,CDIARPT-SEC1,CDI Airport Security 1,Security,Charlotte Douglas International Airport,2
+30577,7771,D,MEC-WATR,Mecklenburg Water Dispatch,Public Works,Charlotte-Mecklenburg Utilities Department,2
 42500,a604,D,STANLY SO,Stanly Sheriff Dispatch,Law Dispatch,Stanly County Law,2
+42502,a606,D,StanlyShPtrl,Sheriff Patrol,Law Tac,Stanly County Law,2
 42510,a60e,D,STANLY JAIL,Stanly Jail,Corrections,Stanly County Law,2
 42511,a60f,D,STANLY COURT,Stanly Court/Baliffs,Law Talk,Stanly County Law,2
 42512,a610,D,ALBEMARLE PD,Albemarle Police Dispatch,Law Dispatch,Stanly County Law,2
+42519,a617,D,StanlyLEODis,LEO Dispatch,Law Dispatch,Stanly County Law,2
+42525,a61d,D,StanlyLEOCon,LEO Conference,Law Tac,Stanly County Law,2
 42529,a621,D,STANLY FD,Stanly Fire Dispatch,Fire Dispatch,Stanly County EMS/Fire,2
 42530,a622,D,STANLY EMS,Stanly EMS Dispatch,EMS Dispatch,Stanly County EMS/Fire,2
 42531,a623,D,STANLY RGNL,EMS to Stanly Regional Medical Ctr,Hospital,Stanly County EMS/Fire,2
+42532,a624,D,StanlyCoEOC1,Emergency Operations Center 1,Emergency Ops,Stanly County Services,2
+42533,a625,D,StanlyCoEOC2,Emergency Operations Center 2,Emergency Ops,Stanly County Services,2
+42534,a626,D,StanlyCoEOC3,Emergency Operations Center 3,Emergency Ops,Stanly County Services,2
+42535,a627,D,StanlyCo EMO,Emergency Management Office,Emergency Ops,Stanly County Services,2
+42537,a629,D,StanlyFDOps1,Fire Operations 1,Fire-Tac,Stanly County EMS/Fire,2
+42538,a62a,D,StanlyFDOps2,Fire Operations 2,Fire-Tac,Stanly County EMS/Fire,2
+42539,a62b,D,StanlyFDOps3,Fire Operations 3,Fire-Tac,Stanly County EMS/Fire,2
+42540,a62c,D,StanlyFDOps4,Fire Operations 4,Fire-Tac,Stanly County EMS/Fire,2
+42541,a62d,D,StanlyFDOps5,Fire Operations 5,Fire-Tac,Stanly County EMS/Fire,2
+42542,a62e,D,StanlyFDOps6,Fire Operations 6,Fire-Tac,Stanly County EMS/Fire,2
+42543,a62f,D,StanlyFDOps7,Fire Operations 7,Fire-Tac,Stanly County EMS/Fire,2
+42544,a630,D,StanlyFDOps8,Fire Operations 8,Fire-Tac,Stanly County EMS/Fire,2
+42545,a631,D,StanlyFDOps9,Fire Operations 9,Fire-Tac,Stanly County EMS/Fire,2
+42546,a632,D,StanlyFDOp10,Fire Operations 10,Fire-Tac,Stanly County EMS/Fire,2
+42547,a633,D,StanlyFDOp11,Fire Operations 11,Fire-Tac,Stanly County EMS/Fire,2
+42548,a634,D,StanlyFDOp12,Fire Operations 12,Fire-Tac,Stanly County EMS/Fire,2
+42549,a635,D,StanlyFDOp13,Fire Operations 13,Fire-Tac,Stanly County EMS/Fire,2
+42550,a636,D,StanlyFDOp14,Fire Operations 14,Fire-Tac,Stanly County EMS/Fire,2
+42551,a637,D,StanlyFDOp15,Fire Operations 15,Fire-Tac,Stanly County EMS/Fire,2
+42552,a638,D,StanlyFDOp16,Fire Operations 16,Fire-Tac,Stanly County EMS/Fire,2
+42553,a639,D,StanlyFDOp17,Fire Operations 17,Fire-Tac,Stanly County EMS/Fire,2
+42554,a63a,D,StanlyFDOp18,Fire Operations 18,Fire-Tac,Stanly County EMS/Fire,2
+42555,a63b,D,StanlyFDOp19,Fire Operations 19,Fire-Tac,Stanly County EMS/Fire,2
+42556,a63c,D,StanlyFDOp20,Fire Operations 20,Fire-Tac,Stanly County EMS/Fire,2
+42567,a647,D,StanlyCoEvt1,Event 1,Interop,Stanly County Services,2
+42568,a648,D,StanlyCoEvt2,Event 2,Interop,Stanly County Services,2
+42569,a649,D,StanlyCoEvt3,Event 3,Interop,Stanly County Services,2
+42570,a64a,D,StanlyCoEvt4,Event 4,Interop,Stanly County Services,2
+42571,a64b,D,StanlyCoEvt5,Event 5,Interop,Stanly County Services,2
+42572,a64c,D,StanlyCoEvt6,Event 6,Interop,Stanly County Services,2
+42573,a64d,D,StanlyCoEvt7,Event 7,Interop,Stanly County Services,2
+42574,a64e,D,StanlyCoEvt8,Event 8,Interop,Stanly County Services,2
+42575,a64f,D,StanlyCoEvt9,Event 9,Interop,Stanly County Services,2
+42576,a650,D,StanlyCoEv10,Event 10,Interop,Stanly County Services,2
+42577,a651,D,StanlyCoEv11,Event 11,Interop,Stanly County Services,2
+42578,a652,D,StanlyCoEv12,Event 12,Interop,Stanly County Services,2
+42579,a653,D,StanlyCoEv13,Event 13,Interop,Stanly County Services,2
+42580,a654,D,StanlyCoEv14,Event 14,Interop,Stanly County Services,2
+42581,a655,D,StanlyCoEv15,Event 15,Interop,Stanly County Services,2
+42583,a657,D,StanlyFDTrn1,Fire Training 1,Fire-Talk,Stanly County EMS/Fire,2
+42584,a658,D,StanlyFDTrn2,Fire Training 2,Fire-Talk,Stanly County EMS/Fire,2
+42585,a659,D,StanlyFDTrn3,Fire Training 3,Fire-Talk,Stanly County EMS/Fire,2
+42586,a65a,D,StanlyFDTrn4,Fire Training 4,Fire-Talk,Stanly County EMS/Fire,2
+42587,a65b,D,StanlyFDTrn5,Fire Training 5,Fire-Talk,Stanly County EMS/Fire,2
+42588,a65c,D,StanlyFDTrn6,Fire Training 6,Fire-Talk,Stanly County EMS/Fire,2
+42589,a65d,D,StanlyFDTrn7,Fire Training 7,Fire-Talk,Stanly County EMS/Fire,2
+42590,a65e,D,StanlyFDTrn8,Fire Training 8,Fire-Talk,Stanly County EMS/Fire,2
+45500,b1bc,D,UCSO C/W 2,Countywide Operations 2,Law Tac,Union Sheriff,2
 45500,b1bc,D,UCSO C/W 2,Union Sheriff County Wide Ops 2,Law Tac,Union Sheriff,2
+45519,b1cf,D,UCSO Private,Private,Law Talk,Union Sheriff,2
 45537,b1e1,D,UC EVENT 1,Union County Event 1,Multi-Talk,Union Common/Mutual Aid,2
 45538,b1e2,D,UC EVENT 10,Union County Event 10,Multi-Talk,Union Common/Mutual Aid,2
 45539,b1e3,D,UC EVENT 11,Union County Event 11,Multi-Talk,Union Common/Mutual Aid,2
@@ -387,7 +579,11 @@
 45548,b1ec,D,UC EVENT 8,Union County Event 8,Multi-Talk,Union Common/Mutual Aid,2
 45549,b1ed,D,UC EVENT 9,Union County Event 9,Multi-Talk,Union Common/Mutual Aid,2
 45551,b1ef,D,UCO BRAVO,Union County Bravo,Multi-Talk,Union EMS/Fire,2
+45563,b1fb,D,UCSO Ops 1,Operations 1,Law Tac,Union Sheriff,2
+45564,b1fc,D,UCSO Ops 2,Operations 2,Law Tac,Union Sheriff,2
+45565,b1fd,D,UCSO Ops 3,Operations 3,Law Tac,Union Sheriff,2
 45574,b206,D,MONROE PD 2,Monore Police Tac 2,Law Tac,Monroe Police,2
+45574,b206,D,Waxhaw Ops 1,Operations 1,Law Dispatch,Waxhaw,2
 45582,b20e,D,COM EOC 1,Common Emergency Operations Center 1,Multi-Tac,Systemwide,2
 45583,b20f,D,COM EOC 2,Common Emergency Operations Center 2,Multi-Tac,Systemwide,2
 45584,b210,D,COM EOC 3,Common Emergency Operations Center 3,Multi-Tac,Systemwide,2
@@ -402,13 +598,20 @@
 45593,b219,D,UCO JULIET,Union County Juliet,Multi-Talk,Union EMS/Fire,2
 45594,b21a,D,UCO KILO,Union County Kilo,Multi-Talk,Union EMS/Fire,2
 45595,b21b,D,UCO LIMA,Union County Lima,Multi-Talk,Union EMS/Fire,2
+45596,b21c,D,UCSO Disp 1,Dispatch 1,Law Dispatch,Union Sheriff,2
 45596,b21c,D,UCSO DSP 1,Union Sheriff Dispatch 1,Law Dispatch,Union Sheriff,2
 45597,b21d,D,MONROE PD,Monroe Police Dispatch,Law Dispatch,Monroe Police,2
+45598,b21e,D,UCSO Office,Office,Law Tac,Union Sheriff,2
+45598,b21e,D,UCSO Records,Records,Law Tac,Union Sheriff,2
 45599,b21f,D,UCFD EMG,Union County Fire Emergency,Fire-Tac,Union EMS/Fire,2
 45602,b222,D,MFD EMG,Monroe Fire Emergency,Fire-Tac,Monroe Fire,2
 45604,b224,D,UCO EMS DSP,Union County EMS Dispatch,EMS Dispatch,Union EMS/Fire,2
+45605,b225,D,Marshv Ops 1,Operations 1,Law Dispatch,Marshville,2
+45640,b248,D,UCSO Jail 2,Detention Center Secondary,Corrections,Union Sheriff,2
 45640,b248,D,UCSO JAIL 2,Union Sheriff Detention Center Secondary,Law Talk,Union Sheriff,2
+45641,b249,D,UCSO Jail 1,Detention Center Primary,Corrections,Union Sheriff,2
 45641,b249,D,UCSO JAIL 1,Union Sheriff Detention Center Primary,Law Tac,Union Sheriff,2
+45644,b24c,D,UCSO Jail,Jail,Corrections,Union Sheriff,2
 45648,b250,D,UNION EOC 1,Union Emergency Operations Center 1,Emergency Ops,Union Common/Mutual Aid,2
 45649,b251,D,UNION EOC 2,Union Emergency Operations Center 2,Emergency Ops,Union Common/Mutual Aid,2
 45650,b252,D,UNION EOC 3,Union Emergency Operations Center 3,Emergency Ops,Union Common/Mutual Aid,2
@@ -419,5 +622,9 @@
 45675,b26b,D,UC EVENT 14,Union County Event 14,Multi-Talk,Union Common/Mutual Aid,2
 45676,b26c,D,UC EVENT 15,Union County Event 15,Multi-Talk,Union Common/Mutual Aid,2
 45677,b26d,D,UC EVENT 16,Union County Event 16,Multi-Talk,Union Common/Mutual Aid,2
+45725,b29d,D,Waxhaw Priv,Private,Law Tac,Waxhaw,2
+45726,b29e,D,UCSO Private,Private,Law Tac,Union Sheriff,2
 45729,b2a1,D,UC TRANS 1,Union County Transportaion Operations 1,Transportation,Union Services,2
 45730,b2a2,D,UC TRANS 2,Union County Transportation Operations 2,Transportation,Union Services,2
+45737,b2a9,D,UC Water,Water,Public Works,Union Services,2
+45756,b2bc,D,UC Pub Wrks,Public Works,Public Works,Union Services,2
