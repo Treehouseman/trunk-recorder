@@ -220,10 +220,20 @@ void load_config(string config_file)
 		  newid = tsyscount;
 		  tsyscount++;
 	  }
+	  unsigned int newsite;
+	  std::string newsitestr = node.second.get<std::string>("sysSite", "");
+	  if(newsitestr != ""){
+		  ss.clear();
+		  ss << std::hex << newsitestr;
+		  ss >> newsite;
+	  }
+	  else{
+		  newsite = newid;
+	  }
 	  bool isconventional = false;
 	  if(system->get_system_type() == "conventional")
 		  isconventional=true;
-	  tout.SysId(newid, isconventional, system->get_sys_num());
+	  tout.SysId(newid, isconventional, system->get_sys_num(), newsite);
 	  system->set_sys_nac(newid);
       system->set_record_unknown(node.second.get<bool>("recordUnknown",true));
       BOOST_LOG_TRIVIAL(info) << "Record Unkown Talkgroups: " << system->get_record_unknown();

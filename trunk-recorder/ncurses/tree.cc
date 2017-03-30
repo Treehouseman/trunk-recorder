@@ -25,6 +25,7 @@ int colorsystems[100];
 int currcol = 4;
 int sys_id = 0;
 char * LogMsgsc[50][400];
+int RecStatus[2][100];
 double load[3];
 WINDOW *create_newwin(int height, int width, int starty, int startx);
 WINDOW *RECwin;
@@ -43,7 +44,7 @@ void destroy_win(WINDOW *local_win);
 int systemnumber = 0;
 int currsys;
 char logconvert[500];
-int csyscc[2][100];
+int csyscc[3][100];
 int minmsg[100];
 int maxmsg[100];
 int avgmsg[100];
@@ -87,7 +88,7 @@ int radiocount = 0;
 int spos = 0;
 bool looped = false;
 int sysmps[100][60];
-int sysccc[4][100];
+int sysccc[5][100];
 int pastpos = 0;
 int history[28][3];
 std::string UThistory[20];
@@ -299,10 +300,23 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, 
 	long endid = 0;
 	long endcol = 0;
 	int elapsedint = 0;
-	if(conventional)
+	int cursite = 0;
+	if(conventional){
 		elapsedint = elapsed+0.5;
-	else
+		for(int i = 0; i < 100; i++){
+			if(csyscc[1][i]==sysnum){
+				cursite = csyscc[2][i];
+			break;}
+		}
+	}
+	else{
 		elapsedint = elapsed;
+		for(int i = 0; i < 100; i++){
+			if(sysccc[3][i]==sysnum){
+				cursite = sysccc[4][i];
+			break;}
+		}
+	}
 	if(!conventional){
 		for(int i = 0; i < TGblocks; i++){
 			if(Radios[i]==dev){
@@ -310,9 +324,9 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, 
 				if(analoggroups[i][x][0]==tg && analoggroups[i][x][4]==sysnum){
 					//Put logging code here
 					Past(tg, elapsedint, analoggroups[i][x][2]);
-					endid=analoggroups[i][x][3];
+					//endid=analoggroups[i][x][3];
 					endcol=analoggroups[i][x][2];
-					UTnew(tg, endid, dev, elapsedint, endcol, description);
+					UTnew(tg, cursite, dev, elapsedint, endcol, description);
 					analoggroups[i][x][0]=0;
 					analoggroups[i][x][1]=0;
 					actcall--;
@@ -321,9 +335,9 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, 
 				}
 				if(digitalgroups[i][x][0]==tg && digitalgroups[i][x][4]==sysnum){
 					Past(tg, elapsedint, digitalgroups[i][x][2]);
-					endid=digitalgroups[i][x][3];
+					//endid=digitalgroups[i][x][3];
 					endcol=digitalgroups[i][x][2];
-					UTnew(tg, endid, dev, elapsedint, endcol, description);
+					UTnew(tg, cursite, dev, elapsedint, endcol, description);
 					//put logging code here
 					digitalgroups[i][x][0]=0;
 					digitalgroups[i][x][1]=0;
@@ -343,9 +357,9 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, 
 				if(aconventionalgroups[i][x][0]==tg){
 					//Put logging code here
 					Past(tg, elapsedint, aconventionalgroups[i][x][2]);
-					endid = aconventionalgroups[i][x][4];
+					//endid = aconventionalgroups[i][x][4];
 					endcol=aconventionalgroups[i][x][2];
-					UTnew(tg, endid, dev, elapsedint, endcol, description);
+					UTnew(tg, cursite, dev, elapsedint, endcol, description);
 					aconventionalgroups[i][x][3]=0;
 					aconventionalgroups[i][x][1]=0;
 					return;
@@ -353,9 +367,9 @@ void Tree::EndCall(long tg, double elapsed, std::string dev, bool conventional, 
 				else if(dconventionalgroups[i][x][0]==tg){
 					//Put logging code here
 					Past(tg, elapsedint, dconventionalgroups[i][x][2]);
-					endid = dconventionalgroups[i][x][4];
+					//endid = dconventionalgroups[i][x][4];
 					endcol=dconventionalgroups[i][x][2];
-					UTnew(tg, endid, dev, elapsedint, endcol, description);
+					UTnew(tg, cursite, dev, elapsedint, endcol, description);
 					dconventionalgroups[i][x][3]=0;
 					dconventionalgroups[i][x][1]=0;
 					return;
@@ -618,13 +632,14 @@ void Tree::Long(long tg, long freq, int elapsed, int since, int sys){
 	NewLog(ks.str());
 	LgErr++;
 }
-void Tree::SysId(int sysid, bool conventional, int sysnum){
+void Tree::SysId(int sysid, bool conventional, int sysnum, int syssite){
 	/*
 	Copy our sysid tracking stuff here
 	*/
 	if(!conventional){
 			sysccc[0][SYSblocks]=sysid;
 			sysccc[3][SYSblocks]=sysnum;
+			sysccc[4][SYSblocks]=syssite;
 			//sysmps[0][SYSblocks]=sysid;
 			//sysccc[1][SYSblocks]++;
 	SYSblocks++;
@@ -632,6 +647,7 @@ void Tree::SysId(int sysid, bool conventional, int sysnum){
 	else if(conventional){
 		csyscc[0][convcount]=sysid;
 		csyscc[1][convcount]=sysnum;
+		csyscc[2][convcount]=syssite;
 		convcount++;
 	}
 }
@@ -995,6 +1011,8 @@ bool Tree::StartCurses(){
 		maxmsg[i] = 0;
 		minmsg[i] = 0;
 		avgmsg[i] = 0;
+		RecStatus[0][i]=0;
+		RecStatus[1][i]=0;
 		for(int x = 0; x < 60; x++){
 			sysmps[i][x]=0;
 		}
@@ -2149,9 +2167,9 @@ void Tree::RecRef(){
 	else {
 	if(digitalgroups[x][i][0]!=0){
 		recorderused[x][i][0]=true;
-		highlight = true;
+		RecStatus[0][x]=1;
 		if(digrec[x]==i)
-			flash=true;
+			RecStatus[1][x]=1;
 	wattron(RECwin, COLOR_PAIR(3));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(3));
@@ -2204,9 +2222,9 @@ void Tree::RecRef(){
 	else{
 	if(analoggroups[x][i][0]!=0){
 		recorderused[x][i][1]=true;
-		highlight = true;
+		RecStatus[0][x]=1;
 		if(anarec[x]==i)
-			flash=true;
+			RecStatus[1][x]=1;
 	wattron(RECwin, COLOR_PAIR(2));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(2));
@@ -2313,15 +2331,15 @@ void Tree::RecRef(){
 	}
 	wmove(RECwin, digrec[x]+anarec[x]+aconvrec[x]+dconvrec[x]+2, 2+(x*TGblockx));
 	wattron(RECwin, COLOR_PAIR(4));
-	if(highlight)
+	if(RecStatus[0][x]==1)
 		wattron(RECwin, A_REVERSE);
-	if(flash)
+	if(RecStatus[1][x]==1)
 		wattron(RECwin, A_BLINK);
 	const char * r = Radios[x].c_str();
 	wprintw(RECwin, r);
-	if(flash)
+	if(RecStatus[1][x]==1)
 		wattroff(RECwin, A_BLINK);
-	if(highlight)
+	if(RecStatus[0][x]==1)
 		wattroff(RECwin, A_REVERSE);
 	wattroff(RECwin, COLOR_PAIR(4));
 	}
@@ -2392,7 +2410,7 @@ void Tree::MsgRef(){
 		currcol = getcol(i);
 		wattron(SYSwin, COLOR_PAIR(currcol));
 		wmove(SYSwin, 18, datapos-1);
-		ss << std::hex << std::uppercase << sysccc[0][i] << std::dec << std::nouppercase;
+		ss << std::hex << std::uppercase << sysccc[4][i] << std::dec << std::nouppercase;
 		ss >> s;
 		if(strlen(s.c_str()) > 3){
 			s = s.substr(0,3);

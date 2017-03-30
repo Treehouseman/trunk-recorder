@@ -37,7 +37,8 @@ This also includes conventional recorders, where each conventional system will o
 If no nac is provided, then it will simply count how many systems there are.
 ```
 "type": "p25",
-"sysId": "1f0",
+"sysId": "2d0",
+"sysSite": "2d3", This is used if you want to have multiple sites of a same system, it will allow you to record calls as one system, but display 2 names, if not provided, defaults to sysId
 "talkgroupsFile": "$TG.csv",
 ```
 or
