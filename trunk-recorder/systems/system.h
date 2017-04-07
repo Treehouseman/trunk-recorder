@@ -26,6 +26,7 @@ public:
 		void set_sys_nac(int nac);
 		int get_sys_nac();
         Talkgroups *talkgroups;
+        p25p2_lfsr *lfsr;
         Source *source;
         std::string talkgroups_file;
         std::string short_name;
