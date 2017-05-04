@@ -6,7 +6,7 @@ void Call::create_filename() {
 
   std::stringstream path_stream;
 
-  path_stream << this->config.capture_dir << "/" << 1900 + ltm->tm_year << "/" <<  1 + ltm->tm_mon << "/" << ltm->tm_mday << "/" << std::hex << std::uppercase << nac << std::nouppercase << std::dec;
+path_stream << this->config.capture_dir << "/" << 1900 + ltm->tm_year << "/" <<  1 + ltm->tm_mon << "/" << ltm->tm_mday << "/" << sys->get_short_name() << "/" << get_talkgroup();
 
   boost::filesystem::create_directories(path_stream.str());
 
