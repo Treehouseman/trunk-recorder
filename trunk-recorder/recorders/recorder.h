@@ -40,8 +40,8 @@
 
 #include <gnuradio/blocks/file_sink.h>
 
-#include "../../op25_repeater/include/op25_repeater/rx_status.h"
-#include "../../gr_blocks/nonstop_wavfile_sink.h"
+#include <op25_repeater/include/op25_repeater/rx_status.h>
+#include <gr_blocks/nonstop_wavfile_sink.h>
 
 #include "../state.h"
 
@@ -55,9 +55,9 @@ class Recorder
 
 public:
 	virtual void tune_offset(double f) {};
-	virtual void start( Call *call, int n) {};
+	virtual void start( Call *call) {};
 	virtual void stop() {};
-  virtual void set_tdma_slot(int slot) {}; 
+  virtual void set_tdma_slot(int slot) {};
 	virtual double get_freq() {return 0;};
   virtual Source *get_source() {return NULL;};
 	virtual Call_Source *get_source_list() {return NULL;};
@@ -70,7 +70,9 @@ public:
 	virtual bool is_idle() {return true;};
 	virtual double get_current_length(){return 0;};
 	virtual void clear(){};
-	int num;
+	int rec_num;
+
+
 };
 
 

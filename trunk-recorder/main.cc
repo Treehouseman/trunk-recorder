@@ -58,6 +58,15 @@
 #include "systems/p25_parser.h"
 #include "systems/parser.h"
 
+#include "uploaders/stat_socket.h"
+
+#include <websocketpp/config/asio_no_tls_client.hpp>
+#include <websocketpp/client.hpp>
+
+// This header pulls in the WebSocket++ abstracted thread support that will
+// select between boost::thread and std::thread based on how the build system
+// is configured.
+#include <websocketpp/common/thread.hpp>
 
 #include <osmosdr/source.h>
 
@@ -97,6 +106,8 @@ Tree tout;
 //Treehouseman 
 
 
+stat_socket stats;
+
 string default_mode;
 
 
@@ -130,6 +141,10 @@ std::vector<float>design_filter(double interpolation, double deci) {
 
   return result;
 }
+
+
+
+
 
 /**
  * Method name: load_config()
@@ -278,12 +293,14 @@ void load_config(string config_file)
       config.capture_dir.erase(config.capture_dir.length() - 1);
     }
     BOOST_LOG_TRIVIAL(info) << "Capture Directory: " << config.capture_dir;
-    config.upload_server = pt.get<std::string>("uploadServer", "encode-upload.sh");
 	config.upload_server2 = pt.get<std::string>("uploadServer2", "");
 	config.buffpath = pt.get<std::string>("buffPath", "");
-    BOOST_LOG_TRIVIAL(info) << "Upload Server: " << config.upload_server;
 	BOOST_LOG_TRIVIAL(info) << "Upload Server2: " << config.upload_server2;
 	BOOST_LOG_TRIVIAL(info) << "Buffer Path: " << config.buffpath;
+    config.upload_server = pt.get<std::string>("uploadServer", "");
+    BOOST_LOG_TRIVIAL(info) << "Upload Server: " << config.upload_server;
+    config.status_server = pt.get<std::string>("statusServer", "");
+    BOOST_LOG_TRIVIAL(info) << "Status Server: " << config.status_server;
     default_mode = pt.get<std::string>("defaultMode", "digital");
     BOOST_LOG_TRIVIAL(info) << "Default Mode: " << default_mode;
     config.call_timeout = pt.get<int>("callTimeout", 3);
@@ -307,7 +324,7 @@ void load_config(string config_file)
       int    mix_gain       = node.second.get<double>("mixGain", 0);
       int    lna_gain       = node.second.get<double>("lnaGain", 0);
       double fsk_gain       = node.second.get<double>("fskGain", 1.0);
-      double digital_levels = node.second.get<double>("digitalLevels", 8.0);
+      double digital_levels = node.second.get<double>("digitalLevels", 2.0);
       double analog_levels  = node.second.get<double>("analogLevels", 8.0);
       double squelch_db     = node.second.get<double>("squelch", 0);
       std::string antenna   = node.second.get<string>("antenna", "");
@@ -491,9 +508,9 @@ void start_recorder(Call *call, TrunkMessage message, System *sys) {
           if (message.meta.length()) {
             BOOST_LOG_TRIVIAL(trace) << message.meta;
           }
-          BOOST_LOG_TRIVIAL(info) << "[" << sys->get_short_name() << "]\tTG: " << call->get_talkgroup() << "\tFreq: " << call->get_freq() << "\tStarting Recorder on Src: " << source->get_device();
+          BOOST_LOG_TRIVIAL(info) << "[" << sys->get_short_name() << "]\tTG: " << call->get_talkgroup() << "\tFreq: " << call->get_freq() << "\tStarting Recorder on Src: " << source->get_device() << " Total recs: " << total_recorders;
 
-          recorder->start(call, total_recorders);
+          recorder->start(call);
           call->set_recorder(recorder);
           call->set_state(recording);
   		  call->set_nac(csys_id);//Treehouseman extra call data
@@ -527,7 +544,7 @@ void start_recorder(Call *call, TrunkMessage message, System *sys) {
         debug_recorder = source->get_debug_recorder();
 
         if (debug_recorder) {
-          debug_recorder->start(call, total_recorders);
+          debug_recorder->start(call);
           call->set_debug_recorder(debug_recorder);
           call->set_debug_recording(true);
           recorder_found = true;
@@ -551,6 +568,8 @@ void start_recorder(Call *call, TrunkMessage message, System *sys) {
 }
 
 void stop_inactive_recorders() {
+  bool ended_call = false;
+
   for (vector<Call *>::iterator it = calls.begin(); it != calls.end();) {
     Call *call = *it;
 
@@ -585,10 +604,14 @@ void stop_inactive_recorders() {
         call->end_call();
         it = calls.erase(it);
         delete call;
+        ended_call = true;
       } else {
         ++it;
       } // if rx is active
     }   // foreach loggers
+    if (ended_call && (config.status_server != "")) {
+      stats.send_status(calls);
+    }
   }
 
 
@@ -599,6 +622,7 @@ void stop_inactive_recorders() {
         source->tune_digital_recorders();
       }*/
 }
+
 
 void print_status() {
   BOOST_LOG_TRIVIAL(info) << "Currently Active Calls: " << calls.size();
@@ -694,6 +718,7 @@ void group_affiliation(long unit, long talkgroup) {
 
 void handle_call(TrunkMessage message, System *sys) {
   bool call_found = false;
+  bool call_retune = false;
 
   for (vector<Call *>::iterator it = calls.begin(); it != calls.end();) {
     Call *call = *it;
@@ -729,6 +754,7 @@ void handle_call(TrunkMessage message, System *sys) {
           call->set_phase2_tdma(message.phase2_tdma);
           call->set_tdma_slot(message.tdma_slot);
         }
+        call_retune = true;
       }
 
       // we found out call, exit the for loop
@@ -745,6 +771,12 @@ void handle_call(TrunkMessage message, System *sys) {
      start_recorder(call, message, sys);
      calls.push_back(call);
   }
+
+  if (config.status_server != "") {
+  if (call_retune || (!call_found)) {
+    stats.send_status(calls);
+  }
+}
 }
 
 void unit_check() {
@@ -873,12 +905,18 @@ void retune_system(System *system) {
   }
 }
 
+
 void check_message_count(float timeDiff) {
+  if (config.status_server != "") {
+  stats.send_sys_rates(systems,timeDiff);
+}
   for (std::vector<System *>::iterator it = systems.begin(); it != systems.end(); ++it) {
     System *sys = (System *)*it;
 
     if ((sys->system_type != "conventional") && (sys->system_type != "conventionalP25")) {
       float msgs_decoded_per_second = sys->message_count / timeDiff;
+
+
 
       if (msgs_decoded_per_second < 2) {
 
@@ -927,6 +965,8 @@ for(int i = 0; i < 10; i++){
 	if(cursesen)
 	tout.StartCurses();
 //Treehouseman_end
+
+
   while (1) {
 	  tout.Get_Key();//Treehouseman Getting keyboard input
 	  int sysloc=-1;
@@ -938,7 +978,9 @@ for(int i = 0; i < 10; i++){
       return;
     }
 
-
+    if (config.status_server != "") {
+    stats.poll_one();
+  }
     // BOOST_LOG_TRIVIAL(info) << "Messages waiting: "  << msg_queue->count();
     msg = msg_queue->delete_head_nowait();
 
@@ -1055,7 +1097,7 @@ bool monitor_system() {
             if (system->get_system_type() == "conventional") {
               analog_recorder_sptr rec;
               rec = source->create_conventional_recorder(tb);
-              rec->start(call, tg);
+              rec->start(call);
               call->set_recorder((Recorder *)rec.get());
               call->set_state(recording);
 			  tout.StartCall(tg-1, channel, recradio2, 1, csys_id, 1, system->get_sys_num());
@@ -1064,7 +1106,7 @@ bool monitor_system() {
             } else { // has to be "conventionalP25"
               p25_recorder_sptr rec;
               rec = source->create_conventionalP25_recorder(tb);
-              rec->start(call, tg);
+              rec->start(call);
               call->set_recorder((Recorder *)rec.get());
               call->set_state(recording);
 			  tout.StartCall(tg-1, channel, recradio2, 0, csys_id, 1, system->get_sys_num());
@@ -1182,6 +1224,12 @@ add_logs(
   smartnet_parser = new SmartnetParser(); // this has to eventually be generic;
   p25_parser      = new P25Parser();
 
+
+  std::string uri = "ws://localhost:3005";
+
+
+
+
   load_config(config_file);
   //Treehouseman Begin
 	if(cursesen){
@@ -1192,9 +1240,11 @@ add_logs(
 	  keywords::auto_flush = true);
 	}
   //Treehouseman End
-  // Setup the talkgroups from the CSV file
-
-  else if(config.log_file){
+  if (config.status_server != "") {
+  stats.open_stat(config.status_server);
+  stats.send_config(sources, systems, config);
+}
+  if(config.log_file && !cursesen){
 	  logging::add_file_log(
 	  keywords::file_name = "logs/%m-%d-%Y_%H%M_%2N.log",
     //keywords::format = "[%TimeStamp%]: %Message%", //Treehouseman, make won't link with this enabled on boost 1.55, other stuff won't link if I use 1.54
@@ -1205,6 +1255,7 @@ add_logs(
 
 
   if (monitor_system()) {
+
 
     tb->start();
 
