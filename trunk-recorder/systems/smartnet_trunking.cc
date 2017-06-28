@@ -30,7 +30,7 @@ smartnet_trunking::smartnet_trunking(float               f,
   double symbol_rate         = 3600;
   double samples_per_symbol  = 10; // was 10
   double system_channel_rate = symbol_rate * samples_per_symbol;
-  int initial_decim      = floor(samp_rate / 240000);
+  int initial_decim      = floor(samp_rate / 480000);
   double initial_rate = double(samp_rate) / double(initial_decim);
   int decim = floor(initial_rate / system_channel_rate);
   double resampled_rate = double(initial_rate) / double(decim);
@@ -46,8 +46,8 @@ smartnet_trunking::smartnet_trunking(float               f,
 
   BOOST_LOG_TRIVIAL(info) <<  "Control channel: " << chan_freq;
 
-  inital_lpf_taps  = gr::filter::firdes::low_pass_2(1.0, samp_rate, 96000, 25000, 60, gr::filter::firdes::WIN_HANN);
-  channel_lpf_taps = gr::filter::firdes::low_pass_2(1.0, initial_rate, 7250, 1500, 60, gr::filter::firdes::WIN_HANN);
+  inital_lpf_taps  = gr::filter::firdes::low_pass_2(1.0, samp_rate, 96000, 25000, 100, gr::filter::firdes::WIN_HANN);
+  channel_lpf_taps = gr::filter::firdes::low_pass_2(1.0, initial_rate, 7250, 2000, 100, gr::filter::firdes::WIN_HANN);
   std::vector<gr_complex> dest(inital_lpf_taps.begin(), inital_lpf_taps.end());
 
   prefilter = make_freq_xlating_fft_filter(initial_decim, dest, offset, samp_rate);

@@ -3,6 +3,7 @@
 #include <boost/log/trivial.hpp>
 
 
+
 p25_recorder_sptr make_p25_recorder(Source *src)
 {
   return gnuradio::get_initial_sptr(new p25_recorder(src));
@@ -34,7 +35,7 @@ p25_recorder::p25_recorder(Source *src)
   system_channel_rate = symbol_rate * samples_per_symbol;
   double symbol_deviation    = 600.0; // was 600.0
 
-  int initial_decim      = floor(samp_rate / 240000);
+  int initial_decim      = floor(samp_rate / 480000);
   double initial_rate = double(samp_rate) / double(initial_decim);
   int decim = floor(initial_rate / system_channel_rate);
   double resampled_rate = double(initial_rate) / double(decim);
@@ -60,7 +61,9 @@ p25_recorder::p25_recorder(Source *src)
 
   prefilter = make_freq_xlating_fft_filter(initial_decim, dest, offset, samp_rate);
 
-  channel_lpf_taps = gr::filter::firdes::low_pass_2(1.0, initial_rate, 7250, 1500, 100, gr::filter::firdes::WIN_HANN);
+  //channel_lpf_taps = gr::filter::firdes::low_pass_2(1.0, resampled_rate, 8000, 2000, 100, gr::filter::firdes::WIN_HANN);
+
+  channel_lpf_taps = gr::filter::firdes::low_pass_2(1.0, initial_rate, 7250, 2000, 100, gr::filter::firdes::WIN_HANN);
   //channel_lpf_taps = gr::filter::firdes::low_pass_2(1.0, resampled_rate, 6000, 1500, 100, gr::filter::firdes::WIN_HANN);
   channel_lpf      =  gr::filter::fft_filter_ccf::make(decim, channel_lpf_taps);
 
@@ -175,6 +178,8 @@ p25_recorder::p25_recorder(Source *src)
   bool do_msgq               = 0;
   bool do_audio_output       = 1;
   bool do_tdma               = 1;
+
+
   op25_frame_assembler = gr::op25_repeater::p25_frame_assembler::make(0, wireshark_host, udp_port, verbosity, do_imbe, do_output, silence_frames, do_msgq, rx_queue, do_audio_output, do_tdma);
 
   converter = gr::blocks::short_to_float::make(1, 32768.0);
@@ -329,7 +334,7 @@ Rx_Status p25_recorder::get_rx_status() {
 }
 void p25_recorder::stop() {
   if (state == active) {
-    op25_frame_assembler->clear();
+    clear();
     BOOST_LOG_TRIVIAL(info) << "\t- Stopping P25 Recorder Num [" << num << "]\tTG: " << talkgroup << "\tFreq: " << chan_freq << " \tTDMA: " << phase2_tdma << "\tSlot: " << tdma_slot;
     state = inactive;
     valve->set_enabled(false);
@@ -366,6 +371,7 @@ void p25_recorder::start(Call *call, int n) {
     talkgroup = call->get_talkgroup();
     short_name = call->get_short_name();
     chan_freq      = call->get_freq();
+
     op25_frame_assembler->set_phase2_tdma(call->get_phase2_tdma());
     if (call->get_phase2_tdma()) {
       phase2_tdma = true;
@@ -385,6 +391,7 @@ void p25_recorder::start(Call *call, int n) {
       omega = double(system_channel_rate) / double(4800);
     }
     costas_clock->update_omega(omega);
+
 
     if (!qpsk_mod) {
       reset();
