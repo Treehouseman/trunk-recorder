@@ -114,11 +114,11 @@
           channels = sys->get_control_channels();
         }
 
-          std::cout <<"starts: " << std::endl;
+          //std::cout <<"starts: " << std::endl;
           for (std::vector<double>::iterator chan_it = channels.begin(); chan_it != channels.end(); chan_it++) {
             double channel = *chan_it;
             boost::property_tree::ptree channel_node;
-            std::cout <<"Hello: " << channel << std::endl;
+            //std::cout <<"Hello: " << channel << std::endl;
             channel_node.put("", channel);
             // Add this node to the list.
             channels_node.push_back(std::make_pair("", channel_node));
@@ -208,8 +208,7 @@
         websocketpp::lib::error_code ec;
         client::connection_ptr con = m_client.get_connection(uri, ec);
         if (ec) {
-            m_client.get_alog().write(websocketpp::log::alevel::app,
-                    "Get Connection Error: "+ec.message());
+            //m_client.get_alog().write(websocketpp::log::alevel::app, "Get Connection Error: "+ec.message());
             return;
         }
 
@@ -236,8 +235,7 @@
     }
     // The open handler will signal that we are ready to start sending telemetry
     void stat_socket::on_open(websocketpp::connection_hdl) {
-        m_client.get_alog().write(websocketpp::log::alevel::app,
-            "Connection opened, starting telemetry!");
+        //m_client.get_alog().write(websocketpp::log::alevel::app, "Connection opened, starting telemetry!");
 
         scoped_lock guard(m_lock);
         m_open = true;
@@ -245,8 +243,7 @@
 
     // The close handler will signal that we should stop sending telemetry
     void stat_socket::on_close(websocketpp::connection_hdl) {
-        m_client.get_alog().write(websocketpp::log::alevel::app,
-            "Connection closed, stopping telemetry!");
+        //m_client.get_alog().write(websocketpp::log::alevel::app, "Connection closed, stopping telemetry!");
 
         scoped_lock guard(m_lock);
         m_done = true;
@@ -254,8 +251,7 @@
 
     // The fail handler will signal that we should stop sending telemetry
     void stat_socket::on_fail(websocketpp::connection_hdl) {
-        m_client.get_alog().write(websocketpp::log::alevel::app,
-            "Connection failed, stopping telemetry!");
+        //m_client.get_alog().write(websocketpp::log::alevel::app, "Connection failed, stopping telemetry!");
 
         scoped_lock guard(m_lock);
         m_done = true;
@@ -263,7 +259,7 @@
 
     void stat_socket::send_stat(std::string val) {
       websocketpp::lib::error_code ec;
-      m_client.get_alog().write(websocketpp::log::alevel::app, val);
+      //m_client.get_alog().write(websocketpp::log::alevel::app, val);
       m_client.send(m_hdl,val,websocketpp::frame::opcode::text,ec);
 
       // The most likely error that we will get is that the connection is
@@ -272,8 +268,7 @@
       // closing. While many errors here can be easily recovered from,
       // in this simple example, we'll stop the telemetry loop.
       if (ec) {
-          m_client.get_alog().write(websocketpp::log::alevel::app,
-              "Send Error: "+ec.message());
+          //m_client.get_alog().write(websocketpp::log::alevel::app, "Send Error: "+ec.message());
       }
     }
     void stat_socket::telemetry_loop() {
@@ -303,7 +298,7 @@
             val.str("");
             val << "count is " << count++;
 
-            m_client.get_alog().write(websocketpp::log::alevel::app, val.str());
+            //m_client.get_alog().write(websocketpp::log::alevel::app, val.str());
             m_client.send(m_hdl,val.str(),websocketpp::frame::opcode::text,ec);
 
             // The most likely error that we will get is that the connection is
@@ -312,8 +307,7 @@
             // closing. While many errors here can be easily recovered from,
             // in this simple example, we'll stop the telemetry loop.
             if (ec) {
-                m_client.get_alog().write(websocketpp::log::alevel::app,
-                    "Send Error: "+ec.message());
+                //m_client.get_alog().write(websocketpp::log::alevel::app, "Send Error: "+ec.message());
                 break;
             }
 
