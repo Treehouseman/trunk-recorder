@@ -871,6 +871,9 @@ System* find_system(int sys_num) {
       break;
     }
   }
+  if (sys_match==NULL) {
+    BOOST_LOG_TRIVIAL(info) << "Sys is null";
+  }
   return sys_match;
 }
 
