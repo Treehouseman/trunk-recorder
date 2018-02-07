@@ -1,4 +1,5 @@
 #include "smartnet_trunking.h"
+#include "../formatter.h"
 
 using namespace std;
 
@@ -80,7 +81,7 @@ smartnet_trunking::smartnet_trunking(float               f,
     // using the firdes method here for better results.
     arb_taps = gr::filter::firdes::low_pass_2(arb_size, arb_size, bw, tb, arb_atten,
                                               gr::filter::firdes::WIN_BLACKMAN_HARRIS);
-    double tap_total = inital_lpf_taps.size() + channel_lpf_taps.size() + arb_taps.size();
+    //double tap_total = inital_lpf_taps.size() + channel_lpf_taps.size() + arb_taps.size();
     BOOST_LOG_TRIVIAL(info) << "\t P25 Recorder Initial Rate: "<< initial_rate << " Resampled Rate: " << resampled_rate  << " Initial Decimation: " << initial_decim << " Decimation: " << decim << " System Rate: " << system_channel_rate << " ARB Rate: " << arb_rate;
   } else {
     BOOST_LOG_TRIVIAL(error) << "Something is probably wrong! Resampling rate too low";
@@ -125,7 +126,7 @@ smartnet_trunking::smartnet_trunking(float               f,
 }
 
 void smartnet_trunking::reset() {
-  BOOST_LOG_TRIVIAL(info) << "Pll Phase: " << pll_demod->get_phase() << " min Freq: " << pll_demod->get_min_freq() << " Max Freq: " << pll_demod->get_max_freq();
+  BOOST_LOG_TRIVIAL(info) << "Pll Phase: " << pll_demod->get_phase() << " min Freq: " << FormatFreq(pll_demod->get_min_freq()) << " Max Freq: " << FormatFreq(pll_demod->get_max_freq());
   carriertrack->set_rolloff(0.6);
   pll_demod->update_gains();
   //pll_demod->frequency_limit();
@@ -139,5 +140,5 @@ void smartnet_trunking::tune_offset(double f) {
   chan_freq = f;
   int offset_amount = (f - center_freq);
   prefilter->set_center_freq(offset_amount);
-  BOOST_LOG_TRIVIAL(info) << "Offset set to: " << offset_amount << " Freq: " << chan_freq << endl;
+  BOOST_LOG_TRIVIAL(info) << "Offset set to: " << offset_amount << " Freq: " << FormatFreq(chan_freq) << endl;
 }

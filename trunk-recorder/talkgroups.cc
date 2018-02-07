@@ -95,6 +95,7 @@ void Talkgroups::load_talkgroups(std::string filename, int s) {
     // [5] - tag
     // [6] - group
     // [7] - priority
+	// [8] - nac
 
     vec.assign(tok.begin(), tok.end());
 
@@ -105,8 +106,9 @@ void Talkgroups::load_talkgroups(std::string filename, int s) {
     // TODO(nkw): more sanity checking here.
     priority = (vec.size() == 8) ?  atoi(vec[7].c_str()) : 1;
 
-    Talkgroup *tg = new Talkgroup(atoi(vec[0].c_str()), vec[2].at(0), vec[3].c_str(),
-                                  vec[4].c_str(), vec[5].c_str(), vec[6].c_str(), priority, s);
+    Talkgroup *tg =
+        new Talkgroup(atoi(vec[0].c_str()), vec[2].at(0), vec[3].c_str(),
+                      vec[4].c_str(), vec[5].c_str(), vec[6].c_str(), priority, s);
 
     talkgroups.push_back(tg);
     lines_pushed++;
@@ -139,4 +141,10 @@ Talkgroup *Talkgroups::find_talkgroup(long tg_number) {
     }
   }
   return tg_match;
+}
+
+void Talkgroups::add(long num, std::string alphaTag, int sys)
+{
+    Talkgroup *tg = new Talkgroup(num, 'X', alphaTag, "", "", "", 0, sys);
+    talkgroups.push_back(tg);
 }

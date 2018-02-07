@@ -1,4 +1,5 @@
 #include "smartnet_parser.h"
+#include "../formatter.h"
 
 using namespace std;
 SmartnetParser::SmartnetParser() {
@@ -54,13 +55,13 @@ double SmartnetParser::getfreq(int cmd, System *sys) {
             freq = 867.4250 + (0.025 * ((double) (cmd-0x3C1)));
         }
     } else if (sys->get_bandfreq() == 400) {
-      double test_freq;
+          /*double test_freq;
           //Step * (channel - low) + Base
           if ((cmd >= 0x17c) && (cmd < 0x2b0)) {
             test_freq = ((cmd - 380) * 25000)  + 489087500;
           } else {
             test_freq = 0;
-          }
+          }*/
 
         double high_cmd = sys->get_bandplan_offset() + (sys->get_bandplan_high() - sys->get_bandplan_base()) / sys->get_bandplan_spacing();
 
@@ -78,11 +79,11 @@ std::vector<TrunkMessage>SmartnetParser::parse_message(std::string s, System *sy
   TrunkMessage message;
 
 
-  char tempArea[512];
-  unsigned short blockNum;
-  char banktype;
-  unsigned short tt1, tt2;
-  static unsigned int ott1, ott2;
+  //char tempArea[512];
+  //unsigned short blockNum;
+  //char banktype;
+  //unsigned short tt1, tt2;
+  //static unsigned int ott1, ott2;
 
   // print_osw(s);
   message.message_type = UNKNOWN;
@@ -204,7 +205,7 @@ if (x.size()<3) {
 	// BOOST_LOG_TRIVIAL(info) << "MSG [ TG: " << dec << stack[0].full_address << "] \t CMD: ( " << hex << stack[0].cmd << " - \t" << hex << stack[1].cmd << " - \t " << hex << stack[2].cmd   << " ] " << " Grp: [ " << stack[0].grp << " - \t " << stack[1].grp << " - \t " << stack[2].grp << " ]";
 
   if (((command >= 0x340) && (command <= 0x34E)) || (command == 0x350)) {
-    BOOST_LOG_TRIVIAL(info) << "Patching Command: " << hex << command << " Freq: " << message.freq << " Talkgroup: " << dec << address  << endl;
+    BOOST_LOG_TRIVIAL(info) << "Patching Command: " << hex << command << " Freq: " << FormatFreq(message.freq) << " Talkgroup: " << dec << address  << endl;
   }
 
   if ((address & 0xfc00) == 0x2800) {
@@ -219,15 +220,18 @@ if (x.size()<3) {
     message.talkgroup = stack[0].full_address;
     message.freq      = getfreq(stack[0].cmd, system);
 
-    if (((stack[2].cmd == 0x308) || (stack[2].cmd == 0x321) || (stack[2].cmd == 0x320))) {
+    if ((stack[1].cmd == 0x308) || (stack[1].cmd == 0x321)) {
       //cout << "NEW GRANT!! CMD1: " << fixed << hex << stack[1].cmd << " 0add: " << dec <<  stack[0].address << " 0full_add: " << stack[0].full_address  << " 1add: " << stack[1].address << " 1full_add: " << stack[1].full_address  << endl;
       message.message_type = GRANT;
       message.source       = stack[1].full_address;
-    } else     if (((stack[1].cmd == 0x308) || (stack[1].cmd == 0x321) || (stack[1].cmd == 0x320))) {
-      //cout << "NEW GRANT!! CMD1: " << fixed << hex << stack[1].cmd << " 0add: " << dec <<  stack[0].address << " 0full_add: " << stack[0].full_address  << " 1add: " << stack[1].address << " 1full_add: " << stack[1].full_address  << endl;
-      message.message_type = GRANT;
-      message.source       = stack[1].full_address;
-    } else  {
+    } else  if (stack[1].cmd == 0x320) {
+      BOOST_LOG_TRIVIAL(info) << "Non-Grant with source 0x" << stack[1].full_address << " " << std::dec << stack[1].full_address << 
+                             " on TG 0x" << std::hex << stack[0].full_address << " " << std::dec << stack[0].full_address;
+      message.message_type = UNKNOWN;
+      message.source       = 0;
+      return messages;
+      }        
+    else {
       message.message_type = UPDATE;
       //cout << "NEW UPDATE [ Freq: " << fixed << getfreq(stack[0].cmd) << " CMD0: " << hex << stack[0].cmd << " CMD1: " << hex << stack[1].cmd << " CMD2: " << hex << stack[2].cmd   << " ] " << " Grp: " << stack[0].grp << " Grp1: " << stack[1].grp << endl;
     }

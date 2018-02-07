@@ -8,6 +8,7 @@
 
 class Talkgroup {
 public:
+								int nac;
 								long number;
 								char mode;
 								std::string alpha_tag;
@@ -15,7 +16,6 @@ public:
 								std::string tag;
 								std::string group;
 								int priority;
-								int nac;
 								Talkgroup(long num, char m, std::string a, std::string d, std::string t, std::string g, int p, int s);
 								bool is_active();
 								int get_priority();

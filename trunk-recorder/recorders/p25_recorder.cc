@@ -1,12 +1,15 @@
 
 #include "p25_recorder.h"
 #include <boost/log/trivial.hpp>
+#include "../formatter.h"
+#include "../gr_blocks/nonstop_wavfile_delayopen_sink_impl.h"
 
-static int rec_counter=0;
 
-p25_recorder_sptr make_p25_recorder(Source *src)
+p25_recorder_sptr make_p25_recorder(Source * src)
 {
-  return gnuradio::get_initial_sptr(new p25_recorder(src));
+  p25_recorder * recorder = new p25_recorder();
+  recorder->initialize(src, gr::blocks::nonstop_wavfile_sink_impl::make(1, 8000, 16, false));
+  return gnuradio::get_initial_sptr(recorder);
 }
 
 void p25_recorder::generate_arb_taps() {
@@ -39,10 +42,22 @@ if (arb_rate <= 1) {
 }
 }
 
-p25_recorder::p25_recorder(Source *src)
+p25_recorder::p25_recorder()
   : gr::hier_block2("p25_recorder",
                     gr::io_signature::make(1, 1, sizeof(gr_complex)),
-                    gr::io_signature::make(0, 0, sizeof(float)))
+                    gr::io_signature::make(0, 0, sizeof(float))), Recorder("P25")
+{
+}
+
+p25_recorder::p25_recorder(std::string type)
+  : gr::hier_block2("p25_recorder",
+                    gr::io_signature::make(1, 1, sizeof(gr_complex)),
+                    gr::io_signature::make(0, 0, sizeof(float))), Recorder(type)
+{
+}
+
+
+void p25_recorder::initialize(Source *src, gr::blocks::nonstop_wavfile_sink::sptr wav_sink)
 {
   source      = src;
   chan_freq   = source->get_center();
@@ -59,18 +74,18 @@ p25_recorder::p25_recorder(Source *src)
 
   double offset = chan_freq - center_freq;
 
-  double symbol_deviation    = 600.0; // was 600.0
+  //double symbol_deviation    = 600.0; // was 600.0
   int initial_decim      = floor(samp_rate / 480000);
   initial_rate = double(samp_rate) / double(initial_decim);
-  samples_per_symbol  = 10;    // was 10
+  samples_per_symbol  = 5;    // was 10
 
   symbol_rate         = 6000;
   system_channel_rate = symbol_rate * samples_per_symbol;
 
   double phase1_symbol_rate = 4800;
-  double phase2_symbol_rate = 6000;
+  //double phase2_symbol_rate = 6000;
   double phase1_channel_rate = phase1_symbol_rate * samples_per_symbol;
-  double phase2_channel_rate = phase2_symbol_rate * samples_per_symbol;
+  //double phase2_channel_rate = phase2_symbol_rate * samples_per_symbol;
 
   decim = floor(initial_rate / system_channel_rate);
   resampled_rate = double(initial_rate) / double(decim);
@@ -190,15 +205,14 @@ p25_recorder::p25_recorder(Source *src)
   bool do_msgq               = 0;
   bool do_audio_output       = 1;
   bool do_tdma               = 1;
+  bool do_crypt              = 0;
 
 
-  op25_frame_assembler = gr::op25_repeater::p25_frame_assembler::make(0, wireshark_host, udp_port, verbosity, do_imbe, do_output, silence_frames, do_msgq, rx_queue, do_audio_output, do_tdma);
+  op25_frame_assembler = gr::op25_repeater::p25_frame_assembler::make(0, silence_frames, wireshark_host, udp_port, verbosity, do_imbe, do_output, do_msgq, rx_queue, do_audio_output, do_tdma, do_crypt);
 
   levels = gr::blocks::multiply_const_ss::make(source->get_digital_levels());
 
-  tm *ltm = localtime(&starttime);
-
-  wav_sink = gr::blocks::nonstop_wavfile_sink::make(1, 8000, 16, false);
+  this->wav_sink = wav_sink;
 
   connect(self(),      0, valve,         0);
   connect(valve,       0, prefilter,     0);
@@ -236,10 +250,7 @@ p25_recorder::p25_recorder(Source *src)
         }
     connect(slicer,               0, op25_frame_assembler, 0);
     connect(op25_frame_assembler, 0, levels,               0);
-      connect(levels, 0, wav_sink, 0);
-
-
-
+    connect(levels, 0, wav_sink, 0);
 }
 
 void p25_recorder::switch_tdma(bool phase2) {
@@ -288,7 +299,7 @@ void p25_recorder::autotune() {
     msg = tune_queue->delete_head_nowait();
 
     if (msg != 0) {
-      BOOST_LOG_TRIVIAL(info) << "p25_recorder.cc: Freq:\t" << chan_freq << "\t Tune: " << msg->arg1();
+      BOOST_LOG_TRIVIAL(info) << "p25_recorder.cc: Freq:\t" << FormatFreq(chan_freq) << "\t Tune: " << msg->arg1();
 
       // tune_offset(freq + (msg->arg1()*100));
       tune_queue->flush();
@@ -359,12 +370,14 @@ Rx_Status p25_recorder::get_rx_status() {
 }
 void p25_recorder::stop() {
   if (state == active) {
-    //op25_frame_assembler->clear();
-    BOOST_LOG_TRIVIAL(info) << "\t- Stopping P25 Recorder Num [" << rec_num << "]\tTG: " << talkgroup << "\tFreq: " << chan_freq << " \tTDMA: " << d_phase2_tdma << "\tSlot: " << tdma_slot;
+    recording_duration += wav_sink->length_in_seconds();
+    clear();
+    BOOST_LOG_TRIVIAL(info) << "\t- Stopping P25 Recorder Num [" << rec_num << "]\tTG: " << this->call->get_talkgroup_display() << "\tFreq: " << FormatFreq(chan_freq) << " \tTDMA: " << d_phase2_tdma << "\tSlot: " << tdma_slot;
+
     state = inactive;
     valve->set_enabled(false);
     wav_sink->close();
-    Rx_Status rx_status = op25_frame_assembler->get_rx_status();
+    //Rx_Status rx_status = op25_frame_assembler->get_rx_status();
     op25_frame_assembler->reset_rx_status();
   } else {
     BOOST_LOG_TRIVIAL(error) << "p25_recorder.cc: Trying to Stop an Inactive Logger!!!";
@@ -397,6 +410,7 @@ void p25_recorder::start(Call *call) {
     talkgroup = call->get_talkgroup();
     short_name = call->get_short_name();
     chan_freq      = call->get_freq();
+    this->call = call;
 
     set_tdma(call->get_phase2_tdma());
 
@@ -420,7 +434,8 @@ void p25_recorder::start(Call *call) {
     if (!qpsk_mod) {
       reset();
     }
-    BOOST_LOG_TRIVIAL(info) << "\t- Starting P25 Recorder Num [" << rec_num << "]\tTG: " << talkgroup << "\tFreq: " << chan_freq << " \tTDMA: " << call->get_phase2_tdma() << "\tSlot: " << call->get_tdma_slot();
+    BOOST_LOG_TRIVIAL(info) << "\t- Starting P25 Recorder Num [" << rec_num << "]\tTG: " << this->call->get_talkgroup_display() << "\tFreq: " << FormatFreq(chan_freq) << " \tTDMA: " << call->get_phase2_tdma() << "\tSlot: " << call->get_tdma_slot();
+
 
     int offset_amount = (chan_freq - center_freq);
     prefilter->set_center_freq(offset_amount);
@@ -428,6 +443,7 @@ void p25_recorder::start(Call *call) {
     wav_sink->open(call->get_filename());
     state = active;
     valve->set_enabled(true);
+    recording_count++;
   } else {
     BOOST_LOG_TRIVIAL(error) << "p25_recorder.cc: Trying to Start an already Active Logger!!!";
   }

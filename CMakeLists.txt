@@ -24,7 +24,7 @@
 cmake_minimum_required(VERSION 2.6)
 project(Trunk-Recorder CXX C)
 
-#set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE Debug)
 
 #select the release build type by default to get optimization flags
 if(NOT CMAKE_BUILD_TYPE)
@@ -107,9 +107,9 @@ find_package(GnuradioUHD)
 find_package(GrOsmoSDR)
 find_package(LibHackRF)
 find_package(UHD)
-#Treehouseman adding Curses
-find_package(Curses)
 find_package(OpenSSL REQUIRED)
+#Treehouseman Finding Curses
+find_package(Curses)
 
 if(NOT GNURADIO_RUNTIME_FOUND)
     message(FATAL_ERROR "GnuRadio Runtime required to build " ${CMAKE_PROJECT_NAME})
@@ -125,11 +125,12 @@ SET(BOOST_REQUIRED_COMPONENTS
     thread
     system
     program_options
-	chrono
     filesystem
+    log_setup
     log
     regex
     random
+	chrono
 )
 
 if(UNIX AND NOT BOOST_ROOT AND EXISTS "/usr/lib64")
@@ -158,7 +159,6 @@ ADD_DEFINITIONS(-DBOOST_ALL_DYN_LINK)
 ########################################################################
 # Setup the include and linker paths
 ########################################################################
-#Treehouseman added curses
 include_directories(
     ${Boost_INCLUDE_DIRS}
     ${GNURADIO_RUNTIME_INCLUDE_DIRS}
@@ -181,7 +181,7 @@ link_directories(
 )
 
 #set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall")
-set(CMAKE_CXX_FLAGS_DEBUG "-pthread -Wall -Wno-error=deprecated-declarations -g")
+set(CMAKE_CXX_FLAGS_DEBUG "-Wall -Wno-unused-local-typedef -Wno-deprecated-declarations -Wno-error=deprecated-declarations -g")
 
 
 
@@ -196,19 +196,23 @@ set(CMAKE_CXX_FLAGS_DEBUG "-pthread -Wall -Wno-error=deprecated-declarations -g"
 #        message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 #endif()
 
-SET(CMAKE_CXX_STANDARD 98)
+#SET(CMAKE_CXX_STANDARD 98)
+SET(CMAKE_CXX_STANDARD 11)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -Wno-narrowing")
 
-#Treehouseman add tree.cc
 
 add_subdirectory(lib/op25_repeater)
+
+#Treehouseman add tree.cc
 list(APPEND trunk_recorder_sources
   trunk-recorder/main.cc
+  trunk-recorder/formatter.cc
   trunk-recorder/source.cc
   trunk-recorder/uploaders/uploader.cc
   trunk-recorder/uploaders/call_uploader.cc
   trunk-recorder/uploaders/stat_socket.cc
+  trunk-recorder/call_conventional.cc
   trunk-recorder/call.cc
   trunk-recorder/systems/smartnet_trunking.cc
   trunk-recorder/systems/p25_trunking.cc
@@ -216,17 +220,32 @@ list(APPEND trunk_recorder_sources
   trunk-recorder/systems/p25_parser.cc
   trunk-recorder/systems/smartnet_decode.cc
   trunk-recorder/systems/system.cc
+  trunk-recorder/recorders/recorder.cc
   trunk-recorder/recorders/debug_recorder.cc
   trunk-recorder/recorders/analog_recorder.cc
+  lib/gr_blocks/nonstop_wavfile_sink_impl.cc
+  trunk-recorder/gr_blocks/nonstop_wavfile_delayopen_sink_impl.cc
+  trunk-recorder/recorders/p25conventional_recorder.cc
   trunk-recorder/recorders/p25_recorder.cc
   trunk-recorder/talkgroup.cc
   trunk-recorder/talkgroups.cc
   trunk-recorder/ncurses/tree.cc
-  lib/gr_blocks/nonstop_wavfile_sink_impl.cc
   lib/gr_blocks/freq_xlating_fft_filter.cc
-  lib/lfsr/lfsr.cxx)
+  lib/lfsr/lfsr.cxx
+  )
 
+set_source_files_properties(lib/lfsr/lfsr.cxx COMPILE_FLAGS "-w")
+
+target_compile_options(
+    imbe_vocoder PRIVATE
+    "-w"
+)
+
+target_compile_options(
+    gnuradio-op25_repeater PRIVATE
+    "-w"
+)
 
 add_executable(recorder ${trunk_recorder_sources})
-#Treehouseman added ${CURSES_LIBRARY} to end of link
+#Treehouseman add ${CURSES_LIBRARY} to end of link
 target_link_libraries(recorder ssl crypto ${GNURADIO_PMT_LIBRARIES} ${GNURADIO_RUNTIME_LIBRARIES} ${GNURADIO_FILTER_LIBRARIES} ${GNURADIO_DIGITAL_LIBRARIES} ${GNURADIO_ANALOG_LIBRARIES} ${GNURADIO_AUDIO_LIBRARIES} ${GNURADIO_UHD_LIBRARIES} ${UHD_LIBRARIES} ${GNURADIO_BLOCKS_LIBRARIES} ${GROSMOSDR_LIBRARIES} ${Boost_LIBRARIES} ${LIBOP25_REPEATER_LIBRARIES} gnuradio-op25_repeater imbe_vocoder ${CURSES_LIBRARY})

@@ -1,9 +1,11 @@
 
 #include "analog_recorder.h"
+#include "../formatter.h"
+#include "../../lib/gr_blocks/nonstop_wavfile_sink_impl.h"
 using namespace std;
 
 bool analog_recorder::logging = false;
-static int rec_counter=0;
+//static int rec_counter=0;
 
 analog_recorder_sptr make_analog_recorder(Source *src)
 {
@@ -39,9 +41,9 @@ void analog_recorder::calculate_iir_taps(double tau)
 analog_recorder::analog_recorder(Source *src)
   : gr::hier_block2("analog_recorder",
                     gr::io_signature::make(1, 1, sizeof(gr_complex)),
-                    gr::io_signature::make(0, 0, sizeof(float)))
+                    gr::io_signature::make(0, 0, sizeof(float))), Recorder("A")
 {
-  int nchars;
+  //int nchars;
 
   source      = src;
   chan_freq   = source->get_center();
@@ -58,7 +60,7 @@ analog_recorder::analog_recorder(Source *src)
 
   float offset = 0;
 
-  int samp_per_sym        = 10;
+  //int samp_per_sym        = 10;
   system_channel_rate     = 96000;//4800 * samp_per_sym;
 /*  int decim               = floor(samp_rate / 384000);
 
@@ -157,9 +159,9 @@ analog_recorder::analog_recorder(Source *src)
   // downsample from 48k to 8k
   decim_audio = gr::filter::fir_filter_fff::make(12, audio_resampler_taps);
 
-  tm *ltm = localtime(&starttime);
+  //tm *ltm = localtime(&starttime);
 
-  wav_sink = gr::blocks::nonstop_wavfile_sink::make(1, 8000, 16, true);
+  wav_sink = gr::blocks::nonstop_wavfile_sink_impl::make(1, 8000, 16, true);
 
   // Try and get rid of the FSK wobble
   high_f_taps =  gr::filter::firdes::high_pass(1, 8000, 300, 50, gr::filter::firdes::WIN_HANN);
@@ -205,12 +207,18 @@ int analog_recorder::get_num() {
 
 void analog_recorder::stop() {
   if (state == active) {
+    recording_duration += wav_sink->length_in_seconds();
     state = inactive;
     valve->set_enabled(false);
     wav_sink->close();
   } else {
-    BOOST_LOG_TRIVIAL(error) << "analog_recorder.cc: Stopping an inactive Logger \t[ " << rec_num << " ] - freq[ " << chan_freq << "] \t talkgroup[ " << talkgroup << " ]";
+
+    BOOST_LOG_TRIVIAL(error) << "analog_recorder.cc: Stopping an inactive Logger \t[ " << rec_num << " ] - freq[ " << FormatFreq(chan_freq) << "] \t talkgroup[ " << talkgroup << " ]";
   }
+}
+
+bool analog_recorder::is_analog() {
+  return true;
 }
 
 bool analog_recorder::is_active() {

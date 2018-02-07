@@ -32,9 +32,9 @@ class Recorder;
 #include "uploaders/call_uploader.h"
 #include "config.h"
 #include "state.h"
-#include "recorders/recorder.h"
 #include "systems/system.h"
 #include "systems/parser.h"
+#include <string>
 
 
 class System;
@@ -42,20 +42,15 @@ class System;
 
 class Call {
 public:
-std::string dev;
-void set_dev(std::string radio);
-std::string get_dev();
-void set_nac(int n);
-int get_nac();
-
+								bool conventional;
 								Call( long t, double f, System *s, Config c, int csys_id);
 								Call( TrunkMessage message, System *s, Config c, int csys_id);
-								~Call();
-								void restart_call();
+								virtual ~Call();
+								virtual void restart_call();
 								void end_call();
 								void set_debug_recorder(Recorder *r);
 								Recorder * get_debug_recorder();
-								void set_recorder(Recorder *r);
+								virtual void set_recorder(Recorder *r);
 								Recorder * get_recorder();
 								double get_freq();
 
@@ -92,16 +87,30 @@ int get_nac();
 								void set_tdma_slot(int s);
 								int get_tdma_slot();
 								const char * get_xor_mask();
-								bool is_conventional();
-								void set_conventional(bool conv);
+								//virtual bool is_conventional() { return true;}
+								virtual bool is_conventional() { return false;}
 								void set_encrypted(bool m);
 								bool get_encrypted();
 								void set_emergency(bool m);
 								bool get_emergency();
+								std::string get_talkgroup_display();
+								void set_talkgroup_display_format(std::string format);
+								void set_talkgroup_tag(std::string tag);
+								boost::property_tree::ptree get_stats();
+								char * get_status_filename();
+								std::string get_talkgroup_tag();
+								double get_final_length();
+								void set_dev(std::string radio);
+								std::string get_dev();
+								void set_nac(int n);
+								int get_nac();
 								void set_description(std::string desc);
-private:
-Tree tout;
-int nac;
+								std::string get_description();
+protected:
+								Tree tout;
+								int nac;
+								std::string description;
+								std::string dev;
 								State state;
 								long talkgroup;
 								double curr_freq;
@@ -121,18 +130,20 @@ int nac;
 								bool debug_recording;
 								bool encrypted;
 								bool emergency;
-								std::string description;
-								bool conventional;
 								char filename[255];
 								char converted_filename[255];
 								char status_filename[255];
 								bool phase2_tdma;
 								int tdma_slot;
+								double _final_length;
 
 								Config config;
 								Recorder *recorder;
 								Recorder *debug_recorder;
 								bool add_source(long src);
+								std::string talkgroup_display;
+								std::string talkgroup_tag;
+								void update_talkgroup_display();
 
 };
 

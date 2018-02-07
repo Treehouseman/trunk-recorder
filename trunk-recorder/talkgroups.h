@@ -13,5 +13,6 @@ public:
   Talkgroups();
   void load_talkgroups(std::string filename, int s);
   Talkgroup *find_talkgroup(long tg);
+  void add(long num, std::string alphaTag, int sys);
 };
 #endif // TALKGROUPS_H
