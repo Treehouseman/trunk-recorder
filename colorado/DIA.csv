@@ -1,0 +1,187 @@
+2286,8ee,D,RED NE,Denver Metro Fire Mutual Aid NE ,Interop ,Mutual Aid ,2
+2287,8ef,D,BLUE NE,Denver Metro Law Mutual Aid NE ,Interop ,Mutual Aid ,2
+2288,8f0,D,RED SW,Denver Metro Fire Mutual Aid SW ,Interop ,Mutual Aid ,2
+2289,8f1,D,GREEN 1,Denver Metro EMS Mutual Aid 1 ,Interop ,Mutual Aid ,2
+2290,8f2,D,BLUE SW,Denver Metro Law Mutual Aid SW ,Interop ,Mutual Aid ,2
+2291,8f3,D,GREEN 2,Denver Metro EMS Mutual Aid 2 ,Interop ,Mutual Aid ,2
+2292,8f4,D,SILVER,Denver Auraria Glendale Mutual Aid ,Interop ,Mutual Aid ,2
+2293,8f5,D,GREY,Denver Metro Federal Mutual Aid ,Interop ,Mutual Aid ,2
+2295,8f7,D,RED NW,Denver Metro Fire Mutual Aid NW ,Interop ,Mutual Aid ,2
+2296,8f8,D,BLUE NW,Denver Metro Law Mutual Aid NW ,Interop ,Mutual Aid ,2
+2297,8f9,D,RED SE,Denver Metro Fire Mutual Aid SE ,Interop ,Mutual Aid ,2
+2298,8fa,D,BLUE SE,Denver Metro Law Mutual Aid SE ,Interop ,Mutual Aid ,2
+2299,8fb,D,GOLD 2,Denver Metro Mutual Aid Command & Control 2 ,Interop ,Mutual Aid ,2
+34903,8857,D,GOLD 1,Denver Metro Mutual Aid Command & Control 1 ,Interop ,Mutual Aid ,2
+36351,8dff,D,DIA Service,Customer Service ,Business ,Customer Service ,2
+36352,8.00E+00,D,DIA Info,Info ,Business ,Customer Service ,2
+36400,8.00E+30,D,Engr Call,Engineering All Call ,Public Works ,Engineering ,2
+36401,8.00E+31,D,Engr 1,Engineering 1 ,Public Works ,Engineering ,2
+36402,8.00E+32,D,Engr 2,Engineering 2 ,Public Works ,Engineering ,2
+36403,8.00E+33,D,Engr 3,Engineering 3 ,Public Works ,Engineering ,2
+36404,8.00E+34,D,Engr 4,Engineering 4 ,Public Works ,Engineering ,2
+36405,8.00E+35,D,Engr 5,Engineering 5 ,Public Works ,Engineering ,2
+36406,8.00E+36,D,Engr 6,Engineering 6 ,Public Works ,Engineering ,2
+36451,8.00E+63,D,Bus Pub,Parking Shuttle Bus ,Transportation ,Transportation ,2
+36452,8.00E+64,D,Park Field,Field Parking Operations ,Transportation ,Transportation ,2
+36453,8.00E+65,D,Plaza Base,Parking Operations Base Station ,Transportation ,Transportation ,2
+36454,8.00E+66,D,Park Admin,Parking Operations Administration ,Transportation ,Transportation ,2
+36455,8.00E+67,D,Park Tech,Parking Technicans ,Transportation ,Transportation ,2
+36456,8.00E+68,D,Emp Shuttle,Employee Shuttles ,Transportation ,Transportation ,2
+36457,8.00E+69,D,Taxi Start,Taxi Starter ,Transportation ,Transportation ,2
+36458,8e6a,D,GT General,Ground Transport - General ,Transportation ,Transportation ,2
+36459,8e6b,D,GT Admin,Ground Transport - Admin ,Transportation ,Transportation ,2
+36460,8e6c,D,GT Field,Ground Transport - Field ,Transportation ,Transportation ,2
+36461,8e6d,D,GT Terminal,Ground Transport - Terminal ,Transportation ,Transportation ,2
+36464,8.00E+70,D,Bus Air,Shuttle Bus Tactical ,Transportation ,Transportation ,2
+36465,8.00E+71,D,Bus Land,Landside Shuttle Bus ,Transportation ,Transportation ,2
+36500,8.00E+94,D,Maint Call,Maintenance All Call ,Public Works ,Maintenance ,2
+36501,8.00E+95,D,Maint Ctrl,Maintenance Control ,Public Works ,Maintenance ,2
+36502,8.00E+96,D,Field,Field ,Public Works ,Maintenance ,2
+36503,8.00E+97,D,Fleet,Fleet ,Public Works ,Maintenance ,2
+36504,8.00E+98,D,Building,Building ,Public Works ,Maintenance ,2
+36505,8.00E+99,D,Stock Room,Stock Room ,Public Works ,Maintenance ,2
+36506,8e9a,D,HI Tech 1,High Tech 1 ,Public Works ,Maintenance ,2
+36507,8e9b,D,Hi Tech 2,High Tech 2 ,Public Works ,Maintenance ,2
+36508,8e9c,D,HVAC,HVAC ,Public Works ,Maintenance ,2
+36509,8e9d,D,Project 1,Project 1 ,Public Works ,Maintenance ,2
+36510,8e9e,D,Project 2,Project 2 ,Public Works ,Maintenance ,2
+36511,8e9f,D,Project 3,Project 3 ,Public Works ,Maintenance ,2
+36512,8ea0,D,Project 4,Project 4 ,Public Works ,Maintenance ,2
+36513,8ea1,D,Maint Supv,Maintenance Supervisors ,Public Works ,Maintenance ,2
+36518,8ea6,D,Sign,Sign Shop ,Public Works ,Maintenance ,2
+36519,8ea7,D,Life Safety,Life Safety - Fire Alarm Maintenace ,Public Works ,Maintenance ,2
+36551,8ec7,D,DIA DFD 1,DIA Fire 1 ,Fire Dispatch ,Public Safety ,2
+36552,8ec8,D,DIA DFD 2,DIA Fire 2 ,Fire-Tac ,Public Safety ,2
+36553,8ec9,D,DIA DFD 3,DIA Fire 3 ,Fire-Tac ,Public Safety ,2
+36556,8ecc,D,DIA DPD 1,DIA Police 1 ,Law Dispatch ,Public Safety ,2
+36557,8ecd,D,DIA DPD 2,DIA Police 2 ,Law Tac ,Public Safety ,2
+36558,8ece,D,DIA DPD C-C,DIA Police Car to Car ,Law Tac ,Public Safety ,2
+36564,8ed4,D,DIA Medic,DIA Medic ,EMS Dispatch ,Public Safety ,2
+36601,8ef9,D,DIA Trains,Automated Trains ,Public Works ,Maintenance ,2
+36602,8efa,D,DIA Staging,Staging ,Emergency Ops ,Operations ,2
+36603,8efb,D,DIA Escort,Escort ,Emergency Ops ,Operations ,2
+36604,8efc,D,Security 2,Security Tactical ,Security ,Operations ,2
+36605,8efd,D,Incident 1,Incident 1 ,Emergency Ops ,Operations ,2
+36606,8efe,D,Incident 2,Incident 2 - Line Management ,Security ,Operations ,2
+36608,8f00,D,DIA Ops 1,DIA Ops 1 ,Emergency Ops ,Operations ,2
+36609,8f01,D,DIA Ops 2,DIA Ops 2 ,Emergency Ops ,Operations ,2
+36610,8f02,D,DIA Ops 3,DIA Ops 3 ,Emergency Ops ,Operations ,2
+36611,8f03,D,Security 1,Security Dispatch ,Security ,Operations ,2
+36613,8f05,D,DIA ERT,Emergency/Event Response Team ,Emergency Ops ,Operations ,2
+36651,8f2b,D,Snow Ops 1,Snow Ops 1 ,Public Works ,Snow Removal ,2
+36652,8f2c,D,Snow Ops 2,Snow Ops 2 ,Public Works ,Snow Removal ,2
+36653,8f2d,D,Snow Ops 3,Snow Ops 3 ,Public Works ,Snow Removal ,2
+36654,8f2e,D,Snow Ops 4,Snow Ops 4 ,Public Works ,Snow Removal ,2
+36655,8f2f,D,Snow Ops 6,Snow Ops 6 ,Public Works ,Snow Removal ,2
+36656,8f30,D,Snow Ops 7,Snow Ops 7 ,Public Works ,Snow Removal ,2
+36657,8f31,D,Snow Ops 8,Snow Ops 8 ,Public Works ,Snow Removal ,2
+36658,8f32,D,Snow Ops 9,Snow Ops 9 ,Public Works ,Snow Removal ,2
+36659,8f33,D,Snow Ops 5,Snow Ops 5 ,Public Works ,Snow Removal ,2
+36660,8f34,D,Snow Ops 10,Snow Ops 10 ,Public Works ,Snow Removal ,2
+36661,8f35,D,Snow Ops 11,Snow Ops 11 ,Public Works ,Snow Removal ,2
+36662,8f36,D,Snow Ops 12,Snow Ops 12 ,Public Works ,Snow Removal ,2
+36663,8f37,D,Snow Ops 13,Snow Ops 13 ,Public Works ,Snow Removal ,2
+36664,8f38,D,Snow Ops 14,Snow Ops 14 ,Public Works ,Snow Removal ,2
+36665,8f39,D,Snow Ops 15,Snow Ops 15 ,Public Works ,Snow Removal ,2
+36701,8f5d,D,Radio Shop,Radio Technicians ,Public Works ,Radio Shop ,2
+36702,8f5e,D,Radio Test,Radio Tests ,Public Works ,Radio Shop ,2
+65101,fe4d,D,Patch 65101,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65102,fe4e,D,Patch 65102,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65103,fe4f,D,Patch 65103,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65104,fe50,D,Patch 65104,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65105,fe51,D,Patch 65105,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65106,fe52,D,Patch 65106,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65107,fe53,D,Patch 65107,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65108,fe54,D,Patch 65108,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65109,fe55,D,Patch 65109,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65110,fe56,D,Patch 65110,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65111,fe57,D,Patch 65111,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65112,fe58,D,Patch 65112,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65113,fe59,D,Patch 65113,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65114,fe5a,D,Patch 65114,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65115,fe5b,D,Patch 65115,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65116,fe5c,D,Patch 65116,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65117,fe5d,D,Patch 65117,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65118,fe5e,D,Patch 65118,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65119,fe5f,D,Patch 65119,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65120,fe60,D,Patch 65120,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65121,fe61,D,Patch 65121,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65122,fe62,D,Patch 65122,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65123,fe63,D,Patch 65123,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65124,fe64,D,Patch 65124,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65125,fe65,D,Patch 65125,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65126,fe66,D,Patch 65126,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65127,fe67,D,Patch 65127,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65128,fe68,D,Patch 65128,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65129,fe69,D,Patch 65129,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65130,fe6a,D,Patch 65130,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65131,fe6b,D,Patch 65131,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65132,fe6c,D,Patch 65132,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65133,fe6d,D,Patch 65133,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65134,fe6e,D,Patch 65134,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65135,fe6f,D,Patch 65135,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65136,fe70,D,Patch 65136,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65137,fe71,D,Patch 65137,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65138,fe72,D,Patch 65138,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65139,fe73,D,Patch 65139,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65140,fe74,D,Patch 65140,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65141,fe75,D,Patch 65141,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65142,fe76,D,Patch 65142,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65143,fe77,D,Patch 65143,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65144,fe78,D,Patch 65144,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65145,fe79,D,Patch 65145,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65146,fe7a,D,Patch 65146,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65147,fe7b,D,Patch 65147,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65148,fe7c,D,Patch 65148,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65149,fe7d,D,Patch 65149,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65150,fe7e,D,Patch 65150,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65151,fe7f,D,Patch 65151,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65152,fe80,D,Patch 65152,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65153,fe81,D,Patch 65153,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65154,fe82,D,Patch 65154,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65155,fe83,D,Patch 65155,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65156,fe84,D,Patch 65156,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65157,fe85,D,Patch 65157,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65158,fe86,D,Patch 65158,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65159,fe87,D,Patch 65159,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65160,fe88,D,Patch 65160,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65161,fe89,D,Patch 65161,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65162,fe8a,D,Patch 65162,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65163,fe8b,D,Patch 65163,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65164,fe8c,D,Patch 65164,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65165,fe8d,D,Patch 65165,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65166,fe8e,D,Patch 65166,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65167,fe8f,D,Patch 65167,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65168,fe90,D,Patch 65168,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65169,fe91,D,Patch 65169,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65170,fe92,D,Patch 65170,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65171,fe93,D,Patch 65171,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65172,fe94,D,Patch 65172,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65173,fe95,D,Patch 65173,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65174,fe96,D,Patch 65174,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65175,fe97,D,Patch 65175,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65176,fe98,D,Patch 65176,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65177,fe99,D,Patch 65177,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65178,fe9a,D,Patch 65178,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65179,fe9b,D,Patch 65179,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65180,fe9c,D,Patch 65180,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65181,fe9d,D,Patch 65181,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65182,fe9e,D,Patch 65182,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65183,fe9f,D,Patch 65183,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65184,fea0,D,Patch 65184,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65185,fea1,D,Patch 65185,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65186,fea2,D,Patch 65186,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65187,fea3,D,Patch 65187,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65188,fea4,D,Patch 65188,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65189,fea5,D,Patch 65189,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65190,fea6,D,Patch 65190,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65191,fea7,D,Patch 65191,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65192,fea8,D,Patch 65192,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65193,fea9,D,Patch 65193,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65194,feaa,D,Patch 65194,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65195,feab,D,Patch 65195,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65196,feac,D,Patch 65196,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65197,fead,D,Patch 65197,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65198,feae,D,Patch 65198,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65199,feaf,D,Patch 65199,SAID Patch ,Interop ,System Assigned ID Patch ,2
+65200,Feb-00,D,Patch 65200,SAID Patch ,Interop ,System Assigned ID Patch ,2

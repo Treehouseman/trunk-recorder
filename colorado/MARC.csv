@@ -1,0 +1,187 @@
+1000,3.00E+08,D,Radio Tech 1,Radio Technicians / Testing ,Public Works ,Radio Technicians ,2
+1001,3.00E+09,D,Radio Tech 2,Radio Technicians / Testing ,Public Works ,Radio Technicians ,2
+1002,3ea,D,Radio Tech 3,Radio Technicians / Testing ,Public Works ,Radio Technicians ,2
+1003,3eb,DE,Radio Tech 4,Radio Technicians / Testing ,Public Works ,Radio Technicians ,2
+1004,3ec,D,Radio Tech 5,Radio Technicians / Testing ,Public Works ,Radio Technicians ,2
+1007,3ef,DE,Radio Tech 6,Radio Technicians / Testing ,Public Works ,Radio Technicians ,2
+1008,3f0,D,Radio Tech 7,Radio Technicians / Testing ,Public Works ,Radio Technicians ,2
+2282,8ea,D,Green NE,Green NE - Denver Metro  ,Interop ,Mutual Aid ,2
+2286,8ee,D,Red NE,Red NE - Fire Mutual Aid NE Denver Metro ,Interop ,Mutual Aid ,2
+2287,8ef,D,Blue NE,Blue NE - Law Enforcement Mutual Aid NE Denver Metro ,Interop ,Mutual Aid ,2
+2288,8f0,D,Red SW,Red SW - Fire Mutual Aid SW Denver Metro ,Interop ,Mutual Aid ,2
+2289,8f1,D,Green-1,Green-1 - Denver Metro  ,Interop ,Mutual Aid ,2
+2290,8f2,D,Blue SW,Blue SW - Law Enforcement Mutual Aid SW Denver Metro ,Interop ,Mutual Aid ,2
+2291,8f3,D,Green SE,Green SE - Denver Metro  ,Interop ,Mutual Aid ,2
+2292,8f4,D,Silver,Silver - Denver/Auraria/Glendale Mutual Aid ,Interop ,Mutual Aid ,2
+2293,8f5,D,Grey,Grey - Denver Metro Federal Mutual Aid ,Interop ,Mutual Aid ,2
+2294,8f6,D,Green NW,Green NW - Denver Metro  ,Interop ,Mutual Aid ,2
+2295,8f7,D,Red NW,Red NW - Fire Mutual Aid NW Denver Metro (Linked to 155.25 in Boulder) ,Interop ,Mutual Aid ,2
+2296,8f8,D,Blue NW,Blue NW - Law Enforcement Mutual Aid NW Denver Metro (Linked to 156.03 in Boulder) ,Interop ,Mutual Aid ,2
+2297,8f9,D,Red SE,Red SE - Fire Mutual Aid SE Denver Metro ,Interop ,Mutual Aid ,2
+2298,8fa,D,Blue SE,Blue SE - Law Enforcement Mutual Aid SE Denver Metro ,Interop ,Mutual Aid ,2
+2299,8fb,D,Gold-2,Gold-2 - Denver Metro Command/Control-2 ,Interop ,Mutual Aid ,2
+3030,bd6,D,Green SW,Green SW - Denver Metro  ,Interop ,Mutual Aid ,2
+3997,f9d,D,Metro Net,Metro Net ,Interop ,Mutual Aid ,2
+10096,2770,D,RTDSecurity1,Regional Transportation District Security Channel-1 (Link to DTRS RTD Security-1 Talk Group) ,Security ,Lakewood ,2
+34903,8857,D,Gold-1,Gold-1 - Denver Metro Command/Control-1 ,Interop ,Mutual Aid ,2
+35072,8900,D,DPD DISP1 NW,District 1 Dispatch ,Law Dispatch ,Denver Police ,2
+35083,890b,D,DPD DISP2 NC,District 2 Dispatch ,Law Dispatch ,Denver Police ,2
+35094,8916,D,DPD DISP3 SE,District 3 Dispatch ,Law Dispatch ,Denver Police ,2
+35105,8921,D,DPD DISP4 SW,District 4 Dispatch ,Law Dispatch ,Denver Police ,2
+35116,892c,D,DPD DISP5 NE,District 5 Dispatch ,Law Dispatch ,Denver Police ,2
+35127,8937,D,DPD D6 DTOWN,District 6 Dispatch ,Law Dispatch ,Denver Police ,2
+35138,8942,D,DPD TO-1,Traffic Operations 1 ,Law Tac ,Denver Police ,2
+35192,8978,D,DPD CLNC-1,Clearances 1 ,Law Tac ,Denver Police ,2
+35225,8999,D,DPD AGENCY,Citywide Simulcast ,Law Dispatch ,Denver Police ,2
+35701,8b75,D,DCC CON SRV,Denver Convention Center Services ,Business ,Denver City Services ,2
+35702,8b76,D,DCC OPS,Denver Convention Center Operations ,Business ,Denver City Services ,2
+35703,8b77,D,DCC BLD SRV,Denver Convention Center Building Services ,Business ,Denver City Services ,2
+35704,8b78,D,DCC Parking,Denver Convention Center Parking ,Business ,Denver City Services ,2
+35705,8b79,D,DCC TEC SVC,Denver Convention Center Tech Services ,Business ,Denver City Services ,2
+35706,8b7a,D,DCCTELCOM,Denver Convention Center Telcom ,Business ,Denver City Services ,2
+35707,8b7b,D,DCC ELECT,Denver Convention Center Electrical ,Business ,Denver City Services ,2
+35708,8b7c,D,DCC ENG 2,Denver Convention Center Engineering 1 ,Business ,Denver City Services ,2
+35709,8b7d,D,DCC SEC 1,Denver Convention Center Security 1 ,Security ,Denver City Services ,2
+35710,8b7e,D,DCC SEC 2,Denver Convention Center Security 2 ,Security ,Denver City Services ,2
+35711,8b7f,D,DCC ENG 2,Denver Convention Center Engineering 2 ,Business ,Denver City Services ,2
+35712,8b80,D,DCC HSKP,Denver Convention Center House Keeping ,Business ,Denver City Services ,2
+35713,8b81,D,DCC GRNDS,Denver Convention Center Grounds Maintenance ,Business ,Denver City Services ,2
+35714,8b82,D,DCC FOOD SVC,Denver Convention Center Food Services ,Business ,Denver City Services ,2
+35743,8b9f,D,PM OPS 1,Parking Management Ops 1 ,Public Works ,Denver City Services ,2
+35744,8ba0,D,PM OPS 2,Parking Management Ops 2 ,Public Works ,Denver City Services ,2
+35745,8ba1,D,PM OPS 3,Parking Management Ops 3 ,Public Works ,Denver City Services ,2
+35749,8ba5,D,Street Maint,Street Maintenance ,Public Works ,Denver City Services ,2
+35750,8ba6,D,Street Maint,Street Maintenance ,Public Works ,Denver City Services ,2
+35751,8ba7,D,Street Maint,Street Maintenance ,Public Works ,Denver City Services ,2
+35752,8ba8,D,Street Maint,Street Maintenance ,Public Works ,Denver City Services ,2
+35756,8bac,D,Denver Waste 1,Solid Waste 1 ,Public Works ,Denver City Services ,2
+35757,8bad,D,Denver Waste 2,Solid Waste 2 ,Public Works ,Denver City Services ,2
+35758,8bae,D,Denver Waste 3,Solid Waste 3 ,Public Works ,Denver City Services ,2
+35759,8baf,D,Denver Waste 4,Solid Waste 4 ,Public Works ,Denver City Services ,2
+35760,8bb0,D,Denver Waste 5,Solid Waste 5 ,Public Works ,Denver City Services ,2
+35771,8bbb,D,Fleet Maint,Fleet Maintenance ,Public Works ,Denver City Services ,2
+35778,8bc2,D,Street Maint,Street Maintenance ,Public Works ,Denver City Services ,2
+35779,8bc3,D,Street Maint,Street Maintenance ,Public Works ,Denver City Services ,2
+35796,8bd4,D,ROW Ops 9,Right of Way Services 9 ,Public Works ,Denver City Services ,2
+35820,8bec,D,Forestry 1,Forestry 1 ,Public Works ,Denver City Services ,2
+35821,8bed,D,Forestry 2,Forestry 2 ,Public Works ,Denver City Services ,2
+35828,8bf4,D,Ranger,Ranger ,Public Works ,Denver City Services ,2
+35860,8c14,D,RR FacRR Fac,Red Rocks Facility ,Business ,Denver City Services ,2
+35862,8c16,D,RR OPS,Red Rocks Operations ,Business ,Denver City Services ,2
+35863,8c17,D,RR BASE,Red Rocks Base ,Business ,Denver City Services ,2
+35864,8c18,D,RR EMG,Red Rocks Emergency ,Emergency Ops ,Denver City Services ,2
+35865,8c19,D,RR SEC,Red Rocks Security ,Security ,Denver City Services ,2
+35866,8c1a,D,RR PARKING,Red Rocks Parking ,Business ,Denver City Services ,2
+35867,8c1b,D,RR HSKEP,Red Rocks Housekeeing ,Business ,Denver City Services ,2
+35868,8c1c,D,RR CUST SVC,Red Rocks Customer Service ,Business ,Denver City Services ,2
+35893,8c35,D,DCC CMD,Denver Coliseum Command ,Business ,Denver City Services ,2
+35894,8c36,D,DCC Hskping,Denver Coliseum Janitors ,Business ,Denver City Services ,2
+35895,8c37,D,DCC Security,Denver Coliseum Security ,Security ,Denver City Services ,2
+35896,8c38,D,DCC Parking,Denver Coliseum Parking ,Business ,Denver City Services ,2
+35923,8c53,D,Library Ops,Denver Library ,Public Works ,Denver City Services ,2
+37041,90b1,D,WhtRdg PD 1,Police 1 - Dispatch ,Law Dispatch ,Wheat Ridge ,2
+37042,90b2,D,WhtRdg PD 2,Police 2 ,Law Tac ,Wheat Ridge ,2
+37043,90b3,D,WhtRdg PD T1,Police Tactical 1 ,Law Tac ,Wheat Ridge ,2
+37044,90b4,D,WhtRdg PD T2,Police Tactical 2 ,Law Tac ,Wheat Ridge ,2
+37045,90b5,D,WhtRdg PD T3,Police Tactical 3 ,Law Tac ,Wheat Ridge ,2
+37088,9.00E+01,D,WhtRdg DPW 1,Public Works All Call ,Public Works ,Wheat Ridge ,2
+37089,9.00E+02,D,WhtRdg DPW 3,Operations ,Public Works ,Wheat Ridge ,2
+37096,9.00E+09,D,WhtRdg Parks,Parks & Recreation ,Public Works ,Wheat Ridge ,2
+37098,90ea,D,WhtRdg DPW 2,City Channel ,Public Works ,Wheat Ridge ,2
+37107,90f3,D,WRFDAutoDisp,Wheat Ridge Fire Automated Dispatches ,Fire Dispatch ,West Metro Fire & Wheat Ridge Fire ,2
+37272,9198,DE,LPD All Call,Announcement / All Call ,Law Dispatch ,Lakewood ,2
+37273,9199,DE,LPD-1 North,Channel-1 - North Sector Dispatch ,Law Dispatch ,Lakewood ,2
+37274,919a,DE,LPD-2 Centrl,Channel-2 - Central Sector Dispatch ,Law Dispatch ,Lakewood ,2
+37275,919b,DE,LPD-3 South,Channel-3 - South Sector Dispatch ,Law Dispatch ,Lakewood ,2
+37276,919c,DE,LPD-4 Wants,Channel-4 - NCIC/Warrant Checks ,Law Talk ,Lakewood ,2
+37280,91a0,DE,LPDAnmlCntrl,Animal Control Car/Car ,Public Works ,Lakewood ,2
+37281,91a1,DE,LPDAnmlCntrl,Animal Control Car/Car ,Public Works ,Lakewood ,2
+37283,91a3,D,CoMillsMlSec,Colorado Mills Mall Security (Link to Colorado Mills Mall LTR System Security Talk Group) ,Security ,Lakewood ,2
+37289,91a9,DE,LPD Tac-1,Tactical 1 - North Sector Car/Car (LTAC 1) ,Law Tac ,Lakewood ,2
+37290,91aa,DE,LPD Tac-2,Tactical 2 - Central Sector Car/Car (LTAC 2) ,Law Tac ,Lakewood ,2
+37291,91ab,DE,LPD Tac-3,Tactical 3 - South Sector Car/Car (LTAC 3) ,Law Tac ,Lakewood ,2
+37292,91ac,DE,LPD SWAT 1,SWAT 1 ,Law Talk ,Lakewood ,2
+37293,91ad,DE,LPD SWAT 2,SWAT 2 ,Law Talk ,Lakewood ,2
+37294,91ae,DE,LPD Tac-4,Tactical Channel-4 ,Law Tac ,Lakewood ,2
+37295,91af,DE,LPD Tac-5,Tactical Channel-5 ,Law Tac ,Lakewood ,2
+37323,91cb,D,Radio Tech 8,Radio Technicians / Testing ,Public Works ,Radio Technicians ,2
+37324,91cc,D,Radio Tech 9,Radio Technicians / Testing ,Public Works ,Radio Technicians ,2
+37325,91cd,D,Radio Tech10,Radio Technicians / Testing ,Public Works ,Radio Technicians ,2
+37337,91d9,DE,LPD Vice-1,Vice 1 ,Law Talk ,Lakewood ,2
+37338,91da,DE,LPD Vice-2,Vice 2 ,Law Talk ,Lakewood ,2
+37353,9.10E+10,DE,LPD CourtMsh,Lakewood Municipal Court Marshals ,Law Talk ,Lakewood ,2
+37369,91f9,D,RedRocksCCPD,Police Dispatch ,Law Dispatch ,Red Rocks Community College ,2
+37385,9209,D,CLEER-Lakewd,Colorado Law Enforcement Emergency Radio - Lakewood Link ,Interop ,Mutual Aid ,2
+37386,920a,D,BelmarSec,Belmar Center Security (Link to Belmar Center LTR System Security Talk Group) ,Security ,Lakewood ,2
+37521,9291,DE,NREL Ch-1,Channel 1 ,Federal ,National Renewable Energy Laboratory ,2
+37522,9292,DE,NREL Ch-2,Channel 2 ,Federal ,National Renewable Energy Laboratory ,2
+37523,9293,DE,NREL Ch-3,Channel 3 ,Federal ,National Renewable Energy Laboratory ,2
+37552,92b0,D,Lkwd Rangers,Bear Creek Lake Park / Green Mountain Rangers (EDACS 552) ,Public Works ,Lakewood ,2
+37768,9388,D,WMFRAllCall,All Call ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37777,9391,D,MetroAutoTF,Metro Auto Theft Task Force ,Law Talk ,Multi-Agency Law Enforcement ,2
+37785,9399,D,WMFR/WRFDisp,West Metro Fire/Rescue & Wheat Ridge Fire Dispatch ,Fire Dispatch ,West Metro Fire & Wheat Ridge Fire ,2
+37786,939a,D,WMFR Tac-2,Tactical 2 - Minor Incident Responses ,Fire-Tac ,West Metro Fire & Wheat Ridge Fire ,2
+37787,939b,D,WMFR Tac-3,Tactical 3 - Structure Fire Responses ,Fire-Tac ,West Metro Fire & Wheat Ridge Fire ,2
+37788,939c,D,WMFR Tac-4,Tactical 4 ,Fire-Tac ,West Metro Fire & Wheat Ridge Fire ,2
+37789,939d,D,WMFR Tac-5,Tactical 5 - Mutual Aid w/Pleasant View Fire (DTRS 1483) ,Fire-Tac ,West Metro Fire & Wheat Ridge Fire ,2
+37790,939e,D,WMFR Tac-6,Tactical 6 - West Metro Automated Dispatches ,Fire Dispatch ,West Metro Fire & Wheat Ridge Fire ,2
+37791,939f,D,WMFR Tac-7,Tactical 7 ,Fire-Tac ,West Metro Fire & Wheat Ridge Fire ,2
+37792,93a0,D,WMFR Tac-8,Tactical 8 - Red Rocks Concert Operations ,Fire-Tac ,West Metro Fire & Wheat Ridge Fire ,2
+37797,93a5,D,WMFR Arson,Arson Investigations ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37801,93a9,D,WMFR Trng-1,Training 1 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37802,93aa,D,WMFR Trng-2,Training 2 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37803,93ab,D,WMFR Trng-3,Training 3 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37804,93ac,D,WMFRCmTrng,Communications Training ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37807,93af,D,WMFR Trng,Training Channel ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37808,93b0,D,WMFR Trng-4,Training 4 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37816,93b8,D,WMFRFleetCal,Fleetwide Call ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37817,93b9,D,WM-FERN-1,Fire Emergency Radio Network Channel-1 (Link to 154.280 MHz) - West Metro Fire ,Interop ,Mutual Aid ,2
+37818,93ba,D,WM-FERN-2,Fire Emergency Radio Network Channel-2 (Link to 154.295 MHz) - West Metro Fire ,Interop ,Mutual Aid ,2
+37819,93bb,D,WM-FERN-3,Fire Emergency Radio Network Channel-3 (Link to 154.265 MHz) - West Metro Fire ,Interop ,Mutual Aid ,2
+37821,93bd,D,FrmontFDTac1,Tactical 1 ,Fire-Tac ,Fairmount Fire Department ,2
+37822,93be,D,Fairmount FD,Dispatch ,Fire Dispatch ,Fairmount Fire Department ,2
+37865,9.30E+10,D,WM-AirGrnd2,Air/Ground 2 - Secondary (Link to 172.225 MHz) - West Metro Fire ,Interop ,Mutual Aid ,2
+37866,93ea,D,WM-AirGrnd1,Air/Ground 1 - Primary (Link to 169.400 MHz) - West Metro Fire ,Interop ,Mutual Aid ,2
+37870,93ee,D,WMFR StaCall,Fire Station Call ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37871,93ef,D,WMFR Sta 1,Fire Station 1 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37872,93f0,D,WMFR Sta 2,Fire Station 2 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37873,93f1,D,WMFR Sta 3,Fire Station 3 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37874,93f2,D,WMFR Sta 4,Fire Station 4 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37875,93f3,D,WMFR Sta 5,Fire Station 5 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37876,93f4,D,WMFR Sta 6,Fire Station 6 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37877,93f5,D,WMFR Sta 7,Fire Station 7 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37878,93f6,D,WMFR Sta 8,Fire Station 8 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37879,93f7,D,WMFR Sta 9,Fire Station 9 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37880,93f8,D,WMFR Sta 10,Fire Station 10 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37881,93f9,D,WMFR Sta 11,Fire Station 11 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37882,93fa,D,WMFR Sta 12,Fire Station 12 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37883,93fb,D,WMFR Sta 13,Fire Station 13 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37884,93fc,D,WMFR Sta 14,Fire Station 14 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+37885,93fd,D,WMFR Sta 15,Fire Station 15 ,Fire-Talk ,West Metro Fire & Wheat Ridge Fire ,2
+38000,9470,T,ArvadaRadio1,Radio Maintenance 1 ,Public Works ,Arvada ,2
+38001,9471,T,ArvadaRadio2,Radio Maintenance 2 ,Public Works ,Arvada ,2
+38002,9472,T,ArvadaRadio3,Radio Maintenance 3 ,Public Works ,Arvada ,2
+38048,94a0,DE,Arvada PD 1,Police Dispatch ,Law Dispatch ,Arvada ,2
+38049,94a1,DE,Arvada Rcrds,Police Records ,Law Tac ,Arvada ,2
+38050,94a2,DE,Arvada PD 1,Police PD 1 ,Law Tac ,Arvada ,2
+38051,94a3,DE,Arvada PD 2,Police PD 2 ,Law Talk ,Arvada ,2
+38052,94a4,DE,Arvada PD 3,Police PD 3 ,Law Tac ,Arvada ,2
+38053,94a5,DE,Arvada PD 3,Police Car to Car ,Law Tac ,Arvada ,2
+38054,94a6,D,Arvada ACO,Animal Control ,Law Talk ,Arvada ,2
+38055,94a7,DE,Arvada PD 4,Police Tac 1 ,Law Tac ,Arvada ,2
+38056,94a8,DE,Arv PD Trng,Arvada PD Training ,Law Tac ,Arvada ,2
+38057,94a9,DE,Arvada PD 5,Police Tac 2 ,Law Tac ,Arvada ,2
+38060,94ac,DE,Arvada PD SE,Police Special Events ,Law Talk ,Arvada ,2
+38064,94b0,D,CLEER-Arvada,Colorado Law Enforcement Emergency Radio - Arvada Link ,Interop ,Mutual Aid ,2
+38090,94ca,DE,Arvada PD AC,Police All Call ,Law Talk ,Arvada ,2
+38150,9506,D,Arvada FD 1,Fire Dispatch ,Fire Dispatch ,Arvada ,2
+38151,9507,D,Arvada FD 2,Fire Tac 2 ,Fire-Tac ,Arvada ,2
+38152,9508,D,Arvada FD 3,Fire Tac 3 ,Fire-Tac ,Arvada ,2
+38153,9509,D,Arvada FD 4,Fire Tac 4 ,Fire-Tac ,Arvada ,2
+38154,950a,D,Arvada FD 5,Fire Tac 5 ,Fire-Tac ,Arvada ,2
+38160,9510,D,Arvada FD T1,Fire Training 1 ,Fire-Talk ,Arvada ,2
+38161,9511,D,Arvada FD T2,Fire Training 2 ,Fire-Talk ,Arvada ,2
+38162,9512,D,Arvada FD T3,Fire Training 3 ,Fire-Talk ,Arvada ,2
+38163,9513,D,Arvada FD T4,Fire Training 4 ,Fire-Talk ,Arvada ,2
+38164,9514,D,Arvada FD T5,Fire Training 5 ,Fire-Talk ,Arvada ,2
+38202,953a,T,Aravada Strs,Street Maintenance ,Public Works ,Arvada ,2

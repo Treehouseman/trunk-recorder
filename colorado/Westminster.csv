@@ -1,0 +1,43 @@
+200,0c8,D,Radio Techs,Radio Techs 1 ,Public Works ,Radio Service ,2
+201,0c9,D,Radio Techs,Radio Techs 2 ,Public Works ,Radio Service ,2
+202,0ca,D,Radio Techs,Radio Techs 3 ,Public Works ,Radio Service ,2
+38501,9665,DE,WestyPD CH1,Police 1 Dispatch ,Law Dispatch ,Police Department ,2
+38502,9666,DE,WestyPD CH2,Police 2 ,Law Tac ,Police Department ,2
+38503,9667,DE,WestyPD Data,Police Data ,Law Tac ,Police Department ,2
+38504,9668,DE,WestyPD Car1,Police 4 Car-Car 1 ,Law Tac ,Police Department ,2
+38505,9669,DE,WestyPD Car2,Police Car-Car 2 ,Law Tac ,Police Department ,2
+38506,966a,DE,WestyPD Code,Police Code ,Law Tac ,Police Department ,2
+38507,966b,DE,WestyPD Invt,Police Investigations ,Law Tac ,Police Department ,2
+38508,966c,DE,WestyPD Vice,Police Vice ,Law Tac ,Police Department ,2
+38509,966d,DE,WestyPD SUT,Police SUT ,Law Tac ,Police Department ,2
+38510,966e,DE,WestyPD Intp,Police Interops ,Law Tac ,Police Department ,2
+38511,966f,DE,WestyPD Swat,Police SWAT ,Law Tac ,Police Department ,2
+38512,9670,DE,WestyPD Tac1,Police Tactical 1 ,Law Tac ,Police Department ,2
+38513,9671,DE,WestyPD AMAW,Police AMAW ,Law Tac ,Police Department ,2
+38514,9672,DE,WestyPD Tac2,Police Tactical 2 ,Law Tac ,Police Department ,2
+38601,96c9,D,WestyFD Emer,Fire Emergency ,Fire-Tac ,Fire Department ,2
+38602,96ca,D,WestyFD Disp,Fire Dispatch ,Fire Dispatch ,Fire Department ,2
+38603,96cb,D,WestyFD OpsA,Fire Ch-2 Ops-A ,Fire-Tac ,Fire Department ,2
+38604,96cc,D,WestyFD OpsB,Fire Ch-3 Ops-B ,Fire-Tac ,Fire Department ,2
+38605,96cd,D,WestyFD Tac,Fire Tac ,Fire-Talk ,Fire Department ,2
+38606,96ce,D,WestyFD Tran,Fire Training ,Fire-Talk ,Fire Department ,2
+38701,972d,D,WestyPWPlows,Public Works Plows ,Public Works ,Public Works ,2
+38704,9730,D,StndlyLkRngr,Standley Lake Park Rangers ,Public Works ,Public Works ,2
+38705,9731,D,WestyStreets,Street Maintenance ,Public Works ,Public Works ,2
+38706,9732,D,WestyPWSnow,Snow Removal ,Public Works ,Public Works ,2
+38708,9734,D,WestyWstWtr,Wastewater Department ,Public Works ,Public Works ,2
+38709,9735,D,Westy Water,Water Finance / Meters ,Public Works ,Public Works ,2
+38710,9736,D,Westy PW CS,Confined Space? ,Public Works ,Public Works ,2
+38711,9737,D,WaterTreatmt,Wastewater Treatment Plant ,Public Works ,Public Works ,2
+38715,973b,D,LegacyRdgGC1,Legacy Ridge Golf Course 1 ,Public Works ,Public Works ,2
+38717,973d,D,LegacyRdgGC2,Legacy Ridge Golf Course 2 ,Public Works ,Public Works ,2
+38718,973e,D,LegacyRdgGC3,Legacy Ridge Golf Course 3 ,Public Works ,Public Works ,2
+38801,9791,D,Fire Net,Fire Net ,Interop ,Mutual Aid ,2
+38802,9792,D,Fire1,Fire-1 ,Interop ,Mutual Aid ,2
+38803,9793,D,Fire 2,Fire-2 ,Interop ,Mutual Aid ,2
+38804,9794,D,Fire 3,Fire-3 ,Interop ,Mutual Aid ,2
+38805,9795,D,Fire 3,Fire-4 ,Interop ,Mutual Aid ,2
+38813,979d,D,NWF Blue NW,NWF Blue NW ,Interop ,Mutual Aid ,2
+38814,979e,D,NWF Red NW,NWF Red NW ,Interop ,Mutual Aid ,2
+38816,97a0,D,CLEER,CLEER ,Interop ,Mutual Aid ,2
+38820,97a4,D,MetroNet,Metro Net ,Interop ,Mutual Aid ,2
