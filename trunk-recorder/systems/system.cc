@@ -32,6 +32,7 @@ System::System(int sys_num) {
   sys_id = 0;
   wacn = 0;
   nac = 0;
+  retunedelay=0;
   current_control_channel = 0;
   xor_mask_len=0;
   xor_mask = NULL;
@@ -155,11 +156,20 @@ Source *System::get_source(){
 void System::set_sys_nac(int nac){
 	sys_nac = nac;
 }
+void System::retune_count(){
+	retunedelay++;
+}
+int System::get_retune_count(){
+	return retunedelay;
+}
 int System::get_sys_nac(){
 	return sys_nac;
 }
 int System::get_auto_retune(){
 	return auto_retune;
+}
+void System::retune_reset(){
+	retunedelay=0;
 }
 void System::set_auto_retune(int retune){
 	auto_retune=retune;

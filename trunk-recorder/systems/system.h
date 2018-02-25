@@ -46,6 +46,10 @@ public:
 		int auto_retune;
 		void set_auto_retune(int retune);
 		int get_auto_retune();
+                int get_retune_count();
+                int retunedelay;
+                void retune_count();
+		void retune_reset();
         Talkgroups *talkgroups;
         p25p2_lfsr *lfsr;
         Source *source;

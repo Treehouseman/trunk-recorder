@@ -108,6 +108,7 @@ int currid;
 int csys_id=0;
 unsigned int tsyscount = 0;
 Tree tout;
+int retuneDelay;
 
 
 void exit_interupt(int sig) { // can be called asynchronously
@@ -453,6 +454,7 @@ void load_config(string config_file)
 	config.buffpath = pt.get<std::string>("buffPath", "");
 	BOOST_LOG_TRIVIAL(info) << "Upload Server2: " << config.upload_server2;
 	BOOST_LOG_TRIVIAL(info) << "Buffer Path: " << config.buffpath;
+	retuneDelay = pt.get<int>("retuneDelay", 1);
 	//Treehouseman config end
     config.capture_dir = pt.get<std::string>("captureDir", boost::filesystem::current_path().string());
     size_t pos = config.capture_dir.find_last_of("/");
@@ -1010,7 +1012,7 @@ void retune_system(System *system) {
 void check_message_count(float timeDiff) {
   stats.send_config(sources, systems);
   stats.send_sys_rates(systems, timeDiff);
-
+  bool reset_hold = false;
   for (std::vector<System *>::iterator it = systems.begin(); it != systems.end(); ++it) {
     System *sys = (System *)*it;
 
@@ -1024,8 +1026,13 @@ void check_message_count(float timeDiff) {
         }
 
         if (sys->control_channel_count() > 1 && sys->get_auto_retune()) {
-          retune_system(sys);
-        } else if(sys->get_auto_retune()){
+	  sys->retune_count();
+          reset_hold=true;
+	  if(sys->get_retune_count() >= retuneDelay){
+            retune_system(sys);
+            reset_hold=false;
+	  }
+        } else if(sys->get_auto_retune() && sys->get_auto_retune()){
           BOOST_LOG_TRIVIAL(error) << "[" << sys->get_short_name() << "]\tThere is only one control channel defined";
         }
 
@@ -1043,6 +1050,9 @@ void check_message_count(float timeDiff) {
       if (msgs_decoded_per_second < config.control_message_warn_rate || config.control_message_warn_rate == -1) {
         BOOST_LOG_TRIVIAL(error) << "[" << sys->get_short_name() << "]\t Control Channel Message Decode Rate: " <<  msgs_decoded_per_second << "/sec, count:  " << sys->message_count;
       }
+    }
+    if(!reset_hold){
+      sys->retune_reset();;
     }
     sys->message_count = 0;
   }
