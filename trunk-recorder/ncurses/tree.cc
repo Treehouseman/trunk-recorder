@@ -679,7 +679,7 @@ void Tree::SysId(int sysid, bool conventional, int sysnum, int syssite, int hasG
 	}
 	rSYSblocks = SYSblocks;
 	for(int i = 0; i < SYSblocks; i++){
-		if(sysccc[5][i]==true)
+		if(sysccc[5][i]==true || sysccc[8][i]==true)
 			rSYSblocks--;
 	}
 	for(int i = 0; i < 100; i++){
@@ -1499,8 +1499,8 @@ void Tree::msgdata(){
 		if(grpccc[0][i]){
 			if(grpccc[2][i]>80)
 				grpccc[2][i]=80;
-			grpmps[i][spos] = grpccc[2][i];
-			grpccc[2][i]=0;
+			grpmps[i][spos] = grpccc[6][i];
+			grpccc[6][i]=0;
 		}
 	}
 	for(int i = 0; i < 100; i++){
@@ -1520,7 +1520,7 @@ void Tree::msgdata(){
 				minm = grpmps[i][x];
 			}
 		}
-		grpccc[3][i]=minm;
+		grpccc[2][i]=minm;
 		}
 	}
 	for(int i = 0; i < 100; i++){
@@ -1540,7 +1540,7 @@ void Tree::msgdata(){
 				maxm = grpmps[i][x];
 			}
 		}
-		grpccc[4][i]=maxm;
+		grpccc[3][i]=maxm;
 		}
 	}
 	for(int i = 0; i < 100; i++){
