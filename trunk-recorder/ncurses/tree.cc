@@ -88,7 +88,9 @@ int radiocount = 0;
 int spos = 0;
 bool looped = false;
 int sysmps[100][60];
-int sysccc[5][100];
+int grpmps[100][60];
+int sysccc[8][100];
+int grpccc[100][100]; //enable, sysid, current, min, max, avg
 int pastpos = 0;
 int history[28][3];
 std::string UThistory[20];
@@ -150,6 +152,7 @@ int CPU90 = 0;
 int CPU100 = 0;
 int CPU60 = 0;
 long unsigned int delayedref = 0;
+int t2syscount = 0;
 
 
 
@@ -213,6 +216,7 @@ int UTblockx = 0;
 int UTendx;
 int UTdefx = 125;
 int UTdesclen = 50;
+int rSYSblocks = 0;
 volatile bool UtWinEn = false;
 volatile bool RecWinEn = false;
 volatile bool DatWinEn = false;
@@ -402,12 +406,12 @@ void Tree::conventionalStatus(int tg, double length, int idle, bool isidle, std:
 			for(int x = 0; x < 100; x++){
 				//TreeLog() << tg << " " << aconventionalgroups[i][x][0] << " " << aconventionalgroups[i][x][2] << " " << csyspos+SYSblocks << std::endl;
 				//if(aconventionalgroups[i][x][0]==tg && aconventionalgroups[i][x][2]==csyspos+SYSblocks-1){
-					if(aconventionalgroups[i][x][0]==tg && aconventionalgroups[i][x][2] == (csyspos+SYSblocks)){
+					if(aconventionalgroups[i][x][0]==tg && aconventionalgroups[i][x][2] == (csyspos+rSYSblocks)){
 					//TreeLog() << "Updating Group" << std::endl;
 						aconventionalgroups[i][x][1]=intlength;
 						aconventionalgroups[i][x][3]=1;
 					}
-					else if(dconventionalgroups[i][x][0]==tg && dconventionalgroups[i][x][2] == (csyspos+SYSblocks)){
+					else if(dconventionalgroups[i][x][0]==tg && dconventionalgroups[i][x][2] == (csyspos+rSYSblocks)){
 					//TreeLog() << "Updating Group" << std::endl;
 						dconventionalgroups[i][x][1]=intlength;
 						dconventionalgroups[i][x][3]=1;
@@ -470,7 +474,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 		int syscolor = -1;
 			for(int i = 0; i < 100; i++){
 			if(sysccc[0][i]==sys_id){
-				syscolor = getcol(sysnum);
+				syscolor = sysccc[7][i];
 				break;
 			}
 		}
@@ -518,7 +522,7 @@ void Tree::StartCall(long tg, long freq, std::string dev, bool isanalog, int nac
 		int syscolor = -1;
 		for(int i = 0; i < 100; i++){
 			if(csyscc[0][i]==nac && csyscc[1][i]==sysnum){
-				syscolor=getcol(sysnum);
+				syscolor=csyscc[3][i];
 				break;
 			}
 		}
@@ -566,7 +570,7 @@ void Tree::MissingTG(long tg, int nac, int sysnum){
 	int syscolor = -1;
 		for(int i = 0; i < 10; i++){
 		if(sysccc[0][i]==nac){
-			syscolor = getcol(sysnum);
+			syscolor = sysccc[7][i];
 			break;
 		}
 	}
@@ -632,14 +636,29 @@ void Tree::Long(long tg, long freq, int elapsed, int since, int sys){
 	NewLog(ks.str());
 	LgErr++;
 }
-void Tree::SysId(int sysid, bool conventional, int sysnum, int syssite){
+void Tree::SysId(int sysid, bool conventional, int sysnum, int syssite, int hasGroup, int group){
 	/*
 	Copy our sysid tracking stuff here
 	*/
+	if(hasGroup != 0){
+		if(grpccc[0][group]==false){
+			t2syscount++;
+		}
+		grpccc[0][group]=true;
+		grpccc[1][group]=sysid;
+		grpccc[5][group]=getcol(t2syscount-1);
+		sysccc[5][SYSblocks]=true;
+		sysccc[6][SYSblocks]=group;
+	}
+	else{
+		t2syscount++;
+		sysccc[5][SYSblocks]=false;
+	}
 	if(!conventional){
 			sysccc[0][SYSblocks]=sysid;
 			sysccc[3][SYSblocks]=sysnum;
 			sysccc[4][SYSblocks]=syssite;
+			sysccc[7][SYSblocks]=getcol(t2syscount-1);
 			//sysmps[0][SYSblocks]=sysid;
 			//sysccc[1][SYSblocks]++;
 	SYSblocks++;
@@ -648,7 +667,17 @@ void Tree::SysId(int sysid, bool conventional, int sysnum, int syssite){
 		csyscc[0][convcount]=sysid;
 		csyscc[1][convcount]=sysnum;
 		csyscc[2][convcount]=syssite;
+		csyscc[3][convcount]=getcol(t2syscount-1);
 		convcount++;
+	}
+	rSYSblocks = SYSblocks;
+	for(int i = 0; i < SYSblocks; i++){
+		if(sysccc[5][i]==true)
+			rSYSblocks--;
+	}
+	for(int i = 0; i < 100; i++){
+		if(grpccc[0][i]==true)
+			rSYSblocks++;
 	}
 }
 void Tree::ccId(int sysnum){
@@ -657,6 +686,9 @@ void Tree::ccId(int sysnum){
 	//Got ID in message
 	for(int i = 0; i < 100; i++){
 		if(sysccc[3][i]==sysnum){
+			if(sysccc[5][i]){
+				grpccc[2][sysccc[6][i]]++;
+			}
 			sys_id = sysccc[0][i];
 			sysccc[1][i] = sysccc[1][i]+1;
 			break;
@@ -689,7 +721,7 @@ void Tree::Coordinates(){
 			LOGstarty = R2y;
 			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
 			SYSstartx = TGendx+1;
-			SYSendx = SYSstartx+SYSdefx+(SYSblockx*SYSblocks);
+			SYSendx = SYSstartx+SYSdefx+(SYSblockx*rSYSblocks);
 			DATstartx = SYSendx + 1;
 			DATendx = DATstartx+DATdefx+(DATblockx*DATblocks);
 			OLDstartx = DATendx+1;
@@ -726,7 +758,7 @@ void Tree::Coordinates(){
 			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks);
 			xpos = TGendx;
 			SYSstartx=xpos+1;
-			SYSendx=SYSstartx+SYSdefx+(SYSblockx*SYSblocks);
+			SYSendx=SYSstartx+SYSdefx+(SYSblockx*rSYSblocks);
 			xpos = SYSendx;
 			DATstartx=xpos+1;
 			DATendx=DATstartx+DATdefx+(DATblockx*DATblocks);
@@ -796,7 +828,7 @@ void Tree::Coordinates(){
 			ERRstarty = R2y;
 			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
 			SYSstartx = TGstartx;
-			SYSendx = SYSstartx+SYSdefx+(SYSblockx*SYSblocks);
+			SYSendx = SYSstartx+SYSdefx+(SYSblockx*rSYSblocks);
 			DATstartx = SYSendx + 1;
 			DATendx = DATstartx+DATdefx+(DATblockx*DATblocks);
 			OLDstartx = DATendx+1;
@@ -876,7 +908,7 @@ void Tree::Coordinates(){
 			UTstarty=R2y;
 			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
 			SYSstartx = TGendx+1;
-			SYSendx = SYSstartx+SYSdefx+(SYSblockx*SYSblocks);
+			SYSendx = SYSstartx+SYSdefx+(SYSblockx*rSYSblocks);
 			DATstartx = SYSendx + 1;
 			DATendx = DATstartx+DATdefx+(DATblockx*DATblocks);
 			CPUstartx = DATendx + 1;
@@ -921,7 +953,7 @@ void Tree::Coordinates(){
 			UTstarty=R2y;
 			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
 			SYSstartx = TGendx+1;
-			SYSendx = SYSstartx+SYSdefx+(SYSblockx*SYSblocks);
+			SYSendx = SYSstartx+SYSdefx+(SYSblockx*rSYSblocks);
 			DATstartx = SYSendx + 1;
 			DATendx = DATstartx+DATdefx+(DATblockx*DATblocks);
 			CPUstartx = DATendx + 1;
@@ -1377,8 +1409,8 @@ void Tree::setColor(long currid, long tg){
 }
 
 int Tree::getcol(int loc){
-	if(!curseenable)
-		return 4;
+	//if(!curseenable)
+		//return 4;
 	switch (loc){
 		case -1:
 		return 7;
@@ -1433,6 +1465,14 @@ void Tree::msgdata(){
 			sysccc[1][i]=0;
 	}
 	for(int i = 0; i < 100; i++){
+		if(grpccc[0][i]){
+			if(grpccc[2][i]>80)
+				grpccc[2][i]=80;
+			grpmps[i][spos] = grpccc[2][i];
+			grpccc[2][i]=0;
+		}
+	}
+	for(int i = 0; i < 100; i++){
 		int minm = 80;
 		for(int x = 0; x < 60; x++){
 			if(sysmps[i][x] < minm){
@@ -1440,6 +1480,17 @@ void Tree::msgdata(){
 			}
 		}
 		minmsg[i]=minm;
+	}
+	for(int i = 0; i < 100; i++){
+		int minm = 80;
+		if(grpccc[0][i]){
+		for(int x = 0; x < 60; x++){
+			if(grpmps[i][x] < minm){
+				minm = grpmps[i][x];
+			}
+		}
+		grpccc[3][i]=minm;
+		}
 	}
 	for(int i = 0; i < 100; i++){
 		int maxm = 0;
@@ -1451,11 +1502,31 @@ void Tree::msgdata(){
 		maxmsg[i]=maxm;
 	}
 	for(int i = 0; i < 100; i++){
+		int maxm = 0;
+		if(grpccc[0][i]){
+		for(int x = 0; x < 60; x++){
+			if(grpmps[i][x] > maxm){
+				maxm = grpmps[i][x];
+			}
+		}
+		grpccc[4][i]=maxm;
+		}
+	}
+	for(int i = 0; i < 100; i++){
 		int avgm = 0;
 		for(int x = 0; x < 60; x++){
 			avgm = avgm + sysmps[i][x];
 		}
 		avgmsg[i]=avgm/60;
+	}
+	for(int i = 0; i < 100; i++){
+		int avgm = 0;
+		if(grpccc[0][i]){
+		for(int x = 0; x < 60; x++){
+			avgm = avgm + grpmps[i][x];
+		}
+		grpccc[4][i]=avgm/60;
+		}
 	}
 	}
 	else{
@@ -1464,6 +1535,12 @@ void Tree::msgdata(){
 			sysmpsbuff[i]=sysccc[1][i];
 			//sysmps[x][spos] = rand();
 			sysccc[1][i]=0;
+	}
+	for(int i = 0; i < 100; i++){
+		if(grpccc[0][i]){
+			grpmps[i][spos] = grpccc[1][i];
+			grpccc[1][i]=0;
+		}
 	}
 	for(int i = 0; i < 100; i++){
 		int minm = 80;
@@ -1476,6 +1553,18 @@ void Tree::msgdata(){
 			minmsg[i]=minm;
 	}
 	for(int i = 0; i < 100; i++){
+		int minm = 80;
+		if(grpccc[0][i]){
+		for(int x = 0; x < spos; x++){
+			if(grpmps[i][x] < minm){
+				minm = grpmps[i][x];
+			}
+		}
+		if(spos!=0)
+			grpccc[2][i]=minm;
+		}
+	}
+	for(int i = 0; i < 100; i++){
 		int maxm = 0;
 		for(int x = 0; x < spos; x++){
 			if(sysmps[i][x] > maxm){
@@ -1485,12 +1574,33 @@ void Tree::msgdata(){
 		maxmsg[i]=maxm;
 	}
 	for(int i = 0; i < 100; i++){
+		int maxm = 0;
+		if(grpccc[0][i]){
+		for(int x = 0; x < spos; x++){
+			if(grpmps[i][x] > maxm){
+				maxm = grpmps[i][x];
+			}
+		}
+		grpccc[3][i]=maxm;
+		}
+	}
+	for(int i = 0; i < 100; i++){
 		int avgm = 0;
 		for(int x = 0; x < spos; x++){
 			avgm = avgm + sysmps[i][x];
 		}
 		if(spos != 0)
 		avgmsg[i]=avgm/spos;
+	}
+	for(int i = 0; i < 100; i++){
+		int avgm = 0;
+		if(grpccc[0][i]){
+		for(int x = 0; x < spos; x++){
+			avgm = avgm + grpmps[i][x];
+		}
+		if(spos != 0)
+		grpccc[4][i]=avgm/spos;
+		}
 	}
 }
 }
@@ -2412,11 +2522,85 @@ void Tree::MsgRef(){
 	else
 		wprintw(SYSwin, "Minimum");
 	wattroff(SYSwin, COLOR_PAIR(6));
-	for(int i = 0; i < SYSblocks; i++){
-		
+	for(int i = 0; i < 100; i++){
+		if(grpccc[0][i]){
 		std::stringstream ss;
 		std::string s;
-		currcol = getcol(i);
+		currcol = grpccc[7][i];
+		wattron(SYSwin, COLOR_PAIR(currcol));
+		wmove(SYSwin, 18, datapos-1);
+		ss << std::hex << std::uppercase << grpccc[1][i] << std::dec << std::nouppercase;
+		ss >> s;
+		if(strlen(s.c_str()) > 3){
+			s = s.substr(0,3);
+		}
+		const char * c = s.c_str();
+		wprintw(SYSwin, c);
+		wattroff(SYSwin, COLOR_PAIR(currcol));
+		int buffint = 0;
+		int buffcol = 0;
+		for(int x = 0; x < 4; x++){
+			switch(x){
+				case 0:
+					buffint = grpccc[3][i];
+					buffcol = 1;
+				break;
+				case 1:
+					buffint = grpccc[4][i];
+					buffcol = 2;
+				break;
+				case 2:
+					buffint = grpccc[2][i];
+					buffcol = 6;
+				break;
+				case 3:
+					if(spos>0)
+						buffint = grpmps[i][spos-1];
+					else
+						buffint = grpmps[i][59];
+					buffcol = 7;
+				break;
+			}
+			wattron(SYSwin, COLOR_PAIR(buffcol));
+			wmove(SYSwin, 19+x, datapos-1);
+			std::stringstream ss2;
+			ss2 << buffint;
+			std::string s2 = ss2.str();
+			const char * c2 = s2.c_str();
+			wprintw(SYSwin, c2);
+			wattroff(SYSwin, COLOR_PAIR(buffcol));
+		}
+			for(int x = 0; x < 17; x++){
+				wmove(SYSwin, 17-x, datapos);
+				if(maxmsg[i] >= (5*x)&&maxmsg[i]!=0){
+					wattron(SYSwin, COLOR_PAIR(1));
+					//wprintw(SYSwin, "X");
+					waddch(SYSwin, ' '|A_REVERSE);
+					wattroff(SYSwin, COLOR_PAIR(1));
+				}
+				wmove(SYSwin, 17-x, datapos);
+				if(avgmsg[i] >= (5*x)&& avgmsg[i]!=0){
+					wattron(SYSwin, COLOR_PAIR(2));
+					//wprintw(SYSwin, "X");
+					waddch(SYSwin, ' '|A_REVERSE);
+					wattroff(SYSwin, COLOR_PAIR(2));
+				}
+				wmove(SYSwin, 17-x, datapos);
+				if(minmsg[i] >= (5*x) && minmsg[i]!=0){
+					wattron(SYSwin, COLOR_PAIR(6));
+					//wprintw(SYSwin, "X");
+					waddch(SYSwin, ' '|A_REVERSE);
+					wattroff(SYSwin, COLOR_PAIR(6));
+				}
+			}
+		datapos = datapos+4;
+		}
+	}
+	for(int i = 0; i < SYSblocks; i++){
+		if(!sysccc[5][i]){
+		std::stringstream ss;
+		std::string s;
+		currcol = sysccc[7][i];
 		wattron(SYSwin, COLOR_PAIR(currcol));
 		wmove(SYSwin, 18, datapos-1);
 		ss << std::hex << std::uppercase << sysccc[4][i] << std::dec << std::nouppercase;
@@ -2484,6 +2668,7 @@ void Tree::MsgRef(){
 				}
 			}
 		datapos = datapos+4;
+		}
 	}
 	wrefresh(SYSwin);
 }

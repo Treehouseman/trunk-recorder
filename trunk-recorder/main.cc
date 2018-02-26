@@ -203,7 +203,11 @@ void load_config(string config_file)
 	  bool isconventional = false;
 	  if(system->get_system_type() == "conventional")
 		  isconventional=true;
-	  tout.SysId(newid, isconventional, system->get_sys_num(), newsite);
+	  int hasgroup = false;
+	  int group;
+	  hasgroup = node.second.get<int>("hasGroup", 0);
+	  group = node.second.get<int>("group", 0);
+	  tout.SysId(newid, isconventional, system->get_sys_num(), newsite, hasgroup, group);
 	  system->set_sys_nac(newid);
       if (system->get_system_type() == "conventional") {
         BOOST_LOG_TRIVIAL(info) << "Conventional Channels: ";
