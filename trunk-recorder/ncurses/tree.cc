@@ -90,7 +90,7 @@ bool looped = false;
 int sysmps[100][60];
 int grpmps[100][60];
 int sysccc[8][100];
-int grpccc[100][100]; //enable, sysid, current, min, max, avg
+int grpccc[100][100]; //enable, sysid, min, max, avg, color, current
 int pastpos = 0;
 int history[28][3];
 std::string UThistory[20];
@@ -687,7 +687,7 @@ void Tree::ccId(int sysnum){
 	for(int i = 0; i < 100; i++){
 		if(sysccc[3][i]==sysnum){
 			if(sysccc[5][i]){
-				grpccc[2][sysccc[6][i]]++;
+				grpccc[6][sysccc[6][i]]++;
 			}
 			sys_id = sysccc[0][i];
 			sysccc[1][i] = sysccc[1][i]+1;
@@ -1538,8 +1538,8 @@ void Tree::msgdata(){
 	}
 	for(int i = 0; i < 100; i++){
 		if(grpccc[0][i]){
-			grpmps[i][spos] = grpccc[1][i];
-			grpccc[1][i]=0;
+			grpmps[i][spos] = grpccc[6][i];
+			grpccc[6][i]=0;
 		}
 	}
 	for(int i = 0; i < 100; i++){
@@ -2526,7 +2526,7 @@ void Tree::MsgRef(){
 		if(grpccc[0][i]){
 		std::stringstream ss;
 		std::string s;
-		currcol = grpccc[7][i];
+		currcol = grpccc[5][i];
 		wattron(SYSwin, COLOR_PAIR(currcol));
 		wmove(SYSwin, 18, datapos-1);
 		ss << std::hex << std::uppercase << grpccc[1][i] << std::dec << std::nouppercase;
