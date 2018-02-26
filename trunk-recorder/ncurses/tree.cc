@@ -89,7 +89,7 @@ int spos = 0;
 bool looped = false;
 int sysmps[100][60];
 int grpmps[100][60];
-int sysccc[8][100];
+int sysccc[9][100];
 int grpccc[100][100]; //enable, sysid, min, max, avg, color, current
 int pastpos = 0;
 int history[28][3];
@@ -636,10 +636,17 @@ void Tree::Long(long tg, long freq, int elapsed, int since, int sys){
 	NewLog(ks.str());
 	LgErr++;
 }
-void Tree::SysId(int sysid, bool conventional, int sysnum, int syssite, int hasGroup, int group){
+void Tree::SysId(int sysid, bool conventional, int sysnum, int syssite, int hasGroup, int group, int hide){
 	/*
 	Copy our sysid tracking stuff here
 	*/
+	if(hide){
+		sysccc[8][SYSblocks]=1;
+		t2syscount--;
+	}
+	else{
+		sysccc[8][SYSblocks]=0;
+	}
 	if(hasGroup != 0){
 		if(grpccc[0][group]==false){
 			t2syscount++;
@@ -1444,6 +1451,30 @@ int Tree::getcol(int loc){
 		break;
 		case 9:
 		return 160;
+		break;
+		case 10:
+		return 49;
+		break;
+		case 11:
+		return 119;
+		break;
+		case 12:
+		return 196;
+		break;
+		case 13:
+		return 193;
+		break;
+		case 14:
+		return 227;
+		break;
+		case 15:
+		return 155;
+		break;
+		case 16:
+		return 85;
+		break;
+		case 17:
+		return 185;
 		break;
 		default:
 		return 4;
@@ -2597,7 +2628,7 @@ void Tree::MsgRef(){
 		}
 	}
 	for(int i = 0; i < SYSblocks; i++){
-		if(!sysccc[5][i]){
+		if(!sysccc[5][i] && !sysccc[8][i]){
 		std::stringstream ss;
 		std::string s;
 		currcol = sysccc[7][i];

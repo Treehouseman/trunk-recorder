@@ -35,7 +35,7 @@ void KillCall(long tg, long freq, int elapsed, int since, int sys);
 void Long(long tg, long freq, int elapsed, int since, int sys);
 void Retune(int elasped, int since, long tg, long old_freq, long new_freq, bool isgood);
 void DoubleCall(long newtg, long oldtg, long freq, int since, int elapsed);
-void SysId(int sysid, bool isconventional, int sysnum, int newsite, int hasGroup, int group);
+void SysId(int sysid, bool isconventional, int sysnum, int newsite, int hasGroup, int group, int hide);
 void UtRef();
 void Rate(int mps);
 void CursesError();
