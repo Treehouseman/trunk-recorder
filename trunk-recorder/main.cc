@@ -109,7 +109,7 @@ int csys_id=0;
 unsigned int tsyscount = 0;
 Tree tout;
 int retuneDelay;
-
+int freqFilter = 0;
 
 void exit_interupt(int sig) { // can be called asynchronously
   exit_flag = 1;              // set flag
@@ -448,6 +448,7 @@ void load_config(string config_file)
 
     BOOST_LOG_TRIVIAL(info) << "\n\n-------------------------------------\nINSTANCE\n-------------------------------------\n";
 	//Treehouseman config
+	freqFilter = pt.get<int>("freqFilter", 0);
 	cursesen = pt.get<int>("ncurses", 0);
 	cursesen = pt.get<int>("ncurses", 0);
 	tout.SetCurses(0, cursesen);
@@ -822,7 +823,17 @@ void handle_call(TrunkMessage message, System *sys) {
   bool call_found        = false;
   bool call_retune       = false;
   bool recording_started = false;
-
+if(freqFilter){
+	if(message.freq < 769000000){
+	return;
+	}
+	if(777000000 < message.freq && message.freq < 851000000){
+	return;
+	}
+	if(862000000 < message.freq){
+	return;
+	}
+}
   for (vector<Call *>::iterator it = calls.begin(); it != calls.end();) {
     Call *call = *it;
 

@@ -25,6 +25,8 @@
 class Tree {
 	#include<ncurses.h>
 public:
+void setrecordermode(int mode);
+void checkRecOffset();
 void SetCurses(int option, int enable);
 void SourceDev(std::string dev, int dig, int ana);
 void PurgeArrays();
