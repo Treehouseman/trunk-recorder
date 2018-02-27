@@ -2309,7 +2309,8 @@ void Tree::Wav(int msg){
 }
 void Tree::RecRef(){
 	int recorderbuff = 0;
-	int recorderoffset = 0;
+	int recorderoffsetx = 0;
+	int recorderoffsety = 0;
 	if(delayedref!=0){
 		LogRef();
 	}
@@ -2331,10 +2332,10 @@ void Tree::RecRef(){
 	std::string s2;
 	std::string s;
 	if(i < 9){
-	wmove(RECwin, 1+(i-25*recorderoffset),2+(TGblockx*(x+recorderoffset)));
+	wmove(RECwin, 1+(i-25*recorderoffsety),2+(TGblockx*(x+recorderoffsetx)));
 	}
 	else{
-	wmove(RECwin, 1+(i-25*recorderoffset),1+(TGblockx*(x+recorderoffset)));
+	wmove(RECwin, 1+(i-25*recorderoffsety),1+(TGblockx*(x+recorderoffsetx)));
 	}
 	ss2 << i+1;
 	ss2 >> s2;
@@ -2391,7 +2392,7 @@ void Tree::RecRef(){
 	}
 	}
 	}
-	wmove(RECwin, 1+(i-25*recorderoffset),4+(TGblockx*(x+recorderoffset)));
+	wmove(RECwin, 1+(i-25*recorderoffsety),4+(TGblockx*(x+recorderoffsetx)));
 	currcol = digitalgroups[x][i][2];
 		wattron(RECwin, COLOR_PAIR(currcol));
 		if(digitalgroups[x][i][0]!=0){
@@ -2405,7 +2406,8 @@ void Tree::RecRef(){
 		//	s = "";
 	recorderbuff++;
 	if(recorderbuff%25==0 && recorderbuff!=0){
-		recorderoffset++;
+		recorderoffsetx++;
+		recorderoffsety++;
 	}
 	}
 	for (int i = 0; i < anarec[x]; i++){
@@ -2414,10 +2416,10 @@ void Tree::RecRef(){
 	std::string s2;
 	std::string s;
 	if(i < 9){
-	wmove(RECwin, 1+(i+digrec[x]-25*recorderoffset),2+(TGblockx*(x+recorderoffset)));
+	wmove(RECwin, 1+(i+digrec[x]-25*recorderoffsety),2+(TGblockx*(x+recorderoffsetx)));
 	}
 	else{
-	wmove(RECwin, 1+(i+digrec[x]-25*recorderoffset),1+(TGblockx*(x+recorderoffset)));
+	wmove(RECwin, 1+(i+digrec[x]-25*recorderoffsety),1+(TGblockx*(x+recorderoffsetx)));
 	}
 	ss2 << i+1;
 	ss2 >> s2;
@@ -2474,7 +2476,7 @@ void Tree::RecRef(){
 	}
 	}
 	}
-	wmove(RECwin, 1+(i+digrec[x]-25*recorderoffset),4+(TGblockx*(x+recorderoffset)));
+	wmove(RECwin, 1+(i+digrec[x]-25*recorderoffsety),4+(TGblockx*(x+recorderoffsetx)));
 	currcol = analoggroups[x][i][2];
 		wattron(RECwin, COLOR_PAIR(currcol));
 		if(analoggroups[x][i][0]!=0){
@@ -2488,7 +2490,8 @@ void Tree::RecRef(){
 		//	s = "";
 	recorderbuff++;
 	if(recorderbuff%25==0 && recorderbuff!=0){
-		recorderoffset++;
+		recorderoffsetx++;
+		recorderoffsety++;
 	}
 	}
 	for (int i = 0; i < dconvrec[x]; i++){
@@ -2497,10 +2500,10 @@ void Tree::RecRef(){
 	std::string s2;
 	std::string s;
 	if(i < 9){
-	wmove(RECwin, 1+i+digrec[x]+anarec[x]-(25*recorderoffset),2+(TGblockx*(x+recorderoffset)));
+	wmove(RECwin, 1+i+digrec[x]+anarec[x]-(25*recorderoffsety),2+(TGblockx*(x+recorderoffsetx)));
 	}
 	else{
-	wmove(RECwin, 1+i+digrec[x]+anarec[x]-(25*recorderoffset),1+(TGblockx*(x+recorderoffset)));
+	wmove(RECwin, 1+i+digrec[x]+anarec[x]-(25*recorderoffsety),1+(TGblockx*(x+recorderoffsetx)));
 	}
 	ss2 << i+1;
 	ss2 >> s2;
@@ -2508,7 +2511,7 @@ void Tree::RecRef(){
 	wattron(RECwin, COLOR_PAIR(214));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(214));
-	wmove(RECwin, 1+i+digrec[x]+anarec[x]-(25*recorderoffset),4+(TGblockx*(x+recorderoffset)));
+	wmove(RECwin, 1+i+digrec[x]+anarec[x]-(25*recorderoffsety),4+(TGblockx*(x+recorderoffsetx)));
 	currcol = dconventionalgroups[x][i][2];
 		wattron(RECwin, COLOR_PAIR(currcol));
 		if(dconventionalgroups[x][i][1]!=0){
@@ -2529,7 +2532,8 @@ void Tree::RecRef(){
 		//	s = "";
 	recorderbuff++;
 	if(recorderbuff%25==0 && recorderbuff!=0){
-		recorderoffset++;
+		recorderoffsetx++;
+		recorderoffsety++;
 	}
 	}
 	for (int i = 0; i < aconvrec[x]; i++){
@@ -2538,10 +2542,10 @@ void Tree::RecRef(){
 	std::string s2;
 	std::string s;
 	if(i < 9){
-	wmove(RECwin, 1+i+digrec[x]+anarec[x]-(25*recorderoffset),2+(TGblockx*(x+recorderoffset)));
+	wmove(RECwin, 1+i+digrec[x]+anarec[x]-(25*recorderoffsety),2+(TGblockx*(x+recorderoffsetx)));
 	}
 	else{
-	wmove(RECwin, 1+i+digrec[x]+anarec[x]-(25*recorderoffset),1+(TGblockx*(x+recorderoffset)));
+	wmove(RECwin, 1+i+digrec[x]+anarec[x]-(25*recorderoffsety),1+(TGblockx*(x+recorderoffsetx)));
 	}
 	ss2 << i+1;
 	ss2 >> s2;
@@ -2549,7 +2553,7 @@ void Tree::RecRef(){
 	wattron(RECwin, COLOR_PAIR(5));
 	wprintw(RECwin, d);
 	wattroff(RECwin, COLOR_PAIR(5));
-	wmove(RECwin, 1+i+digrec[x]+anarec[x]+dconvrec[x]-(25*recorderoffset),4+(TGblockx*(x+recorderoffset)));
+	wmove(RECwin, 1+i+digrec[x]+anarec[x]+dconvrec[x]-(25*recorderoffsety),4+(TGblockx*(x+recorderoffsetx)));
 	currcol = aconventionalgroups[x][i][2];
 		wattron(RECwin, COLOR_PAIR(currcol));
 		if(aconventionalgroups[x][i][1]!=0){
@@ -2570,13 +2574,15 @@ void Tree::RecRef(){
 		//	s = "";
 	recorderbuff++;
 	if(recorderbuff%25==0 && recorderbuff!=0){
-		recorderoffset++;
+		recorderoffsetx++;
+		recorderoffsety++;
 	}
 	}
 	if(recorderbuff%25==0){
-		recorderoffset--;
+		recorderoffsety--;
+		recorderoffsetx--;
 	}
-	wmove(RECwin, digrec[x]+anarec[x]+aconvrec[x]+dconvrec[x]+2-(25*recorderoffset), 2+(TGblockx*(x+recorderoffset)));
+	wmove(RECwin, digrec[x]+anarec[x]+aconvrec[x]+dconvrec[x]+2-(25*recorderoffsetx), 2+(TGblockx*(x+recorderoffsety)));
 	wattron(RECwin, COLOR_PAIR(7));
 	if(RecStatus[0][x]==1)
 		wattron(RECwin, A_REVERSE);
@@ -2586,6 +2592,7 @@ void Tree::RecRef(){
 		wattroff(RECwin, A_REVERSE);
 	wattroff(RECwin, COLOR_PAIR(7));
 	recorderbuff=0;
+	recorderoffsety=0;
 	}
 	wrefresh(RECwin);
 }
