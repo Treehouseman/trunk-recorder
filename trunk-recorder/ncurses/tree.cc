@@ -280,6 +280,7 @@ void Tree::checkRecOffset(){
 		int addoffset = totalrecorders[i]/25;
 		recwinoffset += addoffset;
 	}
+	resized=true;
 }
 void Tree::Past(int tg, int elapsed, int color){
 	if(!curseenable)
@@ -861,7 +862,7 @@ void Tree::Coordinates(){
 			SYSstarty = R2y;
 			MTGstarty = R2y;
 			ERRstarty = R2y;
-			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
+			TGendx = TGstartx+TGdefx+(TGblockx*(TGblocks+recwinoffset)); //now we have the end of our TG window!
 			SYSstartx = TGstartx;
 			SYSendx = SYSstartx+SYSdefx+(SYSblockx*rSYSblocks);
 			DATstartx = SYSendx + 1;
@@ -899,7 +900,7 @@ void Tree::Coordinates(){
 			UTdesclen=100;
 			TGstarty=R1y;
 			TGstartx=1;
-			TGendx=TGstartx+TGdefx+(TGblockx*TGblocks);
+			TGendx=TGstartx+TGdefx+(TGblockx*(TGblocks+recwinoffset));
 			UTstarty=R2y;
 			UTstartx=1;
 			UTendx=UTstartx+UTdefx+(UTblockx*UTblocks);
@@ -915,7 +916,7 @@ void Tree::Coordinates(){
 			UTdesclen=32;
 			TGstarty=R1y;
 			TGstartx=1;
-			TGendx=TGstartx+TGdefx+(TGblockx*TGblocks);
+			TGendx=TGstartx+TGdefx+(TGblockx*(TGblocks+recwinoffset));
 			UTstarty=R2y;
 			UTstartx=1;
 			UTendx=UTstartx+75+(UTblockx*UTblocks);
@@ -941,7 +942,7 @@ void Tree::Coordinates(){
 			ERRstarty = R1y;
 			LOGstarty = R2y;
 			UTstarty=R2y;
-			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
+			TGendx = TGstartx+TGdefx+(TGblockx*(TGblocks+recwinoffset)); //now we have the end of our TG window!
 			SYSstartx = TGendx+1;
 			SYSendx = SYSstartx+SYSdefx+(SYSblockx*rSYSblocks);
 			DATstartx = SYSendx + 1;
@@ -986,7 +987,7 @@ void Tree::Coordinates(){
 			ERRstarty = R1y;
 			LOGstarty = R2y;
 			UTstarty=R2y;
-			TGendx = TGstartx+TGdefx+(TGblockx*TGblocks); //now we have the end of our TG window!
+			TGendx = TGstartx+TGdefx+(TGblockx*(TGblocks+recwinoffset)); //now we have the end of our TG window!
 			SYSstartx = TGendx+1;
 			SYSendx = SYSstartx+SYSdefx+(SYSblockx*rSYSblocks);
 			DATstartx = SYSendx + 1;

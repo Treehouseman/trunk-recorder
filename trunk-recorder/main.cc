@@ -451,6 +451,7 @@ void load_config(string config_file)
 	freqFilter = pt.get<int>("freqFilter", 0);
 	cursesen = pt.get<int>("ncurses", 0);
 	cursesen = pt.get<int>("ncurses", 0);
+	tout.setrecordermode(pt.get<int>("recordermode", 0));
 	tout.SetCurses(0, cursesen);
 	tout.SetCurses(1, pt.get<int>("ncurses_group", 0));
 	tout.SetCurses(2, pt.get<int>("ncurses_cpu", 0));
