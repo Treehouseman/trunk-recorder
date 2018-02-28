@@ -1,22 +1,22 @@
-57,39,D,CO Storm 1,Colorado Storm Channel 1 ,Utilities ,Special Events and Storms ,2
-58,03a,D,CO Storm 2,Colorado Storm Channel 2 ,Utilities ,Special Events and Storms ,2
-20001,4.00E+21,D,Elec Outages,Electric Outage Response Dispatch ,Utilities ,Utility Operations ,2
-20003,4.00E+23,D,Elec Control,Electric Control Operations ,Utilities ,Utility Operations ,2
-20004,4.00E+24,D,Elec Pole 1,Electrical Pole Maintenance 1 ,Utilities ,Electrical Maintenance ,2
-20007,4.00E+27,D,Elec Pole In,Electrical Pole Installation ,Utilities ,Electrical Maintenance ,2
-20008,4.00E+28,D,NDen ElecRep,North Denver Metro Electric Outage Repair Talkaround ,Utilities ,Utility Operations ,2
-20011,4e2b,D,Serv Disconn,Service Disconnects ,Utilities ,Utility Operations ,2
-20013,4e2d,D,Elec/Gas Sev,Electric & Gas Turn On & Turn Off ,Utilities ,Utility Operations ,2
-20015,4e2f,D,NatGas Ops,Gas Operations ,Utilities ,Natural Gas Operations ,2
-20021,4.00E+35,D,Site Coord,Job Site Coordination ,Utilities ,Utility Operations ,2
-20024,4.00E+38,D,Elec Pole 2,Electrical Pole Maintenance 2 ,Utilities ,Electrical Maintenance ,2
-20026,4e3a,D,Elec Trouble,Electric Trouble - Local Distrubution ,Utilities ,Utility Operations ,2
-20027,4e3b,D,NatGas Trble,Gas Trouble - Local Distribution ,Utilities ,Natural Gas Operations ,2
-20028,4e3c,D,Bldr Elec Op,Boulder Electric Operations ,Utilities ,Utility Operations ,2
-20030,4e3e,D,Event 1,Event Channel 1 ,Utilities ,Special Events and Storms ,2
-20031,4e3f,D,Event 2,Event Channel 2 ,Utilities ,Special Events and Storms ,2
-20038,4.00E+46,D,Elec Plant 3,Electrical Plant Operations 3 ,Utilities ,Electrical Generation ,2
-20042,4e4a,D,Elec Plant 1,Electrical Plant Operations 1 ,Utilities ,Electrical Generation ,2
-20043,4e4b,D,Elec Plant 2,Electrical Plant Operations 2 ,Utilities ,Electrical Generation ,2
-20046,4e4e,D,Elec Plant 4,Electrical Plant Operations 4 ,Utilities ,Electrical Generation ,2
-20048,4.00E+50,D,Elec Plant 5,Electrical Plant Operations 5 ,Utilities ,Electrical Generation ,2
+57,39,D,CO Storm 1,Colorado Storm Channel 1 ,Utilities ,Special Events and Storms ,2
+58,03a,D,CO Storm 2,Colorado Storm Channel 2 ,Utilities ,Special Events and Storms ,2
+20001,4.00E+21,D,Elec Outages,Electric Outage Response Dispatch ,Utilities ,Utility Operations ,2
+20003,4.00E+23,D,Elec Control,Electric Control Operations ,Utilities ,Utility Operations ,2
+20004,4.00E+24,D,Elec Pole 1,Electrical Pole Maintenance 1 ,Utilities ,Electrical Maintenance ,2
+20007,4.00E+27,D,Elec Pole In,Electrical Pole Installation ,Utilities ,Electrical Maintenance ,2
+20008,4.00E+28,D,NDen ElecRep,North Denver Metro Electric Outage Repair Talkaround ,Utilities ,Utility Operations ,2
+20011,4e2b,D,Serv Disconn,Service Disconnects ,Utilities ,Utility Operations ,2
+20013,4e2d,D,Elec/Gas Sev,Electric & Gas Turn On & Turn Off ,Utilities ,Utility Operations ,2
+20015,4e2f,D,NatGas Ops,Gas Operations ,Utilities ,Natural Gas Operations ,2
+20021,4.00E+35,D,Site Coord,Job Site Coordination ,Utilities ,Utility Operations ,2
+20024,4.00E+38,D,Elec Pole 2,Electrical Pole Maintenance 2 ,Utilities ,Electrical Maintenance ,2
+20026,4e3a,D,Elec Trouble,Electric Trouble - Local Distrubution ,Utilities ,Utility Operations ,2
+20027,4e3b,D,NatGas Trble,Gas Trouble - Local Distribution ,Utilities ,Natural Gas Operations ,2
+20028,4e3c,D,Bldr Elec Op,Boulder Electric Operations ,Utilities ,Utility Operations ,2
+20030,4e3e,D,Event 1,Event Channel 1 ,Utilities ,Special Events and Storms ,2
+20031,4e3f,D,Event 2,Event Channel 2 ,Utilities ,Special Events and Storms ,2
+20038,4.00E+46,D,Elec Plant 3,Electrical Plant Operations 3 ,Utilities ,Electrical Generation ,2
+20042,4e4a,D,Elec Plant 1,Electrical Plant Operations 1 ,Utilities ,Electrical Generation ,2
+20043,4e4b,D,Elec Plant 2,Electrical Plant Operations 2 ,Utilities ,Electrical Generation ,2
+20046,4e4e,D,Elec Plant 4,Electrical Plant Operations 4 ,Utilities ,Electrical Generation ,2
+20048,4.00E+50,D,Elec Plant 5,Electrical Plant Operations 5 ,Utilities ,Electrical Generation ,2

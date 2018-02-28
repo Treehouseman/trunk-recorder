@@ -1,134 +1,134 @@
-2286,8ee,T,Red NE,Red NE - Fire Mutual Aid NE Denver Metro ,Interop ,Mutual Aid ,2
-2287,8ef,T,Blue NE,Blue NE - Law Enforcement Mutual Aid NE Denver Metro ,Interop ,Mutual Aid ,2
-2288,8f0,T,Red SW,Red SW - Fire Mutual Aid SW Denver Metro ,Interop ,Mutual Aid ,2
-2289,8f1,T,Green-1,Green-1 - Statewide EMS Mutual Aid-1 ,Interop ,Mutual Aid ,2
-2290,8f2,T,Blue SW,Blue SW - Law Enforcement Mutual Aid SW Denver Metro ,Interop ,Mutual Aid ,2
-2291,8f3,T,Green-2,Green-2 - Statewide EMS Mutual Aid-2 ,Interop ,Mutual Aid ,2
-2293,8f5,T,Grey,Grey - Denver Metro Federal Mutual Aid ,Interop ,Mutual Aid ,2
-2295,8f7,T,Red NW,Red NW - Fire Mutual Aid NW Denver Metro ,Interop ,Mutual Aid ,2
-2296,8f8,T,Blue NW,Blue NW - Law Enforcement Mutual Aid NW Denver Metro  ,Interop ,Mutual Aid ,2
-2297,8f9,T,Red SE,Red SE - Fire Mutual Aid SE Denver Metro ,Interop ,Mutual Aid ,2
-2298,8fa,T,Blue SE,Blue SE - Law Enforcement Mutual Aid SE Denver Metro ,Interop ,Mutual Aid ,2
-2299,8fb,T,Gold-2,Gold-2 - Denver Metro Command/Control-2 ,Interop ,Mutual Aid ,2
-2312,908,D,Red NE,Red NE - Fire Mutual Aid NE Denver Metro ,Interop ,Mutual Aid ,2
-2320,910,D,Red SW,Red SW - Fire Mutual Aid SW Denver Metro ,Interop ,Mutual Aid ,2
-2324,914,D,Gold-2,Gold-2 - Denver Metro Command/Control-2 ,Interop ,Mutual Aid ,2
-2328,918,D,Blue NW,Blue NW - Law Enforcement Mutual Aid NW Denver Metro  ,Interop ,Mutual Aid ,2
-2332,91c,D,Grey,Grey - Denver Metro Federal Mutual Aid ,Interop ,Mutual Aid ,2
-2336,920,D,Blue SW,Blue SW - Law Enforcement Mutual Aid SW Denver Metro ,Interop ,Mutual Aid ,2
-2340,924,D,Blue NE,Blue NE - Law Enforcement Mutual Aid NE Denver Metro ,Interop ,Mutual Aid ,2
-2344,928,D,Blue SE,Blue SE - Law Enforcement Mutual Aid SE Denver Metro ,Interop ,Mutual Aid ,2
-2348,92c,D,Red NW,Red NW - Fire Mutual Aid NW Denver Metro ,Interop ,Mutual Aid ,2
-2352,930,D,Green-1,Green-1 - Denver Metro  ,Interop ,Mutual Aid ,2
-2356,934,D,Gold-1,Gold-1 - Denver Metro Command/Control-1 ,Interop ,Mutual Aid ,2
-2360,938,D,MetroNet,Metro Net (Console-to-Console with DTRS)  ,Interop ,Mutual Aid ,2
-2364,93c,D,Red SE,Red SE - Fire Mutual Aid SE Denver Metro ,Interop ,Mutual Aid ,2
-2391,957,D,Green SE,Green SE - Denver Metro  ,Interop ,Mutual Aid ,2
-3022,bce,D,Green SW,Green SW - Denver Metro  ,Interop ,Mutual Aid ,2
-3026,bd2,D,Green NW,Green NW - Denver Metro  ,Interop ,Mutual Aid ,2
-3030,bd6,D,Green NE,Green NE - Denver Metro  ,Interop ,Mutual Aid ,2
-34903,8857,T,Gold-1,Gold-1 - Denver Metro Command/Control-1 ,Interop ,Mutual Aid ,2
-38240,9560,T,Water Maint,Water Department Maintenance ,Public Works ,Public Works ,2
-39001,9859,T,Radio Shop 1,Radio Shop 1 ,Public Works ,Information Technology/Radio Shop ,2
-39002,985a,T,Radio Shop 2,Radio Shop 2 ,Public Works ,Information Technology/Radio Shop ,2
-39003,985b,T,Radio Shop 3,Radio Shop 3 ,Public Works ,Information Technology/Radio Shop ,2
-39004,985c,T,Radio Shop 4,Radio Shop 4 ,Public Works ,Information Technology/Radio Shop ,2
-39101,98bd,T,AFD Dispatch,Dispatch ,Fire Dispatch ,Fire/EMS ,2
-39102,98be,T,AFD TAC 2,TAC 2 ,Fire-Tac ,Fire/EMS ,2
-39103,98bf,T,AFD TAC 3,TAC 3 ,Fire-Tac ,Fire/EMS ,2
-39104,98c0,T,AFD TAC 4,TAC 4 ,Fire-Tac ,Fire/EMS ,2
-39105,98c1,T,AFD TAC 5,TAC 5 ,Fire-Tac ,Fire/EMS ,2
-39106,98c2,T,AFD TAC 6,TAC 6 ,Fire-Tac ,Fire/EMS ,2
-39107,98c3,T,AFD ARSON,TAC 6 ,Fire-Tac ,Fire/EMS ,2
-39108,98c4,T,AFD EMS 1,EMS 1 ,EMS-Tac ,Fire/EMS ,2
-39109,98c5,T,AFD EMS 2,EMS 2 ,EMS-Tac ,Fire/EMS ,2
-39110,98c6,T,AFD EMS 3,EMS 3 ,EMS-Tac ,Fire/EMS ,2
-39111,98c7,T,AFD EMS 4,EMS 4 ,EMS-Tac ,Fire/EMS ,2
-39112,98c8,T,AFD EMS 5,EMS 5 - Falck Dispatch ,EMS Dispatch ,Fire/EMS ,2
-39113,98c9,T,AFD EMS 6,EMS 6 ,EMS-Tac ,Fire/EMS ,2
-39114,98ca,T,AFD EMS ADMN,EMS Administration ,EMS-Tac ,Fire/EMS ,2
-39115,98cb,T,AFD ADMIN,Fire Administration ,Fire-Tac ,Fire/EMS ,2
-39116,98cc,T,V FIRE 21,VFIRE 21 ,Fire-Tac ,Fire/EMS ,2
-39117,98cd,T,AFD SPC Ops1,Special Ops 1 ,Fire-Tac ,Fire/EMS ,2
-39118,98ce,T,AFD SPC Ops2,Special Ops 2 ,Fire-Tac ,Fire/EMS ,2
-39119,98cf,T,AFD SPC Ops3,Special Ops 3 ,Fire-Tac ,Fire/EMS ,2
-39120,98d0,T,AFD SPC Ops5,Special Ops 4 ,Fire-Tac ,Fire/EMS ,2
-39121,98d1,T,AFD SPC Ops5,Special Ops 5 ,Fire-Tac ,Fire/EMS ,2
-39122,98d2,T,AFD SPC Ops6,Special Ops 6 ,Fire-Tac ,Fire/EMS ,2
-39123,98d3,T,AFD SPC Ops7,Special Ops 7 ,Fire-Tac ,Fire/EMS ,2
-39124,98d4,T,AFD SPC Ops8,Special Ops 8 ,Fire-Tac ,Fire/EMS ,2
-39125,98d5,T,AFD SPC Ops9,Special Ops 9 ,Fire-Tac ,Fire/EMS ,2
-39126,98d6,T,AFD SPCOps10,Special Ops 10 ,Fire-Tac ,Fire/EMS ,2
-39128,98d8,T,AFD TRN 1,Training 1 ,Fire-Talk ,Fire/EMS ,2
-39129,98d9,T,AFD TRN 2,Training 2 ,Fire-Talk ,Fire/EMS ,2
-39201,9921,T,SNOW 1,SNOW 1 ,Public Works ,Public Works ,2
-39202,9922,T,SNOW 2,SNOW 2 ,Public Works ,Public Works ,2
-39203,9923,T,SNOW 3,SNOW 3 ,Public Works ,Public Works ,2
-39204,9924,T,SNOW 4,SNOW 4 ,Public Works ,Public Works ,2
-39205,9925,T,Street North,Streets North ,Public Works ,Public Works ,2
-39206,9926,T,Street South,Streets South ,Public Works ,Public Works ,2
-39209,9929,T,Street Paint,Streets Paint ,Public Works ,Public Works ,2
-39214,992e,T,PI Inspector,Public Improvement Inspectors ,Public Works ,Public Works ,2
-39216,9930,T,Sweeper 1,Streets Sweeper 1 ,Public Works ,Public Works ,2
-39217,9931,T,Sweeper 2,Streets Sweeper 2 ,Public Works ,Public Works ,2
-39224,9938,T,Forestry,Forestry Division ,Public Works ,Public Works ,2
-39228,993c,T,Open Space 1,Open Space Ch 1 ,Public Works ,Public Works ,2
-39229,993d,T,Open Space 2,Open Space Ch 2 ,Public Works ,Public Works ,2
-39230,993e,T,Ranger 1,Ranger 1 ,Public Works ,Public Works ,2
-39231,993f,T,Ranger2,Ranger 2 ,Public Works ,Public Works ,2
-39232,9940,T,Flow Ctrl 1,Flow Control Ch 1 ,Public Works ,Public Works ,2
-39233,9941,T,Flow Ctrl 2,Flow Control Ch 2 ,Public Works ,Public Works ,2
-39234,9942,T,Flow Ctrl 3,Flow Control Ch 3 ,Public Works ,Public Works ,2
-39235,9943,T,Storm Water,Storm Water ,Public Works ,Public Works ,2
-39236,9944,T,Treatment,Water Treatment ,Public Works ,Public Works ,2
-39237,9945,T,Treatment,Water Treatment ,Public Works ,Public Works ,2
-39238,9946,T,Treatment,Water Treatment ,Public Works ,Public Works ,2
-39242,994a,T,Tech Ops,Tech Ops ,Public Works ,Public Works ,2
-39243,994b,T,Code Ch1,Code Enforcement Ch 1 ,Public Works ,Public Works ,2
-39244,994c,T,Code Ch2,Code Enforcement Ch 2 ,Public Works ,Public Works ,2
-39245,994d,T,Animal Care1,Animal CARE Ch1 ,Public Works ,Public Works ,2
-39246,994e,T,Animal Care2,Animal CARE Ch2 ,Public Works ,Public Works ,2
-39247,994f,T,BI Ch1,Building Inspector 1 ,Public Works ,Public Works ,2
-39248,9950,T,BI Ch2,Building Inspector 2 ,Public Works ,Public Works ,2
-39249,9951,T,Survey 1,Survey 1 ,Public Works ,Public Works ,2
-39250,9952,T,Survey 2,Survey 2 ,Public Works ,Public Works ,2
-39251,9953,T,Survey 3,Survey 3 ,Public Works ,Public Works ,2
-39252,9954,T,Survey 4,Survey 4 ,Public Works ,Public Works ,2
-39253,9955,T,Survey 5,Survey 5 ,Public Works ,Public Works ,2
-39254,9956,T,Survey 6,Survey 6 ,Public Works ,Public Works ,2
-39301,9985,T,Detentions 1,Detention Center 1 ,Corrections ,Detention Center ,2
-39302,9986,T,Detentions 2,Detention Center 2 ,Corrections ,Detention Center ,2
-39303,9987,T,Detentions 3,Detention Center 3 ,Corrections ,Detention Center ,2
-39304,9988,T,Detentions 4,Detention Center 4 ,Corrections ,Detention Center ,2
-39305,9989,T,Marshals,Aurora Marshal's Office ,Corrections ,Detention Center ,2
-39401,9.90E+10,T,UCAMC PD-1,UC Anschutz Medical Campus PD 1  ,Law Dispatch ,University of Colorado Denver | Anschutz Medical Campus ,2
-39402,99ea,T,UCAMC PD-2,UC Anschutz Medical Campus PD 2 ,Law Tac ,University of Colorado Denver | Anschutz Medical Campus ,2
-39403,99eb,T,UCAMC PD-3,UC Anschutz Medical Campus PD 3 ,Law Tac ,University of Colorado Denver | Anschutz Medical Campus ,2
-39404,99ec,T,UCAMC PD-4,UC Anschutz Medical Campus PD 4 ,Law Tac ,University of Colorado Denver | Anschutz Medical Campus ,2
-39405,99ed,T,UCAMC PD-5,UC Anschutz Medical Campus PD 5 ,Law Tac ,University of Colorado Denver | Anschutz Medical Campus ,2
-39406,99ee,T,UCAMC PD-6,UC Anschutz Medical Campus PD 6 ,Law Tac ,University of Colorado Denver | Anschutz Medical Campus ,2
-39407,99ef,T,UCH SECURITY,University of Colorado Hospital Security ,Security ,University of Colorado Denver | Anschutz Medical Campus ,2
-39500,9a4c,DE,APD ALL CALL,All Call ,Law Dispatch ,Police ,2
-39501,9a4d,DE,APD Dist 1,District 1 ,Law Dispatch ,Police ,2
-39502,9a4e,DE,APD Dist 2,District 2 ,Law Dispatch ,Police ,2
-39503,9a4f,DE,APD Dist 3,District 3 ,Law Dispatch ,Police ,2
-39504,9a50,DE,APD Svc 1,Services 1 ,Law Talk ,Police ,2
-39505,9a51,DE,APD Svc 2,Services 2 ,Law Talk ,Police ,2
-39506,9a52,DE,APD Tac 11,Tac 11 ,Law Tac ,Police ,2
-39507,9a53,DE,APD Tac 12,Tac 12 ,Law Tac ,Police ,2
-39508,9a54,DE,APD Tac 13,Tac 13 ,Law Tac ,Police ,2
-39509,9a55,DE,APD Tac 21,Tac 21 ,Law Tac ,Police ,2
-39510,9a56,DE,APD Tac 22,Tac 22 ,Law Tac ,Police ,2
-39511,9a57,DE,APD Tac 23,Tac 23 ,Law Tac ,Police ,2
-39512,9a58,DE,APD Tac 31,Tac 31 ,Law Tac ,Police ,2
-39513,9a59,DE,APD Tac 32,Tac 32 ,Law Tac ,Police ,2
-39514,9a5a,DE,APD Tac 33,Tac 33 ,Law Tac ,Police ,2
-39601,9ab1,T,Pub Safety 1,Public Safety 1 ,Multi-Tac ,Public Safety  ,2
-39602,9ab2,T,EVENT 1,EVENT 1 ,Multi-Tac ,Public Safety  ,2
-39603,9ab3,T,EVENT 2,EVENT 2 ,Multi-Tac ,Public Safety  ,2
-39604,9ab4,T,EVENT 3,EVENT 3 ,Multi-Tac ,Public Safety  ,2
-39605,9ab5,T,EVENT 4,EVENT 4 ,Multi-Tac ,Public Safety  ,2
-39606,9ab6,T,EVENT 5,EVENT 5 ,Multi-Tac ,Public Safety  ,2
-39610,9aba,T,911TG,911TG ,Multi-Tac ,Public Safety  ,2
-39611,9abb,T,APS-1,Public Schools 1 ,Schools ,Schools  ,2
-39612,9abc,T,APS-2,Public Schools 2 ,Schools ,Schools  ,2
+2286,8ee,T,Red NE,Red NE - Fire Mutual Aid NE Denver Metro ,Interop ,Mutual Aid ,2
+2287,8ef,T,Blue NE,Blue NE - Law Enforcement Mutual Aid NE Denver Metro ,Interop ,Mutual Aid ,2
+2288,8f0,T,Red SW,Red SW - Fire Mutual Aid SW Denver Metro ,Interop ,Mutual Aid ,2
+2289,8f1,T,Green-1,Green-1 - Statewide EMS Mutual Aid-1 ,Interop ,Mutual Aid ,2
+2290,8f2,T,Blue SW,Blue SW - Law Enforcement Mutual Aid SW Denver Metro ,Interop ,Mutual Aid ,2
+2291,8f3,T,Green-2,Green-2 - Statewide EMS Mutual Aid-2 ,Interop ,Mutual Aid ,2
+2293,8f5,T,Grey,Grey - Denver Metro Federal Mutual Aid ,Interop ,Mutual Aid ,2
+2295,8f7,T,Red NW,Red NW - Fire Mutual Aid NW Denver Metro ,Interop ,Mutual Aid ,2
+2296,8f8,T,Blue NW,Blue NW - Law Enforcement Mutual Aid NW Denver Metro  ,Interop ,Mutual Aid ,2
+2297,8f9,T,Red SE,Red SE - Fire Mutual Aid SE Denver Metro ,Interop ,Mutual Aid ,2
+2298,8fa,T,Blue SE,Blue SE - Law Enforcement Mutual Aid SE Denver Metro ,Interop ,Mutual Aid ,2
+2299,8fb,T,Gold-2,Gold-2 - Denver Metro Command/Control-2 ,Interop ,Mutual Aid ,2
+2312,908,D,Red NE,Red NE - Fire Mutual Aid NE Denver Metro ,Interop ,Mutual Aid ,2
+2320,910,D,Red SW,Red SW - Fire Mutual Aid SW Denver Metro ,Interop ,Mutual Aid ,2
+2324,914,D,Gold-2,Gold-2 - Denver Metro Command/Control-2 ,Interop ,Mutual Aid ,2
+2328,918,D,Blue NW,Blue NW - Law Enforcement Mutual Aid NW Denver Metro  ,Interop ,Mutual Aid ,2
+2332,91c,D,Grey,Grey - Denver Metro Federal Mutual Aid ,Interop ,Mutual Aid ,2
+2336,920,D,Blue SW,Blue SW - Law Enforcement Mutual Aid SW Denver Metro ,Interop ,Mutual Aid ,2
+2340,924,D,Blue NE,Blue NE - Law Enforcement Mutual Aid NE Denver Metro ,Interop ,Mutual Aid ,2
+2344,928,D,Blue SE,Blue SE - Law Enforcement Mutual Aid SE Denver Metro ,Interop ,Mutual Aid ,2
+2348,92c,D,Red NW,Red NW - Fire Mutual Aid NW Denver Metro ,Interop ,Mutual Aid ,2
+2352,930,D,Green-1,Green-1 - Denver Metro  ,Interop ,Mutual Aid ,2
+2356,934,D,Gold-1,Gold-1 - Denver Metro Command/Control-1 ,Interop ,Mutual Aid ,2
+2360,938,D,MetroNet,Metro Net (Console-to-Console with DTRS)  ,Interop ,Mutual Aid ,2
+2364,93c,D,Red SE,Red SE - Fire Mutual Aid SE Denver Metro ,Interop ,Mutual Aid ,2
+2391,957,D,Green SE,Green SE - Denver Metro  ,Interop ,Mutual Aid ,2
+3022,bce,D,Green SW,Green SW - Denver Metro  ,Interop ,Mutual Aid ,2
+3026,bd2,D,Green NW,Green NW - Denver Metro  ,Interop ,Mutual Aid ,2
+3030,bd6,D,Green NE,Green NE - Denver Metro  ,Interop ,Mutual Aid ,2
+34903,8857,T,Gold-1,Gold-1 - Denver Metro Command/Control-1 ,Interop ,Mutual Aid ,2
+38240,9560,T,Water Maint,Water Department Maintenance ,Public Works ,Public Works ,2
+39001,9859,T,Radio Shop 1,Radio Shop 1 ,Public Works ,Information Technology/Radio Shop ,2
+39002,985a,T,Radio Shop 2,Radio Shop 2 ,Public Works ,Information Technology/Radio Shop ,2
+39003,985b,T,Radio Shop 3,Radio Shop 3 ,Public Works ,Information Technology/Radio Shop ,2
+39004,985c,T,Radio Shop 4,Radio Shop 4 ,Public Works ,Information Technology/Radio Shop ,2
+39101,98bd,T,AFD Dispatch,Dispatch ,Fire Dispatch ,Fire/EMS ,2
+39102,98be,T,AFD TAC 2,TAC 2 ,Fire-Tac ,Fire/EMS ,2
+39103,98bf,T,AFD TAC 3,TAC 3 ,Fire-Tac ,Fire/EMS ,2
+39104,98c0,T,AFD TAC 4,TAC 4 ,Fire-Tac ,Fire/EMS ,2
+39105,98c1,T,AFD TAC 5,TAC 5 ,Fire-Tac ,Fire/EMS ,2
+39106,98c2,T,AFD TAC 6,TAC 6 ,Fire-Tac ,Fire/EMS ,2
+39107,98c3,T,AFD ARSON,TAC 6 ,Fire-Tac ,Fire/EMS ,2
+39108,98c4,T,AFD EMS 1,EMS 1 ,EMS-Tac ,Fire/EMS ,2
+39109,98c5,T,AFD EMS 2,EMS 2 ,EMS-Tac ,Fire/EMS ,2
+39110,98c6,T,AFD EMS 3,EMS 3 ,EMS-Tac ,Fire/EMS ,2
+39111,98c7,T,AFD EMS 4,EMS 4 ,EMS-Tac ,Fire/EMS ,2
+39112,98c8,T,AFD EMS 5,EMS 5 - Falck Dispatch ,EMS Dispatch ,Fire/EMS ,2
+39113,98c9,T,AFD EMS 6,EMS 6 ,EMS-Tac ,Fire/EMS ,2
+39114,98ca,T,AFD EMS ADMN,EMS Administration ,EMS-Tac ,Fire/EMS ,2
+39115,98cb,T,AFD ADMIN,Fire Administration ,Fire-Tac ,Fire/EMS ,2
+39116,98cc,T,V FIRE 21,VFIRE 21 ,Fire-Tac ,Fire/EMS ,2
+39117,98cd,T,AFD SPC Ops1,Special Ops 1 ,Fire-Tac ,Fire/EMS ,2
+39118,98ce,T,AFD SPC Ops2,Special Ops 2 ,Fire-Tac ,Fire/EMS ,2
+39119,98cf,T,AFD SPC Ops3,Special Ops 3 ,Fire-Tac ,Fire/EMS ,2
+39120,98d0,T,AFD SPC Ops5,Special Ops 4 ,Fire-Tac ,Fire/EMS ,2
+39121,98d1,T,AFD SPC Ops5,Special Ops 5 ,Fire-Tac ,Fire/EMS ,2
+39122,98d2,T,AFD SPC Ops6,Special Ops 6 ,Fire-Tac ,Fire/EMS ,2
+39123,98d3,T,AFD SPC Ops7,Special Ops 7 ,Fire-Tac ,Fire/EMS ,2
+39124,98d4,T,AFD SPC Ops8,Special Ops 8 ,Fire-Tac ,Fire/EMS ,2
+39125,98d5,T,AFD SPC Ops9,Special Ops 9 ,Fire-Tac ,Fire/EMS ,2
+39126,98d6,T,AFD SPCOps10,Special Ops 10 ,Fire-Tac ,Fire/EMS ,2
+39128,98d8,T,AFD TRN 1,Training 1 ,Fire-Talk ,Fire/EMS ,2
+39129,98d9,T,AFD TRN 2,Training 2 ,Fire-Talk ,Fire/EMS ,2
+39201,9921,T,SNOW 1,SNOW 1 ,Public Works ,Public Works ,2
+39202,9922,T,SNOW 2,SNOW 2 ,Public Works ,Public Works ,2
+39203,9923,T,SNOW 3,SNOW 3 ,Public Works ,Public Works ,2
+39204,9924,T,SNOW 4,SNOW 4 ,Public Works ,Public Works ,2
+39205,9925,T,Street North,Streets North ,Public Works ,Public Works ,2
+39206,9926,T,Street South,Streets South ,Public Works ,Public Works ,2
+39209,9929,T,Street Paint,Streets Paint ,Public Works ,Public Works ,2
+39214,992e,T,PI Inspector,Public Improvement Inspectors ,Public Works ,Public Works ,2
+39216,9930,T,Sweeper 1,Streets Sweeper 1 ,Public Works ,Public Works ,2
+39217,9931,T,Sweeper 2,Streets Sweeper 2 ,Public Works ,Public Works ,2
+39224,9938,T,Forestry,Forestry Division ,Public Works ,Public Works ,2
+39228,993c,T,Open Space 1,Open Space Ch 1 ,Public Works ,Public Works ,2
+39229,993d,T,Open Space 2,Open Space Ch 2 ,Public Works ,Public Works ,2
+39230,993e,T,Ranger 1,Ranger 1 ,Public Works ,Public Works ,2
+39231,993f,T,Ranger2,Ranger 2 ,Public Works ,Public Works ,2
+39232,9940,T,Flow Ctrl 1,Flow Control Ch 1 ,Public Works ,Public Works ,2
+39233,9941,T,Flow Ctrl 2,Flow Control Ch 2 ,Public Works ,Public Works ,2
+39234,9942,T,Flow Ctrl 3,Flow Control Ch 3 ,Public Works ,Public Works ,2
+39235,9943,T,Storm Water,Storm Water ,Public Works ,Public Works ,2
+39236,9944,T,Treatment,Water Treatment ,Public Works ,Public Works ,2
+39237,9945,T,Treatment,Water Treatment ,Public Works ,Public Works ,2
+39238,9946,T,Treatment,Water Treatment ,Public Works ,Public Works ,2
+39242,994a,T,Tech Ops,Tech Ops ,Public Works ,Public Works ,2
+39243,994b,T,Code Ch1,Code Enforcement Ch 1 ,Public Works ,Public Works ,2
+39244,994c,T,Code Ch2,Code Enforcement Ch 2 ,Public Works ,Public Works ,2
+39245,994d,T,Animal Care1,Animal CARE Ch1 ,Public Works ,Public Works ,2
+39246,994e,T,Animal Care2,Animal CARE Ch2 ,Public Works ,Public Works ,2
+39247,994f,T,BI Ch1,Building Inspector 1 ,Public Works ,Public Works ,2
+39248,9950,T,BI Ch2,Building Inspector 2 ,Public Works ,Public Works ,2
+39249,9951,T,Survey 1,Survey 1 ,Public Works ,Public Works ,2
+39250,9952,T,Survey 2,Survey 2 ,Public Works ,Public Works ,2
+39251,9953,T,Survey 3,Survey 3 ,Public Works ,Public Works ,2
+39252,9954,T,Survey 4,Survey 4 ,Public Works ,Public Works ,2
+39253,9955,T,Survey 5,Survey 5 ,Public Works ,Public Works ,2
+39254,9956,T,Survey 6,Survey 6 ,Public Works ,Public Works ,2
+39301,9985,T,Detentions 1,Detention Center 1 ,Corrections ,Detention Center ,2
+39302,9986,T,Detentions 2,Detention Center 2 ,Corrections ,Detention Center ,2
+39303,9987,T,Detentions 3,Detention Center 3 ,Corrections ,Detention Center ,2
+39304,9988,T,Detentions 4,Detention Center 4 ,Corrections ,Detention Center ,2
+39305,9989,T,Marshals,Aurora Marshal's Office ,Corrections ,Detention Center ,2
+39401,9.90E+10,T,UCAMC PD-1,UC Anschutz Medical Campus PD 1  ,Law Dispatch ,University of Colorado Denver | Anschutz Medical Campus ,2
+39402,99ea,T,UCAMC PD-2,UC Anschutz Medical Campus PD 2 ,Law Tac ,University of Colorado Denver | Anschutz Medical Campus ,2
+39403,99eb,T,UCAMC PD-3,UC Anschutz Medical Campus PD 3 ,Law Tac ,University of Colorado Denver | Anschutz Medical Campus ,2
+39404,99ec,T,UCAMC PD-4,UC Anschutz Medical Campus PD 4 ,Law Tac ,University of Colorado Denver | Anschutz Medical Campus ,2
+39405,99ed,T,UCAMC PD-5,UC Anschutz Medical Campus PD 5 ,Law Tac ,University of Colorado Denver | Anschutz Medical Campus ,2
+39406,99ee,T,UCAMC PD-6,UC Anschutz Medical Campus PD 6 ,Law Tac ,University of Colorado Denver | Anschutz Medical Campus ,2
+39407,99ef,T,UCH SECURITY,University of Colorado Hospital Security ,Security ,University of Colorado Denver | Anschutz Medical Campus ,2
+39500,9a4c,DE,APD ALL CALL,All Call ,Law Dispatch ,Police ,2
+39501,9a4d,DE,APD Dist 1,District 1 ,Law Dispatch ,Police ,2
+39502,9a4e,DE,APD Dist 2,District 2 ,Law Dispatch ,Police ,2
+39503,9a4f,DE,APD Dist 3,District 3 ,Law Dispatch ,Police ,2
+39504,9a50,DE,APD Svc 1,Services 1 ,Law Talk ,Police ,2
+39505,9a51,DE,APD Svc 2,Services 2 ,Law Talk ,Police ,2
+39506,9a52,DE,APD Tac 11,Tac 11 ,Law Tac ,Police ,2
+39507,9a53,DE,APD Tac 12,Tac 12 ,Law Tac ,Police ,2
+39508,9a54,DE,APD Tac 13,Tac 13 ,Law Tac ,Police ,2
+39509,9a55,DE,APD Tac 21,Tac 21 ,Law Tac ,Police ,2
+39510,9a56,DE,APD Tac 22,Tac 22 ,Law Tac ,Police ,2
+39511,9a57,DE,APD Tac 23,Tac 23 ,Law Tac ,Police ,2
+39512,9a58,DE,APD Tac 31,Tac 31 ,Law Tac ,Police ,2
+39513,9a59,DE,APD Tac 32,Tac 32 ,Law Tac ,Police ,2
+39514,9a5a,DE,APD Tac 33,Tac 33 ,Law Tac ,Police ,2
+39601,9ab1,T,Pub Safety 1,Public Safety 1 ,Multi-Tac ,Public Safety  ,2
+39602,9ab2,T,EVENT 1,EVENT 1 ,Multi-Tac ,Public Safety  ,2
+39603,9ab3,T,EVENT 2,EVENT 2 ,Multi-Tac ,Public Safety  ,2
+39604,9ab4,T,EVENT 3,EVENT 3 ,Multi-Tac ,Public Safety  ,2
+39605,9ab5,T,EVENT 4,EVENT 4 ,Multi-Tac ,Public Safety  ,2
+39606,9ab6,T,EVENT 5,EVENT 5 ,Multi-Tac ,Public Safety  ,2
+39610,9aba,T,911TG,911TG ,Multi-Tac ,Public Safety  ,2
+39611,9abb,T,APS-1,Public Schools 1 ,Schools ,Schools  ,2
+39612,9abc,T,APS-2,Public Schools 2 ,Schools ,Schools  ,2

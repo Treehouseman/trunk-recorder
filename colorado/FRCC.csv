@@ -1,181 +1,181 @@
-2,2,D,Brmfield PD2,Police 2 - Car/Car ,Law Tac ,Broomfield County ,2
-3,3,D,Brmfield PD3,Police 3 - Special Operations/Training ,Law Tac ,Broomfield County ,2
-4,4,D,BrmfldPDRecd,Police - Records ,Law Tac ,Broomfield County ,2
-5,5,D,BrmfldPDTac,Police - Tactical ,Law Tac ,Broomfield County ,2
-6,6,D,NorthMetroFD,Fire Dispatch ,Fire Dispatch ,North Metro Fire Rescue District ,2
-7,7,D,NrthMtroOpsA,Operations A ,Fire-Tac ,North Metro Fire Rescue District ,2
-8,8,D,AdamsCoFDDsp,Fire Dispatch ,Fire Dispatch ,Adams County Fire Rescue ,2
-9,9,D,AdamsFDOpsA,Fire Operations A ,Fire-Tac ,Adams County Fire Rescue ,2
-10,00a,D,NrthMtroAdmn,Fire Administration ,Fire-Tac ,North Metro Fire Rescue District ,2
-11,00b,DE,Thornton PD 1,Police 1 Dispatch ,Law Dispatch ,Thornton ,2
-12,00c,DE,Thornton PD 2,Police 2 Car/Car ,Law Tac ,Thornton ,2
-13,00d,DE,Thornton PD 3,Police 3 ,Law Tac ,Thornton ,2
-14,00e,D,Brighton PD 1,Police 1 Dispatch ,Law Dispatch ,Brighton ,2
-15,00f,D,Brighton PD 2,Police 2 Car/Car ,Law Tac ,Brighton ,2
-16,10,D,Brighton PD 3,Police 3 ,Law Tac ,Brighton ,2
-17,11,D,ComrceCtyPD1,Police 1 ,Law Dispatch ,Commerce City ,2
-18,12,D,ComrceCtyPD2,Police 2 Car/Car ,Law Tac ,Commerce City ,2
-19,13,D,ComrceCtyPD3,Police 3 ,Law Tac ,Commerce City ,2
-20,14,D,NrthglennPD1,Police 1 Dispatch ,Law Dispatch ,Northglenn ,2
-21,15,D,NrthglennPD2,Police 2 Car/Car ,Law Tac ,Northglenn ,2
-22,16,D,NrthglennPD3,Police 3 ,Law Tac ,Northglenn ,2
-23,17,D,AdamsSO Disp,Sheriff Dispatch ,Law Dispatch ,Adams County ,2
-24,18,D,Adams SO C-C,Sheriff Car/Car ,Law Tac ,Adams County ,2
-25,19,D,Adams SO Tac,Sheriff Tactical ,Law Tac ,Adams County ,2
-26,01a,D,FedralHtsPD1,Police 1 Dispatch ,Law Dispatch ,Federal Heights ,2
-27,01b,D,FedralHtsPD2,Police 2 Car/Car ,Law Tac ,Federal Heights ,2
-28,01c,D,AdamsCo Recd,Sheriff Records ,Law Tac ,Adams County ,2
-29,01d,D,Thornton FD,Fire Dispatch ,Fire Dispatch ,Thornton ,2
-30,01e,D,Thornton FG A,Fireground A ,Fire-Tac ,Thornton ,2
-31,01f,D,Brighton FD Disp,Fire Dispatch ,Fire Dispatch ,Brighton Fire Rescue District ,2
-32,20,D,Brighton FD A,Fire Ops A ,Fire-Tac ,Brighton Fire Rescue District ,2
-33,21,D,AdamsFDOpsB,Fire Operations B ,Fire-Tac ,Adams County Fire Rescue ,2
-34,22,D,AdamsFDOpsC,Fire Operations C ,Fire-Tac ,Adams County Fire Rescue ,2
-35,23,D,SouthAdamsFD,Fire Dispatch ,Fire Dispatch ,South Adams County Fire Protection District ,2
-36,24,D,SAdamsFDOpsA,Fire Operations A ,Fire-Tac ,South Adams County Fire Protection District ,2
-37,25,D,FederalHtsFD,Fire Dispatch ,Fire Dispatch ,Federal Heights ,2
-38,26,D,FedHts FD FG,Fireground ,Fire-Tac ,Federal Heights ,2
-43,02b,D,AdamsCoTechs,Communications Technicians ,Public Works ,Adams County ,2
-53,35,D,AdamsCo MAC,County Mutual Aid Channel ,Interop ,Adams County ,2
-54,36,D,NrthMtroOpsB,Operations B ,Fire-Tac ,North Metro Fire Rescue District ,2
-55,37,D,AdamsCoDstAt,District Attorney's Office ,Law Talk ,Adams County ,2
-65,41,D,Brmfield PD1,Police 1 - Dispatch ,Law Dispatch ,Broomfield County ,2
-73,49,D,SAdamsFDOpsB,Fire Operations B ,Fire-Tac ,South Adams County Fire Protection District ,2
-80,50,D,SAdamsFDOpsC,Fire Operations C ,Fire-Tac ,South Adams County Fire Protection District ,2
-107,06b,D,NrthMetroDTF,North Metro Drug Task Force ,Law Tac ,Adams County ,2
-420,1a4,D,NMAT 1,North Mutual Aid 1 ,Interop ,Mutual Aid ,2
-421,1a5,D,NMAT 2,North Mutual Aid 2 ,Interop ,Mutual Aid ,2
-422,1a6,D,NMAT 3,North Mutual Aid 3 ,Interop ,Mutual Aid ,2
-423,1a7,D,NMAT 4,North Mutual Aid 4 ,Interop ,Mutual Aid ,2
-424,1a8,D,SMAT 1,South Mutual Aid 1 ,Interop ,Mutual Aid ,2
-425,1a9,D,SMAT 2,South Mutual Aid 2 ,Interop ,Mutual Aid ,2
-426,1aa,D,SMAT 3,South Mutual Aid 3 ,Interop ,Mutual Aid ,2
-427,1ab,D,SMAT 4,South Mutual Aid 4 ,Interop ,Mutual Aid ,2
-1399,577,D,BrmfldPDTrng,Police - Special Events/Traning ,Law Talk ,Broomfield County ,2
-1400,578,D,BroomfieldPW,Public Works ,Public Works ,Broomfield County ,2
-1401,579,D,BmfildCoJail,Jail Operations ,Law Talk ,Broomfield County ,2
-1900,76c,D,Greeley PD 1,Police 1 ,Law Dispatch ,Greeley ,2
-1901,76d,D,Greeley PD 2,Police 2 ,Law Tac ,Greeley ,2
-1902,76e,D,Greeley PD 3,Police 3 ,Law Tac ,Greeley ,2
-1903,76f,DE,Greeley PD 4,Police 4 ,Law Tac ,Greeley ,2
-1904,770,DE,Greeley PD 5,Police 5 ,Law Tac ,Greeley ,2
-1905,771,DE,Greeley PD 6,Police 6 ,Law Tac ,Greeley ,2
-1906,772,D,GreeleyPDAdm,Police Admin ,Law Tac ,Greeley ,2
-1907,773,D,WeldCoFire 1,Fire Dispatch ,Fire Dispatch ,Weld County ,2
-1908,774,D,WeldFG2Grly,Fireground 2 Greeley ,Fire-Tac ,Weld County ,2
-1909,775,D,WeldFG3Eaton,Fireground 3 Eaton ,Fire-Tac ,Weld County ,2
-1910,776,D,WeldFG4Wndsr,Fireground 4 Windsor ,Fire-Tac ,Weld County ,2
-1911,777,D,WeldFG5AltPc,Fireground 5 Ault/Pierce ,Fire-Tac ,Weld County ,2
-1913,779,D,WeldCoEMS,EMS Dispatch ,EMS Dispatch ,Weld County ,2
-1914,77a,D,WeldEMSOps1,EMS Ops 1 ,EMS-Tac ,Weld County ,2
-1915,77b,D,WeldEMSOps2,EMS Ops 2 ,EMS-Tac ,Weld County ,2
-1916,77c,D,WeldFG23,Fireground 23 ,Fire-Tac ,Weld County ,2
-1919,77f,D,WeldFG11LaSl,Fireground 11 La Salle ,Fire-Tac ,Weld County ,2
-1920,780,D,WeldFG12MtVw,Fireground 12 Mountain View ,Fire-Tac ,Weld County ,2
-1921,781,D,WeldFG6Evans,Fireground 6 Evans ,Fire-Tac ,Weld County ,2
-1922,782,D,WeldFG7Nunn,Fireground 7 Nunn ,Fire-Tac ,Weld County ,2
-1923,783,D,WeldFG8FdFst,Fireground 8 Frederick/Firestone ,Fire-Tac ,Weld County ,2
-1924,784,D,WeldFG9Hudsn,Fireground 9 Hudson ,Fire-Tac ,Weld County ,2
-1925,785,D,WeldFG10FtLp,Fireground 10 Ft Lupton ,Fire-Tac ,Weld County ,2
-1926,786,D,Weld Inter 1,Interagency 1 ,Interop ,Weld County ,2
-1927,787,D,Weld Inter 2,Interagency 2 ,Interop ,Weld County ,2
-1928,788,D,Weld Inter 3,Interagency 3 ,Interop ,Weld County ,2
-1930,78a,D,WeldCoSODisp,Sheriff Dispatch ,Law Dispatch ,Weld County ,2
-1931,78b,D,WeldSOTac1,Sheriff Tactical 1 ,Law Tac ,Weld County ,2
-1932,78c,D,WeldSOTac2,Sheriff Tactical 2 ,Law Tac ,Weld County ,2
-1933,78d,D,WeldFG20Pwne,Fireground 20 Pawnee ,Fire-Tac ,Weld County ,2
-1934,78e,D,WeldCoSO4,Sheriff Channel 4 ,Law Tac ,Weld County ,2
-1937,791,D,WeldFG21NwRm,Fireground 21 New Raymer ,Fire-Tac ,Weld County ,2
-1938,792,D,WeldLawNorth,North Dispatch Local Police ,Law Dispatch ,Weld County ,2
-1939,793,D,WeldLawNData,North Records Local Police ,Law Tac ,Weld County ,2
-1940,794,D,WeldLawTac1,Tactical Local Police ,Law Tac ,Weld County ,2
-1941,795,D,WeldFG16Mlkn,Fireground 16 Milliken ,Fire-Tac ,Weld County ,2
-1942,796,D,WeldFG17Jntn,Fireground 17 Johnstown ,Fire-Tac ,Weld County ,2
-1943,797,D,WeldFG18Gltn,Fireground 18 Galeton ,Fire-Tac ,Weld County ,2
-1944,798,D,WeldSOData,Sheriff Records ,Law Tac ,Weld County ,2
-1945,799,D,WeldLawSData,South Records Local Police ,Law Tac ,Weld County ,2
-1946,79a,D,WeldLawSouth,South Dispatch Local Police ,Law Dispatch ,Weld County ,2
-1947,79b,D,WeldCo ACU,ACU-1000 Interoperability ,Interop ,Weld County ,2
-1948,79c,D,Weld Inter 4,Interagency 4 ,Interop ,Weld County ,2
-1949,79d,D,Weld Inter 5,Interagency 5 ,Interop ,Weld County ,2
-1950,79e,D,Weld Inter 6,Interagency 6 ,Interop ,Weld County ,2
-1951,79f,D,WeldCoEmgOp1,Emergency Operations ,Emergency Ops ,Weld County ,2
-1952,7a0,D,WeldCoEmgOp2,Emergency Operations ,Emergency Ops ,Weld County ,2
-1953,7a1,D,UnivNColoPD,University of Northern Colorado Police ,Law Dispatch ,Weld County ,2
-1954,7a2,D,EvansLocGov,Local Government ,Public Works ,Evans ,2
-1955,7a3,D,WeldFG19Brgs,Fireground 19 Briggs ,Fire-Tac ,Weld County ,2
-1956,7a4,D,WeldFG13Ptvl,Fireground 13 Platteville ,Fire-Tac ,Weld County ,2
-1957,7a5,D,WeldFG14SEWd,Fireground 14 Southeast Weld ,Fire-Tac ,Weld County ,2
-1958,7a6,D,WeldFG15PtVl,Fireground 15 Platte Valley ,Fire-Tac ,Weld County ,2
-1959,7a7,D,WldCoHSTrns,Human Services Transportation ,Transportation ,Weld County ,2
-1960,7a8,D,FtLptnPDCh3,Fort Lupton Police 3 ,Law Talk ,Fort Lupton ,2
-1961,7a9,D,KeenesbrgSch,Keenesburg School District ,Schools ,Keenesburg ,2
-1963,7ab,D,WeldFG22,Fireground 22 ,Fire-Tac ,Weld County ,2
-1999,7cf,D,WeldInvalid,Invalid/Disabled ,Other ,Weld County ,2
-2000,7d0,D,WeldCoLawATG,Law Enforcement All Call ,Law Dispatch ,Weld County ,2
-2009,7d9,D,Fire Station 1,Fire Station 1 Alerting ,Fire Dispatch ,Frederick-Firestone Fire Protection District ,2
-2010,7da,D,Fire Station 2,Fire Station 2 Alerting ,Fire Dispatch ,Frederick-Firestone Fire Protection District ,2
-2011,7db,D,Fire Station 3,Fire Station 3 Alerting ,Fire Dispatch ,Frederick-Firestone Fire Protection District ,2
-2012,7dc,D,Fire Station 4,Fire Station 4 Alerting ,Fire Dispatch ,Frederick-Firestone Fire Protection District ,2
-2017,7.00E+01,D,Station1 Alert,Fire Station 1 Alerting ,Fire Dispatch ,Greeley Fire Protection District ,2
-2031,7ef,D,Station 37 Alert,Station 37 Alerting ,Fire Dispatch ,Platte Valley Fire District ,2
-2036,7f4,D,Station 39 Alert,Station 39 Alerting ,Fire Dispatch ,Southeast Weld Fire Protection District ,2
-2037,7f5,D,3921 Alert,Prospect Valley 3921 Alerting ,Fire Dispatch ,Southeast Weld Fire Protection District ,2
-2038,7f6,D,3960 Alert,Prospect Valley 3960 Alerting ,Fire Dispatch ,Southeast Weld Fire Protection District ,2
-2043,7fb,D,3960 Alert,Prospect Valley 3960 Alerting ,Fire Dispatch ,Southeast Weld Fire Protection District ,2
-2045,7fd,D,Cmnd 3460 Alert,Command 3460 Alerting ,Fire Dispatch ,Frederick-Firestone Fire Protection District ,2
-4122,101a,D,AdamsCoTecSv,Technical Services ,Public Works ,Adams County ,2
-4123,101b,D,AdamsCo Jail,Sheriff Jail Operations ,Law Talk ,Adams County ,2
-4124,101c,D,AdamsCo Crts,Sheriff Court Operations ,Law Talk ,Adams County ,2
-4125,101d,D,AdamsCoMaint,Facilities Maintenance ,Public Works ,Adams County ,2
-4126,101e,D,ComCtySpcEv1,Special Events 1 ,Multi-Talk ,Commerce City ,2
-4127,101f,DE,Thornton PD 2,Police 2A Car/Car ,Law Tac ,Thornton ,2
-4128,1020,DE,Thornton PD Rec,Police 4 Records ,Law Tac ,Thornton ,2
-4129,1021,D,Thornton FG B,Fireground B ,Fire-Tac ,Thornton ,2
-4130,1022,DE,Thornton PD SpEv,Police Special Events ,Law Talk ,Thornton ,2
-4131,1023,D,AdamsD14Bus,District 14 Schools - Buses  ,Schools ,Adams County School District 14 ,2
-4132,1024,DE,AdamsD14Sec,District 14 Schools - Security ,Schools ,Adams County School District 14 ,2
-4133,1025,D,Thornton Roads,Road and Bridge ,Public Works ,Thornton ,2
-4134,1026,D,Thornton Waste,Trash & Recycling ,Public Works ,Thornton ,2
-4135,1027,D,Thornton Parks,Parks and Recreation ,Public Works ,Thornton ,2
-4136,1028,D,Thornton NeigSrv,Neighborhood Services ,Public Works ,Thornton ,2
-4137,1029,D,AdamsD12Sec,District 12 Schools - Security ,Security ,Adams 12 Five Star Schools ,2
-4138,102a,D,AdamsD12Shp,District 12 Schools - Bus Shop ,Schools ,Adams 12 Five Star Schools ,2
-4139,102b,D,AdamsD12Mnt,District 12 Schools - Maintenance ,Schools ,Adams 12 Five Star Schools ,2
-4140,102c,D,AdamsD12Schl,District 12 Schools - Schools ,Schools ,Adams 12 Five Star Schools ,2
-4141,102d,D,AdamsD12Bus,District 12 Schools - Buses ,Schools ,Adams 12 Five Star Schools ,2
-4142,102e,D,Mapleton Fleet,Fleet ,Schools ,Mapleton Public Schools ,2
-4143,102f,D,Mapleton Bus,Bus ,Schools ,Mapleton Public Schools ,2
-4144,1030,D,AdamsD12Schl,District 12 Schools ,Schools ,Adams 12 Five Star Schools ,2
-4145,1031,D,ComCtyPDSpOp,Police Special Operations ,Law Talk ,Commerce City ,2
-4146,1032,D,AdmsFDMayday,Fire Mayday ,Fire-Tac ,Adams County ,2
-4147,1033,DE,AdamsD14Admin,District 14 Schools - Admin ,Schools ,Adams County School District 14 ,2
-4148,1034,D,ComCtySpcEv2,Special Events 2 ,Multi-Talk ,Commerce City ,2
-4170,104a,D,AdmsJailTrns,Sheriff Jail Transport ,Law Talk ,Adams County ,2
-4171,104b,D,Brighton FD B,Fire Ops B ,Fire-Tac ,Brighton Fire Rescue District ,2
-4172,104c,D,Brighton FD C,Fire Ops C ,Fire-Tac ,Brighton Fire Rescue District ,2
-4173,104d,DE,Thornton PD Data,Police Data ,Law Tac ,Thornton ,2
-4177,1051,D,Thornton PD Trfc,Police Traffic ,Law Tac ,Thornton ,2
-9001,2329,D,Greeley FD 1,Fire 1 ,Fire Dispatch ,Greeley ,2
-9011,2333,D,TriAreaEMS,Tri Area Ambulance ,EMS-Tac ,Weld County ,2
-9012,2334,D,WeldCoR&B3,Road & Bridge 3 Asphalt ,Public Works ,Weld County ,2
-9013,2335,D,WeldCoR&B4,Road & Bridge 4 Mining ,Public Works ,Weld County ,2
-9014,2336,D,WeldCoR&B5,Road & Bridge 5 Truck-to-Truck ,Public Works ,Weld County ,2
-9015,2337,D,WeldCoR&B6,Road & Bridge 6 ,Public Works ,Weld County ,2
-9016,2338,D,WeldCoR&B7,Road & Bridge 7 Truck ,Public Works ,Weld County ,2
-9017,2339,D,WeldCoR&B8,Road & Bridge 8 Motor ,Public Works ,Weld County ,2
-9018,233a,D,WeldCoPW2,Public Works 2 Weed Control/Plows ,Public Works ,Weld County ,2
-9019,233b,D,WeldCoPW1,Public Works 1 ,Public Works ,Weld County ,2
-9024,2340,D,FtStVrainPP1,Fort Saint Vrain Power Plant 1 ,Utilities ,Weld County ,2
-9025,2341,D,FtStVrainPP2,Fort Saint Vrain Power Plant 2 ,Utilities ,Weld County ,2
-9027,2343,D,NC MedCenter,North Colorado Medical Center ,Hospital ,Weld County ,2
-9029,2345,D,PlattvlePD A,Police Admin ,Law Tac ,Platteville ,2
-9056,2360,D,Rampart S&R,Rampart Search and Rescue ,Emergency Ops ,Adams County ,2
-9113,2399,D,MtnViewFire1,Mountain View Fire Rescue 1 ,Fire-Tac ,Mountain View Fire Rescue ,2
-9114,239a,D,MtnViewFire2,Mountain View Fire Rescue 2 ,Fire-Tac ,Mountain View Fire Rescue ,2
-9540,2544,D,MtnViewFire3,Mountain View Fire Rescue 3 ,Fire-Tac ,Mountain View Fire Rescue ,2
-9541,2545,D,MtnViewFire4,Mountain View Fire Rescue 4 ,Fire-Tac ,Mountain View Fire Rescue ,2
-9557,2555,D,MtnViewFire5,Mountain View Fire Rescue 5 ,Fire-Tac ,Mountain View Fire Rescue ,2
-9558,2556,D,MtnViewFire6,Mountain View Fire Rescue 6 ,Fire-Tac ,Mountain View Fire Rescue ,2
-9559,2557,D,MtnViewFire7,Mountain View Fire Rescue 7 ,Fire-Tac ,Mountain View Fire Rescue ,2
-9560,2558,D,MtnViewFire8,Mountain View Fire Rescue 8 ,Fire-Tac ,Mountain View Fire Rescue ,2
+2,2,D,Brmfield PD2,Police 2 - Car/Car ,Law Tac ,Broomfield County ,2
+3,3,D,Brmfield PD3,Police 3 - Special Operations/Training ,Law Tac ,Broomfield County ,2
+4,4,D,BrmfldPDRecd,Police - Records ,Law Tac ,Broomfield County ,2
+5,5,D,BrmfldPDTac,Police - Tactical ,Law Tac ,Broomfield County ,2
+6,6,D,NorthMetroFD,Fire Dispatch ,Fire Dispatch ,North Metro Fire Rescue District ,2
+7,7,D,NrthMtroOpsA,Operations A ,Fire-Tac ,North Metro Fire Rescue District ,2
+8,8,D,AdamsCoFDDsp,Fire Dispatch ,Fire Dispatch ,Adams County Fire Rescue ,2
+9,9,D,AdamsFDOpsA,Fire Operations A ,Fire-Tac ,Adams County Fire Rescue ,2
+10,00a,D,NrthMtroAdmn,Fire Administration ,Fire-Tac ,North Metro Fire Rescue District ,2
+11,00b,DE,Thornton PD 1,Police 1 Dispatch ,Law Dispatch ,Thornton ,2
+12,00c,DE,Thornton PD 2,Police 2 Car/Car ,Law Tac ,Thornton ,2
+13,00d,DE,Thornton PD 3,Police 3 ,Law Tac ,Thornton ,2
+14,00e,D,Brighton PD 1,Police 1 Dispatch ,Law Dispatch ,Brighton ,2
+15,00f,D,Brighton PD 2,Police 2 Car/Car ,Law Tac ,Brighton ,2
+16,10,D,Brighton PD 3,Police 3 ,Law Tac ,Brighton ,2
+17,11,D,ComrceCtyPD1,Police 1 ,Law Dispatch ,Commerce City ,2
+18,12,D,ComrceCtyPD2,Police 2 Car/Car ,Law Tac ,Commerce City ,2
+19,13,D,ComrceCtyPD3,Police 3 ,Law Tac ,Commerce City ,2
+20,14,D,NrthglennPD1,Police 1 Dispatch ,Law Dispatch ,Northglenn ,2
+21,15,D,NrthglennPD2,Police 2 Car/Car ,Law Tac ,Northglenn ,2
+22,16,D,NrthglennPD3,Police 3 ,Law Tac ,Northglenn ,2
+23,17,D,AdamsSO Disp,Sheriff Dispatch ,Law Dispatch ,Adams County ,2
+24,18,D,Adams SO C-C,Sheriff Car/Car ,Law Tac ,Adams County ,2
+25,19,D,Adams SO Tac,Sheriff Tactical ,Law Tac ,Adams County ,2
+26,01a,D,FedralHtsPD1,Police 1 Dispatch ,Law Dispatch ,Federal Heights ,2
+27,01b,D,FedralHtsPD2,Police 2 Car/Car ,Law Tac ,Federal Heights ,2
+28,01c,D,AdamsCo Recd,Sheriff Records ,Law Tac ,Adams County ,2
+29,01d,D,Thornton FD,Fire Dispatch ,Fire Dispatch ,Thornton ,2
+30,01e,D,Thornton FG A,Fireground A ,Fire-Tac ,Thornton ,2
+31,01f,D,Brighton FD Disp,Fire Dispatch ,Fire Dispatch ,Brighton Fire Rescue District ,2
+32,20,D,Brighton FD A,Fire Ops A ,Fire-Tac ,Brighton Fire Rescue District ,2
+33,21,D,AdamsFDOpsB,Fire Operations B ,Fire-Tac ,Adams County Fire Rescue ,2
+34,22,D,AdamsFDOpsC,Fire Operations C ,Fire-Tac ,Adams County Fire Rescue ,2
+35,23,D,SouthAdamsFD,Fire Dispatch ,Fire Dispatch ,South Adams County Fire Protection District ,2
+36,24,D,SAdamsFDOpsA,Fire Operations A ,Fire-Tac ,South Adams County Fire Protection District ,2
+37,25,D,FederalHtsFD,Fire Dispatch ,Fire Dispatch ,Federal Heights ,2
+38,26,D,FedHts FD FG,Fireground ,Fire-Tac ,Federal Heights ,2
+43,02b,D,AdamsCoTechs,Communications Technicians ,Public Works ,Adams County ,2
+53,35,D,AdamsCo MAC,County Mutual Aid Channel ,Interop ,Adams County ,2
+54,36,D,NrthMtroOpsB,Operations B ,Fire-Tac ,North Metro Fire Rescue District ,2
+55,37,D,AdamsCoDstAt,District Attorney's Office ,Law Talk ,Adams County ,2
+65,41,D,Brmfield PD1,Police 1 - Dispatch ,Law Dispatch ,Broomfield County ,2
+73,49,D,SAdamsFDOpsB,Fire Operations B ,Fire-Tac ,South Adams County Fire Protection District ,2
+80,50,D,SAdamsFDOpsC,Fire Operations C ,Fire-Tac ,South Adams County Fire Protection District ,2
+107,06b,D,NrthMetroDTF,North Metro Drug Task Force ,Law Tac ,Adams County ,2
+420,1a4,D,NMAT 1,North Mutual Aid 1 ,Interop ,Mutual Aid ,2
+421,1a5,D,NMAT 2,North Mutual Aid 2 ,Interop ,Mutual Aid ,2
+422,1a6,D,NMAT 3,North Mutual Aid 3 ,Interop ,Mutual Aid ,2
+423,1a7,D,NMAT 4,North Mutual Aid 4 ,Interop ,Mutual Aid ,2
+424,1a8,D,SMAT 1,South Mutual Aid 1 ,Interop ,Mutual Aid ,2
+425,1a9,D,SMAT 2,South Mutual Aid 2 ,Interop ,Mutual Aid ,2
+426,1aa,D,SMAT 3,South Mutual Aid 3 ,Interop ,Mutual Aid ,2
+427,1ab,D,SMAT 4,South Mutual Aid 4 ,Interop ,Mutual Aid ,2
+1399,577,D,BrmfldPDTrng,Police - Special Events/Traning ,Law Talk ,Broomfield County ,2
+1400,578,D,BroomfieldPW,Public Works ,Public Works ,Broomfield County ,2
+1401,579,D,BmfildCoJail,Jail Operations ,Law Talk ,Broomfield County ,2
+1900,76c,D,Greeley PD 1,Police 1 ,Law Dispatch ,Greeley ,2
+1901,76d,D,Greeley PD 2,Police 2 ,Law Tac ,Greeley ,2
+1902,76e,D,Greeley PD 3,Police 3 ,Law Tac ,Greeley ,2
+1903,76f,DE,Greeley PD 4,Police 4 ,Law Tac ,Greeley ,2
+1904,770,DE,Greeley PD 5,Police 5 ,Law Tac ,Greeley ,2
+1905,771,DE,Greeley PD 6,Police 6 ,Law Tac ,Greeley ,2
+1906,772,D,GreeleyPDAdm,Police Admin ,Law Tac ,Greeley ,2
+1907,773,D,WeldCoFire 1,Fire Dispatch ,Fire Dispatch ,Weld County ,2
+1908,774,D,WeldFG2Grly,Fireground 2 Greeley ,Fire-Tac ,Weld County ,2
+1909,775,D,WeldFG3Eaton,Fireground 3 Eaton ,Fire-Tac ,Weld County ,2
+1910,776,D,WeldFG4Wndsr,Fireground 4 Windsor ,Fire-Tac ,Weld County ,2
+1911,777,D,WeldFG5AltPc,Fireground 5 Ault/Pierce ,Fire-Tac ,Weld County ,2
+1913,779,D,WeldCoEMS,EMS Dispatch ,EMS Dispatch ,Weld County ,2
+1914,77a,D,WeldEMSOps1,EMS Ops 1 ,EMS-Tac ,Weld County ,2
+1915,77b,D,WeldEMSOps2,EMS Ops 2 ,EMS-Tac ,Weld County ,2
+1916,77c,D,WeldFG23,Fireground 23 ,Fire-Tac ,Weld County ,2
+1919,77f,D,WeldFG11LaSl,Fireground 11 La Salle ,Fire-Tac ,Weld County ,2
+1920,780,D,WeldFG12MtVw,Fireground 12 Mountain View ,Fire-Tac ,Weld County ,2
+1921,781,D,WeldFG6Evans,Fireground 6 Evans ,Fire-Tac ,Weld County ,2
+1922,782,D,WeldFG7Nunn,Fireground 7 Nunn ,Fire-Tac ,Weld County ,2
+1923,783,D,WeldFG8FdFst,Fireground 8 Frederick/Firestone ,Fire-Tac ,Weld County ,2
+1924,784,D,WeldFG9Hudsn,Fireground 9 Hudson ,Fire-Tac ,Weld County ,2
+1925,785,D,WeldFG10FtLp,Fireground 10 Ft Lupton ,Fire-Tac ,Weld County ,2
+1926,786,D,Weld Inter 1,Interagency 1 ,Interop ,Weld County ,2
+1927,787,D,Weld Inter 2,Interagency 2 ,Interop ,Weld County ,2
+1928,788,D,Weld Inter 3,Interagency 3 ,Interop ,Weld County ,2
+1930,78a,D,WeldCoSODisp,Sheriff Dispatch ,Law Dispatch ,Weld County ,2
+1931,78b,D,WeldSOTac1,Sheriff Tactical 1 ,Law Tac ,Weld County ,2
+1932,78c,D,WeldSOTac2,Sheriff Tactical 2 ,Law Tac ,Weld County ,2
+1933,78d,D,WeldFG20Pwne,Fireground 20 Pawnee ,Fire-Tac ,Weld County ,2
+1934,78e,D,WeldCoSO4,Sheriff Channel 4 ,Law Tac ,Weld County ,2
+1937,791,D,WeldFG21NwRm,Fireground 21 New Raymer ,Fire-Tac ,Weld County ,2
+1938,792,D,WeldLawNorth,North Dispatch Local Police ,Law Dispatch ,Weld County ,2
+1939,793,D,WeldLawNData,North Records Local Police ,Law Tac ,Weld County ,2
+1940,794,D,WeldLawTac1,Tactical Local Police ,Law Tac ,Weld County ,2
+1941,795,D,WeldFG16Mlkn,Fireground 16 Milliken ,Fire-Tac ,Weld County ,2
+1942,796,D,WeldFG17Jntn,Fireground 17 Johnstown ,Fire-Tac ,Weld County ,2
+1943,797,D,WeldFG18Gltn,Fireground 18 Galeton ,Fire-Tac ,Weld County ,2
+1944,798,D,WeldSOData,Sheriff Records ,Law Tac ,Weld County ,2
+1945,799,D,WeldLawSData,South Records Local Police ,Law Tac ,Weld County ,2
+1946,79a,D,WeldLawSouth,South Dispatch Local Police ,Law Dispatch ,Weld County ,2
+1947,79b,D,WeldCo ACU,ACU-1000 Interoperability ,Interop ,Weld County ,2
+1948,79c,D,Weld Inter 4,Interagency 4 ,Interop ,Weld County ,2
+1949,79d,D,Weld Inter 5,Interagency 5 ,Interop ,Weld County ,2
+1950,79e,D,Weld Inter 6,Interagency 6 ,Interop ,Weld County ,2
+1951,79f,D,WeldCoEmgOp1,Emergency Operations ,Emergency Ops ,Weld County ,2
+1952,7a0,D,WeldCoEmgOp2,Emergency Operations ,Emergency Ops ,Weld County ,2
+1953,7a1,D,UnivNColoPD,University of Northern Colorado Police ,Law Dispatch ,Weld County ,2
+1954,7a2,D,EvansLocGov,Local Government ,Public Works ,Evans ,2
+1955,7a3,D,WeldFG19Brgs,Fireground 19 Briggs ,Fire-Tac ,Weld County ,2
+1956,7a4,D,WeldFG13Ptvl,Fireground 13 Platteville ,Fire-Tac ,Weld County ,2
+1957,7a5,D,WeldFG14SEWd,Fireground 14 Southeast Weld ,Fire-Tac ,Weld County ,2
+1958,7a6,D,WeldFG15PtVl,Fireground 15 Platte Valley ,Fire-Tac ,Weld County ,2
+1959,7a7,D,WldCoHSTrns,Human Services Transportation ,Transportation ,Weld County ,2
+1960,7a8,D,FtLptnPDCh3,Fort Lupton Police 3 ,Law Talk ,Fort Lupton ,2
+1961,7a9,D,KeenesbrgSch,Keenesburg School District ,Schools ,Keenesburg ,2
+1963,7ab,D,WeldFG22,Fireground 22 ,Fire-Tac ,Weld County ,2
+1999,7cf,D,WeldInvalid,Invalid/Disabled ,Other ,Weld County ,2
+2000,7d0,D,WeldCoLawATG,Law Enforcement All Call ,Law Dispatch ,Weld County ,2
+2009,7d9,D,Fire Station 1,Fire Station 1 Alerting ,Fire Dispatch ,Frederick-Firestone Fire Protection District ,2
+2010,7da,D,Fire Station 2,Fire Station 2 Alerting ,Fire Dispatch ,Frederick-Firestone Fire Protection District ,2
+2011,7db,D,Fire Station 3,Fire Station 3 Alerting ,Fire Dispatch ,Frederick-Firestone Fire Protection District ,2
+2012,7dc,D,Fire Station 4,Fire Station 4 Alerting ,Fire Dispatch ,Frederick-Firestone Fire Protection District ,2
+2017,7.00E+01,D,Station1 Alert,Fire Station 1 Alerting ,Fire Dispatch ,Greeley Fire Protection District ,2
+2031,7ef,D,Station 37 Alert,Station 37 Alerting ,Fire Dispatch ,Platte Valley Fire District ,2
+2036,7f4,D,Station 39 Alert,Station 39 Alerting ,Fire Dispatch ,Southeast Weld Fire Protection District ,2
+2037,7f5,D,3921 Alert,Prospect Valley 3921 Alerting ,Fire Dispatch ,Southeast Weld Fire Protection District ,2
+2038,7f6,D,3960 Alert,Prospect Valley 3960 Alerting ,Fire Dispatch ,Southeast Weld Fire Protection District ,2
+2043,7fb,D,3960 Alert,Prospect Valley 3960 Alerting ,Fire Dispatch ,Southeast Weld Fire Protection District ,2
+2045,7fd,D,Cmnd 3460 Alert,Command 3460 Alerting ,Fire Dispatch ,Frederick-Firestone Fire Protection District ,2
+4122,101a,D,AdamsCoTecSv,Technical Services ,Public Works ,Adams County ,2
+4123,101b,D,AdamsCo Jail,Sheriff Jail Operations ,Law Talk ,Adams County ,2
+4124,101c,D,AdamsCo Crts,Sheriff Court Operations ,Law Talk ,Adams County ,2
+4125,101d,D,AdamsCoMaint,Facilities Maintenance ,Public Works ,Adams County ,2
+4126,101e,D,ComCtySpcEv1,Special Events 1 ,Multi-Talk ,Commerce City ,2
+4127,101f,DE,Thornton PD 2,Police 2A Car/Car ,Law Tac ,Thornton ,2
+4128,1020,DE,Thornton PD Rec,Police 4 Records ,Law Tac ,Thornton ,2
+4129,1021,D,Thornton FG B,Fireground B ,Fire-Tac ,Thornton ,2
+4130,1022,DE,Thornton PD SpEv,Police Special Events ,Law Talk ,Thornton ,2
+4131,1023,D,AdamsD14Bus,District 14 Schools - Buses  ,Schools ,Adams County School District 14 ,2
+4132,1024,DE,AdamsD14Sec,District 14 Schools - Security ,Schools ,Adams County School District 14 ,2
+4133,1025,D,Thornton Roads,Road and Bridge ,Public Works ,Thornton ,2
+4134,1026,D,Thornton Waste,Trash & Recycling ,Public Works ,Thornton ,2
+4135,1027,D,Thornton Parks,Parks and Recreation ,Public Works ,Thornton ,2
+4136,1028,D,Thornton NeigSrv,Neighborhood Services ,Public Works ,Thornton ,2
+4137,1029,D,AdamsD12Sec,District 12 Schools - Security ,Security ,Adams 12 Five Star Schools ,2
+4138,102a,D,AdamsD12Shp,District 12 Schools - Bus Shop ,Schools ,Adams 12 Five Star Schools ,2
+4139,102b,D,AdamsD12Mnt,District 12 Schools - Maintenance ,Schools ,Adams 12 Five Star Schools ,2
+4140,102c,D,AdamsD12Schl,District 12 Schools - Schools ,Schools ,Adams 12 Five Star Schools ,2
+4141,102d,D,AdamsD12Bus,District 12 Schools - Buses ,Schools ,Adams 12 Five Star Schools ,2
+4142,102e,D,Mapleton Fleet,Fleet ,Schools ,Mapleton Public Schools ,2
+4143,102f,D,Mapleton Bus,Bus ,Schools ,Mapleton Public Schools ,2
+4144,1030,D,AdamsD12Schl,District 12 Schools ,Schools ,Adams 12 Five Star Schools ,2
+4145,1031,D,ComCtyPDSpOp,Police Special Operations ,Law Talk ,Commerce City ,2
+4146,1032,D,AdmsFDMayday,Fire Mayday ,Fire-Tac ,Adams County ,2
+4147,1033,DE,AdamsD14Admin,District 14 Schools - Admin ,Schools ,Adams County School District 14 ,2
+4148,1034,D,ComCtySpcEv2,Special Events 2 ,Multi-Talk ,Commerce City ,2
+4170,104a,D,AdmsJailTrns,Sheriff Jail Transport ,Law Talk ,Adams County ,2
+4171,104b,D,Brighton FD B,Fire Ops B ,Fire-Tac ,Brighton Fire Rescue District ,2
+4172,104c,D,Brighton FD C,Fire Ops C ,Fire-Tac ,Brighton Fire Rescue District ,2
+4173,104d,DE,Thornton PD Data,Police Data ,Law Tac ,Thornton ,2
+4177,1051,D,Thornton PD Trfc,Police Traffic ,Law Tac ,Thornton ,2
+9001,2329,D,Greeley FD 1,Fire 1 ,Fire Dispatch ,Greeley ,2
+9011,2333,D,TriAreaEMS,Tri Area Ambulance ,EMS-Tac ,Weld County ,2
+9012,2334,D,WeldCoR&B3,Road & Bridge 3 Asphalt ,Public Works ,Weld County ,2
+9013,2335,D,WeldCoR&B4,Road & Bridge 4 Mining ,Public Works ,Weld County ,2
+9014,2336,D,WeldCoR&B5,Road & Bridge 5 Truck-to-Truck ,Public Works ,Weld County ,2
+9015,2337,D,WeldCoR&B6,Road & Bridge 6 ,Public Works ,Weld County ,2
+9016,2338,D,WeldCoR&B7,Road & Bridge 7 Truck ,Public Works ,Weld County ,2
+9017,2339,D,WeldCoR&B8,Road & Bridge 8 Motor ,Public Works ,Weld County ,2
+9018,233a,D,WeldCoPW2,Public Works 2 Weed Control/Plows ,Public Works ,Weld County ,2
+9019,233b,D,WeldCoPW1,Public Works 1 ,Public Works ,Weld County ,2
+9024,2340,D,FtStVrainPP1,Fort Saint Vrain Power Plant 1 ,Utilities ,Weld County ,2
+9025,2341,D,FtStVrainPP2,Fort Saint Vrain Power Plant 2 ,Utilities ,Weld County ,2
+9027,2343,D,NC MedCenter,North Colorado Medical Center ,Hospital ,Weld County ,2
+9029,2345,D,PlattvlePD A,Police Admin ,Law Tac ,Platteville ,2
+9056,2360,D,Rampart S&R,Rampart Search and Rescue ,Emergency Ops ,Adams County ,2
+9113,2399,D,MtnViewFire1,Mountain View Fire Rescue 1 ,Fire-Tac ,Mountain View Fire Rescue ,2
+9114,239a,D,MtnViewFire2,Mountain View Fire Rescue 2 ,Fire-Tac ,Mountain View Fire Rescue ,2
+9540,2544,D,MtnViewFire3,Mountain View Fire Rescue 3 ,Fire-Tac ,Mountain View Fire Rescue ,2
+9541,2545,D,MtnViewFire4,Mountain View Fire Rescue 4 ,Fire-Tac ,Mountain View Fire Rescue ,2
+9557,2555,D,MtnViewFire5,Mountain View Fire Rescue 5 ,Fire-Tac ,Mountain View Fire Rescue ,2
+9558,2556,D,MtnViewFire6,Mountain View Fire Rescue 6 ,Fire-Tac ,Mountain View Fire Rescue ,2
+9559,2557,D,MtnViewFire7,Mountain View Fire Rescue 7 ,Fire-Tac ,Mountain View Fire Rescue ,2
+9560,2558,D,MtnViewFire8,Mountain View Fire Rescue 8 ,Fire-Tac ,Mountain View Fire Rescue ,2
