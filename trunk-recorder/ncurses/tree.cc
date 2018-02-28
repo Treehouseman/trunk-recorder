@@ -975,7 +975,6 @@ void Tree::Coordinates(){
 			MrecWinEn=true;
 			SysWinEn=true;
 			ErrWinEn=true;
-			LogWinEn=true;
 			R2y=32;
 			R2h=22;
 			UTdesclen=32;
@@ -985,7 +984,6 @@ void Tree::Coordinates(){
 			SYSstarty = R1y;
 			MTGstarty = R1y;
 			ERRstarty = R1y;
-			LOGstarty = R2y;
 			UTstarty=R2y;
 			TGendx = TGstartx+TGdefx+(TGblockx*(TGblocks+recwinoffset)); //now we have the end of our TG window!
 			SYSstartx = TGendx+1;
@@ -1011,8 +1009,52 @@ void Tree::Coordinates(){
 			ERRendx = ERRstartx+ERRdefx+(ERRblockx*ERRblocks);
 			UTstartx=1;
 			UTendx = UTstartx+75+(UTblockx*UTblocks);
-			LOGstartx=UTendx+1;
-			LOGendx = LOGstartx+50+(LOGblockx*LOGblocks);
+		break;
+		case 9:
+			RecWinEn=true;
+			DatWinEn=true;
+			CpuWinEn=true;
+			MrecWinEn=true;
+			SysWinEn=true;
+			ErrWinEn=true;
+			UtWinEn=true;
+			UTdesclen=30;
+			R1y = 1;
+			R2y=32;
+			R2h=30;
+			TGstarty = R1y;
+			UTstarty = R2y;
+			DATstarty = R2y;
+			CPUstarty = R2y;
+			SYSstarty = R1y;
+			MTGstarty = R2y;
+			ERRstarty = R2y;
+			TGstartx = 1;
+			TGendx = TGstartx+TGdefx+(TGblockx*(TGblocks+recwinoffset)); //now we have the end of our TG window!
+			SYSstartx = TGendx + 1;
+			SYSendx = SYSstartx+SYSdefx+(SYSblockx*rSYSblocks);
+			UTstartx = TGstartx;
+			UTendx = UTstartx+UTdefx+(UTblockx*UTblocks);
+			DATstartx = UTendx + 1;
+			DATendx = DATstartx+DATdefx+(DATblockx*DATblocks);
+			CPUstartx = DATendx + 1;
+			if(ncurses_cpu){
+				if(ncurses_lavg)
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks)+3;
+				else
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*CPUblocks);
+			}
+			else{
+				if(ncurses_lavg)
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*1)+3;
+				else
+					CPUendx = CPUstartx+CPUdefx+(CPUblockx*1);
+			}
+			MTGstartx = CPUendx+1;
+			MTGendx = MTGstartx+MTGdefx+(MTGblockx*MTGblocks);
+			ERRstartx = MTGendx+1;
+			ERRendx = ERRstartx+ERRdefx+(ERRblockx*ERRblocks);
+			xpos=ERRendx;
 		break;
 		
 	}
@@ -1330,6 +1372,13 @@ void Tree::Get_Key(){
 			ncurses_group=8;
 			resized=true;
 			NewLog("Group 8");
+		break;
+		case '9':
+			if(ncurses_group==9)
+				break;
+			ncurses_group=9;
+			resized=true;
+			NewLog("Group 9");
 		break;
 		case 'r':
 			clearall=true;
