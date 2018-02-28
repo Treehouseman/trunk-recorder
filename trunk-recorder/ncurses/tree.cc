@@ -2583,7 +2583,7 @@ void Tree::RecRef(){
 		recorderoffsety--;
 		recorderoffsetx--;
 	}
-	wmove(RECwin, digrec[x]+anarec[x]+aconvrec[x]+dconvrec[x]+2-(25*recorderoffsetx), 2+(TGblockx*(x+recorderoffsety)));
+	wmove(RECwin, digrec[x]+anarec[x]+aconvrec[x]+dconvrec[x]+2-(25*recorderoffsety), 2+(TGblockx*(x+recorderoffsety)));
 	wattron(RECwin, COLOR_PAIR(7));
 	if(RecStatus[0][x]==1)
 		wattron(RECwin, A_REVERSE);
