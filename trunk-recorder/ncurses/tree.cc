@@ -96,7 +96,7 @@ int sysccc[100][100];
 int grpccc[100][100]; //enable, sysid, min, max, avg, color, current
 int pastpos = 0;
 int history[28][3];
-std::string UThistory[20];
+std::string UThistory[30];
 int UTcol[30];
 int utpos = 0;
 int TreeTime[3];
@@ -1018,7 +1018,7 @@ void Tree::Coordinates(){
 			SysWinEn=true;
 			ErrWinEn=true;
 			UtWinEn=true;
-			UTdesclen=30;
+			UTdesclen=100;
 			R1y = 1;
 			R2y=32;
 			R2h=30;
@@ -3418,7 +3418,8 @@ void Tree::UtRef(){
 	wattroff(UTwinb, COLOR_PAIR(7));
 	//wattron(UTwin, COLOR_PAIR(7));
 	wmove(UTwin, 0,0);
-	for(int i = 0; i < 20 && i<utpos; i++){
+	if(R2h == 20){
+	for(int i = 10; i < 30 && i<utpos; i++){
 		if(UThistory[i]=="")
 			break;
 		std::stringstream ls;
@@ -3426,7 +3427,7 @@ void Tree::UtRef(){
 		int UTmax = UTendx-UTstartx-3;
 		if(strlen(UTbuff.c_str())>UTmax)
 			UTbuff=UTbuff.substr(0,UTmax);
-		if (i < 19)
+		if (i < 29)
 			ls << UTbuff << "\n";
 		else
 			ls << UTbuff;
@@ -3436,6 +3437,28 @@ void Tree::UtRef(){
 		wprintw(UTwin, lchar);
 		wattroff(UTwin, COLOR_PAIR(UTcol[i]));
 		
+	}
+	}
+	if(R2h==30){
+	for(int i = 0; i < 30 && i<utpos; i++){
+		if(UThistory[i]=="")
+			break;
+		std::stringstream ls;
+		std::string UTbuff = UThistory[i];
+		int UTmax = UTendx-UTstartx-3;
+		if(strlen(UTbuff.c_str())>UTmax)
+			UTbuff=UTbuff.substr(0,UTmax);
+		if (i < 29)
+			ls << UTbuff << "\n";
+		else
+			ls << UTbuff;
+		std::string lss = ls.str();
+		const char * lchar = lss.c_str();
+		wattron(UTwin, COLOR_PAIR(UTcol[i]));
+		wprintw(UTwin, lchar);
+		wattroff(UTwin, COLOR_PAIR(UTcol[i]));
+		
+	}
 	}
 	//wattroff(LOGwin, COLOR_PAIR(7));
 	wrefresh(UTwinb);
@@ -3505,7 +3528,7 @@ void Tree::UTnew(int tg, long nac, std::string radio, int length, int color, std
 			UTstream << " ";
 		UTstream << buffstr << " - " << short_desc;
 		//NewLog(UTstream.str());
-		if (utpos < 20){
+		if (utpos < 30){
 		UThistory[utpos] = UTstream.str();
 		//TreeLog() << "@" << color << "-" << UTstream.str() << std::endl;
 		UTcol[utpos]=color;
@@ -3513,11 +3536,11 @@ void Tree::UTnew(int tg, long nac, std::string radio, int length, int color, std
 		}
 		else{
 			//TreeLog() << "@" << color << "-" << UTstream.str() << std::endl;
-			for(int i = 0; i < 19; i++){
+			for(int i = 0; i < 29; i++){
 				UThistory[i]=UThistory[i+1];
 				UTcol[i]=UTcol[i+1];
 			}
-			UThistory[19]=UTstream.str();
-			UTcol[19]=color;
+			UThistory[29]=UTstream.str();
+			UTcol[29]=color;
 		}
 }
