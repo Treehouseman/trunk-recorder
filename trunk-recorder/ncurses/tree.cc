@@ -1505,6 +1505,30 @@ int Tree::getcol(int loc){
 		case 17:
 		return 185;
 		break;
+		case 18:
+		return 52;
+		break;
+		case 19:
+		return 203;
+		break;
+		case 20:
+		return 186;
+		break;
+		case 21:
+		return 191;
+		break;
+		case 22:
+		return 47;
+		break;
+		case 23:
+		return 225;
+		break;
+		case 24:
+		return 209;
+		break;
+		case 25:
+		return 215;
+		break;
 		default:
 		return 4;
 		break;
