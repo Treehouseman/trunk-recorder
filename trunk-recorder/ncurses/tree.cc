@@ -1128,7 +1128,7 @@ bool Tree::StartCurses(){
 		}
 	}
 	for(int i = 0; i<50; i++){
-		LogMsgsc[i][0]='\0';
+		LogMsgsc[i][0]=NULL;
 	}
 	Coordinates();
 //newterm(NULL, stdout, stdin);
@@ -2145,7 +2145,7 @@ void Tree::NewLog(std::string input){
 	}
 	if (logpos < 50){
 		//LogMsgsc[logpos][0]='\0';
-		memset(LogMsgsc[logpos],'\0',sizeof(LogMsgsc[logpos]));
+		memset(LogMsgsc[logpos],NULL,sizeof(LogMsgsc[logpos]));
 		//strcpy(LogMsgsc[logpos][0],input.c_str());
 		memcpy(LogMsgsc[logpos], input.c_str(), strlen(input.c_str())+1);
 		//LogMsgs[logpos] = input;
@@ -2157,7 +2157,7 @@ void Tree::NewLog(std::string input){
 		for(int i = 0; i < 49; i++){
 			size_t msgsize = sizeof(LogMsgsc[i+1]);
 			
-			memset(LogMsgsc[i],'\0',sizeof(LogMsgsc[logpos]));
+			memset(LogMsgsc[i],NULL,sizeof(LogMsgsc[logpos]));
 			memcpy(LogMsgsc[i], LogMsgsc[i+1], msgsize+1);
 			//LogMsgsc[i][msgsize-1]='\0';
 			//LogMsgsc[i]=LogMsgsc[i+1];
@@ -2165,7 +2165,7 @@ void Tree::NewLog(std::string input){
 			LogCol[i]=LogCol[i+1];
 		}
 		//LogMsgsc[49][0]='\0';
-		memset(LogMsgsc[49],'\0',sizeof(LogMsgsc[logpos]));
+		memset(LogMsgsc[49],NULL,sizeof(LogMsgsc[logpos]));
 		memcpy(LogMsgsc[49], input.c_str(), strlen(input.c_str())+1);
 		//LogMsgs[49]=input;
 		LogCol[49]=col;
@@ -2222,15 +2222,15 @@ void Tree::LogRef(){
 	//std::string logbuff[logheight];
 	
 	for(int i = 0; i < 100; i++){
-		logbuff[i][0]='\0';
+		logbuff[i][0]=NULL;
 	}
 	//eturn;
 	for(int i = 0; i < 50; i++){
 		if(logline<0)
 			break;
-		memset(logconvert, '\0',sizeof(logconvert));
+		memset(logconvert, NULL,sizeof(logconvert));
 		size_t msglength = 0;
-		if(LogMsgsc[49-i][0]!='\0'){
+		if(LogMsgsc[49-i][0]!=NULL){
 			msglength=400;
 			memcpy(logconvert, LogMsgsc[49-i], msglength);
 			//std::cout << "Found Message" << std::endl;
@@ -2245,7 +2245,7 @@ void Tree::LogRef(){
 				//std::cout << "Long Message" << std::endl;
 				char * longbuff[6][400];
 				for(int x = 0; x<6; x++){
-					memset(longbuff[x],'\0',400);
+					memset(longbuff[x],NULL,400);
 				}
 				int extralines=0;
 				int offset = 0;
@@ -2263,7 +2263,8 @@ void Tree::LogRef(){
 						//std::cout << "First Line" << msglength << std::endl;
 						memcpy(longbuff[extralines],logconvert,logwidth);
 						
-						longbuff[extralines][logwidth+1]='\0';
+						//longbuff[extralines][logwidth+1]='\0';
+						longbuff[extralines][logwidth+1]=NULL;
 						extralines++;
 						lengthbuff-=logwidth;
 						//lengthbuff=0;
@@ -2293,7 +2294,7 @@ void Tree::LogRef(){
 				if(!msgtrim){
 					//extralines--;
 					memcpy(longbuff[extralines],&logconvert[offset-2],lengthbuff);
-					longbuff[extralines][lengthbuff+1]='\0';
+					longbuff[extralines][lengthbuff+1]=NULL;
 				}
 //				else
 //					NewLog("Trimmed");
@@ -2304,7 +2305,7 @@ void Tree::LogRef(){
 					if(logline<0)
 						break;
 					memcpy(logbuff[logline], longbuff[extralines], logwidth);
-					logbuff[logline][logwidth+1]='\0';
+					logbuff[logline][logwidth+1]=NULL;
 					logcolor[logline]=LogCol[49-i];
 					if(extralines!=0){
 						memset(logbuff[logline], ' ', 2);
@@ -2322,7 +2323,7 @@ void Tree::LogRef(){
 	}
 	int offsetpos = 0;
 	for(int i = logheight-1; i >=0; i--){
-		if(logbuff[logheight-1-i][0]=='\0'){
+		if(logbuff[logheight-1-i][0]==NULL){
 			offsetpos--;
 		}
 	}
